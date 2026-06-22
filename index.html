@@ -7,47 +7,75 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: Georgia, serif; background: #03213a; color: #e8eef4; }
-    nav { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 2.5rem; border-bottom: 1px solid #1a4a6e; background: #03213a; }
-    .logo-wrap { display: flex; align-items: center; gap: 0.75rem; }
-    .logo-img { height: 48px; width: 48px; object-fit: contain; }
-    .logo { font-size: 18px; font-weight: bold; letter-spacing: 0.12em; color: #c0cfe0; }
-    .logo span { color: #8ab4d4; }
-    .nav-links { display: flex; gap: 2rem; }
-    .nav-links a { font-size: 13px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; }
-    .nav-links a:hover { color: #d6e8f5; }
+
+    /* NAV */
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 2.5rem; border-bottom: 1px solid #1a4a6e; background: #03213a; position: relative; }
+    .nav-left { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-right { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-center { display: flex; align-items: center; gap: 1rem; position: absolute; left: 50%; transform: translateX(-50%); }
+    .logo-img { height: 60px; width: 60px; object-fit: contain; }
+    .logo-text { font-size: 28px; font-weight: bold; letter-spacing: 0.14em; color: #c0cfe0; }
+    .logo-text span { color: #8ab4d4; }
+    .nav-btn { font-size: 13px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; font-family: Arial, sans-serif; background: none; border: none; cursor: pointer; padding: 0; }
+    .nav-btn:hover { color: #d6e8f5; }
+
+    /* DROPDOWN */
+    .dropdown { position: relative; }
+    .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: #03213a; border: 1px solid #1a4a6e; min-width: 140px; z-index: 100; margin-top: 0.5rem; }
+    .dropdown-menu a { display: block; padding: 0.6rem 1rem; font-size: 13px; color: #8ab4d4; text-decoration: none; font-family: Arial, sans-serif; letter-spacing: 0.06em; text-transform: uppercase; border-bottom: 1px solid #1a4a6e; }
+    .dropdown-menu a:last-child { border-bottom: none; }
+    .dropdown-menu a:hover { background: #0a3352; color: #d6e8f5; }
+    .dropdown:hover .dropdown-menu { display: block; }
+
+    /* WAVE BG */
+    .wave-bg { position: relative; overflow: hidden; }
+    .wave-bg::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='none' stroke='%232a5f8a' stroke-width='1' d='M0,160 C180,100 360,220 540,160 C720,100 900,220 1080,160 C1260,100 1350,180 1440,160'/%3E%3Cpath fill='none' stroke='%232a5f8a' stroke-width='1' d='M0,200 C180,140 360,260 540,200 C720,140 900,260 1080,200 C1260,140 1350,220 1440,200'/%3E%3Cpath fill='none' stroke='%232a5f8a' stroke-width='0.5' d='M0,240 C180,180 360,300 540,240 C720,180 900,300 1080,240 C1260,180 1350,260 1440,240'/%3E%3C/svg%3E"); background-repeat: repeat-y; background-size: 100% auto; opacity: 0.3; pointer-events: none; }
+
+    /* HERO */
     .hero { padding: 5rem 2.5rem 4rem; text-align: center; border-bottom: 1px solid #1a4a6e; }
     .hero-rule { width: 60px; height: 2px; background: #4a7fa8; margin: 0 auto 2rem; }
-    .hero h1 { font-size: 42px; font-weight: normal; color: #d6e8f5; line-height: 1.25; margin-bottom: 1.25rem; letter-spacing: 0.02em; }
-    .hero p { font-size: 16px; color: #7a9bb8; max-width: 500px; margin: 0 auto 2.5rem; line-height: 1.8; font-family: Arial, sans-serif; }
-    .btn { display: inline-block; padding: 0.7rem 2rem; border: 1px solid #4a7fa8; font-size: 13px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; font-family: Arial, sans-serif; }
-    .btn:hover { background: #0a3352; }
-    .about { padding: 4rem 2.5rem; border-bottom: 1px solid #1a4a6e; max-width: 780px; margin: 0 auto; text-align: center; }
-    .about .section-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #4a7fa8; font-family: Arial, sans-serif; margin-bottom: 1.5rem; }
+    .hero h1 { font-size: 52px; font-weight: normal; color: #d6e8f5; line-height: 1.2; margin-bottom: 1.25rem; letter-spacing: 0.02em; }
+    .hero p { font-size: 16px; color: #7a9bb8; max-width: 500px; margin: 0 auto; line-height: 1.8; font-family: Arial, sans-serif; }
+
+    /* ABOUT */
+    .about { padding: 4rem 2.5rem; border-bottom: 1px solid #1a4a6e; }
+    .about-inner { max-width: 780px; margin: 0 auto; text-align: center; }
+    .section-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #4a7fa8; font-family: Arial, sans-serif; margin-bottom: 1.5rem; }
     .about p { font-size: 16px; color: #7a9bb8; line-height: 1.9; font-family: Arial, sans-serif; }
-    .about p strong { color: #d6e8f5; font-style: normal; }
-    .divider { display: flex; align-items: center; gap: 1rem; margin: 3.5rem 2.5rem 0; }
+    .about p strong { color: #d6e8f5; }
+
+    /* DIVIDER */
+    .divider { display: flex; align-items: center; gap: 1rem; margin: 0 2.5rem; }
     .divider-line { flex: 1; height: 1px; background: #1a4a6e; }
     .divider-anchor { color: #4a7fa8; font-size: 22px; }
+
+    /* COVERAGE */
     .coverage { padding: 3rem 2.5rem; border-bottom: 1px solid #1a4a6e; }
-    .section-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #4a7fa8; font-family: Arial, sans-serif; margin-bottom: 2rem; }
-    .coverage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+    .coverage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
     .coverage-card { border: 1px solid #1a4a6e; padding: 2rem 1.5rem; text-align: center; }
     .coverage-card .icon { font-size: 28px; margin-bottom: 1rem; }
     .coverage-card h3 { font-size: 15px; color: #d6e8f5; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.75rem; font-weight: normal; }
     .coverage-card p { font-size: 13px; color: #7a9bb8; line-height: 1.7; font-family: Arial, sans-serif; }
+
+    /* COMING SOON */
     .coming-soon { padding: 4rem 2.5rem; border-bottom: 1px solid #1a4a6e; text-align: center; }
     .coming-soon h2 { font-size: 22px; font-weight: normal; color: #d6e8f5; margin-bottom: 1rem; }
     .coming-soon p { font-size: 15px; color: #7a9bb8; font-family: Arial, sans-serif; line-height: 1.8; max-width: 480px; margin: 0 auto; }
-    .contact { padding: 3rem 2.5rem; border-top: 1px solid #1a4a6e; text-align: center; }
+
+    /* CONTACT */
+    .contact { padding: 3rem 2.5rem; text-align: center; }
     .contact h2 { font-size: 16px; letter-spacing: 0.1em; text-transform: uppercase; color: #8ab4d4; font-weight: normal; margin-bottom: 0.75rem; }
     .contact p { font-size: 14px; color: #7a9bb8; margin-bottom: 1rem; font-family: Arial, sans-serif; }
     .contact a { color: #4a7fa8; font-size: 14px; font-family: Arial, sans-serif; }
+
+    /* FOOTER */
     footer { padding: 1.5rem 2.5rem; border-top: 1px solid #1a4a6e; display: flex; justify-content: space-between; align-items: center; }
     footer span { font-size: 12px; color: #4a7fa8; font-family: Arial, sans-serif; letter-spacing: 0.06em; }
+
     @media (max-width: 768px) {
       nav { flex-direction: column; gap: 1rem; }
-      .nav-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
-      .hero h1 { font-size: 30px; }
+      .nav-center { position: static; transform: none; }
+      .hero h1 { font-size: 34px; }
       .coverage-grid { grid-template-columns: 1fr 1fr; }
     }
   </style>
@@ -55,28 +83,41 @@
 <body>
 
 <nav>
-  <div class="logo-wrap">
-    <img src="logo.png" alt="Ancr Media Logo" class="logo-img" />
-    <span class="logo">ANCR <span>MEDIA</span></span>
+  <div class="nav-left">
+    <div class="dropdown">
+      <button class="nav-btn">Our Story ▾</button>
+      <div class="dropdown-menu">
+        <a href="#">About Us</a>
+        <a href="#">Our Mission</a>
+        <a href="#">Team</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="nav-btn">News ▾</button>
+      <div class="dropdown-menu">
+        <a href="#">Finance</a>
+        <a href="#">Law</a>
+        <a href="#">Healthcare</a>
+        <a href="#">Politics</a>
+      </div>
+    </div>
   </div>
-  <div class="nav-links">
-    <a href="#">Finance</a>
-    <a href="#">Law</a>
-    <a href="#">Healthcare</a>
-    <a href="#">Politics</a>
+
+  <div class="nav-center">
+    <img src="logo.png" alt="Ancr Media Logo" class="logo-img" />
+    <span class="logo-text">ANCR <span>MEDIA</span></span>
+  </div>
+
+  <div class="nav-right">
+    <a href="#" class="nav-btn">Sign Up</a>
+    <a href="#contact" class="nav-btn">Contact</a>
   </div>
 </nav>
 
-<section class="hero">
+<section class="hero wave-bg">
   <div class="hero-rule"></div>
   <h1>Anchored in truth.<br>Driven by the current.</h1>
   <p>Complex news made understandable — finance, law, healthcare, and politics all in one place.</p>
-  <a href="#coverage" class="btn">Explore our coverage</a>
-</section>
-
-<section class="about">
-  <div class="section-label">Who we are</div>
-  <p>We shape the world, so it only makes sense that we begin to understand it. Ancr Media is a company focused on bringing complex news ranging from the worlds of finance, healthcare, and even law into one place. We are achieving our mission if news becomes accessible, but most importantly <strong>UNDERSTANDABLE.</strong></p>
 </section>
 
 <div class="divider">
@@ -85,7 +126,20 @@
   <div class="divider-line"></div>
 </div>
 
-<section class="coverage" id="coverage">
+<section class="about wave-bg">
+  <div class="about-inner">
+    <div class="section-label">Who we are</div>
+    <p>We shape the world, so it only makes sense that we begin to understand it. Ancr Media exists to make the stories that matter most accessible to everyone — not just the experts. We are achieving our mission if news becomes accessible, but most importantly <strong>UNDERSTANDABLE.</strong></p>
+  </div>
+</section>
+
+<div class="divider">
+  <div class="divider-line"></div>
+  <span class="divider-anchor">⚓</span>
+  <div class="divider-line"></div>
+</div>
+
+<section class="coverage wave-bg" id="coverage">
   <div class="section-label">What we cover</div>
   <div class="coverage-grid">
     <div class="coverage-card">
@@ -111,12 +165,12 @@
   </div>
 </section>
 
-<section class="coming-soon">
+<section class="coming-soon wave-bg">
   <h2>Stories coming soon.</h2>
   <p>We are building something worth reading. Our first articles are on their way — check back shortly or get in touch if you have a tip.</p>
 </section>
 
-<section class="contact">
+<section class="contact wave-bg" id="contact">
   <h2>Get in touch</h2>
   <p>Tips, press inquiries, or partnerships — we want to hear from you.</p>
   <a href="mailto:evanhershowitz@ancrmedia.com">evanhershowitz@ancrmedia.com</a>
