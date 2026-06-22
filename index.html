@@ -25,8 +25,8 @@
     .dropdown-menu a:hover { background: #0a3352; color: #d6e8f5; }
     .dropdown:hover .dropdown-menu { display: block; }
 
-    .hero { padding: 5rem 2.5rem 4rem; text-align: center; border-bottom: 1px solid #1a4a6e; background: #03213a; position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='none' stroke='%232a5f8a' stroke-width='1' d='M0,160 C180,100 360,220 540,160 C720,100 900,220 1080,160 C1260,100 1350,180 1440,160'/%3E%3Cpath fill='none' stroke='%232a5f8a' stroke-width='1' d='M0,200 C180,140 360,260 540,200 C720,140 900,260 1080,200 C1260,140 1350,220 1440,200'/%3E%3Cpath fill='none' stroke='%232a5f8a' stroke-width='0.5' d='M0,240 C180,180 360,300 540,240 C720,180 900,300 1080,240 C1260,180 1350,260 1440,240'/%3E%3C/svg%3E"); background-repeat: repeat-y; background-size: 100% auto; opacity: 0.3; pointer-events: none; }
+    .hero { padding: 5rem 2.5rem 4rem; text-align: center; background: #03213a; position: relative; overflow: hidden; }
+    .hero-scene { position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; }
     .hero-rule { width: 60px; height: 2px; background: #4a7fa8; margin: 0 auto 2rem; position: relative; }
     .hero h1 { font-size: 52px; font-weight: normal; color: #d6e8f5; line-height: 1.2; margin-bottom: 1.25rem; letter-spacing: 0.02em; position: relative; }
     .hero p { font-size: 16px; color: #7a9bb8; max-width: 500px; margin: 0 auto; line-height: 1.8; font-family: Arial, sans-serif; position: relative; }
@@ -63,13 +63,18 @@
     .newsletter-form button { padding: 0.65rem 1.5rem; border: 1px solid #111111; background: transparent; font-size: 13px; color: #03213a; letter-spacing: 0.1em; text-transform: uppercase; font-family: Arial, sans-serif; cursor: pointer; }
     .newsletter-form button:hover { background: #e8f0f7; }
 
-    .contact { padding: 3rem 2.5rem; text-align: center; }
-    .contact h2 { font-size: 16px; letter-spacing: 0.1em; text-transform: uppercase; color: #03213a; font-weight: normal; margin-bottom: 0.75rem; position: relative; }
-    .contact p { font-size: 14px; color: #555555; margin-bottom: 1rem; font-family: Arial, sans-serif; position: relative; }
-    .contact a { color: #4a7fa8; font-size: 14px; font-family: Arial, sans-serif; position: relative; }
-
-    footer { padding: 1.5rem 2.5rem; border-top: 1px solid #1a4a6e; display: flex; justify-content: space-between; align-items: center; background: #03213a; }
-    footer span { font-size: 12px; color: #4a7fa8; font-family: Arial, sans-serif; letter-spacing: 0.06em; }
+    /* FOOTER */
+    footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5rem 1.5rem; font-family: Arial, sans-serif; }
+    .footer-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem; flex-wrap: wrap; gap: 2rem; }
+    .footer-brand .footer-logo { font-size: 20px; font-weight: bold; letter-spacing: 0.14em; color: #c0cfe0; margin-bottom: 0.4rem; }
+    .footer-brand .footer-logo span { color: #8ab4d4; }
+    .footer-brand p { font-size: 12px; color: #4a7fa8; letter-spacing: 0.06em; }
+    .footer-col h4 { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #4a7fa8; margin-bottom: 0.75rem; }
+    .footer-col p, .footer-col a { font-size: 13px; color: #8ab4d4; display: block; text-decoration: none; margin-bottom: 0.3rem; line-height: 1.7; }
+    .footer-col a:hover { color: #d6e8f5; }
+    .footer-bottom { border-top: 1px solid #1a4a6e; padding-top: 1.25rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-bottom span { font-size: 12px; color: #4a7fa8; letter-spacing: 0.06em; }
+    .footer-anchor { font-size: 28px; color: #ffffff; opacity: 0.8; }
 
     @media (max-width: 768px) {
       nav { flex-direction: column; gap: 1rem; }
@@ -77,6 +82,7 @@
       .hero h1 { font-size: 34px; }
       .coverage-grid { grid-template-columns: 1fr 1fr; }
       .white-section { margin: 1rem; }
+      .footer-top { flex-direction: column; }
     }
   </style>
 </head>
@@ -117,6 +123,42 @@
 </nav>
 
 <section class="hero">
+  <svg class="hero-scene" viewBox="0 0 1440 500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    <path fill="none" stroke="#2a5f8a" stroke-width="1" opacity="0.5" d="M0,280 C120,265 240,295 360,280 C480,265 600,295 720,280 C840,265 960,295 1080,280 C1200,265 1320,295 1440,280" />
+    <path fill="none" stroke="#2a5f8a" stroke-width="0.6" opacity="0.3" d="M0,300 C120,288 240,312 360,300 C480,288 600,312 720,300 C840,288 960,312 1080,300 C1200,288 1320,312 1440,300" />
+    <path fill="none" stroke="#2a5f8a" stroke-width="0.4" opacity="0.2" d="M0,320 C120,308 240,332 360,320 C480,308 600,332 720,320 C840,308 960,332 1080,320 C1200,308 1320,332 1440,320" />
+    <path fill="none" stroke="#4a7fa8" stroke-width="1.2" opacity="0.35" d="M320,278 L340,290 L400,290 L420,278" />
+    <path fill="none" stroke="#4a7fa8" stroke-width="1" opacity="0.35" d="M345,278 L350,265 L385,265 L390,278" />
+    <line x1="370" y1="265" x2="370" y2="235" stroke="#4a7fa8" stroke-width="0.8" opacity="0.3" />
+    <path fill="none" stroke="#4a7fa8" stroke-width="0.8" opacity="0.25" d="M370,238 L370,263 L395,255 Z" />
+    <path fill="none" stroke="#4a7fa8" stroke-width="0.6" opacity="0.25" d="M370,235 L380,239 L370,243" />
+    <line x1="950" y1="280" x2="1100" y2="280" stroke="#4a7fa8" stroke-width="1.5" opacity="0.3" />
+    <line x1="960" y1="280" x2="960" y2="320" stroke="#4a7fa8" stroke-width="1" opacity="0.25" />
+    <line x1="990" y1="280" x2="990" y2="325" stroke="#4a7fa8" stroke-width="1" opacity="0.25" />
+    <line x1="1020" y1="280" x2="1020" y2="328" stroke="#4a7fa8" stroke-width="1" opacity="0.25" />
+    <line x1="1050" y1="280" x2="1050" y2="325" stroke="#4a7fa8" stroke-width="1" opacity="0.25" />
+    <line x1="1080" y1="280" x2="1080" y2="320" stroke="#4a7fa8" stroke-width="1" opacity="0.25" />
+    <path fill="none" stroke="#4a7fa8" stroke-width="1.2" opacity="0.3" d="M1280,280 L1275,200 L1295,200 L1290,280 Z" />
+    <rect x="1271" y="192" width="28" height="10" fill="none" stroke="#4a7fa8" stroke-width="1" opacity="0.3" rx="1" />
+    <line x1="1285" y1="192" x2="1260" y2="175" stroke="#4a7fa8" stroke-width="0.6" opacity="0.2" />
+    <line x1="1285" y1="192" x2="1250" y2="185" stroke="#4a7fa8" stroke-width="0.6" opacity="0.2" />
+    <line x1="1285" y1="192" x2="1310" y2="175" stroke="#4a7fa8" stroke-width="0.6" opacity="0.2" />
+    <line x1="1285" y1="192" x2="1320" y2="185" stroke="#4a7fa8" stroke-width="0.6" opacity="0.2" />
+    <rect x="1268" y="278" width="34" height="4" fill="none" stroke="#4a7fa8" stroke-width="1" opacity="0.3" rx="1" />
+    <path fill="none" stroke="#1a5a7a" stroke-width="0.8" opacity="0.2" d="M80,500 C75,470 90,450 80,420 C70,390 85,370 80,340 C75,320 85,305 80,290" />
+    <path fill="none" stroke="#1a5a7a" stroke-width="0.8" opacity="0.2" d="M100,500 C108,465 92,440 105,410 C118,380 95,360 105,330 C115,310 98,295 105,282" />
+    <path fill="none" stroke="#1a5a7a" stroke-width="0.8" opacity="0.2" d="M1360,500 C1355,470 1370,445 1360,415 C1350,385 1365,365 1360,335" />
+    <path fill="none" stroke="#2a6a8a" stroke-width="0.7" opacity="0.2" d="M200,360 C210,355 225,358 230,365 C225,372 210,375 200,370 Z" />
+    <path fill="none" stroke="#2a6a8a" stroke-width="0.7" opacity="0.2" d="M197,365 L188,360 L188,370 Z" />
+    <path fill="none" stroke="#2a6a8a" stroke-width="0.7" opacity="0.15" d="M600,420 C612,414 630,418 636,426 C630,434 612,438 600,432 Z" />
+    <path fill="none" stroke="#2a6a8a" stroke-width="0.7" opacity="0.15" d="M597,426 L586,420 L586,432 Z" />
+    <circle cx="150" cy="350" r="3" fill="none" stroke="#2a5f8a" stroke-width="0.5" opacity="0.2" />
+    <circle cx="155" cy="335" r="2" fill="none" stroke="#2a5f8a" stroke-width="0.5" opacity="0.15" />
+    <circle cx="148" cy="318" r="1.5" fill="none" stroke="#2a5f8a" stroke-width="0.5" opacity="0.12" />
+    <circle cx="700" cy="400" r="3" fill="none" stroke="#2a5f8a" stroke-width="0.5" opacity="0.15" />
+    <circle cx="705" cy="382" r="2" fill="none" stroke="#2a5f8a" stroke-width="0.5" opacity="0.12" />
+  </svg>
+
   <div class="hero-rule"></div>
   <h1>Anchored in truth.<br>Driven by the current.</h1>
   <p>Complex news made understandable — finance, law, healthcare, and politics all in one place.</p>
@@ -199,21 +241,38 @@
   <div class="divider-line"></div>
 </div>
 
-<section class="contact white-section" id="contact">
-  <h2>Get in touch</h2>
-  <p>Tips, press inquiries, or partnerships — we want to hear from you.</p>
-  <a href="mailto:evanhershowitz@ancrmedia.com">evanhershowitz@ancrmedia.com</a>
-</section>
-
-<div class="divider">
-  <div class="divider-line"></div>
-  <span class="divider-anchor">⚓</span>
-  <div class="divider-line"></div>
-</div>
-
-<footer>
-  <span>© 2026 Ancr Media</span>
-  <span>Anchored in truth</span>
+<footer id="contact">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">ANCR <span>MEDIA</span></div>
+      <p>Independent journalism. Anchored in truth.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Coverage</h4>
+      <a href="#">Finance</a>
+      <a href="#">Law</a>
+      <a href="#">Healthcare</a>
+      <a href="#">Politics</a>
+      <a href="#">Opinion</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#">About Us</a>
+      <a href="#">Our Mission</a>
+      <a href="#">Newsletter</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>Manhattan, New York</p>
+      <a href="mailto:evanhershowitz@ancrmedia.com">evanhershowitz@ancrmedia.com</a>
+      <a href="https://instagram.com/ancr_media" target="_blank">@ancr_media</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Ancr Media. All rights reserved.</span>
+    <div class="footer-anchor">⚓</div>
+    <span>Manhattan, New York</span>
+  </div>
 </footer>
 
 </body>
