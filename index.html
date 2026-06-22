@@ -8,7 +8,6 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: Georgia, serif; background: #03213a; color: #e8eef4; }
 
-    /* NAV */
     nav { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 2.5rem; border-bottom: 1px solid #1a4a6e; background: #03213a; position: relative; }
     .nav-left { display: flex; gap: 1.5rem; align-items: center; }
     .nav-right { display: flex; gap: 1.5rem; align-items: center; }
@@ -19,7 +18,6 @@
     .nav-btn { font-size: 13px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; font-family: Arial, sans-serif; background: none; border: none; cursor: pointer; padding: 0; }
     .nav-btn:hover { color: #d6e8f5; }
 
-    /* DROPDOWN */
     .dropdown { position: relative; }
     .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: #03213a; border: 1px solid #1a4a6e; min-width: 140px; z-index: 100; margin-top: 0.5rem; }
     .dropdown-menu a { display: block; padding: 0.6rem 1rem; font-size: 13px; color: #8ab4d4; text-decoration: none; font-family: Arial, sans-serif; letter-spacing: 0.06em; text-transform: uppercase; border-bottom: 1px solid #1a4a6e; }
@@ -27,59 +25,49 @@
     .dropdown-menu a:hover { background: #0a3352; color: #d6e8f5; }
     .dropdown:hover .dropdown-menu { display: block; }
 
-    /* HERO - stays dark/nautical */
     .hero { padding: 5rem 2.5rem 4rem; text-align: center; border-bottom: 1px solid #1a4a6e; background: #03213a; position: relative; overflow: hidden; }
     .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='none' stroke='%232a5f8a' stroke-width='1' d='M0,160 C180,100 360,220 540,160 C720,100 900,220 1080,160 C1260,100 1350,180 1440,160'/%3E%3Cpath fill='none' stroke='%232a5f8a' stroke-width='1' d='M0,200 C180,140 360,260 540,200 C720,140 900,260 1080,200 C1260,140 1350,220 1440,200'/%3E%3Cpath fill='none' stroke='%232a5f8a' stroke-width='0.5' d='M0,240 C180,180 360,300 540,240 C720,180 900,300 1080,240 C1260,180 1350,260 1440,240'/%3E%3C/svg%3E"); background-repeat: repeat-y; background-size: 100% auto; opacity: 0.3; pointer-events: none; }
     .hero-rule { width: 60px; height: 2px; background: #4a7fa8; margin: 0 auto 2rem; position: relative; }
     .hero h1 { font-size: 52px; font-weight: normal; color: #d6e8f5; line-height: 1.2; margin-bottom: 1.25rem; letter-spacing: 0.02em; position: relative; }
     .hero p { font-size: 16px; color: #7a9bb8; max-width: 500px; margin: 0 auto; line-height: 1.8; font-family: Arial, sans-serif; position: relative; }
 
-    /* WHITE SECTIONS */
-    .white-section { background: #ffffff; color: #111111; position: relative; overflow: hidden; }
+    .white-section { background: #ffffff; color: #111111; position: relative; overflow: hidden; border: 2px solid #111111; margin: 1.5rem 2.5rem; border-radius: 2px; }
     .white-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='none' stroke='%23b8d4e8' stroke-width='1' d='M0,160 C180,100 360,220 540,160 C720,100 900,220 1080,160 C1260,100 1350,180 1440,160'/%3E%3Cpath fill='none' stroke='%23b8d4e8' stroke-width='1' d='M0,200 C180,140 360,260 540,200 C720,140 900,260 1080,200 C1260,140 1350,220 1440,200'/%3E%3Cpath fill='none' stroke='%23b8d4e8' stroke-width='0.5' d='M0,240 C180,180 360,300 540,240 C720,180 900,300 1080,240 C1260,180 1350,260 1440,240'/%3E%3C/svg%3E"); background-repeat: repeat-y; background-size: 100% auto; opacity: 0.4; pointer-events: none; }
 
-    /* DIVIDER */
-    .divider { display: flex; align-items: center; gap: 1rem; margin: 0 2.5rem; background: #fff; padding: 0.5rem 0; }
-    .divider-line { flex: 1; height: 1px; background: #ccdde8; }
-    .divider-anchor { color: #4a7fa8; font-size: 22px; }
+    .divider { display: flex; align-items: center; gap: 1rem; padding: 0 2.5rem; background: #03213a; }
+    .divider-line { flex: 1; height: 1px; background: #1a4a6e; }
+    .divider-anchor { color: #4a7fa8; font-size: 22px; padding: 0.75rem 0; }
 
-    /* ABOUT */
-    .about { padding: 4rem 2.5rem; border-bottom: 1px solid #dde8f0; }
+    .about { padding: 4rem 2.5rem; }
     .about-inner { max-width: 780px; margin: 0 auto; text-align: center; position: relative; }
     .section-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #4a7fa8; font-family: Arial, sans-serif; margin-bottom: 1.5rem; }
     .about p { font-size: 16px; color: #333333; line-height: 1.9; font-family: Arial, sans-serif; }
     .about p strong { color: #03213a; }
 
-    /* COVERAGE */
-    .coverage { padding: 3rem 2.5rem; border-bottom: 1px solid #dde8f0; }
-    .coverage .section-label { color: #4a7fa8; }
+    .coverage { padding: 3rem 2.5rem; }
     .coverage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-    .coverage-card { border: 1px solid #ccdde8; padding: 2rem 1.5rem; text-align: center; background: #f7fafc; }
+    .coverage-card { border: 1px solid #111111; padding: 2rem 1.5rem; text-align: center; background: #f7fafc; }
     .coverage-card .icon { font-size: 28px; margin-bottom: 1rem; }
     .coverage-card h3 { font-size: 15px; color: #03213a; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.75rem; font-weight: normal; }
     .coverage-card p { font-size: 13px; color: #555555; line-height: 1.7; font-family: Arial, sans-serif; }
 
-    /* COMING SOON */
-    .coming-soon { padding: 4rem 2.5rem; border-bottom: 1px solid #dde8f0; text-align: center; }
-    .coming-soon h2 { font-size: 22px; font-weight: normal; color: #03213a; margin-bottom: 1rem; }
-    .coming-soon p { font-size: 15px; color: #555555; font-family: Arial, sans-serif; line-height: 1.8; max-width: 480px; margin: 0 auto; }
+    .coming-soon { padding: 4rem 2.5rem; text-align: center; }
+    .coming-soon h2 { font-size: 22px; font-weight: normal; color: #03213a; margin-bottom: 1rem; position: relative; }
+    .coming-soon p { font-size: 15px; color: #555555; font-family: Arial, sans-serif; line-height: 1.8; max-width: 480px; margin: 0 auto; position: relative; }
 
-    /* NEWSLETTER */
-    .newsletter { padding: 3rem 2.5rem; border-bottom: 1px solid #dde8f0; text-align: center; }
-    .newsletter h2 { font-size: 16px; letter-spacing: 0.1em; text-transform: uppercase; color: #03213a; font-weight: normal; margin-bottom: 0.75rem; }
-    .newsletter p { font-size: 14px; color: #555555; margin-bottom: 1.5rem; font-family: Arial, sans-serif; }
-    .newsletter-form { display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; }
-    .newsletter-form input { padding: 0.65rem 1rem; border: 1px solid #ccdde8; font-size: 14px; font-family: Arial, sans-serif; width: 260px; color: #111; outline: none; }
-    .newsletter-form button { padding: 0.65rem 1.5rem; border: 1px solid #4a7fa8; background: transparent; font-size: 13px; color: #03213a; letter-spacing: 0.1em; text-transform: uppercase; font-family: Arial, sans-serif; cursor: pointer; }
+    .newsletter { padding: 3rem 2.5rem; text-align: center; }
+    .newsletter h2 { font-size: 16px; letter-spacing: 0.1em; text-transform: uppercase; color: #03213a; font-weight: normal; margin-bottom: 0.75rem; position: relative; }
+    .newsletter p { font-size: 14px; color: #555555; margin-bottom: 1.5rem; font-family: Arial, sans-serif; position: relative; }
+    .newsletter-form { display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; position: relative; }
+    .newsletter-form input { padding: 0.65rem 1rem; border: 1px solid #111111; font-size: 14px; font-family: Arial, sans-serif; width: 260px; color: #111; outline: none; }
+    .newsletter-form button { padding: 0.65rem 1.5rem; border: 1px solid #111111; background: transparent; font-size: 13px; color: #03213a; letter-spacing: 0.1em; text-transform: uppercase; font-family: Arial, sans-serif; cursor: pointer; }
     .newsletter-form button:hover { background: #e8f0f7; }
 
-    /* CONTACT */
     .contact { padding: 3rem 2.5rem; text-align: center; }
-    .contact h2 { font-size: 16px; letter-spacing: 0.1em; text-transform: uppercase; color: #03213a; font-weight: normal; margin-bottom: 0.75rem; }
-    .contact p { font-size: 14px; color: #555555; margin-bottom: 1rem; font-family: Arial, sans-serif; }
-    .contact a { color: #4a7fa8; font-size: 14px; font-family: Arial, sans-serif; }
+    .contact h2 { font-size: 16px; letter-spacing: 0.1em; text-transform: uppercase; color: #03213a; font-weight: normal; margin-bottom: 0.75rem; position: relative; }
+    .contact p { font-size: 14px; color: #555555; margin-bottom: 1rem; font-family: Arial, sans-serif; position: relative; }
+    .contact a { color: #4a7fa8; font-size: 14px; font-family: Arial, sans-serif; position: relative; }
 
-    /* FOOTER */
     footer { padding: 1.5rem 2.5rem; border-top: 1px solid #1a4a6e; display: flex; justify-content: space-between; align-items: center; background: #03213a; }
     footer span { font-size: 12px; color: #4a7fa8; font-family: Arial, sans-serif; letter-spacing: 0.06em; }
 
@@ -88,6 +76,7 @@
       .nav-center { position: static; transform: none; }
       .hero h1 { font-size: 34px; }
       .coverage-grid { grid-template-columns: 1fr 1fr; }
+      .white-section { margin: 1rem; }
     }
   </style>
 </head>
@@ -185,8 +174,8 @@
 </div>
 
 <section class="coming-soon white-section">
-  <h2 style="position:relative;">Stories coming soon.</h2>
-  <p style="position:relative;">We are building something worth reading. Our first articles are on their way — check back shortly or get in touch if you have a tip.</p>
+  <h2>Stories coming soon.</h2>
+  <p>We are building something worth reading. Our first articles are on their way — check back shortly or get in touch if you have a tip.</p>
 </section>
 
 <div class="divider">
@@ -196,9 +185,9 @@
 </div>
 
 <section class="newsletter white-section" id="newsletter">
-  <h2 style="position:relative;">Stay in the current</h2>
-  <p style="position:relative;">Sign up for the Ancr Media newsletter — clear, concise, and worth your time.</p>
-  <div class="newsletter-form" style="position:relative;">
+  <h2>Stay in the current</h2>
+  <p>Sign up for the Ancr Media newsletter — clear, concise, and worth your time.</p>
+  <div class="newsletter-form">
     <input type="email" placeholder="Your email address" />
     <button>Subscribe</button>
   </div>
@@ -211,10 +200,16 @@
 </div>
 
 <section class="contact white-section" id="contact">
-  <h2 style="position:relative;">Get in touch</h2>
-  <p style="position:relative;">Tips, press inquiries, or partnerships — we want to hear from you.</p>
-  <a href="mailto:evanhershowitz@ancrmedia.com" style="position:relative;">evanhershowitz@ancrmedia.com</a>
+  <h2>Get in touch</h2>
+  <p>Tips, press inquiries, or partnerships — we want to hear from you.</p>
+  <a href="mailto:evanhershowitz@ancrmedia.com">evanhershowitz@ancrmedia.com</a>
 </section>
+
+<div class="divider">
+  <div class="divider-line"></div>
+  <span class="divider-anchor">⚓</span>
+  <div class="divider-line"></div>
+</div>
 
 <footer>
   <span>© 2026 Ancr Media</span>
