@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Law — The Nautisk</title>
+  <meta name="description" content="Law coverage from The Nautisk. Legal developments, landmark cases, and policy changes that affect you — without the jargon." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Law — The Nautisk" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.thenautisk.com/law.html" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Georgia, serif; background: #03213a; color: #e8eef4; }
+
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 2.5rem; border-bottom: 1px solid #1a4a6e; background: #03213a; position: relative; z-index: 200; }
+    .nav-logo { font-size: 18px; font-weight: bold; letter-spacing: 0.14em; color: #c0cfe0; text-decoration: none; font-family: Arial, sans-serif; }
+    .nav-logo span { color: #8ab4d4; }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a { font-size: 12px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; font-family: Arial, sans-serif; }
+    .nav-links a:hover { color: #d6e8f5; }
+    .nav-links .active { color: #d6e8f5; border-bottom: 1px solid #8a7abf; padding-bottom: 2px; }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: #8ab4d4; border-radius: 2px; transition: all 0.3s; }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+    .mobile-nav { display: none; position: fixed; inset: 0; background: #03213a; z-index: 300; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-size: 20px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; font-family: Arial, sans-serif; }
+
+    .page-hero { padding: 5rem 2.5rem 4rem; border-bottom: 1px solid #1a4a6e; position: relative; overflow: hidden; min-height: 340px; display: flex; flex-direction: column; justify-content: flex-end; }
+    .fish-bg { position: absolute; inset: 0; pointer-events: none; }
+    .section-tag { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #8a7abf; font-family: Arial, sans-serif; margin-bottom: 1rem; position: relative; }
+    .page-hero h1 { font-size: 52px; font-weight: normal; color: #d6e8f5; line-height: 1.15; margin-bottom: 1rem; position: relative; }
+    .page-hero p { font-size: 16px; color: #7a9bb8; max-width: 560px; line-height: 1.9; font-family: Arial, sans-serif; position: relative; }
+    .accent-bar { width: 40px; height: 3px; background: #8a7abf; margin-bottom: 1.5rem; position: relative; }
+
+    .section-nav { border-bottom: 1px solid #1a4a6e; padding: 0 2.5rem; display: flex; gap: 2.5rem; overflow-x: auto; }
+    .section-nav a { font-size: 12px; color: #7a9bb8; text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; font-family: Arial, sans-serif; padding: 1rem 0; border-bottom: 2px solid transparent; white-space: nowrap; }
+    .section-nav a:hover { color: #d6e8f5; }
+    .section-nav a.active { color: #d6e8f5; border-bottom-color: #8a7abf; }
+
+    .main-content { max-width: 1100px; margin: 0 auto; padding: 4rem 2.5rem; }
+    .coming-soon-area { text-align: center; padding: 5rem 2rem; border: 1px solid #1a4a6e; border-radius: 2px; }
+    .coming-soon-fish { font-size: 48px; margin-bottom: 1.5rem; opacity: 0.6; }
+    .coming-soon-area h2 { font-size: 24px; font-weight: normal; color: #d6e8f5; margin-bottom: 1rem; }
+    .coming-soon-area p { font-size: 15px; color: #7a9bb8; font-family: Arial, sans-serif; line-height: 1.8; max-width: 480px; margin: 0 auto 2rem; }
+    .coming-soon-area a { display: inline-block; padding: 0.65rem 2rem; border: 1px solid #4a7fa8; color: #8ab4d4; font-size: 12px; font-family: Arial, sans-serif; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; }
+    .coming-soon-area a:hover { background: #0a3352; color: #d6e8f5; }
+
+    .divider { display: flex; align-items: center; gap: 1rem; padding: 0 2.5rem; background: #03213a; }
+    .divider-line { flex: 1; height: 1px; background: #1a4a6e; }
+    .divider-icon { color: #4a7fa8; font-size: 18px; padding: 0.75rem 0; }
+
+    footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2rem 2.5rem 1.5rem; font-family: Arial, sans-serif; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #1a4a6e; }
+    .footer-brand { font-size: 15px; font-weight: bold; letter-spacing: 0.12em; color: #c0cfe0; }
+    .footer-brand span { color: #8ab4d4; }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .footer-links a { font-size: 11px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; }
+    .footer-links a:hover { color: #d6e8f5; }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+    .footer-bottom span { font-size: 11px; color: #4a7fa8; }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      nav { justify-content: space-between; padding: 1rem 1.5rem; }
+      .page-hero { padding: 3rem 1.5rem 2.5rem; min-height: auto; }
+      .page-hero h1 { font-size: 34px; }
+      .main-content { padding: 2.5rem 1.5rem; }
+      .section-nav { padding: 0 1.5rem; }
+      footer { padding: 1.5rem; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .divider { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html">Home</a>
+  <a href="finance.html">Finance</a>
+  <a href="law.html">Law</a>
+  <a href="healthcare.html">Healthcare</a>
+  <a href="politics.html">Politics</a>
+  <a href="tidepool.html">Tidepool</a>
+  <a href="depth.html">Depth</a>
+  <a href="about.html">Our Story</a>
+  <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Newsletter</a>
+  <a href="tips.html">Tips</a>
+</div>
+
+<nav>
+  <a href="index.html" class="nav-logo">THE <span>NAUTISK</span></a>
+  <div class="nav-links">
+    <a href="finance.html">Finance</a>
+    <a href="law.html" class="active">Law</a>
+    <a href="healthcare.html">Healthcare</a>
+    <a href="politics.html">Politics</a>
+    <a href="tidepool.html">Tidepool</a>
+    <a href="depth.html">Depth</a>
+    <a href="about.html">Our Story</a>
+    <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Newsletter</a>
+    <a href="tips.html">Tips</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="page-hero">
+  <svg class="fish-bg" viewBox="0 0 1440 340" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    <!-- Shark — large, commanding, right side -->
+    <!-- Main body -->
+    <path fill="none" stroke="#8a7abf" stroke-width="1.5" opacity="0.12"
+      d="M600,170 C680,155 800,148 920,152 C1020,155 1110,162 1180,168 C1230,172 1260,175 1270,172 C1250,165 1200,158 1120,152 C1020,145 880,140 760,145 C700,148 650,158 600,170 Z" />
+    <!-- Snout -->
+    <path fill="none" stroke="#8a7abf" stroke-width="1.2" opacity="0.11"
+      d="M600,170 C560,165 500,160 440,158 C400,157 360,158 320,160" />
+    <!-- Tail fin -->
+    <path fill="none" stroke="#8a7abf" stroke-width="1.2" opacity="0.1"
+      d="M1270,172 C1300,150 1340,125 1370,112 C1345,140 1325,165 1315,185 C1340,178 1375,190 1400,202 C1368,196 1325,198 1270,172 Z" />
+    <!-- Large dorsal fin -->
+    <path fill="none" stroke="#8a7abf" stroke-width="1.2" opacity="0.11"
+      d="M880,148 C895,115 920,85 950,68 C970,56 990,62 1000,80 C985,70 965,68 948,78 C928,92 910,118 880,148 Z" />
+    <!-- Pectoral fin -->
+    <path fill="none" stroke="#8a7abf" stroke-width="1" opacity="0.1"
+      d="M850,162 C870,182 880,205 872,225 C862,210 848,188 850,162 Z" />
+    <!-- Second dorsal fin -->
+    <path fill="none" stroke="#8a7abf" stroke-width="0.8" opacity="0.09"
+      d="M1100,158 C1108,142 1118,130 1128,126 C1132,138 1125,150 1100,158 Z" />
+    <!-- Eye -->
+    <circle cx="1155" cy="162" r="7" fill="none" stroke="#8a7abf" stroke-width="1" opacity="0.12" />
+    <!-- Gill slits -->
+    <path fill="none" stroke="#8a7abf" stroke-width="0.7" opacity="0.09" d="M1080,158 C1076,165 1075,172 1078,178" />
+    <path fill="none" stroke="#8a7abf" stroke-width="0.7" opacity="0.09" d="M1068,157 C1064,164 1063,171 1066,177" />
+    <path fill="none" stroke="#8a7abf" stroke-width="0.7" opacity="0.09" d="M1056,156 C1052,163 1051,170 1054,176" />
+    <!-- Water surface -->
+    <path fill="none" stroke="#2a5f8a" stroke-width="0.8" opacity="0.2"
+      d="M0,260 C120,248 240,272 360,260 C480,248 600,272 720,260 C840,248 960,272 1080,260 C1200,248 1320,272 1440,260" />
+  </svg>
+
+  <div class="accent-bar"></div>
+  <div class="section-tag">Law</div>
+  <h1>Courts, cases, and<br>the rules we live by.</h1>
+  <p>Legal developments, landmark rulings, and policy changes that affect your daily life — without the jargon, without the spin.</p>
+</div>
+
+<div class="section-nav">
+  <a href="law.html" class="active">All</a>
+  <a href="#">Supreme Court</a>
+  <a href="#">Legislation</a>
+  <a href="#">Civil Rights</a>
+  <a href="#">Criminal Justice</a>
+</div>
+
+<div class="main-content">
+  <div class="coming-soon-area">
+    <div class="coming-soon-fish">🦈</div>
+    <h2>Law coverage coming soon.</h2>
+    <p>Our first law and legal stories are being reported and written right now. Subscribe to The Nautisk newsletter to be notified the moment they publish.</p>
+    <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Subscribe for updates</a>
+  </div>
+</div>
+
+<div class="divider">
+  <div class="divider-line"></div>
+  <span class="divider-icon">⚓</span>
+  <div class="divider-line"></div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">THE <span>NAUTISK</span></div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="finance.html">Finance</a>
+      <a href="healthcare.html">Healthcare</a>
+      <a href="politics.html">Politics</a>
+      <a href="about.html">Our Story</a>
+      <a href="tips.html">Tips</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 The Nautisk. All rights reserved.</span>
+    <span>Manhattan, New York</span>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+  });
+  mobileNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileNav.classList.remove('open');
+    });
+  });
+</script>
+
+</body>
+</html>
