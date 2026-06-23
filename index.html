@@ -82,7 +82,8 @@
 
     .coverage { padding: 3rem 2.5rem; }
     .coverage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-    .coverage-card { border: 1px solid #111111; padding: 2rem 1.5rem; text-align: center; background: #f7fafc; }
+    .coverage-card { border: 1px solid #111111; padding: 2rem 1.5rem; text-align: center; background: #f7fafc; text-decoration: none; display: block; transition: border-color 0.2s; }
+    .coverage-card:hover { border-color: #4a7fa8; }
     .coverage-card .icon { font-size: 28px; margin-bottom: 1rem; }
     .coverage-card h3 { font-size: 15px; font-weight: bold; color: #03213a; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.75rem; }
     .coverage-card p { font-size: 13px; color: #555555; line-height: 1.7; font-family: Arial, sans-serif; }
@@ -157,10 +158,10 @@
     <div class="dropdown">
       <button class="nav-btn">News ▾</button>
       <div class="dropdown-menu">
-        <a href="#">Finance</a>
-        <a href="#">Law</a>
-        <a href="#">Healthcare</a>
-        <a href="#">Politics</a>
+        <a href="finance.html">Finance</a>
+        <a href="law.html">Law</a>
+        <a href="healthcare.html">Healthcare</a>
+        <a href="politics.html">Politics</a>
       </div>
     </div>
     <a href="#" class="nav-btn">Opinion</a>
@@ -189,8 +190,6 @@
 
 <section class="hero">
   <svg class="hero-scene" viewBox="0 0 1440 520" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-
-    <!-- CLOUDS -->
     <ellipse cx="150" cy="60" rx="60" ry="20" fill="none" stroke="#2a5f8a" stroke-width="0.8" opacity="0.2" />
     <ellipse cx="190" cy="50" rx="45" ry="16" fill="none" stroke="#2a5f8a" stroke-width="0.8" opacity="0.15" />
     <ellipse cx="120" cy="55" rx="35" ry="14" fill="none" stroke="#2a5f8a" stroke-width="0.8" opacity="0.15" />
@@ -198,19 +197,13 @@
     <ellipse cx="800" cy="35" rx="50" ry="18" fill="none" stroke="#2a5f8a" stroke-width="0.8" opacity="0.15" />
     <ellipse cx="1300" cy="70" rx="55" ry="18" fill="none" stroke="#2a5f8a" stroke-width="0.8" opacity="0.18" />
     <ellipse cx="1340" cy="58" rx="40" ry="15" fill="none" stroke="#2a5f8a" stroke-width="0.8" opacity="0.15" />
-
-    <!-- BIRDS -->
     <path fill="none" stroke="#2a5f8a" stroke-width="0.8" opacity="0.25" d="M400,80 C405,75 410,75 415,80" />
     <path fill="none" stroke="#2a5f8a" stroke-width="0.8" opacity="0.25" d="M420,70 C426,65 432,65 438,70" />
     <path fill="none" stroke="#2a5f8a" stroke-width="0.8" opacity="0.2" d="M600,55 C606,50 612,50 618,55" />
     <path fill="none" stroke="#2a5f8a" stroke-width="0.8" opacity="0.18" d="M625,68 C630,63 635,63 640,68" />
-
-    <!-- WATER SURFACE -->
     <path fill="none" stroke="#2a5f8a" stroke-width="1.2" opacity="0.6" d="M0,290 C120,275 240,305 360,290 C480,275 600,305 720,290 C840,275 960,305 1080,290 C1200,275 1320,305 1440,290" />
     <path fill="none" stroke="#2a5f8a" stroke-width="0.7" opacity="0.35" d="M0,308 C120,296 240,320 360,308 C480,296 600,320 720,308 C840,296 960,320 1080,308 C1200,296 1320,320 1440,308" />
     <path fill="none" stroke="#2a5f8a" stroke-width="0.4" opacity="0.2" d="M0,324 C120,312 240,336 360,324 C480,312 600,336 720,324 C840,312 960,336 1080,324 C1200,312 1320,336 1440,324" />
-
-    <!-- LIGHTHOUSE -->
     <rect x="88" y="282" width="54" height="8" fill="none" stroke="#6aa8cc" stroke-width="1.5" opacity="0.65" rx="1" />
     <path fill="none" stroke="#6aa8cc" stroke-width="1.8" opacity="0.6" d="M98,282 L92,178 L142,178 L136,282 Z" />
     <line x1="93" y1="245" x2="141" y2="245" stroke="#6aa8cc" stroke-width="1.2" opacity="0.45" />
@@ -225,8 +218,6 @@
     <line x1="115" y1="155" x2="170" y2="115" stroke="#6aa8cc" stroke-width="0.8" opacity="0.25" />
     <line x1="115" y1="155" x2="30" y2="145" stroke="#6aa8cc" stroke-width="0.6" opacity="0.18" />
     <line x1="115" y1="155" x2="200" y2="145" stroke="#6aa8cc" stroke-width="0.6" opacity="0.18" />
-
-    <!-- LARGE SAILBOAT -->
     <path fill="none" stroke="#5a9abf" stroke-width="2" opacity="0.5" d="M950,288 C965,302 1030,308 1070,302 C1085,298 1088,288 1080,288 Z" />
     <path fill="none" stroke="#5a9abf" stroke-width="1.5" opacity="0.45" d="M975,288 L982,268 L1030,268 L1037,288" />
     <line x1="1008" y1="288" x2="1008" y2="195" stroke="#5a9abf" stroke-width="1.5" opacity="0.45" />
@@ -236,10 +227,6 @@
     <path fill="none" stroke="#5a9abf" stroke-width="0.8" opacity="0.35" d="M1008,195 L1024,202 L1008,209" />
     <line x1="1008" y1="200" x2="955" y2="282" stroke="#5a9abf" stroke-width="0.6" opacity="0.22" />
     <line x1="1008" y1="200" x2="1068" y2="265" stroke="#5a9abf" stroke-width="0.6" opacity="0.22" />
-    <path fill="none" stroke="#4a7fa8" stroke-width="0.6" opacity="0.2" d="M940,298 C960,294 980,298 1000,295" />
-    <path fill="none" stroke="#4a7fa8" stroke-width="0.5" opacity="0.15" d="M1070,298 C1090,294 1110,298 1130,295" />
-
-    <!-- DOCK -->
     <line x1="1180" y1="290" x2="1380" y2="290" stroke="#4a7fa8" stroke-width="1.5" opacity="0.3" />
     <line x1="1195" y1="290" x2="1195" y2="330" stroke="#4a7fa8" stroke-width="1" opacity="0.25" />
     <line x1="1225" y1="290" x2="1225" y2="335" stroke="#4a7fa8" stroke-width="1" opacity="0.25" />
@@ -247,20 +234,13 @@
     <line x1="1285" y1="290" x2="1285" y2="335" stroke="#4a7fa8" stroke-width="1" opacity="0.25" />
     <line x1="1315" y1="290" x2="1315" y2="330" stroke="#4a7fa8" stroke-width="1" opacity="0.25" />
     <line x1="1345" y1="290" x2="1345" y2="333" stroke="#4a7fa8" stroke-width="1" opacity="0.25" />
-    <path fill="none" stroke="#4a7fa8" stroke-width="0.5" opacity="0.2" d="M1195,295 Q1210,305 1225,295" />
-    <path fill="none" stroke="#4a7fa8" stroke-width="0.5" opacity="0.2" d="M1255,295 Q1270,305 1285,295" />
-
-    <!-- WHALE -->
     <path fill="none" stroke="#4a8aaa" stroke-width="1.8" opacity="0.45" d="M80,430 C120,400 200,395 260,415 C310,430 330,455 300,470 C260,488 180,488 130,468 C95,453 72,448 80,430 Z" />
     <path fill="none" stroke="#4a8aaa" stroke-width="1.5" opacity="0.4" d="M80,430 C65,420 40,410 20,418 C10,422 15,435 30,435 C15,440 5,455 18,460 C35,465 62,452 80,443" />
     <circle cx="270" cy="425" r="4" fill="none" stroke="#4a8aaa" stroke-width="1.2" opacity="0.4" />
     <path fill="none" stroke="#4a8aaa" stroke-width="1" opacity="0.35" d="M220,398 C218,385 215,372 218,362" />
     <path fill="none" stroke="#4a8aaa" stroke-width="0.8" opacity="0.3" d="M218,362 C214,352 222,345 226,355" />
     <path fill="none" stroke="#4a8aaa" stroke-width="0.8" opacity="0.3" d="M218,362 C222,350 230,348 228,360" />
-    <path fill="none" stroke="#4a8aaa" stroke-width="0.8" opacity="0.25" d="M130,468 C160,478 220,480 270,465" />
     <path fill="none" stroke="#4a8aaa" stroke-width="1.2" opacity="0.35" d="M180,415 C175,390 185,375 195,388 C200,400 190,412 180,415 Z" />
-
-    <!-- SUBMARINE -->
     <path fill="none" stroke="#5a9abf" stroke-width="1.8" opacity="0.4" d="M1050,420 C1060,408 1120,405 1180,408 C1230,410 1260,418 1258,430 C1255,442 1225,450 1175,450 C1115,450 1058,442 1050,430 Z" />
     <rect x="1130" y="395" width="50" height="20" fill="none" stroke="#5a9abf" stroke-width="1.5" opacity="0.38" rx="3" />
     <line x1="1150" y1="395" x2="1150" y2="370" stroke="#5a9abf" stroke-width="1.2" opacity="0.35" />
@@ -272,37 +252,20 @@
     <circle cx="1100" cy="428" r="6" fill="none" stroke="#5a9abf" stroke-width="1" opacity="0.32" />
     <circle cx="1125" cy="426" r="6" fill="none" stroke="#5a9abf" stroke-width="1" opacity="0.32" />
     <circle cx="1200" cy="428" r="6" fill="none" stroke="#5a9abf" stroke-width="1" opacity="0.3" />
-    <circle cx="1260" cy="415" r="4" fill="none" stroke="#4a7fa8" stroke-width="0.8" opacity="0.28" />
-    <circle cx="1265" cy="400" r="3" fill="none" stroke="#4a7fa8" stroke-width="0.7" opacity="0.22" />
-    <circle cx="1258" cy="386" r="2" fill="none" stroke="#4a7fa8" stroke-width="0.6" opacity="0.18" />
-    <circle cx="1263" cy="374" r="1.5" fill="none" stroke="#4a7fa8" stroke-width="0.6" opacity="0.15" />
-
-    <!-- SEAWEED -->
     <path fill="none" stroke="#1a5a7a" stroke-width="0.8" opacity="0.2" d="M380,520 C372,488 390,462 378,432 C366,402 385,378 375,348 C368,328 380,312 375,298" />
     <path fill="none" stroke="#1a5a7a" stroke-width="0.8" opacity="0.18" d="M410,520 C420,482 402,458 418,428 C434,398 412,375 425,345 C435,322 418,308 428,295" />
-    <path fill="none" stroke="#1a5a7a" stroke-width="0.7" opacity="0.15" d="M700,520 C692,485 708,460 698,430 C688,400 705,378 695,350" />
-
-    <!-- FISH -->
     <path fill="none" stroke="#2a6a8a" stroke-width="0.8" opacity="0.22" d="M450,370 C464,363 485,367 492,376 C485,385 464,389 450,382 Z" />
     <path fill="none" stroke="#2a6a8a" stroke-width="0.8" opacity="0.22" d="M446,376 L433,369 L433,383 Z" />
     <path fill="none" stroke="#2a6a8a" stroke-width="0.7" opacity="0.18" d="M750,420 C764,413 785,417 792,426 C785,435 764,439 750,432 Z" />
     <path fill="none" stroke="#2a6a8a" stroke-width="0.7" opacity="0.18" d="M746,426 L733,419 L733,433 Z" />
-    <path fill="none" stroke="#2a6a8a" stroke-width="0.6" opacity="0.15" d="M580,450 C590,445 604,448 608,455 C604,462 590,465 580,459 Z" />
-    <path fill="none" stroke="#2a6a8a" stroke-width="0.6" opacity="0.15" d="M577,455 L567,449 L567,461 Z" />
-
-    <!-- BUBBLES -->
     <circle cx="300" cy="360" r="4" fill="none" stroke="#2a5f8a" stroke-width="0.6" opacity="0.22" />
     <circle cx="306" cy="342" r="3" fill="none" stroke="#2a5f8a" stroke-width="0.6" opacity="0.18" />
-    <circle cx="298" cy="325" r="2" fill="none" stroke="#2a5f8a" stroke-width="0.5" opacity="0.14" />
     <circle cx="820" cy="400" r="3.5" fill="none" stroke="#2a5f8a" stroke-width="0.5" opacity="0.18" />
     <circle cx="825" cy="382" r="2.5" fill="none" stroke="#2a5f8a" stroke-width="0.5" opacity="0.14" />
-
-    <!-- ANCHOR on ocean floor -->
     <line x1="620" y1="520" x2="620" y2="478" stroke="#1a4a6a" stroke-width="1.2" opacity="0.22" />
     <line x1="608" y1="484" x2="632" y2="484" stroke="#1a4a6a" stroke-width="1.2" opacity="0.22" />
     <path fill="none" stroke="#1a4a6a" stroke-width="1.2" opacity="0.22" d="M610,520 C610,508 630,508 630,520" />
     <circle cx="620" cy="476" r="4" fill="none" stroke="#1a4a6a" stroke-width="1.2" opacity="0.22" />
-
   </svg>
 
   <div class="hero-rule"></div>
@@ -332,26 +295,26 @@
 <section class="coverage white-section" id="coverage">
   <div class="section-label" style="position:relative;">What we cover</div>
   <div class="coverage-grid">
-    <div class="coverage-card">
+    <a href="finance.html" class="coverage-card">
       <div class="icon">📈</div>
       <h3>Finance</h3>
       <p>Markets, economics, and the money decisions that shape everyday life — explained clearly.</p>
-    </div>
-    <div class="coverage-card">
+    </a>
+    <a href="law.html" class="coverage-card">
       <div class="icon">⚖️</div>
       <h3>Law</h3>
       <p>Legal developments, landmark cases, and policy changes that affect you — without the jargon.</p>
-    </div>
-    <div class="coverage-card">
+    </a>
+    <a href="healthcare.html" class="coverage-card">
       <div class="icon">🏥</div>
       <h3>Healthcare</h3>
       <p>Medical news, policy, and public health — breaking down what matters for your wellbeing.</p>
-    </div>
-    <div class="coverage-card">
+    </a>
+    <a href="politics.html" class="coverage-card">
       <div class="icon">🏛️</div>
       <h3>Politics</h3>
       <p>Government, policy, and power — cutting through the noise to what actually matters.</p>
-    </div>
+    </a>
   </div>
 </section>
 
@@ -394,10 +357,10 @@
     </div>
     <div class="footer-col">
       <h4>Coverage</h4>
-      <a href="#">Finance</a>
-      <a href="#">Law</a>
-      <a href="#">Healthcare</a>
-      <a href="#">Politics</a>
+      <a href="finance.html">Finance</a>
+      <a href="law.html">Law</a>
+      <a href="healthcare.html">Healthcare</a>
+      <a href="politics.html">Politics</a>
       <a href="#">Opinion</a>
     </div>
     <div class="footer-col">
