@@ -9,7 +9,7 @@
   <meta http-equiv="X-Frame-Options" content="DENY" />
   <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
   <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; script-src 'self';" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; script-src 'self' https://subscribe-forms.beehiiv.com; frame-src https://subscribe-forms.beehiiv.com;" />
 
   <meta name="description" content="The Nautisk — independent journalism covering finance, law, healthcare, and politics. Anchored in truth." />
   <meta name="robots" content="index, follow" />
@@ -32,6 +32,8 @@
     .logo-text span { color: #8ab4d4; }
     .nav-btn { font-size: 13px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; font-family: Arial, sans-serif; background: none; border: none; cursor: pointer; padding: 0; }
     .nav-btn:hover { color: #d6e8f5; }
+    .nav-btn-tidepool { font-size: 13px; color: #03213a; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; font-family: Arial, sans-serif; background: #7dd4c0; border: none; cursor: pointer; padding: 0.4rem 0.9rem; border-radius: 20px; font-weight: bold; }
+    .nav-btn-tidepool:hover { background: #5bbfaa; color: #03213a; }
 
     .dropdown { position: relative; }
     .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: #03213a; border: 1px solid #1a4a6e; min-width: 140px; z-index: 100; margin-top: 0.5rem; }
@@ -75,8 +77,6 @@
     .newsletter h2 { font-size: 16px; font-weight: bold; letter-spacing: 0.1em; text-transform: uppercase; color: #03213a; margin-bottom: 0.75rem; position: relative; }
     .newsletter p { font-size: 14px; color: #555555; margin-bottom: 1.5rem; font-family: Arial, sans-serif; position: relative; }
     .newsletter-form { display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; position: relative; }
-    .newsletter-btn { display: inline-block; padding: 0.65rem 2rem; border: 1px solid #111111; font-size: 13px; color: #03213a; letter-spacing: 0.1em; text-transform: uppercase; font-family: Arial, sans-serif; text-decoration: none; }
-    .newsletter-btn:hover { background: #e8f0f7; }
 
     footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5rem 1.5rem; font-family: Arial, sans-serif; }
     .footer-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem; flex-wrap: wrap; gap: 2rem; }
@@ -126,6 +126,7 @@
       </div>
     </div>
     <a href="#" class="nav-btn">Opinion</a>
+    <a href="tidepool.html" class="nav-btn-tidepool">Tidepool</a>
   </div>
 
   <div class="nav-center">
@@ -294,7 +295,7 @@
   <h2>Stay in the current</h2>
   <p>Sign up for The Nautisk newsletter — clear, concise, and worth your time.</p>
   <div class="newsletter-form">
-    <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer" class="newsletter-btn">Subscribe to our Newsletter</a>
+    <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="3933c9e1-b702-4bed-a004-71e3fed21b16"></script>
   </div>
 </section>
 
@@ -323,6 +324,7 @@
       <a href="#">About Us</a>
       <a href="#">Our Mission</a>
       <a href="#">Newsletter</a>
+      <a href="tidepool.html">Tidepool</a>
     </div>
     <div class="footer-col">
       <h4>Contact</h4>
