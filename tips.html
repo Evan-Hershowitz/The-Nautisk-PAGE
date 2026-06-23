@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Submit a Tip — The Nautisk</title>
+
+  <meta name="description" content="Submit a story tip to The Nautisk. All tips are reviewed. Source confidentiality honored upon request." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Submit a Tip — The Nautisk" />
+  <meta property="og:description" content="Have a story we should know about? Tell us." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.thenautisk.com/tips.html" />
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Georgia, serif; background: #03213a; color: #e8eef4; }
+
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 2.5rem; border-bottom: 1px solid #1a4a6e;
+      background: #03213a; position: relative; z-index: 200;
+    }
+    .nav-logo { font-size: 18px; font-weight: bold; letter-spacing: 0.14em; color: #c0cfe0; text-decoration: none; font-family: Arial, sans-serif; }
+    .nav-logo span { color: #8ab4d4; }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a { font-size: 12px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; font-family: Arial, sans-serif; }
+    .nav-links a:hover { color: #d6e8f5; }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: #8ab4d4; border-radius: 2px; transition: all 0.3s; }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+    .mobile-nav { display: none; position: fixed; inset: 0; background: #03213a; z-index: 300; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-size: 20px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; font-family: Arial, sans-serif; }
+    .mobile-nav a:hover { color: #d6e8f5; }
+
+    .page-header {
+      padding: 4rem 2.5rem 3rem;
+      border-bottom: 1px solid #1a4a6e;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 300'%3E%3Cpath fill='none' stroke='%232a5f8a' stroke-width='1' opacity='0.3' d='M0,150 C180,120 360,180 540,150 C720,120 900,180 1080,150 C1260,120 1380,155 1440,150'/%3E%3Cpath fill='none' stroke='%232a5f8a' stroke-width='0.6' opacity='0.2' d='M0,185 C180,155 360,215 540,185 C720,155 900,215 1080,185 C1260,155 1380,190 1440,185'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-size: 100% 100%;
+      pointer-events: none;
+    }
+    .page-label { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #4a7fa8; font-family: Arial, sans-serif; margin-bottom: 1rem; position: relative; }
+    .page-header h1 { font-size: 42px; font-weight: normal; color: #d6e8f5; margin-bottom: 1rem; position: relative; line-height: 1.2; }
+    .page-header p { font-size: 16px; color: #7a9bb8; max-width: 560px; line-height: 1.9; font-family: Arial, sans-serif; position: relative; }
+
+    .main-layout {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 3rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 2.5rem;
+    }
+
+    .form-section h2 { font-size: 18px; font-weight: normal; color: #d6e8f5; margin-bottom: 0.5rem; }
+    .form-intro { font-size: 14px; color: #7a9bb8; font-family: Arial, sans-serif; line-height: 1.8; margin-bottom: 2rem; }
+
+    .tip-form { display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .field-group { display: flex; flex-direction: column; gap: 0.5rem; }
+    .field-group label { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #4a7fa8; font-family: Arial, sans-serif; }
+    .field-group .optional { color: #2a4a6a; font-size: 10px; letter-spacing: 0.1em; }
+    .field-group input,
+    .field-group select,
+    .field-group textarea {
+      background: #051a2e;
+      border: 1px solid #1a4a6e;
+      color: #d6e8f5;
+      font-size: 15px;
+      font-family: Georgia, serif;
+      padding: 0.85rem 1rem;
+      width: 100%;
+      outline: none;
+      transition: border-color 0.2s;
+      border-radius: 2px;
+      appearance: none;
+    }
+    .field-group input:focus,
+    .field-group select:focus,
+    .field-group textarea:focus { border-color: #4a7fa8; }
+    .field-group input::placeholder,
+    .field-group textarea::placeholder { color: #2a4a6a; }
+    .field-group select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%234a7fa8' d='M6 8L0 0h12z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; }
+    .field-group select option { background: #051a2e; color: #d6e8f5; }
+    .field-group textarea { resize: vertical; min-height: 180px; line-height: 1.7; }
+
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .anon-note {
+      background: #051a2e;
+      border: 1px solid #1a4a6e;
+      border-left: 3px solid #4a7fa8;
+      padding: 1rem 1.25rem;
+      border-radius: 2px;
+    }
+    .anon-note p { font-size: 13px; color: #7a9bb8; font-family: Arial, sans-serif; line-height: 1.7; }
+    .anon-note p strong { color: #8ab4d4; }
+
+    .submit-btn {
+      background: transparent;
+      border: 1px solid #4a7fa8;
+      color: #8ab4d4;
+      font-size: 13px;
+      font-family: Arial, sans-serif;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.9rem 2.5rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      align-self: flex-start;
+    }
+    .submit-btn:hover { background: #0a3352; color: #d6e8f5; border-color: #8ab4d4; }
+
+    .form-message {
+      display: none;
+      padding: 1rem 1.25rem;
+      border-radius: 2px;
+      font-size: 14px;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+    .form-message.success { background: #051a2e; border: 1px solid #4caf7d; color: #4caf7d; }
+    .form-message.error { background: #051a2e; border: 1px solid #bf5a5a; color: #bf7a7a; }
+
+    .sidebar { display: flex; flex-direction: column; gap: 2rem; }
+
+    .sidebar-card {
+      background: #051a2e;
+      border: 1px solid #1a4a6e;
+      padding: 1.75rem;
+      border-radius: 2px;
+    }
+    .sidebar-card h3 { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #4a7fa8; font-family: Arial, sans-serif; margin-bottom: 1rem; }
+    .sidebar-card p { font-size: 13px; color: #7a9bb8; font-family: Arial, sans-serif; line-height: 1.8; margin-bottom: 0.75rem; }
+    .sidebar-card p:last-child { margin-bottom: 0; }
+    .sidebar-card p strong { color: #8ab4d4; }
+    .sidebar-card a { color: #4a7fa8; text-decoration: none; }
+    .sidebar-card a:hover { color: #8ab4d4; }
+
+    .secure-badge {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      background: #03213a;
+      border: 1px solid #1a4a6e;
+      border-radius: 2px;
+      margin-top: 1rem;
+    }
+    .secure-badge .badge-icon { font-size: 18px; }
+    .secure-badge p { font-size: 12px; color: #4a7fa8; font-family: Arial, sans-serif; line-height: 1.5; margin: 0; }
+
+    .coverage-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .coverage-list li { font-size: 13px; color: #7a9bb8; font-family: Arial, sans-serif; padding: 0.5rem 0; border-bottom: 1px solid #0d2a40; display: flex; align-items: center; gap: 0.5rem; }
+    .coverage-list li:last-child { border-bottom: none; }
+    .coverage-list li::before { content: '—'; color: #4a7fa8; font-size: 11px; }
+
+    .divider { display: flex; align-items: center; gap: 1rem; padding: 0 2.5rem; background: #03213a; }
+    .divider-line { flex: 1; height: 1px; background: #1a4a6e; }
+    .divider-icon { color: #4a7fa8; font-size: 18px; padding: 0.75rem 0; }
+
+    footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2rem 2.5rem 1.5rem; font-family: Arial, sans-serif; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #1a4a6e; }
+    .footer-brand { font-size: 15px; font-weight: bold; letter-spacing: 0.12em; color: #c0cfe0; }
+    .footer-brand span { color: #8ab4d4; }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .footer-links a { font-size: 11px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; }
+    .footer-links a:hover { color: #d6e8f5; }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+    .footer-bottom span { font-size: 11px; color: #4a7fa8; letter-spacing: 0.04em; }
+
+    @media (max-width: 900px) {
+      .main-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .sidebar { order: -1; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      nav { justify-content: space-between; padding: 1rem 1.5rem; }
+      .page-header { padding: 2.5rem 1.5rem 2rem; }
+      .page-header h1 { font-size: 30px; }
+      .main-layout { padding: 2.5rem 1.5rem; }
+      .field-row { grid-template-columns: 1fr; }
+      footer { padding: 1.5rem; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .divider { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html">Home</a>
+  <a href="#">Finance</a>
+  <a href="#">Law</a>
+  <a href="#">Healthcare</a>
+  <a href="#">Politics</a>
+  <a href="tidepool.html">Tidepool</a>
+  <a href="depth.html">Depth</a>
+  <a href="about.html">Our Story</a>
+  <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Newsletter</a>
+  <a href="index.html#contact">Contact</a>
+</div>
+
+<nav>
+  <a href="index.html" class="nav-logo">THE <span>NAUTISK</span></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#coverage">News</a>
+    <a href="tidepool.html">Tidepool</a>
+    <a href="depth.html">Depth</a>
+    <a href="about.html">Our Story</a>
+    <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Newsletter</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="page-header">
+  <div class="page-label">Tips</div>
+  <h1>Have a story<br>we should know about?</h1>
+  <p>Tell us. Every tip is reviewed personally. You are never required to share your name or contact details — anonymous tips are welcome and taken seriously.</p>
+</div>
+
+<div class="main-layout">
+
+  <div class="form-section">
+    <h2>Submit your tip</h2>
+    <p class="form-intro">Fill out as much or as little as you are comfortable sharing. Name and email are entirely optional. Your message is the only required field.</p>
+
+    <div id="formMessage" class="form-message"></div>
+
+    <form class="tip-form" id="tipForm" action="https://formspree.io/f/meebowog" method="POST">
+
+      <input type="text" name="_gotcha" style="display:none" />
+      <input type="hidden" name="_subject" value="New tip submitted via The Nautisk" />
+
+      <div class="field-row">
+        <div class="field-group">
+          <label>Name <span class="optional">(optional)</span></label>
+          <input type="text" name="name" placeholder="Anonymous" autocomplete="off" />
+        </div>
+        <div class="field-group">
+          <label>Email <span class="optional">(optional)</span></label>
+          <input type="email" name="email" placeholder="Only if you want a response" autocomplete="off" />
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label>Topic area</label>
+        <select name="topic">
+          <option value="" disabled selected>Select a category</option>
+          <option value="Finance">Finance</option>
+          <option value="Law">Law</option>
+          <option value="Healthcare">Healthcare</option>
+          <option value="Politics">Politics</option>
+          <option value="Tidepool">Tidepool</option>
+          <option value="Depth">Depth — long-form investigation</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div class="field-group">
+        <label>Your tip</label>
+        <textarea name="message" placeholder="Tell us what you know. Include any relevant names, organizations, documents, dates, or context that might help us investigate. The more detail the better — but even a short note is worth submitting." required></textarea>
+      </div>
+
+      <div class="field-group">
+        <label>How did you come across this? <span class="optional">(optional)</span></label>
+        <input type="text" name="source_context" placeholder="e.g. I work in the industry, I saw a document, I witnessed this personally..." autocomplete="off" />
+      </div>
+
+      <div class="anon-note">
+        <p><strong>A note on anonymity.</strong> You are never required to identify yourself. If you share your contact details, they will only be used to follow up on your tip — never published. If you request confidentiality, we will honor it. For highly sensitive tips, we recommend contacting us via Signal at the number listed on this page.</p>
+      </div>
+
+      <button type="submit" class="submit-btn">Submit tip</button>
+
+    </form>
+  </div>
+
+  <div class="sidebar">
+
+    <div class="sidebar-card">
+      <h3>How tips work</h3>
+      <p>Every submission goes directly to our newsroom and is reviewed personally. We read all tips even when we cannot respond to each one individually.</p>
+      <p>If your tip leads to a published story and you have requested anonymity, we will not identify you as a source — ever.</p>
+      <p>Tips may be used for reporting purposes across any section of The Nautisk including Depth investigations.</p>
+    </div>
+
+    <div class="sidebar-card">
+      <h3>Need to reach us securely?</h3>
+      <p>For sensitive tips involving confidential documents, whistleblower situations, or anything where your safety is a concern, we recommend using Signal for encrypted communication.</p>
+      <p><strong>Email:</strong> <a href="mailto:evan@thenautisk.com">evan@thenautisk.com</a></p>
+      <p><strong>Signal:</strong> Available on request via email first.</p>
+      <div class="secure-badge">
+        <span class="badge-icon">🔒</span>
+        <p>This form does not require you to log in or identify yourself in any way.</p>
+      </div>
+    </div>
+
+    <div class="sidebar-card">
+      <h3>What we cover</h3>
+      <ul class="coverage-list">
+        <li>Finance and economic policy</li>
+        <li>Law, courts, and legislation</li>
+        <li>Healthcare and public health</li>
+        <li>Politics and government</li>
+        <li>Long-form investigations via Depth</li>
+        <li>Stories for younger audiences via Tidepool</li>
+      </ul>
+    </div>
+
+    <div class="sidebar-card">
+      <h3>Not sure if it's a story?</h3>
+      <p>Send it anyway. We would rather review something that does not become a story than miss something that does. No tip is too small or too speculative to submit.</p>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="divider">
+  <div class="divider-line"></div>
+  <span class="divider-icon">⚓</span>
+  <div class="divider-line"></div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">THE <span>NAUTISK</span></div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">Our Story</a>
+      <a href="tidepool.html">Tidepool</a>
+      <a href="depth.html">Depth</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="editorial.html">Editorial Standards</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 The Nautisk. All rights reserved.</span>
+    <span>Manhattan, New York</span>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+  });
+  mobileNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileNav.classList.remove('open');
+    });
+  });
+
+  const form = document.getElementById('tipForm');
+  const msg = document.getElementById('formMessage');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('.submit-btn');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        msg.className = 'form-message success';
+        msg.textContent = 'Your tip has been received. Thank you — we review every submission personally.';
+        msg.style.display = 'block';
+        form.reset();
+        btn.textContent = 'Tip submitted';
+      } else {
+        throw new Error('Server error');
+      }
+    } catch {
+      msg.className = 'form-message error';
+      msg.textContent = 'Something went wrong. Please try again or email us directly at evan@thenautisk.com.';
+      msg.style.display = 'block';
+      btn.textContent = 'Submit tip';
+      btn.disabled = false;
+    }
+  });
+</script>
+
+</body>
+</html>
