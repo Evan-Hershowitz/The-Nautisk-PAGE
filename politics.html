@@ -4,227 +4,84 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Politics — The Nautisk</title>
-  <meta name="description" content="Politics coverage from The Nautisk. Government, policy, and power — cutting through the noise to what actually matters." />
-  <meta name="robots" content="index, follow" />
+  <meta name="description" content="Independent political coverage from The Nautisk — government, elections, and policy explained clearly." />
   <meta property="og:title" content="Politics — The Nautisk" />
-  <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.thenautisk.com/politics.html" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="favicon.ico" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Georgia, serif; background: #03213a; color: #e8eef4; }
-
-    nav { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 2.5rem; border-bottom: 1px solid #1a4a6e; background: #03213a; position: relative; z-index: 200; }
-    .nav-logo { font-size: 18px; font-weight: bold; letter-spacing: 0.14em; color: #c0cfe0; text-decoration: none; font-family: Arial, sans-serif; }
-    .nav-logo span { color: #8ab4d4; }
-    .nav-links { display: flex; gap: 2rem; align-items: center; }
-    .nav-links a { font-size: 12px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; font-family: Arial, sans-serif; }
-    .nav-links a:hover { color: #d6e8f5; }
-    .nav-links .active { color: #d6e8f5; border-bottom: 1px solid #bf7a5a; padding-bottom: 2px; }
-
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
-    .hamburger span { display: block; width: 22px; height: 2px; background: #8ab4d4; border-radius: 2px; transition: all 0.3s; }
-    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-    .mobile-nav { display: none; position: fixed; inset: 0; background: #03213a; z-index: 300; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; }
-    .mobile-nav.open { display: flex; }
-    .mobile-nav a { font-size: 20px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; font-family: Arial, sans-serif; }
-
-    .page-hero { padding: 5rem 2.5rem 4rem; border-bottom: 1px solid #1a4a6e; position: relative; overflow: hidden; min-height: 340px; display: flex; flex-direction: column; justify-content: flex-end; }
-    .fish-bg { position: absolute; inset: 0; pointer-events: none; }
-    .section-tag { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #bf7a5a; font-family: Arial, sans-serif; margin-bottom: 1rem; position: relative; }
-    .page-hero h1 { font-size: 52px; font-weight: normal; color: #d6e8f5; line-height: 1.15; margin-bottom: 1rem; position: relative; }
-    .page-hero p { font-size: 16px; color: #7a9bb8; max-width: 560px; line-height: 1.9; font-family: Arial, sans-serif; position: relative; }
-    .accent-bar { width: 40px; height: 3px; background: #bf7a5a; margin-bottom: 1.5rem; position: relative; }
-
-    .section-nav { border-bottom: 1px solid #1a4a6e; padding: 0 2.5rem; display: flex; gap: 2.5rem; overflow-x: auto; }
-    .section-nav a { font-size: 12px; color: #7a9bb8; text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; font-family: Arial, sans-serif; padding: 1rem 0; border-bottom: 2px solid transparent; white-space: nowrap; }
-    .section-nav a:hover { color: #d6e8f5; }
-    .section-nav a.active { color: #d6e8f5; border-bottom-color: #bf7a5a; }
-
-    .main-content { max-width: 1100px; margin: 0 auto; padding: 4rem 2.5rem; }
-    .coming-soon-area { text-align: center; padding: 5rem 2rem; border: 1px solid #1a4a6e; border-radius: 2px; }
-    .coming-soon-fish { font-size: 48px; margin-bottom: 1.5rem; opacity: 0.6; }
-    .coming-soon-area h2 { font-size: 24px; font-weight: normal; color: #d6e8f5; margin-bottom: 1rem; }
-    .coming-soon-area p { font-size: 15px; color: #7a9bb8; font-family: Arial, sans-serif; line-height: 1.8; max-width: 480px; margin: 0 auto 2rem; }
-    .coming-soon-area a { display: inline-block; padding: 0.65rem 2rem; border: 1px solid #4a7fa8; color: #8ab4d4; font-size: 12px; font-family: Arial, sans-serif; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; }
-    .coming-soon-area a:hover { background: #0a3352; color: #d6e8f5; }
-
-    .divider { display: flex; align-items: center; gap: 1rem; padding: 0 2.5rem; background: #03213a; }
-    .divider-line { flex: 1; height: 1px; background: #1a4a6e; }
-    .divider-icon { color: #4a7fa8; font-size: 18px; padding: 0.75rem 0; }
-
-    footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2rem 2.5rem 1.5rem; font-family: Arial, sans-serif; }
-    .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #1a4a6e; }
-    .footer-brand { font-size: 15px; font-weight: bold; letter-spacing: 0.12em; color: #c0cfe0; }
-    .footer-brand span { color: #8ab4d4; }
-    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-    .footer-links a { font-size: 11px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; }
-    .footer-links a:hover { color: #d6e8f5; }
-    .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
-    .footer-bottom span { font-size: 11px; color: #4a7fa8; }
-
-    @media (max-width: 768px) {
+    body { font-family: 'Georgia', serif; background: #f0f4f8; color: #1a1a2e; }
+    nav { background: #0a3d6b; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 56px; position: sticky; top: 0; z-index: 100; }
+    .nav-logo { color: #fff; font-family: 'Georgia', serif; font-size: 1.3rem; font-weight: bold; text-decoration: none; letter-spacing: 0.04em; }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-family: 'Arial', sans-serif; font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; }
+    .nav-links a:hover { color: #fff; }
+    .nav-links a.active { color: #fff; border-bottom: 2px solid #fff; padding-bottom: 2px; }
+    .section-header { background: #f3e5f5; border-bottom: 3px solid #4a148c; padding: 2rem 2rem 1.5rem; text-align: center; }
+    .section-header h1 { font-family: 'Georgia', serif; font-size: 2rem; color: #4a148c; margin-bottom: 0.35rem; }
+    .section-header p { font-family: 'Arial', sans-serif; font-size: 0.88rem; color: #4a5568; }
+    .main-wrapper { max-width: 860px; margin: 2.5rem auto; padding: 0 1.5rem; }
+    .articles-list { display: flex; flex-direction: column; gap: 1.25rem; }
+    .article-card { background: #fff; border-radius: 8px; padding: 1.75rem 2rem; box-shadow: 0 2px 10px rgba(0,0,0,0.06); display: flex; flex-direction: column; text-decoration: none; color: inherit; transition: box-shadow 0.15s, transform 0.15s; border-left: 4px solid #4a148c; }
+    .article-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.11); transform: translateY(-2px); }
+    .card-headline { font-family: 'Georgia', serif; font-size: 1.2rem; font-weight: bold; line-height: 1.3; color: #0a1628; margin-bottom: 0.55rem; }
+    .card-subheadline { font-family: 'Georgia', serif; font-size: 0.92rem; color: #4a5568; line-height: 1.55; margin-bottom: 0.85rem; }
+    .card-meta { font-family: 'Arial', sans-serif; font-size: 0.75rem; color: #a0aec0; }
+    .newsletter-strip { background: #0a3d6b; color: #fff; text-align: center; padding: 2.5rem 1.5rem; margin-top: 3rem; }
+    .newsletter-strip h2 { font-family: 'Georgia', serif; font-size: 1.4rem; margin-bottom: 0.5rem; }
+    .newsletter-strip p { font-family: 'Arial', sans-serif; font-size: 0.9rem; color: rgba(255,255,255,0.8); margin-bottom: 1.25rem; }
+    .newsletter-strip a { background: #fff; color: #0a3d6b; padding: 0.65rem 1.75rem; border-radius: 4px; font-family: 'Arial', sans-serif; font-size: 0.875rem; font-weight: bold; text-decoration: none; letter-spacing: 0.04em; }
+    .newsletter-strip a:hover { background: #e2e8f0; }
+    footer { background: #0a1628; color: rgba(255,255,255,0.6); text-align: center; padding: 1.5rem; font-family: 'Arial', sans-serif; font-size: 0.8rem; }
+    footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+    footer a:hover { color: #fff; }
+    @media (max-width: 600px) {
       .nav-links { display: none; }
-      .hamburger { display: flex; }
-      nav { justify-content: space-between; padding: 1rem 1.5rem; }
-      .page-hero { padding: 3rem 1.5rem 2.5rem; min-height: auto; }
-      .page-hero h1 { font-size: 34px; }
-      .main-content { padding: 2.5rem 1.5rem; }
-      .section-nav { padding: 0 1.5rem; }
-      footer { padding: 1.5rem; }
-      .footer-inner { flex-direction: column; align-items: flex-start; }
-      .divider { padding: 0 1rem; }
+      .article-card { padding: 1.25rem; }
     }
   </style>
 </head>
 <body>
-
-<div class="mobile-nav" id="mobileNav">
-  <a href="index.html">Home</a>
-  <a href="finance.html">Finance</a>
-  <a href="law.html">Law</a>
-  <a href="healthcare.html">Healthcare</a>
-  <a href="politics.html">Politics</a>
-  <a href="tidepool.html">Tidepool</a>
-  <a href="depth.html">Depth</a>
-  <a href="about.html">Our Story</a>
-  <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Newsletter</a>
-  <a href="tips.html">Tips</a>
-</div>
-
 <nav>
-  <a href="index.html" class="nav-logo">THE <span>NAUTISK</span></a>
-  <div class="nav-links">
-    <a href="finance.html">Finance</a>
-    <a href="law.html">Law</a>
-    <a href="healthcare.html">Healthcare</a>
-    <a href="politics.html" class="active">Politics</a>
-    <a href="tidepool.html">Tidepool</a>
-    <a href="depth.html">Depth</a>
-    <a href="about.html">Our Story</a>
-    <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Newsletter</a>
-    <a href="tips.html">Tips</a>
-  </div>
-  <button class="hamburger" id="hamburger" aria-label="Open menu">
-    <span></span><span></span><span></span>
-  </button>
+  <a class="nav-logo" href="index.html">The Nautisk</a>
+  <ul class="nav-links">
+    <li><a href="finance.html">Finance</a></li>
+    <li><a href="law.html">Law</a></li>
+    <li><a href="healthcare.html">Healthcare</a></li>
+    <li><a href="politics.html" class="active">Politics</a></li>
+    <li><a href="opinion.html">Opinion</a></li>
+    <li><a href="tidepool.html">Tidepool</a></li>
+    <li><a href="depth.html">Depth</a></li>
+  </ul>
 </nav>
-
-<div class="page-hero">
-  <svg class="fish-bg" viewBox="0 0 1440 340" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-    <!-- Octopus — complex, intelligent, spreading across right side -->
-    <!-- Mantle/head -->
-    <ellipse cx="1080" cy="120" rx="70" ry="55" fill="none" stroke="#bf7a5a" stroke-width="1.4" opacity="0.12" />
-    <!-- Eyes -->
-    <circle cx="1055" cy="110" r="8" fill="none" stroke="#bf7a5a" stroke-width="1" opacity="0.13" />
-    <circle cx="1105" cy="110" r="8" fill="none" stroke="#bf7a5a" stroke-width="1" opacity="0.13" />
-    <circle cx="1055" cy="110" r="3" fill="none" stroke="#bf7a5a" stroke-width="1" opacity="0.1" />
-    <circle cx="1105" cy="110" r="3" fill="none" stroke="#bf7a5a" stroke-width="1" opacity="0.1" />
-    <!-- Tentacle 1 — sweeping left -->
-    <path fill="none" stroke="#bf7a5a" stroke-width="1.2" opacity="0.11"
-      d="M1030,160 C1000,180 960,195 920,200 C880,205 840,200 810,195 C780,190 760,182 750,175" />
-    <!-- Tentacle 2 — sweeping further left and down -->
-    <path fill="none" stroke="#bf7a5a" stroke-width="1.1" opacity="0.1"
-      d="M1040,165 C1010,190 975,215 940,235 C905,255 865,265 830,260 C800,255 775,242 760,230" />
-    <!-- Tentacle 3 — going down center -->
-    <path fill="none" stroke="#bf7a5a" stroke-width="1.1" opacity="0.1"
-      d="M1070,170 C1065,200 1055,230 1040,255 C1025,278 1005,295 985,305 C968,312 952,308 945,298" />
-    <!-- Tentacle 4 — going down right -->
-    <path fill="none" stroke="#bf7a5a" stroke-width="1.1" opacity="0.1"
-      d="M1100,168 C1105,195 1108,225 1105,252 C1102,275 1095,295 1085,308 C1075,318 1062,318 1055,308" />
-    <!-- Tentacle 5 — going right and down -->
-    <path fill="none" stroke="#bf7a5a" stroke-width="1.1" opacity="0.1"
-      d="M1130,162 C1160,178 1190,195 1210,218 C1228,238 1232,262 1222,278 C1212,290 1196,290 1185,280" />
-    <!-- Tentacle 6 — going far right -->
-    <path fill="none" stroke="#bf7a5a" stroke-width="1" opacity="0.09"
-      d="M1145,150 C1185,155 1225,162 1260,172 C1290,180 1315,192 1330,205 C1342,215 1340,228 1328,232" />
-    <!-- Tentacle 7 — going up right -->
-    <path fill="none" stroke="#bf7a5a" stroke-width="1" opacity="0.09"
-      d="M1140,110 C1175,95 1210,85 1245,80 C1275,76 1305,80 1325,92 C1340,102 1340,118 1325,122" />
-    <!-- Tentacle 8 — going up and left -->
-    <path fill="none" stroke="#bf7a5a" stroke-width="1" opacity="0.09"
-      d="M1025,115 C990,100 955,90 920,88 C890,87 862,92 845,104 C832,112 830,124 840,130" />
-    <!-- Sucker dots on tentacles -->
-    <circle cx="980" cy="198" r="3" fill="none" stroke="#bf7a5a" stroke-width="0.7" opacity="0.09" />
-    <circle cx="950" cy="205" r="3" fill="none" stroke="#bf7a5a" stroke-width="0.7" opacity="0.09" />
-    <circle cx="920" cy="202" r="3" fill="none" stroke="#bf7a5a" stroke-width="0.7" opacity="0.09" />
-    <circle cx="1055" cy="240" r="3" fill="none" stroke="#bf7a5a" stroke-width="0.7" opacity="0.08" />
-    <circle cx="1048" cy="268" r="3" fill="none" stroke="#bf7a5a" stroke-width="0.7" opacity="0.08" />
-    <circle cx="1100" cy="238" r="3" fill="none" stroke="#bf7a5a" stroke-width="0.7" opacity="0.08" />
-    <circle cx="1098" cy="268" r="3" fill="none" stroke="#bf7a5a" stroke-width="0.7" opacity="0.08" />
-    <circle cx="1195" cy="205" r="3" fill="none" stroke="#bf7a5a" stroke-width="0.7" opacity="0.08" />
-    <circle cx="1228" cy="248" r="3" fill="none" stroke="#bf7a5a" stroke-width="0.7" opacity="0.08" />
-    <!-- Ink cloud hint -->
-    <ellipse cx="870" cy="195" rx="25" ry="15" fill="none" stroke="#bf7a5a" stroke-width="0.6" opacity="0.06" />
-    <!-- Water surface -->
-    <path fill="none" stroke="#2a5f8a" stroke-width="0.8" opacity="0.2"
-      d="M0,260 C120,248 240,272 360,260 C480,248 600,272 720,260 C840,248 960,272 1080,260 C1200,248 1320,272 1440,260" />
-  </svg>
-
-  <div class="accent-bar"></div>
-  <div class="section-tag">Politics</div>
-  <h1>Power, government, and<br>how decisions get made.</h1>
-  <p>Political reporting that cuts through the noise — covering legislation, institutions, and the forces that shape policy and public life.</p>
+<div class="section-header">
+  <h1>Politics</h1>
+  <p>Government, elections, and policy — explained clearly.</p>
 </div>
+<div class="main-wrapper">
+  <div class="articles-list">
 
-<div class="section-nav">
-  <a href="politics.html" class="active">All</a>
-  <a href="#">Congress</a>
-  <a href="#">Elections</a>
-  <a href="#">Foreign Policy</a>
-  <a href="#">Local Government</a>
-</div>
+    <!-- ADD NEW ARTICLE CARDS ABOVE THIS LINE -->
 
-<div class="main-content">
-  <div class="coming-soon-area">
-    <div class="coming-soon-fish">🐙</div>
-    <h2>Politics coverage coming soon.</h2>
-    <p>Our first politics and government stories are being reported and written right now. Subscribe to The Nautisk newsletter to be notified the moment they publish.</p>
-    <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Subscribe for updates</a>
+    <a class="article-card" href="supreme-court-asylum-metering-ruling.html">
+      <p class="card-headline">Supreme Court Rules 6-3 That Government May Block Asylum Seekers by Preventing Border Entry</p>
+      <p class="card-subheadline">The decision allows federal officials to keep people waiting indefinitely in Mexico, preventing them from filing asylum claims without triggering the legal protections that apply inside the U.S.</p>
+      <span class="card-meta">June 26, 2026 &nbsp;·&nbsp; 4 min read</span>
+    </a>
+
   </div>
 </div>
-
-<div class="divider">
-  <div class="divider-line"></div>
-  <span class="divider-icon">⚓</span>
-  <div class="divider-line"></div>
+<div class="newsletter-strip">
+  <h2>Stay in the current.</h2>
+  <p>Independent coverage of finance, law, healthcare, and politics — delivered to your inbox.</p>
+  <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank">Subscribe Free</a>
 </div>
-
 <footer>
-  <div class="footer-inner">
-    <div class="footer-brand">THE <span>NAUTISK</span></div>
-    <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="finance.html">Finance</a>
-      <a href="law.html">Law</a>
-      <a href="healthcare.html">Healthcare</a>
-      <a href="about.html">Our Story</a>
-      <a href="tips.html">Tips</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2026 The Nautisk. All rights reserved.</span>
-    <span>Manhattan, New York</span>
-  </div>
+  &copy; 2026 The Nautisk &nbsp;|&nbsp;
+  <a href="index.html">Home</a> &nbsp;|&nbsp;
+  <a href="tips.html">Tips</a> &nbsp;|&nbsp;
+  <a href="opinion.html">Opinion</a>
 </footer>
-
-<script>
-  const hamburger = document.getElementById('hamburger');
-  const mobileNav = document.getElementById('mobileNav');
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('open');
-    mobileNav.classList.toggle('open');
-  });
-  mobileNav.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      hamburger.classList.remove('open');
-      mobileNav.classList.remove('open');
-    });
-  });
-</script>
-
 </body>
 </html>
