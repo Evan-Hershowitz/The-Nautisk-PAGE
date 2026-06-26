@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Nautisk</title>
+<meta http-equiv="X-Content-Type-Options" content="nosniff" />
+<meta http-equiv="X-Frame-Options" content="DENY" />
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+<meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
+<meta name="description" content="The Nautisk — independent journalism covering finance, law, healthcare, and politics. Anchored in truth." />
+<meta name="robots" content="index, follow" />
+<meta name="author" content="The Nautisk" />
+<meta property="og:title" content="The Nautisk" />
+<meta property="og:description" content="Independent journalism covering finance, law, healthcare, and politics. Anchored in truth." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.thenautisk.com" />
+<style>
+/* ===================== RESET & BASE ===================== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ===================== CSS VARIABLES — AQUATIC (default) ===================== */
+:root {
+  --bg: #03213a;
+  --bg-secondary: #051525;
+  --text: #e8eef4;
+  --text-muted: #7a9bb8;
+  --text-strong: #d6e8f5;
+  --border: #1a4a6e;
+  --accent: #4a7fa8;
+  --nav-bg: #03213a;
+  --card-bg: rgba(255,255,255,0.06);
+  --card-border: rgba(255,255,255,0.12);
+  --card-hover-bg: rgba(255,255,255,0.1);
+  --section-bg: rgba(255,255,255,0.05);
+  --section-text: #e8eef4;
+  --section-label: #8ab4d4;
+  --divider-bg: #03213a;
+  --hero-illustrations: block;
+}
+
+/* ===================== PROFESSIONAL MODE ===================== */
+body.professional {
+  --bg: #f8f9fa;
+  --bg-secondary: #ffffff;
+  --text: #1a1a2e;
+  --text-muted: #555577;
+  --text-strong: #0a0a1a;
+  --border: #dde3ec;
+  --accent: #1a4a8e;
+  --nav-bg: #03213a;
+  --card-bg: #ffffff;
+  --card-border: #dde3ec;
+  --card-hover-bg: #f0f4f8;
+  --section-bg: #ffffff;
+  --section-text: #1a1a2e;
+  --section-label: #1a4a8e;
+  --divider-bg: #f8f9fa;
+  --hero-illustrations: none;
+}
+
+body {
+  font-family: Georgia, serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+}
+
+/* ===================== NAV ===================== */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2.5rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--nav-bg);
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+.nav-left { display: flex; gap: 1.2rem; align-items: center; }
+.nav-right { display: flex; gap: 1.2rem; align-items: center; }
+.nav-center {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.logo-img { height: 52px; width: 52px; object-fit: contain; }
+.logo-text { font-size: 22px; font-weight: bold; letter-spacing: 0.14em; color: #c0cfe0; }
+.logo-text span { color: #8ab4d4; }
+
+.nav-btn {
+  font-size: 12px;
+  color: #8ab4d4;
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-family: Arial, sans-serif;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  white-space: nowrap;
+}
+.nav-btn:hover { color: #d6e8f5; }
+.nav-btn-tidepool {
+  font-size: 12px; color: #03213a; text-decoration: none;
+  letter-spacing: 0.06em; text-transform: uppercase; font-family: Arial, sans-serif;
+  background: #7dd4c0; border: none; cursor: pointer;
+  padding: 0.35rem 0.8rem; border-radius: 20px; font-weight: bold;
+}
+.nav-btn-tidepool:hover { background: #5bbfaa; }
+.nav-btn-depth {
+  font-size: 12px; color: #c0cfe0; text-decoration: none;
+  letter-spacing: 0.06em; text-transform: uppercase; font-family: Arial, sans-serif;
+  background: transparent; border: 1px solid #4a7fa8; cursor: pointer;
+  padding: 0.35rem 0.8rem; border-radius: 20px; font-weight: bold;
+}
+.nav-btn-depth:hover { background: #1a4a6e; color: #d6e8f5; }
+.nav-btn-tips {
+  font-size: 12px; color: #e8d5a3; text-decoration: none;
+  letter-spacing: 0.06em; text-transform: uppercase; font-family: Arial, sans-serif;
+  background: transparent; border: 1px solid #a08040; cursor: pointer;
+  padding: 0.35rem 0.8rem; border-radius: 20px; font-weight: bold;
+}
+.nav-btn-tips:hover { background: #2a1a00; color: #f0e0b0; }
+
+/* Toggle button */
+.mode-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 20px;
+  padding: 0.3rem 0.75rem;
+  cursor: pointer;
+  font-size: 11px;
+  color: #8ab4d4;
+  font-family: Arial, sans-serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+.mode-toggle:hover { background: rgba(255,255,255,0.15); }
+.mode-toggle .toggle-icon { font-size: 14px; }
+
+/* Dropdown */
+.dropdown { position: relative; }
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background: #03213a;
+  border: 1px solid #1a4a6e;
+  min-width: 150px;
+  z-index: 300;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+.dropdown-menu a {
+  display: block;
+  padding: 0.7rem 1rem;
+  font-size: 12px;
+  color: #8ab4d4;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-bottom: 1px solid #1a4a6e;
+}
+.dropdown-menu a:last-child { border-bottom: none; }
+.dropdown-menu a:hover { background: #0a3352; color: #d6e8f5; }
+.dropdown.open .dropdown-menu { display: block; }
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+  z-index: 300;
+}
+.hamburger span {
+  display: block; width: 24px; height: 2px;
+  background: #8ab4d4; border-radius: 2px; transition: all 0.3s;
+}
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* Mobile menu */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: #03213a;
+  z-index: 250;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.4rem;
+  overflow-y: auto;
+  padding: 2rem 1rem;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a, .mobile-menu button {
+  font-size: 18px; color: #8ab4d4; text-decoration: none;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  font-family: Arial, sans-serif; background: none; border: none; cursor: pointer;
+}
+.mobile-menu a:hover { color: #d6e8f5; }
+.mobile-menu .mobile-tidepool { background: #7dd4c0; color: #03213a; padding: 0.5rem 1.5rem; border-radius: 20px; font-weight: bold; }
+.mobile-menu .mobile-depth { border: 1px solid #4a7fa8; color: #c0cfe0; padding: 0.5rem 1.5rem; border-radius: 20px; font-weight: bold; }
+.mobile-menu .mobile-tips { border: 1px solid #a08040; color: #e8d5a3; padding: 0.5rem 1.5rem; border-radius: 20px; font-weight: bold; }
+.mobile-menu .mobile-toggle {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2) !important;
+  color: #8ab4d4 !important;
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  font-size: 14px !important;
+}
+.mobile-divider { width: 40px; height: 1px; background: #1a4a6e; }
+
+/* ===================== HERO SLIDESHOW ===================== */
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 520px;
+  background: var(--bg);
+}
+.hero-scene {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  display: var(--hero-illustrations);
+}
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+}
+.slide {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  align-items: stretch;
+  opacity: 0;
+  transition: opacity 0.7s ease;
+  pointer-events: none;
+}
+.slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.slide-image {
+  width: 45%;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.slide-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.slide-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem 3.5rem;
+  background: var(--bg);
+}
+.slide-section-tag {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.slide-section-tag.finance { color: #4a9abf; }
+.slide-section-tag.law { color: #8a7abf; }
+.slide-section-tag.politics { color: #bf7a7a; }
+.slide-section-tag.healthcare { color: #4caf7d; }
+
+.slide-headline {
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--text-strong);
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+.slide-dek {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.8;
+  font-family: Arial, sans-serif;
+  margin-bottom: 1.5rem;
+}
+.slide-meta {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-family: Arial, sans-serif;
+  margin-bottom: 1.5rem;
+}
+.slide-read-btn {
+  display: inline-block;
+  padding: 0.65rem 1.5rem;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: opacity 0.2s;
+  align-self: flex-start;
+}
+.slide-read-btn:hover { opacity: 0.85; }
+
+/* Slideshow controls */
+.slide-dots {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+.slide-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  cursor: pointer;
+  border: none;
+  transition: background 0.3s;
+}
+.slide-dot.active { background: #8ab4d4; }
+.slide-arrows {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  z-index: 10;
+  pointer-events: none;
+}
+.slide-arrow {
+  pointer-events: auto;
+  background: rgba(0,0,0,0.35);
+  border: none;
+  color: #fff;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.slide-arrow:hover { background: rgba(0,0,0,0.6); }
+
+/* ===================== ANCHORED IN TRUTH ===================== */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 2.5rem;
+  background: var(--divider-bg);
+}
+.divider-line { flex: 1; height: 1px; background: var(--border); }
+.divider-anchor { color: var(--accent); font-size: 22px; padding: 0.75rem 0; }
+
+.about {
+  padding: 3.5rem 2.5rem;
+  background: var(--section-bg);
+  border: 1px solid var(--card-border);
+  margin: 1.5rem 2.5rem;
+  border-radius: 4px;
+}
+.about-inner { max-width: 780px; margin: 0 auto; text-align: center; }
+.section-label {
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--section-label);
+  font-family: Arial, sans-serif;
+  margin-bottom: 1.25rem;
+}
+.about p {
+  font-size: 16px;
+  color: var(--section-text);
+  line-height: 1.9;
+  font-family: Arial, sans-serif;
+}
+.about p strong { color: var(--text-strong); }
+
+/* ===================== COVERAGE CARDS ===================== */
+.coverage {
+  padding: 2.5rem 2.5rem;
+  background: var(--section-bg);
+  border: 1px solid var(--card-border);
+  margin: 0 2.5rem 1.5rem;
+  border-radius: 4px;
+}
+.coverage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+.coverage-card {
+  border: 1px solid var(--card-border);
+  padding: 1.75rem 1.5rem;
+  text-align: center;
+  background: var(--card-bg);
+  text-decoration: none;
+  display: block;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  border-radius: 3px;
+}
+.coverage-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+.coverage-card .icon { font-size: 26px; margin-bottom: 0.75rem; }
+.coverage-card h3 {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--text-strong);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+.coverage-card p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  font-family: Arial, sans-serif;
+}
+
+/* ===================== LATEST STORIES ===================== */
+.latest-stories {
+  padding: 2.5rem 2.5rem;
+  background: var(--section-bg);
+  border: 1px solid var(--card-border);
+  margin: 0 2.5rem 1.5rem;
+  border-radius: 4px;
+}
+.article-grid-home {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+.article-card-home {
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.article-card-home:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  transform: translateY(-2px);
+}
+.article-card-home .card-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+.article-card-home .card-body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; }
+.card-section-label {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.card-section-label.finance { color: #4a9abf; }
+.card-section-label.law { color: #8a7abf; }
+.card-section-label.healthcare { color: #4caf7d; }
+.card-section-label.politics { color: #bf7a7a; }
+.card-section-label.opinion { color: #e65100; }
+.article-card-home h3 {
+  font-size: 15px;
+  color: var(--text-strong);
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  font-family: Georgia, serif;
+  flex-grow: 1;
+}
+.article-card-home p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.65;
+  font-family: Arial, sans-serif;
+  margin-bottom: 0.75rem;
+}
+.article-card-home .card-date {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-family: Arial, sans-serif;
+  margin-top: auto;
+}
+
+/* ===================== PREVIOUS STORIES ===================== */
+.previous-stories {
+  padding: 2.5rem 2.5rem;
+  background: var(--section-bg);
+  border: 1px solid var(--card-border);
+  margin: 0 2.5rem 1.5rem;
+  border-radius: 4px;
+}
+.prev-story-list { display: flex; flex-direction: column; gap: 1px; margin-top: 1.25rem; }
+.prev-story-item {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--card-border);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.prev-story-item:last-child { border-bottom: none; }
+.prev-story-item:hover { opacity: 0.75; }
+.prev-story-thumb {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border-radius: 2px;
+}
+.prev-story-info { flex: 1; }
+.prev-story-label {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+.prev-story-label.finance { color: #4a9abf; }
+.prev-story-label.law { color: #8a7abf; }
+.prev-story-label.healthcare { color: #4caf7d; }
+.prev-story-label.politics { color: #bf7a7a; }
+.prev-story-headline {
+  font-size: 14px;
+  color: var(--text-strong);
+  font-family: Georgia, serif;
+  line-height: 1.35;
+  margin-bottom: 0.25rem;
+}
+.prev-story-date {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-family: Arial, sans-serif;
+}
+
+/* ===================== NEWSLETTER ===================== */
+.newsletter {
+  padding: 3rem 2.5rem;
+  text-align: center;
+  background: var(--section-bg);
+  border: 1px solid var(--card-border);
+  margin: 0 2.5rem 1.5rem;
+  border-radius: 4px;
+}
+.newsletter h2 {
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-strong);
+  margin-bottom: 0.6rem;
+}
+.newsletter p {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  font-family: Arial, sans-serif;
+}
+.newsletter-form { display: flex; justify-content: center; flex-wrap: wrap; }
+
+/* ===================== FOOTER ===================== */
+footer {
+  background: #03213a;
+  border-top: 1px solid #1a4a6e;
+  padding: 2.5rem 2.5rem 1.5rem;
+  font-family: Arial, sans-serif;
+  margin-top: 1.5rem;
+}
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.footer-brand .footer-logo {
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 0.14em;
+  color: #c0cfe0;
+  margin-bottom: 0.4rem;
+}
+.footer-brand .footer-logo span { color: #8ab4d4; }
+.footer-brand p { font-size: 12px; color: #4a7fa8; letter-spacing: 0.06em; }
+.footer-col h4 {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #4a7fa8;
+  margin-bottom: 0.75rem;
+}
+.footer-col p, .footer-col a {
+  font-size: 13px; color: #8ab4d4; display: block;
+  text-decoration: none; margin-bottom: 0.3rem; line-height: 1.7;
+}
+.footer-col a:hover { color: #d6e8f5; }
+.footer-bottom {
+  border-top: 1px solid #1a4a6e;
+  padding-top: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-bottom span { font-size: 12px; color: #4a7fa8; letter-spacing: 0.06em; }
+.footer-anchor { font-size: 24px; color: #ffffff; opacity: 0.8; }
+.footer-legal {
+  border-top: 1px solid #1a4a6e;
+  padding-top: 1rem;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.footer-legal a {
+  font-size: 11px; color: #4a7fa8; text-decoration: none; letter-spacing: 0.06em;
+}
+.footer-legal a:hover { color: #8ab4d4; }
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 900px) {
+  .slide-image { width: 38%; }
+  .slide-headline { font-size: 22px; }
+  .slide-content { padding: 2rem; }
+}
+
+@media (max-width: 768px) {
+  .nav-left, .nav-right { display: none; }
+  .nav-center { position: static; transform: none; }
+  nav { justify-content: space-between; padding: 0.9rem 1.25rem; }
+  .hamburger { display: flex; }
+  .logo-text { font-size: 18px; }
+  .logo-img { height: 40px; width: 40px; }
+
+  /* Hero mobile: stack vertically */
+  .slideshow-container { min-height: 480px; }
+  .slide { flex-direction: column; }
+  .slide-image { width: 100%; height: 200px; flex-shrink: 0; }
+  .slide-content { padding: 1.5rem; }
+  .slide-headline { font-size: 20px; }
+  .slide-dek { font-size: 14px; }
+  .slide-arrows { display: none; }
+
+  .about, .coverage, .latest-stories, .previous-stories, .newsletter { margin: 0.75rem 1rem; padding: 2rem 1.25rem; }
+  .coverage-grid { grid-template-columns: 1fr 1fr; }
+  .article-grid-home { grid-template-columns: 1fr; }
+  .footer-top { flex-direction: column; gap: 1.5rem; }
+  .footer-legal { gap: 0.75rem; }
+  .divider { padding: 0 1rem; }
+}
+
+@media (max-width: 480px) {
+  .coverage-grid { grid-template-columns: 1fr; }
+  .slide-headline { font-size: 18px; }
+  .footer-legal a { font-size: 10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== MOBILE MENU ===================== -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-toggle" onclick="toggleMode()">🌊 Switch Mode</button>
+  <div class="mobile-divider"></div>
+  <button class="nav-btn" onclick="toggleDropdownMobile()">News ▾</button>
+  <div id="mobileNewsLinks" style="display:none; flex-direction:column; align-items:center; gap:0.75rem;">
+    <a href="finance.html">Finance</a>
+    <a href="law.html">Law</a>
+    <a href="healthcare.html">Healthcare</a>
+    <a href="politics.html">Politics</a>
+  </div>
+  <a href="opinion.html">Opinion</a>
+  <a href="tidepool.html" class="mobile-tidepool">Tidepool</a>
+  <a href="tips.html" class="mobile-tips">Tips</a>
+  <div class="mobile-divider"></div>
+  <a href="depth.html" class="mobile-depth">Depth</a>
+  <a href="about.html">Our Story</a>
+  <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Newsletter</a>
+</div>
+
+<!-- ===================== NAV ===================== -->
+<nav>
+  <div class="nav-left">
+    <div class="dropdown" id="newsDropdown">
+      <button class="nav-btn" id="newsDropBtn">News ▾</button>
+      <div class="dropdown-menu">
+        <a href="finance.html">Finance</a>
+        <a href="law.html">Law</a>
+        <a href="healthcare.html">Healthcare</a>
+        <a href="politics.html">Politics</a>
+      </div>
+    </div>
+    <a href="opinion.html" class="nav-btn">Opinion</a>
+    <a href="tidepool.html" class="nav-btn-tidepool">Tidepool</a>
+    <a href="tips.html" class="nav-btn-tips">Tips</a>
+  </div>
+
+  <div class="nav-center">
+    <img src="logo.png" alt="The Nautisk Logo" class="logo-img" />
+    <span class="logo-text">THE <span>NAUTISK</span></span>
+  </div>
+
+  <div class="nav-right">
+    <button class="mode-toggle" onclick="toggleMode()" id="modeToggleBtn">
+      <span class="toggle-icon">🌊</span>
+      <span id="modeLabel">Aquatic</span>
+    </button>
+    <a href="depth.html" class="nav-btn-depth">Depth</a>
+    <a href="about.html" class="nav-btn">Our Story</a>
+    <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer" class="nav-btn">Newsletter</a>
+  </div>
+
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ===================== HERO SLIDESHOW ===================== -->
+<section class="hero">
+  <!-- Background illustrations (aquatic mode only) -->
+  <svg class="hero-scene" viewBox="0 0 1440 520" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    <path fill="none" stroke="#2a5f8a" stroke-width="1.2" opacity="0.6" d="M0,290 C120,275 240,305 360,290 C480,275 600,305 720,290 C840,275 960,305 1080,290 C1200,275 1320,305 1440,290"/>
+    <path fill="none" stroke="#2a5f8a" stroke-width="0.7" opacity="0.35" d="M0,308 C120,296 240,320 360,308 C480,296 600,320 720,308 C840,296 960,320 1080,308 C1200,296 1320,320 1440,308"/>
+    <ellipse cx="150" cy="60" rx="60" ry="20" fill="none" stroke="#2a5f8a" stroke-width="0.8" opacity="0.2"/>
+    <ellipse cx="750" cy="45" rx="70" ry="22" fill="none" stroke="#2a5f8a" stroke-width="0.8" opacity="0.18"/>
+    <ellipse cx="1300" cy="70" rx="55" ry="18" fill="none" stroke="#2a5f8a" stroke-width="0.8" opacity="0.18"/>
+  </svg>
+
+  <div class="slideshow-container" id="slideshowContainer">
+
+    <!-- SLIDE 1: Finance -->
+    <div class="slide active" id="slide-0">
+      <div class="slide-image">
+        <img src="space.png" alt="OpenAI IPO" />
+      </div>
+      <div class="slide-content">
+        <span class="slide-section-tag finance">Finance</span>
+        <h2 class="slide-headline">OpenAI Delays IPO to 2027 as Market Conditions Fall Short of $1 Trillion Target</h2>
+        <p class="slide-dek">After confidentially filing to go public earlier this month, OpenAI reversed course — pointing to a rough post-debut showing by SpaceX and the company's ongoing cash burn as reasons to wait.</p>
+        <p class="slide-meta">June 26, 2026 &nbsp;·&nbsp; 4 min read</p>
+        <a href="openai-ipo-delayed-2027.html" class="slide-read-btn">Read Article →</a>
+      </div>
+    </div>
+
+    <!-- SLIDE 2: Law -->
+    <div class="slide" id="slide-1">
+      <div class="slide-image">
+        <img src="450.png" alt="PFAS Settlement" />
+      </div>
+      <div class="slide-content">
+        <span class="slide-section-tag law">Law</span>
+        <h2 class="slide-headline">Chemours Agrees to Pay $450 Million Over PFAS Contamination in Landmark Federal Settlement</h2>
+        <p class="slide-dek">The deal — covering facilities in three states — marks the first time the federal government has held a PFAS manufacturer comprehensively accountable for contamination from its production sites.</p>
+        <p class="slide-meta">June 26, 2026 &nbsp;·&nbsp; 4 min read</p>
+        <a href="chemours-pfas-settlement-450-million.html" class="slide-read-btn">Read Article →</a>
+      </div>
+    </div>
+
+    <!-- SLIDE 3: Politics -->
+    <div class="slide" id="slide-2">
+      <div class="slide-image">
+        <img src="asylum.png" alt="Supreme Court Asylum" />
+      </div>
+      <div class="slide-content">
+        <span class="slide-section-tag politics">Politics</span>
+        <h2 class="slide-headline">Supreme Court Rules 6-3 That Government May Block Asylum Seekers by Preventing Border Entry</h2>
+        <p class="slide-dek">The decision allows federal officials to keep people waiting indefinitely in Mexico, preventing them from filing asylum claims without triggering the legal protections that apply inside the U.S.</p>
+        <p class="slide-meta">June 26, 2026 &nbsp;·&nbsp; 4 min read</p>
+        <a href="supreme-court-asylum-metering-ruling.html" class="slide-read-btn">Read Article →</a>
+      </div>
+    </div>
+
+    <!-- SLIDE 4: Healthcare -->
+    <div class="slide" id="slide-3">
+      <div class="slide-image">
+        <img src="crop.png" alt="Weedkiller Antibiotic Resistance" />
+      </div>
+      <div class="slide-content">
+        <span class="slide-section-tag healthcare">Healthcare</span>
+        <h2 class="slide-headline">Widely Used Weedkiller May Be Accelerating Antibiotic Resistance, Study Finds</h2>
+        <p class="slide-dek">Researchers found that hospital bacteria resistant to last-resort antibiotics were also resistant to glyphosate, suggesting a biochemical link between agricultural herbicide use and drug-resistant infections.</p>
+        <p class="slide-meta">June 26, 2026 &nbsp;·&nbsp; 4 min read</p>
+        <a href="glyphosate-antibiotic-resistance-study.html" class="slide-read-btn">Read Article →</a>
+      </div>
+    </div>
+
+    <!-- Dots -->
+    <div class="slide-dots">
+      <button class="slide-dot active" onclick="goToSlide(0)"></button>
+      <button class="slide-dot" onclick="goToSlide(1)"></button>
+      <button class="slide-dot" onclick="goToSlide(2)"></button>
+      <button class="slide-dot" onclick="goToSlide(3)"></button>
+    </div>
+
+    <!-- Arrows -->
+    <div class="slide-arrows">
+      <button class="slide-arrow" onclick="prevSlide()">&#8249;</button>
+      <button class="slide-arrow" onclick="nextSlide()">&#8250;</button>
+    </div>
+  </div>
+</section>
+
+<div class="divider">
+  <div class="divider-line"></div>
+  <span class="divider-anchor">⚓</span>
+  <div class="divider-line"></div>
+</div>
+
+<!-- ===================== ANCHORED IN TRUTH ===================== -->
+<section class="about">
+  <div class="about-inner">
+    <div class="section-label">Anchored in truth</div>
+    <p>We shape the world, so it only makes sense that we begin to understand it. The Nautisk exists to make the stories that matter most accessible to everyone — not just the experts. We are achieving our mission if news becomes accessible, but most importantly <strong>UNDERSTANDABLE.</strong></p>
+  </div>
+</section>
+
+<div class="divider">
+  <div class="divider-line"></div>
+  <span class="divider-anchor">⚓</span>
+  <div class="divider-line"></div>
+</div>
+
+<!-- ===================== WHAT WE COVER ===================== -->
+<section class="coverage" id="coverage">
+  <div class="section-label">What we cover</div>
+  <div class="coverage-grid">
+    <a href="finance.html" class="coverage-card">
+      <div class="icon">📈</div>
+      <h3>Finance</h3>
+      <p>Markets, economics, and the money decisions that shape everyday life — explained clearly.</p>
+    </a>
+    <a href="law.html" class="coverage-card">
+      <div class="icon">⚖️</div>
+      <h3>Law</h3>
+      <p>Legal developments, landmark cases, and policy changes that affect you — without the jargon.</p>
+    </a>
+    <a href="healthcare.html" class="coverage-card">
+      <div class="icon">🏥</div>
+      <h3>Healthcare</h3>
+      <p>Medical news, policy, and public health — breaking down what matters for your wellbeing.</p>
+    </a>
+    <a href="politics.html" class="coverage-card">
+      <div class="icon">🏛</div>
+      <h3>Politics</h3>
+      <p>Government, policy, and power — cutting through the noise to what actually matters.</p>
+    </a>
+  </div>
+</section>
+
+<div class="divider">
+  <div class="divider-line"></div>
+  <span class="divider-anchor">⚓</span>
+  <div class="divider-line"></div>
+</div>
+
+<!-- ===================== LATEST STORIES ===================== -->
+<section class="latest-stories">
+  <div class="section-label">Latest Stories</div>
+  <div class="article-grid-home">
+    <!-- ADD NEW ARTICLE CARDS ABOVE THIS LINE -->
+    <a class="article-card-home" href="supreme-court-asylum-metering-ruling.html">
+      <img class="card-img" src="asylum.png" alt="Supreme Court Asylum Ruling" />
+      <div class="card-body">
+        <span class="card-section-label politics">Politics</span>
+        <h3>Supreme Court Rules 6-3 That Government May Block Asylum Seekers by Preventing Border Entry</h3>
+        <p>The decision allows federal officials to keep people waiting indefinitely in Mexico.</p>
+        <span class="card-date">June 26, 2026 &nbsp;·&nbsp; 4 min read</span>
+      </div>
+    </a>
+    <a class="article-card-home" href="chemours-pfas-settlement-450-million.html">
+      <img class="card-img" src="450.png" alt="Chemours PFAS Settlement" />
+      <div class="card-body">
+        <span class="card-section-label law">Law</span>
+        <h3>Chemours Agrees to Pay $450 Million Over PFAS Contamination in Landmark Federal Settlement</h3>
+        <p>The first time the federal government has held a PFAS manufacturer comprehensively accountable.</p>
+        <span class="card-date">June 26, 2026 &nbsp;·&nbsp; 4 min read</span>
+      </div>
+    </a>
+    <a class="article-card-home" href="openai-ipo-delayed-2027.html">
+      <img class="card-img" src="space.png" alt="OpenAI IPO" />
+      <div class="card-body">
+        <span class="card-section-label finance">Finance</span>
+        <h3>OpenAI Delays IPO to 2027 as Market Conditions Fall Short of $1 Trillion Target</h3>
+        <p>After confidentially filing to go public, OpenAI reversed course pointing to a rough post-debut by SpaceX.</p>
+        <span class="card-date">June 26, 2026 &nbsp;·&nbsp; 4 min read</span>
+      </div>
+    </a>
+    <a class="article-card-home" href="glyphosate-antibiotic-resistance-study.html">
+      <img class="card-img" src="crop.png" alt="Weedkiller Study" />
+      <div class="card-body">
+        <span class="card-section-label healthcare">Healthcare</span>
+        <h3>Widely Used Weedkiller May Be Accelerating Antibiotic Resistance, Study Finds</h3>
+        <p>Researchers found a biochemical link between agricultural herbicide use and drug-resistant infections.</p>
+        <span class="card-date">June 26, 2026 &nbsp;·&nbsp; 4 min read</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<div class="divider">
+  <div class="divider-line"></div>
+  <span class="divider-anchor">⚓</span>
+  <div class="divider-line"></div>
+</div>
+
+<!-- ===================== PREVIOUS STORIES ===================== -->
+<section class="previous-stories">
+  <div class="section-label">Previous Stories</div>
+  <div class="prev-story-list" id="prevStoriesList">
+    <!-- Stories are randomized by JS on load -->
+    <a class="prev-story-item" href="supreme-court-asylum-metering-ruling.html" data-section="politics">
+      <img class="prev-story-thumb" src="asylum.png" alt="Asylum ruling" />
+      <div class="prev-story-info">
+        <span class="prev-story-label politics">Politics</span>
+        <div class="prev-story-headline">Supreme Court Rules 6-3 That Government May Block Asylum Seekers by Preventing Border Entry</div>
+        <div class="prev-story-date">June 26, 2026</div>
+      </div>
+    </a>
+    <a class="prev-story-item" href="chemours-pfas-settlement-450-million.html" data-section="law">
+      <img class="prev-story-thumb" src="450.png" alt="PFAS Settlement" />
+      <div class="prev-story-info">
+        <span class="prev-story-label law">Law</span>
+        <div class="prev-story-headline">Chemours Agrees to Pay $450 Million Over PFAS Contamination in Landmark Federal Settlement</div>
+        <div class="prev-story-date">June 26, 2026</div>
+      </div>
+    </a>
+    <a class="prev-story-item" href="openai-ipo-delayed-2027.html" data-section="finance">
+      <img class="prev-story-thumb" src="space.png" alt="OpenAI IPO" />
+      <div class="prev-story-info">
+        <span class="prev-story-label finance">Finance</span>
+        <div class="prev-story-headline">OpenAI Delays IPO to 2027 as Market Conditions Fall Short of $1 Trillion Target</div>
+        <div class="prev-story-date">June 26, 2026</div>
+      </div>
+    </a>
+    <a class="prev-story-item" href="glyphosate-antibiotic-resistance-study.html" data-section="healthcare">
+      <img class="prev-story-thumb" src="crop.png" alt="Weedkiller study" />
+      <div class="prev-story-info">
+        <span class="prev-story-label healthcare">Healthcare</span>
+        <div class="prev-story-headline">Widely Used Weedkiller May Be Accelerating Antibiotic Resistance, Study Finds</div>
+        <div class="prev-story-date">June 26, 2026</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<div class="divider">
+  <div class="divider-line"></div>
+  <span class="divider-anchor">⚓</span>
+  <div class="divider-line"></div>
+</div>
+
+<!-- ===================== NEWSLETTER ===================== -->
+<section class="newsletter" id="newsletter">
+  <h2>Stay in the current</h2>
+  <p>Sign up for The Nautisk newsletter — clear, concise, and worth your time.</p>
+  <div class="newsletter-form">
+    <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="3933c9e1-b702-4bed-a004-71e3fed21b16"></script>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer id="contact">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">THE <span>NAUTISK</span></div>
+      <p>Independent journalism. Anchored in truth.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Coverage</h4>
+      <a href="finance.html">Finance</a>
+      <a href="law.html">Law</a>
+      <a href="healthcare.html">Healthcare</a>
+      <a href="politics.html">Politics</a>
+      <a href="opinion.html">Opinion</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="about.html">About Us</a>
+      <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Newsletter</a>
+      <a href="tidepool.html">Tidepool</a>
+      <a href="depth.html">Depth</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>Manhattan, New York</p>
+      <a href="mailto:evan@thenautisk.com">evan@thenautisk.com</a>
+      <a href="https://instagram.com/thenautisk" target="_blank" rel="noopener noreferrer">@thenautisk</a>
+      <a href="tips.html">Submit a tip</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 The Nautisk. All rights reserved.</span>
+    <span class="footer-anchor">⚓</span>
+    <span>Manhattan, New York</span>
+  </div>
+  <div class="footer-legal">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Use</a>
+    <a href="editorial.html">Editorial Standards</a>
+    <a href="corrections.html">Corrections Policy</a>
+  </div>
+</footer>
+
+<script>
+// ===================== THEME TOGGLE =====================
+let isProfessional = false;
+function toggleMode() {
+  isProfessional = !isProfessional;
+  document.body.classList.toggle('professional', isProfessional);
+  const icon = document.querySelector('.toggle-icon');
+  const label = document.getElementById('modeLabel');
+  if (isProfessional) {
+    if (icon) icon.textContent = '🏢';
+    if (label) label.textContent = 'Professional';
+  } else {
+    if (icon) icon.textContent = '🌊';
+    if (label) label.textContent = 'Aquatic';
+  }
+  localStorage.setItem('nautisk-mode', isProfessional ? 'professional' : 'aquatic');
+}
+// Restore saved mode
+if (localStorage.getItem('nautisk-mode') === 'professional') toggleMode();
+
+// ===================== HAMBURGER =====================
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+mobileMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  });
+});
+function toggleDropdownMobile() {
+  const links = document.getElementById('mobileNewsLinks');
+  links.style.display = links.style.display === 'none' ? 'flex' : 'none';
+}
+
+// ===================== DROPDOWN (click to stay open) =====================
+const newsDropBtn = document.getElementById('newsDropBtn');
+const newsDropdown = document.getElementById('newsDropdown');
+newsDropBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  newsDropdown.classList.toggle('open');
+});
+document.addEventListener('click', (e) => {
+  if (!newsDropdown.contains(e.target)) newsDropdown.classList.remove('open');
+});
+
+// ===================== SLIDESHOW =====================
+let currentSlide = 0;
+const totalSlides = 4;
+let slideshowTimer = null;
+
+function goToSlide(n) {
+  document.getElementById('slide-' + currentSlide).classList.remove('active');
+  document.querySelectorAll('.slide-dot')[currentSlide].classList.remove('active');
+  currentSlide = (n + totalSlides) % totalSlides;
+  document.getElementById('slide-' + currentSlide).classList.add('active');
+  document.querySelectorAll('.slide-dot')[currentSlide].classList.add('active');
+  resetTimer();
+}
+function nextSlide() { goToSlide(currentSlide + 1); }
+function prevSlide() { goToSlide(currentSlide - 1); }
+function resetTimer() {
+  if (slideshowTimer) clearInterval(slideshowTimer);
+  slideshowTimer = setInterval(nextSlide, 5000);
+}
+resetTimer();
+
+// ===================== RANDOMIZE PREVIOUS STORIES =====================
+(function() {
+  const list = document.getElementById('prevStoriesList');
+  if (!list) return;
+  const items = Array.from(list.querySelectorAll('.prev-story-item'));
+  for (let i = items.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    list.appendChild(items[j]);
+    items.splice(j, 1);
+  }
+})();
+</script>
+</body>
+</html>

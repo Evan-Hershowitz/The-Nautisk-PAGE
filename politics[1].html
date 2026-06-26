@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Politics — The Nautisk</title>
+<meta name="description" content="Politics coverage from The Nautisk. Government, policy, and power — cutting through the noise to what actually matters." />
+<meta name="robots" content="index, follow" />
+<meta property="og:title" content="Politics — The Nautisk" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.thenautisk.com/politics.html" />
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg: #03213a; --text: #e8eef4; --text-muted: #7a9bb8;
+  --text-strong: #d6e8f5; --border: #1a4a6e; --nav-bg: #03213a;
+  --card-bg: #051525; --card-border: #1a4a6e;
+  --hero-bg: #03213a; --hero-text: #d6e8f5; --section-color: #bf7a7a;
+}
+body.professional {
+  --bg: #f8f9fa; --text: #1a1a2e; --text-muted: #555577;
+  --text-strong: #0a0a1a; --border: #dde3ec;
+  --card-bg: #ffffff; --card-border: #dde3ec;
+  --hero-bg: #fdf0f0; --hero-text: #0a1628; --section-color: #8a2a2a;
+}
+body { font-family: Georgia, serif; background: var(--bg); color: var(--text); transition: background 0.3s, color 0.3s; }
+nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2.5rem; border-bottom: 1px solid #1a4a6e; background: var(--nav-bg); position: sticky; top: 0; z-index: 200; }
+.nav-logo { font-size: 18px; font-weight: bold; letter-spacing: 0.14em; color: #c0cfe0; text-decoration: none; font-family: Arial, sans-serif; }
+.nav-logo span { color: #8ab4d4; }
+.nav-links { display: flex; gap: 1.5rem; align-items: center; }
+.nav-links a { font-size: 12px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; font-family: Arial, sans-serif; }
+.nav-links a:hover { color: #d6e8f5; }
+.nav-links a.active { color: #d6e8f5; border-bottom: 2px solid var(--section-color); padding-bottom: 2px; }
+.mode-toggle { display: flex; align-items: center; gap: 0.4rem; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; padding: 0.28rem 0.7rem; cursor: pointer; font-size: 11px; color: #8ab4d4; font-family: Arial, sans-serif; letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap; }
+.mode-toggle:hover { background: rgba(255,255,255,0.15); }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { display: block; width: 22px; height: 2px; background: #8ab4d4; border-radius: 2px; transition: all 0.3s; }
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+.mobile-nav { display: none; position: fixed; inset: 0; background: #03213a; z-index: 300; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; overflow-y: auto; padding: 2rem 1rem; }
+.mobile-nav.open { display: flex; }
+.mobile-nav a { font-size: 20px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; font-family: Arial, sans-serif; }
+.mobile-nav .mobile-toggle { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #8ab4d4; padding: 0.5rem 1.5rem; border-radius: 20px; font-size: 14px; font-family: Arial, sans-serif; cursor: pointer; letter-spacing: 0.06em; text-transform: uppercase; }
+.section-top-bar { height: 3px; background: var(--section-color); }
+.page-hero { padding: 4rem 2.5rem 3.5rem; border-bottom: 1px solid var(--border); position: relative; overflow: hidden; min-height: 300px; display: flex; flex-direction: column; justify-content: flex-end; background: var(--hero-bg); }
+.fish-bg { position: absolute; inset: 0; pointer-events: none; }
+.section-tag { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--section-color); font-family: Arial, sans-serif; margin-bottom: 0.75rem; position: relative; }
+.page-hero h1 { font-size: 44px; font-weight: normal; color: var(--hero-text); line-height: 1.15; margin-bottom: 0.75rem; position: relative; }
+.page-hero p { font-size: 15px; color: var(--text-muted); max-width: 560px; line-height: 1.9; font-family: Arial, sans-serif; position: relative; }
+.accent-bar { width: 40px; height: 3px; background: var(--section-color); margin-bottom: 1.25rem; position: relative; }
+.main-content { max-width: 1100px; margin: 0 auto; padding: 3rem 2.5rem; }
+.content-label { font-size: 11px; font-weight: bold; letter-spacing: 0.2em; text-transform: uppercase; color: var(--section-color); font-family: Arial, sans-serif; margin-bottom: 1.5rem; }
+.article-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+.article-card { background: var(--card-bg); border: 1px solid var(--card-border); border-left: 4px solid var(--section-color); text-decoration: none; display: flex; flex-direction: column; transition: box-shadow 0.2s, transform 0.2s; border-radius: 3px; overflow: hidden; }
+.article-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.15); transform: translateY(-2px); }
+.article-card .card-thumb { width: 100%; height: 180px; object-fit: cover; display: block; }
+.article-card .card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+.card-meta { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--section-color); font-family: Arial, sans-serif; margin-bottom: 0.65rem; }
+.article-card h3 { font-size: 19px; color: var(--text-strong); line-height: 1.4; margin-bottom: 0.65rem; font-weight: normal; flex: 1; }
+.article-card p { font-size: 13px; color: var(--text-muted); line-height: 1.7; font-family: Arial, sans-serif; margin-bottom: 1rem; }
+.read-more { font-size: 11px; color: var(--section-color); font-family: Arial, sans-serif; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; margin-top: auto; }
+.read-more:hover { text-decoration: underline; }
+.divider { display: flex; align-items: center; gap: 1rem; padding: 0 2.5rem; background: var(--bg); }
+.divider-line { flex: 1; height: 1px; background: var(--border); }
+.divider-icon { color: var(--section-color); font-size: 18px; padding: 0.75rem 0; }
+footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2rem 2.5rem 1.5rem; font-family: Arial, sans-serif; }
+.footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #1a4a6e; }
+.footer-brand { font-size: 15px; font-weight: bold; letter-spacing: 0.12em; color: #c0cfe0; }
+.footer-brand span { color: #8ab4d4; }
+.footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.footer-links a { font-size: 11px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; }
+.footer-links a:hover { color: #d6e8f5; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+.footer-bottom span { font-size: 11px; color: #4a7fa8; }
+@media (max-width: 768px) {
+  .nav-links { display: none; } .hamburger { display: flex; }
+  nav { justify-content: space-between; padding: 0.9rem 1.25rem; }
+  .page-hero { padding: 2.5rem 1.25rem 2rem; min-height: auto; }
+  .page-hero h1 { font-size: 30px; }
+  .main-content { padding: 2rem 1.25rem; }
+  .article-grid { grid-template-columns: 1fr; }
+  footer { padding: 1.5rem 1.25rem; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+  .divider { padding: 0 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-toggle" onclick="toggleMode()">🌊 Switch Mode</button>
+  <a href="index.html">Home</a>
+  <a href="finance.html">Finance</a>
+  <a href="law.html">Law</a>
+  <a href="healthcare.html">Healthcare</a>
+  <a href="politics.html">Politics</a>
+  <a href="tidepool.html">Tidepool</a>
+  <a href="depth.html">Depth</a>
+  <a href="about.html">Our Story</a>
+  <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Newsletter</a>
+  <a href="tips.html">Tips</a>
+</div>
+
+<div class="section-top-bar"></div>
+<nav>
+  <a href="index.html" class="nav-logo">THE <span>NAUTISK</span></a>
+  <div class="nav-links">
+    <a href="finance.html">Finance</a>
+    <a href="law.html">Law</a>
+    <a href="healthcare.html">Healthcare</a>
+    <a href="politics.html" class="active">Politics</a>
+    <a href="tidepool.html">Tidepool</a>
+    <a href="depth.html">Depth</a>
+    <a href="about.html">Our Story</a>
+    <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Newsletter</a>
+    <a href="tips.html">Tips</a>
+    <button class="mode-toggle" onclick="toggleMode()"><span id="modeIcon">🌊</span> <span id="modeLabel">Aquatic</span></button>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="page-hero">
+  <svg class="fish-bg" viewBox="0 0 1440 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    <path fill="none" stroke="#bf7a7a" stroke-width="1.5" opacity="0.12" d="M400,160 C500,145 650,140 800,148 C920,155 1020,165 1100,170 C1150,174 1180,175 1190,172 C1170,165 1120,158 1040,152 C940,145 800,138 680,142 C580,146 480,155 400,160 Z"/>
+    <path fill="none" stroke="#2a5f8a" stroke-width="0.8" opacity="0.2" d="M0,240 C120,228 240,252 360,240 C480,228 600,252 720,240 C840,228 960,252 1080,240 C1200,228 1320,252 1440,240"/>
+  </svg>
+  <div class="accent-bar"></div>
+  <div class="section-tag">Politics</div>
+  <h1>Government, power,<br>and what it means for you.</h1>
+  <p>Policy, elections, and the decisions made in Washington — reported clearly and without spin.</p>
+</div>
+
+<div class="main-content">
+  <div class="content-label">Latest Stories</div>
+  <div class="article-grid">
+    <!-- ADD NEW ARTICLE CARDS ABOVE THIS LINE -->
+    <a class="article-card" href="supreme-court-asylum-metering-ruling.html">
+      <img class="card-thumb" src="asylum.png" alt="Supreme Court Asylum Ruling" />
+      <div class="card-body">
+        <div class="card-meta">Politics &nbsp;·&nbsp; June 26, 2026 &nbsp;·&nbsp; 4 min read</div>
+        <h3>Supreme Court Rules 6-3 That Government May Block Asylum Seekers by Preventing Border Entry</h3>
+        <p>The decision allows federal officials to keep people waiting indefinitely in Mexico, preventing them from filing asylum claims without triggering the legal protections that apply inside the U.S.</p>
+        <span class="read-more">Read More →</span>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div class="divider"><div class="divider-line"></div><span class="divider-icon">⚓</span><div class="divider-line"></div></div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">THE <span>NAUTISK</span></div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="finance.html">Finance</a>
+      <a href="law.html">Law</a>
+      <a href="healthcare.html">Healthcare</a>
+      <a href="about.html">Our Story</a>
+      <a href="tips.html">Tips</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 The Nautisk. All rights reserved.</span>
+    <span>Manhattan, New York</span>
+  </div>
+</footer>
+
+<script>
+let isProfessional = false;
+function toggleMode() {
+  isProfessional = !isProfessional;
+  document.body.classList.toggle('professional', isProfessional);
+  document.getElementById('modeIcon').textContent = isProfessional ? '🏢' : '🌊';
+  document.getElementById('modeLabel').textContent = isProfessional ? 'Professional' : 'Aquatic';
+  localStorage.setItem('nautisk-mode', isProfessional ? 'professional' : 'aquatic');
+}
+if (localStorage.getItem('nautisk-mode') === 'professional') toggleMode();
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileNav.classList.toggle('open'); });
+mobileNav.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => { hamburger.classList.remove('open'); mobileNav.classList.remove('open'); }); });
+</script>
+</body>
+</html>
