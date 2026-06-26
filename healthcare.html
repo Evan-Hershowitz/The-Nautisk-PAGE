@@ -12,7 +12,6 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: Georgia, serif; background: #03213a; color: #e8eef4; }
-
     nav { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 2.5rem; border-bottom: 1px solid #1a4a6e; background: #03213a; position: relative; z-index: 200; }
     .nav-logo { font-size: 18px; font-weight: bold; letter-spacing: 0.14em; color: #c0cfe0; text-decoration: none; font-family: Arial, sans-serif; }
     .nav-logo span { color: #8ab4d4; }
@@ -20,7 +19,6 @@
     .nav-links a { font-size: 12px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; font-family: Arial, sans-serif; }
     .nav-links a:hover { color: #d6e8f5; }
     .nav-links .active { color: #d6e8f5; border-bottom: 1px solid #4caf7d; padding-bottom: 2px; }
-
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
     .hamburger span { display: block; width: 22px; height: 2px; background: #8ab4d4; border-radius: 2px; transition: all 0.3s; }
     .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
@@ -29,31 +27,28 @@
     .mobile-nav { display: none; position: fixed; inset: 0; background: #03213a; z-index: 300; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; }
     .mobile-nav.open { display: flex; }
     .mobile-nav a { font-size: 20px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; font-family: Arial, sans-serif; }
-
     .page-hero { padding: 5rem 2.5rem 4rem; border-bottom: 1px solid #1a4a6e; position: relative; overflow: hidden; min-height: 340px; display: flex; flex-direction: column; justify-content: flex-end; }
     .fish-bg { position: absolute; inset: 0; pointer-events: none; }
     .section-tag { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #4caf7d; font-family: Arial, sans-serif; margin-bottom: 1rem; position: relative; }
     .page-hero h1 { font-size: 52px; font-weight: normal; color: #d6e8f5; line-height: 1.15; margin-bottom: 1rem; position: relative; }
     .page-hero p { font-size: 16px; color: #7a9bb8; max-width: 560px; line-height: 1.9; font-family: Arial, sans-serif; position: relative; }
     .accent-bar { width: 40px; height: 3px; background: #4caf7d; margin-bottom: 1.5rem; position: relative; }
-
     .section-nav { border-bottom: 1px solid #1a4a6e; padding: 0 2.5rem; display: flex; gap: 2.5rem; overflow-x: auto; }
     .section-nav a { font-size: 12px; color: #7a9bb8; text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; font-family: Arial, sans-serif; padding: 1rem 0; border-bottom: 2px solid transparent; white-space: nowrap; }
     .section-nav a:hover { color: #d6e8f5; }
     .section-nav a.active { color: #d6e8f5; border-bottom-color: #4caf7d; }
-
     .main-content { max-width: 1100px; margin: 0 auto; padding: 4rem 2.5rem; }
-    .coming-soon-area { text-align: center; padding: 5rem 2rem; border: 1px solid #1a4a6e; border-radius: 2px; }
-    .coming-soon-fish { font-size: 48px; margin-bottom: 1.5rem; opacity: 0.6; }
-    .coming-soon-area h2 { font-size: 24px; font-weight: normal; color: #d6e8f5; margin-bottom: 1rem; }
-    .coming-soon-area p { font-size: 15px; color: #7a9bb8; font-family: Arial, sans-serif; line-height: 1.8; max-width: 480px; margin: 0 auto 2rem; }
-    .coming-soon-area a { display: inline-block; padding: 0.65rem 2rem; border: 1px solid #4a7fa8; color: #8ab4d4; font-size: 12px; font-family: Arial, sans-serif; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; }
-    .coming-soon-area a:hover { background: #0a3352; color: #d6e8f5; }
-
+    .article-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
+    .article-card { border: 1px solid #1a4a6e; padding: 2rem; background: #051525; transition: border-color 0.2s; }
+    .article-card:hover { border-color: #4a7fa8; }
+    .article-card .card-meta { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #4a7fa8; font-family: Arial, sans-serif; margin-bottom: 0.75rem; }
+    .article-card h3 { font-size: 20px; color: #d6e8f5; line-height: 1.4; margin-bottom: 0.75rem; font-weight: normal; }
+    .article-card p { font-size: 13px; color: #7a9bb8; line-height: 1.7; font-family: Arial, sans-serif; margin-bottom: 1.25rem; }
+    .article-card a.read-more { font-size: 11px; color: #4a7fa8; font-family: Arial, sans-serif; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; }
+    .article-card a.read-more:hover { color: #d6e8f5; }
     .divider { display: flex; align-items: center; gap: 1rem; padding: 0 2.5rem; background: #03213a; }
     .divider-line { flex: 1; height: 1px; background: #1a4a6e; }
     .divider-icon { color: #4a7fa8; font-size: 18px; padding: 0.75rem 0; }
-
     footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2rem 2.5rem 1.5rem; font-family: Arial, sans-serif; }
     .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #1a4a6e; }
     .footer-brand { font-size: 15px; font-weight: bold; letter-spacing: 0.12em; color: #c0cfe0; }
@@ -63,7 +58,6 @@
     .footer-links a:hover { color: #d6e8f5; }
     .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
     .footer-bottom span { font-size: 11px; color: #4a7fa8; }
-
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .hamburger { display: flex; }
@@ -79,7 +73,6 @@
   </style>
 </head>
 <body>
-
 <div class="mobile-nav" id="mobileNav">
   <a href="index.html">Home</a>
   <a href="finance.html">Finance</a>
@@ -92,7 +85,6 @@
   <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Newsletter</a>
   <a href="tips.html">Tips</a>
 </div>
-
 <nav>
   <a href="index.html" class="nav-logo">THE <span>NAUTISK</span></a>
   <div class="nav-links">
@@ -110,59 +102,33 @@
     <span></span><span></span><span></span>
   </button>
 </nav>
-
 <div class="page-hero">
   <svg class="fish-bg" viewBox="0 0 1440 340" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-    <!-- Seahorse — delicate, elegant, right side -->
-    <!-- Main body curve -->
     <path fill="none" stroke="#4caf7d" stroke-width="1.4" opacity="0.13"
       d="M980,80 C1000,95 1015,115 1018,138 C1020,158 1012,178 1000,195 C988,212 972,225 960,240 C948,255 940,268 942,280 C944,292 955,298 965,295" />
-    <!-- Head -->
     <path fill="none" stroke="#4caf7d" stroke-width="1.2" opacity="0.12"
       d="M980,80 C990,72 1005,68 1018,72 C1030,76 1038,86 1035,96 C1030,106 1018,110 1005,108 C992,106 982,96 980,80 Z" />
-    <!-- Snout -->
     <path fill="none" stroke="#4caf7d" stroke-width="1" opacity="0.11"
       d="M1018,72 C1035,65 1058,60 1078,62 C1065,64 1048,68 1035,74" />
-    <!-- Dorsal fin -->
     <path fill="none" stroke="#4caf7d" stroke-width="0.8" opacity="0.1"
       d="M998,115 C1010,105 1025,100 1038,105 C1025,108 1012,112 998,115 Z" />
-    <!-- Body plates / segments -->
     <line x1="1005" y1="130" x2="1018" y2="128" stroke="#4caf7d" stroke-width="0.7" opacity="0.09" />
     <line x1="1003" y1="145" x2="1016" y2="143" stroke="#4caf7d" stroke-width="0.7" opacity="0.09" />
     <line x1="1000" y1="160" x2="1013" y2="158" stroke="#4caf7d" stroke-width="0.7" opacity="0.09" />
     <line x1="997" y1="175" x2="1009" y2="173" stroke="#4caf7d" stroke-width="0.7" opacity="0.09" />
-    <line x1="993" y1="190" x2="1004" y2="188" stroke="#4caf7d" stroke-width="0.7" opacity="0.09" />
-    <line x1="968" y1="220" x2="978" y2="218" stroke="#4caf7d" stroke-width="0.7" opacity="0.09" />
-    <line x1="960" y1="235" x2="970" y2="233" stroke="#4caf7d" stroke-width="0.7" opacity="0.09" />
-    <line x1="953" y1="250" x2="963" y2="248" stroke="#4caf7d" stroke-width="0.7" opacity="0.09" />
-    <!-- Eye -->
     <circle cx="1010" cy="82" r="5" fill="none" stroke="#4caf7d" stroke-width="1" opacity="0.13" />
-    <!-- Pectoral fin -->
-    <path fill="none" stroke="#4caf7d" stroke-width="0.8" opacity="0.1"
-      d="M1010,120 C1025,112 1040,110 1048,118 C1038,118 1025,118 1010,120 Z" />
-    <!-- Tail curl -->
     <path fill="none" stroke="#4caf7d" stroke-width="1.2" opacity="0.11"
       d="M965,295 C975,300 988,298 994,288 C1000,278 996,265 985,260 C974,255 962,260 958,270" />
-    <!-- Seaweed nearby -->
-    <path fill="none" stroke="#4caf7d" stroke-width="0.8" opacity="0.08"
-      d="M1100,300 C1095,275 1108,255 1098,230 C1088,205 1102,182 1095,160" />
-    <path fill="none" stroke="#4caf7d" stroke-width="0.7" opacity="0.07"
-      d="M1120,300 C1128,272 1112,252 1125,228 C1138,204 1122,182 1132,158" />
-    <!-- Bubbles -->
     <circle cx="1050" cy="90" r="3" fill="none" stroke="#4caf7d" stroke-width="0.6" opacity="0.1" />
     <circle cx="1056" cy="78" r="2" fill="none" stroke="#4caf7d" stroke-width="0.6" opacity="0.08" />
-    <circle cx="1060" cy="68" r="1.5" fill="none" stroke="#4caf7d" stroke-width="0.5" opacity="0.07" />
-    <!-- Water surface -->
     <path fill="none" stroke="#2a5f8a" stroke-width="0.8" opacity="0.2"
       d="M0,260 C120,248 240,272 360,260 C480,248 600,272 720,260 C840,248 960,272 1080,260 C1200,248 1320,272 1440,260" />
   </svg>
-
   <div class="accent-bar"></div>
   <div class="section-tag">Healthcare</div>
   <h1>Medicine, policy, and<br>your right to understand both.</h1>
   <p>Healthcare news, public health policy, and medical developments — reported with the clarity and care this subject demands.</p>
 </div>
-
 <div class="section-nav">
   <a href="healthcare.html" class="active">All</a>
   <a href="#">Public Health</a>
@@ -170,22 +136,25 @@
   <a href="#">Mental Health</a>
   <a href="#">Pharmaceuticals</a>
 </div>
-
 <div class="main-content">
-  <div class="coming-soon-area">
-    <div class="coming-soon-fish">🌊</div>
-    <h2>Healthcare coverage coming soon.</h2>
-    <p>Our first healthcare and public health stories are being reported and written right now. Subscribe to The Nautisk newsletter to be notified the moment they publish.</p>
-    <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Subscribe for updates</a>
+  <div class="article-grid">
+
+    <!-- ADD NEW ARTICLE CARDS ABOVE THIS LINE -->
+
+    <div class="article-card">
+      <div class="card-meta">Healthcare &nbsp;·&nbsp; June 26, 2026 &nbsp;·&nbsp; 4 min read</div>
+      <h3>Widely Used Weedkiller May Be Accelerating Antibiotic Resistance, Study Finds</h3>
+      <p>Researchers found that hospital bacteria resistant to last-resort antibiotics were also resistant to glyphosate, suggesting a biochemical link between agricultural herbicide use and drug-resistant infections.</p>
+      <a class="read-more" href="glyphosate-antibiotic-resistance-study.html">Read More →</a>
+    </div>
+
   </div>
 </div>
-
 <div class="divider">
   <div class="divider-line"></div>
   <span class="divider-icon">⚓</span>
   <div class="divider-line"></div>
 </div>
-
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">THE <span>NAUTISK</span></div>
@@ -205,7 +174,6 @@
     <span>Manhattan, New York</span>
   </div>
 </footer>
-
 <script>
   const hamburger = document.getElementById('hamburger');
   const mobileNav = document.getElementById('mobileNav');
@@ -220,6 +188,5 @@
     });
   });
 </script>
-
 </body>
 </html>
