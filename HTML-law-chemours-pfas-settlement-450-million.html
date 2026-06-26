@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chemours Agrees to Pay $450 Million Over PFAS Contamination in Landmark Federal Settlement — The Nautisk</title>
+  <meta name="description" content="The deal — covering facilities in three states — marks the first time the federal government has held a PFAS manufacturer comprehensively accountable for contamination from its production sites." />
+  <meta property="og:title" content="Chemours Agrees to Pay $450 Million Over PFAS Contamination in Landmark Federal Settlement" />
+  <meta property="og:description" content="The deal — covering facilities in three states — marks the first time the federal government has held a PFAS manufacturer comprehensively accountable for contamination from its production sites." />
+  <meta property="og:url" content="https://www.thenautisk.com/chemours-pfas-settlement-450-million.html" />
+  <meta property="og:type" content="article" />
+  <link rel="icon" href="favicon.ico" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: #f0f4f8;
+      color: #1a1a2e;
+    }
+
+    /* Progress bar */
+    #progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      width: 0%;
+      background: #0a3d6b;
+      z-index: 9999;
+      transition: width 0.1s ease;
+    }
+
+    /* Nav */
+    nav {
+      background: #0a3d6b;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      color: #fff;
+      font-family: 'Georgia', serif;
+      font-size: 1.3rem;
+      font-weight: bold;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .nav-links a:hover { color: #fff; }
+
+    /* Article layout */
+    .article-wrapper {
+      max-width: 740px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Section tag */
+    .section-tag {
+      display: inline-block;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.75rem;
+      font-weight: bold;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.75rem;
+      border-radius: 3px;
+      margin-bottom: 1.25rem;
+      text-decoration: none;
+    }
+
+    .section-tag.finance   { background: #e8f4fd; color: #1565c0; }
+    .section-tag.law       { background: #fce8e8; color: #b71c1c; }
+    .section-tag.healthcare{ background: #e8f5e9; color: #1b5e20; }
+    .section-tag.politics  { background: #f3e5f5; color: #4a148c; }
+    .section-tag.opinion   { background: #fff8e1; color: #e65100; }
+
+    /* Headline */
+    h1.article-headline {
+      font-family: 'Georgia', serif;
+      font-size: 2.1rem;
+      line-height: 1.25;
+      color: #0a1628;
+      margin-bottom: 1rem;
+    }
+
+    .article-subheadline {
+      font-family: 'Georgia', serif;
+      font-size: 1.15rem;
+      color: #4a5568;
+      line-height: 1.55;
+      margin-bottom: 1.5rem;
+      border-left: 3px solid #0a3d6b;
+      padding-left: 1rem;
+    }
+
+    /* Byline */
+    .byline {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .byline-avatar {
+      width: 38px;
+      height: 38px;
+      background: #0a3d6b;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.85rem;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .byline-text {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.85rem;
+      color: #4a5568;
+    }
+
+    .byline-name {
+      font-weight: bold;
+      color: #1a1a2e;
+    }
+
+    /* Article card */
+    .article-card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 2.5rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    }
+
+    .article-body p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 1.4rem;
+      color: #2d3748;
+    }
+
+    .article-body p:last-child { margin-bottom: 0; }
+
+    .section-label {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.7rem;
+      font-weight: bold;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #0a3d6b;
+      margin: 2rem 0 0.6rem;
+    }
+
+    /* Bottom line */
+    .bottom-line {
+      background: #f7fafc;
+      border-left: 4px solid #0a3d6b;
+      padding: 1.25rem 1.5rem;
+      margin-top: 2rem;
+      border-radius: 0 6px 6px 0;
+      font-family: 'Georgia', serif;
+      font-size: 1rem;
+      color: #1a1a2e;
+      line-height: 1.6;
+    }
+
+    .bottom-line strong {
+      display: block;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #0a3d6b;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Sources */
+    .sources {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .sources h3 {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #718096;
+      margin-bottom: 0.75rem;
+    }
+
+    .sources ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sources li {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+      color: #4a5568;
+      margin-bottom: 0.4rem;
+    }
+
+    .sources a {
+      color: #0a3d6b;
+      text-decoration: none;
+    }
+
+    .sources a:hover { text-decoration: underline; }
+
+    /* Newsletter strip */
+    .newsletter-strip {
+      background: #0a3d6b;
+      color: #fff;
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .newsletter-strip h2 {
+      font-family: 'Georgia', serif;
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .newsletter-strip p {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 1.25rem;
+    }
+
+    .newsletter-strip a {
+      background: #fff;
+      color: #0a3d6b;
+      padding: 0.65rem 1.75rem;
+      border-radius: 4px;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.875rem;
+      font-weight: bold;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+
+    .newsletter-strip a:hover { background: #e2e8f0; }
+
+    /* Footer */
+    footer {
+      background: #0a1628;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 1.5rem;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.8rem;
+    }
+
+    footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+    footer a:hover { color: #fff; }
+
+    @media (max-width: 600px) {
+      h1.article-headline { font-size: 1.6rem; }
+      .article-card { padding: 1.5rem; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<nav>
+  <a class="nav-logo" href="index.html">The Nautisk</a>
+  <ul class="nav-links">
+    <li><a href="finance.html">Finance</a></li>
+    <li><a href="law.html">Law</a></li>
+    <li><a href="healthcare.html">Healthcare</a></li>
+    <li><a href="politics.html">Politics</a></li>
+    <li><a href="opinion.html">Opinion</a></li>
+    <li><a href="tidepool.html">Tidepool</a></li>
+    <li><a href="depth.html">Depth</a></li>
+  </ul>
+</nav>
+
+<div class="article-wrapper">
+
+  <a class="section-tag law" href="law.html">Law</a>
+
+  <h1 class="article-headline">Chemours Agrees to Pay $450 Million Over PFAS Contamination in Landmark Federal Settlement</h1>
+
+  <p class="article-subheadline">The deal — covering facilities in three states — marks the first time the federal government has held a PFAS manufacturer comprehensively accountable for contamination from its production sites.</p>
+
+  <div class="byline">
+    <div class="byline-avatar">TN</div>
+    <div class="byline-text">
+      <span class="byline-name">The Nautisk</span><br>
+      June 26, 2026 &nbsp;·&nbsp; 4 min read
+    </div>
+  </div>
+
+  <div class="article-card">
+    <div class="article-body">
+
+      <p>Chemical manufacturer Chemours agreed on Wednesday to pay more than $450 million to settle federal and state claims over its release of per- and polyfluoroalkyl substances — a class of synthetic chemicals known as PFAS — at facilities across New Jersey, North Carolina, and West Virginia. The Department of Justice and the Environmental Protection Agency announced the deal as the first comprehensive federal enforcement action to hold a PFAS manufacturer directly accountable for contamination from its own production operations.</p>
+
+      <p class="section-label">Background</p>
+      <p>PFAS compounds have been manufactured since the 1940s and appear in a wide range of consumer and industrial products: non-stick cookware coatings, firefighting foam, food packaging, and stain-resistant fabrics. They are called "forever chemicals" because they do not break down naturally in the environment or in the human body. Epidemiological studies — research that tracks health outcomes across large populations — have linked long-term PFAS exposure to increased risks of certain cancers, thyroid disease, immune dysfunction, and developmental problems in children.</p>
+      <p>Chemours was spun off from DuPont in 2015 and inherited a significant share of that company's PFAS-related liability. It has faced lawsuits from states, municipalities, and private landowners over contamination from its operations, and has previously reached state-level settlements.</p>
+
+      <p class="section-label">What Happened</p>
+      <p>The settlement covers four facilities: Chambers Works and Parlin in New Jersey, Fayetteville Works in North Carolina, and Washington Works in West Virginia — all long-standing subjects of environmental litigation and community health concern. The deal has three parts. Chemours will pay a civil penalty of $22.5 million for violating environmental laws. It will spend $90 million over fifteen years on measures to reduce ongoing PFAS discharges across all three states. The largest portion — an estimated $280 million — will fund clean drinking water systems for communities near the contaminated facilities in West Virginia and New Jersey, a direct acknowledgment that the company's operations have reached residential water supplies.</p>
+      <p>The settlement does not require Chemours to stop manufacturing PFAS entirely. The company may continue producing the chemicals for applications including semiconductor fabrication and certain defense technologies, subject to enhanced controls to prevent future releases. Environmental advocates praised the settlement's scope but called it a starting point rather than a conclusion. The broader PFAS contamination landscape involves scores of manufacturers, military bases, and industrial sites — most left untouched by this agreement.</p>
+
+      <p class="section-label">What This Means</p>
+      <p>For residents near the four named facilities, the most immediate consequence is concrete: a funded supply of clean drinking water, which some communities have sought for years. More broadly, the settlement signals that federal regulators are prepared to pursue large, multi-state enforcement actions against PFAS manufacturers — not just leaving that work to state attorneys general acting alone.</p>
+      <p>That matters because PFAS contamination is a national problem. The chemicals have been found in drinking water supplies across the country, and the scale of remediation required dwarfs any single settlement. The Chemours deal establishes a legal and financial precedent, but advocates are explicit: far more enforcement will be needed before the full scope of "forever chemical" harm is addressed.</p>
+
+      <div class="bottom-line">
+        <strong>The Bottom Line</strong>
+        The $450 million settlement is the largest federal PFAS enforcement action to date, but with contamination spanning hundreds of sites nationwide, advocates and regulators alike say it is the beginning of a long reckoning — not the end of one.
+      </div>
+
+    </div>
+
+    <div class="sources">
+      <h3>Sources</h3>
+      <ul>
+        <li>Department of Justice and EPA joint announcement, June 25, 2026. [Full settlement terms available at <a href="https://justice.gov" target="_blank">justice.gov</a> — URL to be confirmed by editorial team.]</li>
+        <li>Chemours facility and liability background from multiple major outlets, confirmed June 26, 2026.</li>
+      </ul>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="newsletter-strip">
+  <h2>Stay in the current.</h2>
+  <p>Independent coverage of finance, law, healthcare, and politics — delivered to your inbox.</p>
+  <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank">Subscribe Free</a>
+</div>
+
+<footer>
+  &copy; 2026 The Nautisk &nbsp;|&nbsp;
+  <a href="index.html">Home</a> &nbsp;|&nbsp;
+  <a href="tips.html">Tips</a> &nbsp;|&nbsp;
+  <a href="opinion.html">Opinion</a>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const doc = document.documentElement;
+    const scrolled = doc.scrollTop || document.body.scrollTop;
+    const total = doc.scrollHeight - doc.clientHeight;
+    const pct = total > 0 ? (scrolled / total) * 100 : 0;
+    document.getElementById('progress-bar').style.width = pct + '%';
+  });
+</script>
+
+</body>
+</html>
