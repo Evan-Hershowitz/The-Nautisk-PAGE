@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Nautisk</title>
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; script-src 'self' https://subscribe-forms.beehiiv.com; frame-src https://subscribe-forms.beehiiv.com;" />
+  <meta name="description" content="The Nautisk — independent journalism covering finance, law, healthcare, and politics. Anchored in truth." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="The Nautisk" />
+  <meta property="og:title" content="The Nautisk" />
+  <meta property="og:description" content="Independent journalism covering finance, law, healthcare, and politics. Anchored in truth." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.thenautisk.com" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Georgia, serif; background: #03213a; color: #e8eef4; }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 2.5rem; border-bottom: 1px solid #1a4a6e; background: #03213a; position: relative; z-index: 200; }
+    .nav-left { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-right { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-center { display: flex; align-items: center; gap: 1rem; position: absolute; left: 50%; transform: translateX(-50%); }
+    .logo-img { height: 60px; width: 60px; object-fit: contain; }
+    .logo-text { font-size: 26px; font-weight: bold; letter-spacing: 0.14em; color: #c0cfe0; }
+    .logo-text span { color: #8ab4d4; }
+    .nav-btn { font-size: 13px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; font-family: Arial, sans-serif; background: none; border: none; cursor: pointer; padding: 0; }
+    .nav-btn:hover { color: #d6e8f5; }
+    .nav-btn-tidepool { font-size: 13px; color: #03213a; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; font-family: Arial, sans-serif; background: #7dd4c0; border: none; cursor: pointer; padding: 0.4rem 0.9rem; border-radius: 20px; font-weight: bold; }
+    .nav-btn-tidepool:hover { background: #5bbfaa; }
+    .nav-btn-depth { font-size: 13px; color: #c0cfe0; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; font-family: Arial, sans-serif; background: transparent; border: 1px solid #4a7fa8; cursor: pointer; padding: 0.4rem 0.9rem; border-radius: 20px; font-weight: bold; }
+    .nav-btn-depth:hover { background: #1a4a6e; color: #d6e8f5; }
+    .nav-btn-tips { font-size: 13px; color: #e8d5a3; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; font-family: Arial, sans-serif; background: transparent; border: 1px solid #a08040; cursor: pointer; padding: 0.4rem 0.9rem; border-radius: 20px; font-weight: bold; }
+    .nav-btn-tips:hover { background: #2a1a00; color: #f0e0b0; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; z-index: 300; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #8ab4d4; border-radius: 2px; transition: all 0.3s; }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+    .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #03213a; z-index: 250; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a, .mobile-menu button { font-size: 20px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; font-family: Arial, sans-serif; background: none; border: none; cursor: pointer; }
+    .mobile-menu a:hover { color: #d6e8f5; }
+    .mobile-menu .mobile-tidepool { background: #7dd4c0; color: #03213a; padding: 0.5rem 1.5rem; border-radius: 20px; font-weight: bold; }
+    .mobile-menu .mobile-depth { border: 1px solid #4a7fa8; color: #c0cfe0; padding: 0.5rem 1.5rem; border-radius: 20px; font-weight: bold; }
+    .mobile-menu .mobile-tips { border: 1px solid #a08040; color: #e8d5a3; padding: 0.5rem 1.5rem; border-radius: 20px; font-weight: bold; }
+    .mobile-divider { width: 40px; height: 1px; background: #1a4a6e; }
+    .dropdown { position: relative; }
+    .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: #03213a; border: 1px solid #1a4a6e; min-width: 140px; z-index: 100; margin-top: 0.5rem; }
+    .dropdown-menu a { display: block; padding: 0.6rem 1rem; font-size: 13px; color: #8ab4d4; text-decoration: none; font-family: Arial, sans-serif; letter-spacing: 0.06em; text-transform: uppercase; border-bottom: 1px solid #1a4a6e; }
+    .dropdown-menu a:last-child { border-bottom: none; }
+    .dropdown-menu a:hover { background: #0a3352; color: #d6e8f5; }
+    .dropdown:hover .dropdown-menu { display: block; }
+    .hero { padding: 5rem 2.5rem 4rem; text-align: center; background: #03213a; position: relative; overflow: hidden; min-height: 520px; }
+    .hero-scene { position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; }
+    .hero-rule { width: 60px; height: 2px; background: #4a7fa8; margin: 0 auto 2rem; position: relative; }
+    .hero h1 { font-size: 52px; font-weight: bold; color: #d6e8f5; line-height: 1.2; margin-bottom: 1.25rem; letter-spacing: 0.02em; position: relative; }
+    .hero p { font-size: 16px; color: #7a9bb8; max-width: 500px; margin: 0 auto; line-height: 1.8; font-family: Arial, sans-serif; position: relative; }
+    .white-section { background: #ffffff; color: #111111; position: relative; overflow: hidden; border: 2px solid #111111; margin: 1.5rem 2.5rem; border-radius: 2px; }
+    .white-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='none' stroke='%23b8d4e8' stroke-width='1' d='M0,160 C180,100 360,220 540,160 C720,100 900,220 1080,160 C1260,100 1350,180 1440,160'/%3E%3Cpath fill='none' stroke='%23b8d4e8' stroke-width='1' d='M0,200 C180,140 360,260 540,200 C720,140 900,260 1080,200 C1260,140 1350,220 1440,200'/%3E%3Cpath fill='none' stroke='%23b8d4e8' stroke-width='0.5' d='M0,240 C180,180 360,300 540,240 C720,180 900,300 1080,240 C1260,180 1350,260 1440,240'/%3E%3C/svg%3E"); background-repeat: repeat-y; background-size: 100% auto; opacity: 0.4; pointer-events: none; }
+    .divider { display: flex; align-items: center; gap: 1rem; padding: 0 2.5rem; background: #03213a; }
+    .divider-line { flex: 1; height: 1px; background: #1a4a6e; }
+    .divider-anchor { color: #4a7fa8; font-size: 22px; padding: 0.75rem 0; }
+    .about { padding: 4rem 2.5rem; }
+    .about-inner { max-width: 780px; margin: 0 auto; text-align: center; position: relative; }
+    .section-label { font-size: 13px; font-weight: bold; letter-spacing: 0.2em; text-transform: uppercase; color: #03213a; font-family: Arial, sans-serif; margin-bottom: 1.5rem; }
+    .about p { font-size: 16px; color: #333333; line-height: 1.9; font-family: Arial, sans-serif; }
+    .about p strong { color: #03213a; }
+    .coverage { padding: 3rem 2.5rem; }
+    .coverage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+    .coverage-card { border: 1px solid #111111; padding: 2rem 1.5rem; text-align: center; background: #f7fafc; text-decoration: none; display: block; transition: border-color 0.2s; }
+    .coverage-card:hover { border-color: #4a7fa8; }
+    .coverage-card .icon { font-size: 28px; margin-bottom: 1rem; }
+    .coverage-card h3 { font-size: 15px; font-weight: bold; color: #03213a; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.75rem; }
+    .coverage-card p { font-size: 13px; color: #555555; line-height: 1.7; font-family: Arial, sans-serif; }
+    /* Latest Stories */
+    .latest-stories { padding: 3rem 2.5rem; position: relative; }
+    .latest-stories .section-label { margin-bottom: 1.5rem; }
+    .article-grid-home { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem; }
+    .article-card-home { border: 1px solid #c8d8e8; padding: 1.6rem; background: #f7fafc; text-decoration: none; display: flex; flex-direction: column; transition: border-color 0.2s, box-shadow 0.2s; }
+    .article-card-home:hover { border-color: #4a7fa8; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+    .card-section-label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; font-family: Arial, sans-serif; font-weight: bold; margin-bottom: 0.6rem; display: block; }
+    .card-section-label.finance { color: #1565c0; }
+    .card-section-label.law { color: #b71c1c; }
+    .card-section-label.healthcare { color: #1b5e20; }
+    .card-section-label.politics { color: #4a148c; }
+    .card-section-label.opinion { color: #e65100; }
+    .article-card-home h3 { font-size: 16px; color: #03213a; line-height: 1.4; margin-bottom: 0.6rem; font-weight: normal; font-family: Georgia, serif; flex-grow: 1; }
+    .article-card-home p { font-size: 13px; color: #555555; line-height: 1.7; font-family: Arial, sans-serif; margin-bottom: 0.85rem; }
+    .article-card-home .card-date { font-size: 11px; color: #888888; font-family: Arial, sans-serif; margin-top: auto; }
+    /* Tidepool Sneak Peek */
+    .tidepool-peek { padding: 0; background: #f0fdfb; border-top: 4px solid #7dd4c0; }
+    .tidepool-peek-inner { padding: 3rem 2.5rem; }
+    .tidepool-peek-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem; }
+    .tidepool-peek-label { font-size: 11px; font-weight: bold; letter-spacing: 0.24em; text-transform: uppercase; color: #0a4a38; font-family: Arial, sans-serif; }
+    .tidepool-peek-link { font-size: 12px; color: #1a7a60; font-family: Arial, sans-serif; text-decoration: none; letter-spacing: 0.06em; }
+    .tidepool-peek-link:hover { text-decoration: underline; }
+    .tidepool-peek-title { font-size: 22px; color: #0a1e18; font-weight: bold; margin-bottom: 0.4rem; }
+    .tidepool-peek-sub { font-size: 14px; color: #4a7a6a; font-family: Arial, sans-serif; margin-bottom: 2rem; line-height: 1.6; }
+    .tidepool-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.25rem; }
+    .tidepool-card { background: #ffffff; border: 1px solid #b8e8e0; text-decoration: none; display: flex; flex-direction: column; border-radius: 4px; overflow: hidden; transition: border-color 0.2s, box-shadow 0.2s; }
+    .tidepool-card:hover { border-color: #7dd4c0; box-shadow: 0 3px 16px rgba(125,212,192,0.2); }
+    .tidepool-card img { width: 100%; height: 120px; object-fit: cover; display: block; }
+    .tidepool-card-body { padding: 1.1rem 1.1rem 1.1rem; flex: 1; display: flex; flex-direction: column; }
+    .tidepool-card-tag { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; font-family: Arial, sans-serif; font-weight: bold; color: #1a7a60; margin-bottom: 0.5rem; display: block; }
+    .tidepool-card h4 { font-size: 15px; color: #0a1e18; line-height: 1.4; margin-bottom: 0.5rem; font-weight: bold; flex: 1; }
+    .tidepool-card p { font-size: 12px; color: #4a7a6a; line-height: 1.65; font-family: Arial, sans-serif; margin: 0; }
+    /* Depth Sneak Peek */
+    .depth-peek { padding: 0; background: #051525; border-top: 3px solid #4a7fa8; }
+    .depth-peek-inner { padding: 3rem 2.5rem; }
+    .depth-peek-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem; }
+    .depth-peek-label { font-size: 11px; font-weight: bold; letter-spacing: 0.24em; text-transform: uppercase; color: #4a7fa8; font-family: Arial, sans-serif; }
+    .depth-peek-link { font-size: 12px; color: #7aaccc; font-family: Arial, sans-serif; text-decoration: none; letter-spacing: 0.06em; }
+    .depth-peek-link:hover { text-decoration: underline; }
+    .depth-peek-title { font-size: 22px; color: #d6e8f5; font-weight: bold; margin-bottom: 0.4rem; }
+    .depth-peek-sub { font-size: 14px; color: #5a7a98; font-family: Arial, sans-serif; margin-bottom: 2rem; line-height: 1.6; }
+    .depth-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.25rem; }
+    .depth-card { background: #020c16; border: 1px solid #0d2a40; text-decoration: none; display: flex; flex-direction: column; transition: border-color 0.2s, box-shadow 0.2s; }
+    .depth-card:hover { border-color: #4a7fa8; box-shadow: 0 3px 16px rgba(0,0,0,0.5); }
+    .depth-card img { width: 100%; height: 120px; object-fit: cover; display: block; }
+    .depth-card-body { padding: 1.1rem; flex: 1; display: flex; flex-direction: column; }
+    .depth-card-tag { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; font-family: Arial, sans-serif; font-weight: bold; color: #4a7fa8; margin-bottom: 0.5rem; display: block; }
+    .depth-card h4 { font-size: 15px; color: #d6e8f5; line-height: 1.4; margin-bottom: 0.5rem; font-weight: bold; flex: 1; }
+    .depth-card p { font-size: 12px; color: #5a7a98; line-height: 1.65; font-family: Arial, sans-serif; margin: 0; }
+    /* Newsletter */
+    .newsletter { padding: 3rem 2.5rem; text-align: center; }
+    .newsletter h2 { font-size: 16px; font-weight: bold; letter-spacing: 0.1em; text-transform: uppercase; color: #03213a; margin-bottom: 0.75rem; }
+    .newsletter p { font-size: 14px; color: #555555; margin-bottom: 1.5rem; font-family: Arial, sans-serif; }
+    .newsletter-form { display: flex; justify-content: center; flex-wrap: wrap; }
+    footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5rem 1.5rem; font-family: Arial, sans-serif; }
+    .footer-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem; flex-wrap: wrap; gap: 2rem; }
+    .footer-brand .footer-logo { font-size: 20px; font-weight: bold; letter-spacing: 0.14em; color: #c0cfe0; margin-bottom: 0.4rem; }
+    .footer-brand .footer-logo span { color: #8ab4d4; }
+    .footer-brand p { font-size: 12px; color: #4a7fa8; letter-spacing: 0.06em; }
+    .footer-col h4 { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #4a7fa8; margin-bottom: 0.75rem; }
+    .footer-col p, .footer-col a { font-size: 13px; color: #8ab4d4; display: block; text-decoration: none; margin-bottom: 0.3rem; line-height: 1.7; }
+    .footer-col a:hover { color: #d6e8f5; }
+    .footer-bottom { border-top: 1px solid #1a4a6e; padding-top: 1.25rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-bottom span { font-size: 12px; color: #4a7fa8; letter-spacing: 0.06em; }
+    .footer-anchor { font-size: 28px; color: #ffffff; opacity: 0.8; }
+    .footer-legal { border-top: 1px solid #1a4a6e; padding-top: 1rem; margin-top: 1rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+    .footer-legal a { font-size: 11px; color: #4a7fa8; text-decoration: none; letter-spacing: 0.06em; }
+    .footer-legal a:hover { color: #8ab4d4; }
+    @media (max-width: 768px) {
+      .nav-left, .nav-right { display: none; }
+      .nav-center { position: static; transform: none; }
+      nav { justify-content: space-between; padding: 1rem 1.5rem; }
+      .hamburger { display: flex; }
+      .logo-text { font-size: 20px; }
+      .logo-img { height: 44px; width: 44px; }
+      .hero { padding: 3rem 1.5rem; min-height: auto; }
+      .hero h1 { font-size: 32px; }
+      .hero p { font-size: 15px; }
+      .white-section { margin: 1rem; }
+      .about { padding: 2.5rem 1.5rem; }
+      .coverage { padding: 2rem 1.5rem; }
+      .coverage-grid { grid-template-columns: 1fr; }
+      .latest-stories { padding: 2rem 1.5rem; }
+      .article-grid-home { grid-template-columns: 1fr; }
+      .tidepool-peek-inner { padding: 2rem 1.5rem; }
+      .tidepool-cards { grid-template-columns: 1fr; }
+      .depth-peek-inner { padding: 2rem 1.5rem; }
+      .depth-cards { grid-template-columns: 1fr; }
+      .newsletter { padding: 2.5rem 1.5rem; }
+      .footer-top { flex-direction: column; gap: 1.5rem; }
+      .footer-legal { gap: 1rem; flex-wrap: wrap; }
+      .divider { padding: 0 1rem; }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 26px; }
+      .footer-legal a { font-size: 10px; }
+    }
+  </style>
+</head>
+<body>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#">News</a>
+  <a href="#">Opinion</a>
+  <a href="tidepool.html" class="mobile-tidepool">Tidepool</a>
+  <a href="tips.html" class="mobile-tips">Tips</a>
+  <div class="mobile-divider"></div>
+  <a href="depth.html" class="mobile-depth">Depth</a>
+  <a href="about.html">Our Story</a>
+  <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Newsletter</a>
+  <a href="#contact">Contact</a>
+</div>
+<nav>
+  <div class="nav-left">
+    <div class="dropdown">
+      <button class="nav-btn">News ▾</button>
+      <div class="dropdown-menu">
+        <a href="finance.html">Finance</a>
+        <a href="law.html">Law</a>
+        <a href="healthcare.html">Healthcare</a>
+        <a href="politics.html">Politics</a>
+      </div>
+    </div>
+    <a href="opinion.html" class="nav-btn">Opinion</a>
+    <a href="tidepool.html" class="nav-btn-tidepool">Tidepool</a>
+    <a href="tips.html" class="nav-btn-tips">Tips</a>
+  </div>
+  <div class="nav-center">
+    <img src="logo.png" alt="The Nautisk Logo" class="logo-img" />
+    <span class="logo-text">THE <span>NAUTISK</span></span>
+  </div>
+  <div class="nav-right">
+    <a href="depth.html" class="nav-btn-depth">Depth</a>
+    <a href="about.html" class="nav-btn">Our Story</a>
+    <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer" class="nav-btn">Newsletter</a>
+    <a href="#contact" class="nav-btn">Contact</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+<section class="hero">
+  <svg class="hero-scene" viewBox="0 0 1440 520" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    <ellipse cx="150" cy="60" rx="60" ry="20" fill="none" stroke="#2a5f8a" stroke-width="0.8" opacity="0.2" />
+    <ellipse cx="190" cy="50" rx="45" ry="16" fill="none" stroke="#2a5f8a" stroke-width="0.8" opacity="0.15" />
+    <ellipse cx="120" cy="55" rx="35" ry="14" fill="none" stroke="#2a5f8a" stroke-width="0.8" opacity="0.15" />
+    <ellipse cx="750" cy="45" rx="70" ry="22" fill="none" stroke="#2a5f8a" stroke-width="0.8" opacity="0.18" />
+    <ellipse cx="800" cy="35" rx="50" ry="18" fill="none" stroke="#2a5f8a" stroke-width="0.8" opacity="0.15" />
+    <ellipse cx="1300" cy="70" rx="55" ry="18" fill="none" stroke="#2a5f8a" stroke-width="0.8" opacity="0.18" />
+    <ellipse cx="1340" cy="58" rx="40" ry="15" fill="none" stroke="#2a5f8a" stroke-width="0.8" opacity="0.15" />
+    <path fill="none" stroke="#2a5f8a" stroke-width="0.8" opacity="0.25" d="M400,80 C405,75 410,75 415,80" />
+    <path fill="none" stroke="#2a5f8a" stroke-width="0.8" opacity="0.25" d="M420,70 C426,65 432,65 438,70" />
+    <path fill="none" stroke="#2a5f8a" stroke-width="0.8" opacity="0.2" d="M600,55 C606,50 612,50 618,55" />
+    <path fill="none" stroke="#2a5f8a" stroke-width="0.8" opacity="0.18" d="M625,68 C630,63 635,63 640,68" />
+    <path fill="none" stroke="#2a5f8a" stroke-width="1.2" opacity="0.6" d="M0,290 C120,275 240,305 360,290 C480,275 600,305 720,290 C840,275 960,305 1080,290 C1200,275 1320,305 1440,290" />
+    <path fill="none" stroke="#2a5f8a" stroke-width="0.7" opacity="0.35" d="M0,308 C120,296 240,320 360,308 C480,296 600,320 720,308 C840,296 960,320 1080,308 C1200,296 1320,320 1440,308" />
+    <path fill="none" stroke="#2a5f8a" stroke-width="0.4" opacity="0.2" d="M0,324 C120,312 240,336 360,324 C480,312 600,336 720,324 C840,312 960,336 1080,324 C1200,312 1320,336 1440,324" />
+    <rect x="88" y="282" width="54" height="8" fill="none" stroke="#6aa8cc" stroke-width="1.5" opacity="0.65" rx="1" />
+    <path fill="none" stroke="#6aa8cc" stroke-width="1.8" opacity="0.6" d="M98,282 L92,178 L142,178 L136,282 Z" />
+    <line x1="93" y1="245" x2="141" y2="245" stroke="#6aa8cc" stroke-width="1.2" opacity="0.45" />
+    <line x1="94" y1="225" x2="140" y2="225" stroke="#6aa8cc" stroke-width="1.2" opacity="0.45" />
+    <line x1="93" y1="262" x2="141" y2="262" stroke="#6aa8cc" stroke-width="1.2" opacity="0.45" />
+    <rect x="86" y="166" width="62" height="13" fill="none" stroke="#6aa8cc" stroke-width="1.8" opacity="0.65" rx="2" />
+    <path fill="none" stroke="#6aa8cc" stroke-width="1.4" opacity="0.6" d="M90,166 L98,150 L115,143 L132,150 L140,166" />
+    <circle cx="115" cy="166" r="10" fill="none" stroke="#8ab4d4" stroke-width="1" opacity="0.4" />
+    <circle cx="115" cy="166" r="6" fill="none" stroke="#aed0e8" stroke-width="1.5" opacity="0.5" />
+    <line x1="115" y1="155" x2="115" y2="100" stroke="#6aa8cc" stroke-width="0.8" opacity="0.3" />
+    <line x1="115" y1="155" x2="60" y2="115" stroke="#6aa8cc" stroke-width="0.8" opacity="0.25" />
+    <line x1="115" y1="155" x2="170" y2="115" stroke="#6aa8cc" stroke-width="0.8" opacity="0.25" />
+    <line x1="115" y1="155" x2="30" y2="145" stroke="#6aa8cc" stroke-width="0.6" opacity="0.18" />
+    <line x1="115" y1="155" x2="200" y2="145" stroke="#6aa8cc" stroke-width="0.6" opacity="0.18" />
+    <path fill="none" stroke="#5a9abf" stroke-width="2" opacity="0.5" d="M950,288 C965,302 1030,308 1070,302 C1085,298 1088,288 1080,288 Z" />
+    <path fill="none" stroke="#5a9abf" stroke-width="1.5" opacity="0.45" d="M975,288 L982,268 L1030,268 L1037,288" />
+    <line x1="1008" y1="288" x2="1008" y2="195" stroke="#5a9abf" stroke-width="1.5" opacity="0.45" />
+    <line x1="1008" y1="268" x2="1065" y2="282" stroke="#5a9abf" stroke-width="1" opacity="0.35" />
+    <path fill="none" stroke="#5a9abf" stroke-width="1.5" opacity="0.4" d="M1008,198 L1008,278 L1072,265 Z" />
+    <path fill="none" stroke="#5a9abf" stroke-width="1.2" opacity="0.35" d="M1008,208 L955,285 L1008,282 Z" />
+    <path fill="none" stroke="#5a9abf" stroke-width="0.8" opacity="0.35" d="M1008,195 L1024,202 L1008,209" />
+    <line x1="1008" y1="200" x2="955" y2="282" stroke="#5a9abf" stroke-width="0.6" opacity="0.22" />
+    <line x1="1008" y1="200" x2="1068" y2="265" stroke="#5a9abf" stroke-width="0.6" opacity="0.22" />
+    <line x1="1180" y1="290" x2="1380" y2="290" stroke="#4a7fa8" stroke-width="1.5" opacity="0.3" />
+    <line x1="1195" y1="290" x2="1195" y2="330" stroke="#4a7fa8" stroke-width="1" opacity="0.25" />
+    <line x1="1225" y1="290" x2="1225" y2="335" stroke="#4a7fa8" stroke-width="1" opacity="0.25" />
+    <line x1="1255" y1="290" x2="1255" y2="338" stroke="#4a7fa8" stroke-width="1" opacity="0.25" />
+    <line x1="1285" y1="290" x2="1285" y2="335" stroke="#4a7fa8" stroke-width="1" opacity="0.25" />
+    <line x1="1315" y1="290" x2="1315" y2="330" stroke="#4a7fa8" stroke-width="1" opacity="0.25" />
+    <line x1="1345" y1="290" x2="1345" y2="333" stroke="#4a7fa8" stroke-width="1" opacity="0.25" />
+    <path fill="none" stroke="#4a8aaa" stroke-width="1.8" opacity="0.45" d="M80,430 C120,400 200,395 260,415 C310,430 330,455 300,470 C260,488 180,488 130,468 C95,453 72,448 80,430 Z" />
+    <path fill="none" stroke="#4a8aaa" stroke-width="1.5" opacity="0.4" d="M80,430 C65,420 40,410 20,418 C10,422 15,435 30,435 C15,440 5,455 18,460 C35,465 62,452 80,443" />
+    <circle cx="270" cy="425" r="4" fill="none" stroke="#4a8aaa" stroke-width="1.2" opacity="0.4" />
+    <path fill="none" stroke="#4a8aaa" stroke-width="1.2" opacity="0.35" d="M180,415 C175,390 185,375 195,388 C200,400 190,412 180,415 Z" />
+    <path fill="none" stroke="#5a9abf" stroke-width="1.8" opacity="0.4" d="M1050,420 C1060,408 1120,405 1180,408 C1230,410 1260,418 1258,430 C1255,442 1225,450 1175,450 C1115,450 1058,442 1050,430 Z" />
+    <circle cx="1052" cy="430" r="12" fill="none" stroke="#5a9abf" stroke-width="1" opacity="0.3" />
+    <line x1="1052" y1="418" x2="1052" y2="442" stroke="#5a9abf" stroke-width="1" opacity="0.3" />
+    <line x1="1040" y1="430" x2="1064" y2="430" stroke="#5a9abf" stroke-width="1" opacity="0.3" />
+  </svg>
+  <div class="hero-rule"></div>
+  <h1>Anchored in truth.<br>Driven by the current.</h1>
+  <p>Complex news made understandable — finance, law, healthcare, and politics all in one place.</p>
+</section>
+<div class="divider">
+  <div class="divider-line"></div>
+  <span class="divider-anchor">⚓</span>
+  <div class="divider-line"></div>
+</div>
+<section class="about white-section">
+  <div class="about-inner">
+    <div class="section-label">Who we are</div>
+    <p>We shape the world, so it only makes sense that we begin to understand it. The Nautisk exists to make the stories that matter most accessible to everyone — not just the experts. We are achieving our mission if news becomes accessible, but most importantly <strong>UNDERSTANDABLE.</strong></p>
+  </div>
+</section>
+<div class="divider">
+  <div class="divider-line"></div>
+  <span class="divider-anchor">⚓</span>
+  <div class="divider-line"></div>
+</div>
+<section class="coverage white-section" id="coverage">
+  <div class="section-label" style="position:relative;">What we cover</div>
+  <div class="coverage-grid">
+    <a href="finance.html" class="coverage-card">
+      <div class="icon">📈</div>
+      <h3>Finance</h3>
+      <p>Markets, economics, and the money decisions that shape everyday life — explained clearly.</p>
+    </a>
+    <a href="law.html" class="coverage-card">
+      <div class="icon">⚖️</div>
+      <h3>Law</h3>
+      <p>Legal developments, landmark cases, and policy changes that affect you — without the jargon.</p>
+    </a>
+    <a href="healthcare.html" class="coverage-card">
+      <div class="icon">🏥</div>
+      <h3>Healthcare</h3>
+      <p>Medical news, policy, and public health — breaking down what matters for your wellbeing.</p>
+    </a>
+    <a href="politics.html" class="coverage-card">
+      <div class="icon">🏛️</div>
+      <h3>Politics</h3>
+      <p>Government, policy, and power — cutting through the noise to what actually matters.</p>
+    </a>
+  </div>
+</section>
+<div class="divider">
+  <div class="divider-line"></div>
+  <span class="divider-anchor">⚓</span>
+  <div class="divider-line"></div>
+</div>
+<section class="latest-stories white-section">
+  <div class="section-label">Latest Stories</div>
+  <div class="article-grid-home">
+
+    <!-- ADD NEW ARTICLE CARDS ABOVE THIS LINE -->
+
+    <a class="article-card-home" href="supreme-court-asylum-metering-ruling.html">
+      <span class="card-section-label politics">Politics</span>
+      <h3>Supreme Court Rules 6-3 That Government May Block Asylum Seekers by Preventing Border Entry</h3>
+      <p>The decision allows federal officials to keep people waiting indefinitely in Mexico, preventing them from filing asylum claims without triggering the legal protections that apply inside the U.S.</p>
+      <span class="card-date">June 26, 2026 &nbsp;·&nbsp; 4 min read</span>
+    </a>
+
+    <a class="article-card-home" href="chemours-pfas-settlement-450-million.html">
+      <span class="card-section-label law">Law</span>
+      <h3>Chemours Agrees to Pay $450 Million Over PFAS Contamination in Landmark Federal Settlement</h3>
+      <p>The deal — covering facilities in three states — marks the first time the federal government has held a PFAS manufacturer comprehensively accountable for contamination from its production sites.</p>
+      <span class="card-date">June 26, 2026 &nbsp;·&nbsp; 4 min read</span>
+    </a>
+
+    <a class="article-card-home" href="openai-ipo-delayed-2027.html">
+      <span class="card-section-label finance">Finance</span>
+      <h3>OpenAI Delays IPO to 2027 as Market Conditions Fall Short of $1 Trillion Target</h3>
+      <p>After confidentially filing to go public earlier this month, OpenAI reversed course — pointing to a rough post-debut showing by SpaceX and the company's ongoing cash burn as reasons to wait.</p>
+      <span class="card-date">June 26, 2026 &nbsp;·&nbsp; 4 min read</span>
+    </a>
+
+    <a class="article-card-home" href="glyphosate-antibiotic-resistance-study.html">
+      <span class="card-section-label healthcare">Healthcare</span>
+      <h3>Widely Used Weedkiller May Be Accelerating Antibiotic Resistance, Study Finds</h3>
+      <p>Researchers found that hospital bacteria resistant to last-resort antibiotics were also resistant to glyphosate, suggesting a biochemical link between agricultural herbicide use and drug-resistant infections.</p>
+      <span class="card-date">June 26, 2026 &nbsp;·&nbsp; 4 min read</span>
+    </a>
+
+  </div>
+</section>
+<div class="divider">
+  <div class="divider-line"></div>
+  <span class="divider-anchor">⚓</span>
+  <div class="divider-line"></div>
+</div>
+
+<!-- TIDEPOOL SNEAK PEEK -->
+<section class="tidepool-peek">
+  <div class="tidepool-peek-inner">
+    <div class="tidepool-peek-header">
+      <span class="tidepool-peek-label">🌊 Tidepool</span>
+      <a href="tidepool.html" class="tidepool-peek-link">See all stories →</a>
+    </div>
+    <h2 class="tidepool-peek-title">The news, explained clearly</h2>
+    <p class="tidepool-peek-sub">Accessible reporting for younger readers — college, science, pop culture, and tech.</p>
+    <div class="tidepool-cards">
+
+      <a href="tidepool-college-grad-plus-loans-ended-new-caps.html" class="tidepool-card">
+        <img src="loans.png" alt="Student loans" />
+        <div class="tidepool-card-body">
+          <span class="tidepool-card-tag">🎓 College</span>
+          <h4>The Student Loan Rules Just Changed. Here's What That Means If You're Heading to Grad School.</h4>
+          <p>Grad PLUS is gone and borrowing is capped — here's what it means if you're heading to grad school.</p>
+        </div>
+      </a>
+
+      <a href="tidepool-science-heliconius-butterfly-longevity-aging.html" class="tidepool-card">
+        <img src="butter.png" alt="Heliconius butterfly" />
+        <div class="tidepool-card-body">
+          <span class="tidepool-card-tag">🌿 Science</span>
+          <h4>A Tropical Butterfly That Barely Ages Could Change What We Know About Longevity</h4>
+          <p>A new study on Heliconius butterflies is giving longevity researchers a cleaner look at what aging actually is.</p>
+        </div>
+      </a>
+
+      <a href="tidepool-popculture-world-cup-2026-america-soccer.html" class="tidepool-card">
+        <img src="world.png" alt="World Cup 2026" />
+        <div class="tidepool-card-body">
+          <span class="tidepool-card-tag">🎵 Pop Culture</span>
+          <h4>The World Cup Is Here, and America Is Finally Being Tested as a Soccer Country</h4>
+          <p>The 2026 World Cup is the biggest stress test yet for whether America has actually become a soccer country.</p>
+        </div>
+      </a>
+
+      <a href="tidepool-tech-instagram-news-reuters-social-media.html" class="tidepool-card">
+        <img src="insta.png" alt="Social media news" />
+        <div class="tidepool-card-body">
+          <span class="tidepool-card-tag">💻 Tech</span>
+          <h4>You've Been Getting Your News From Instagram. Here's What the Data Actually Shows.</h4>
+          <p>Social media is now the world's primary news source — here's what the Reuters data actually says.</p>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider">
+  <div class="divider-line"></div>
+  <span class="divider-anchor">⚓</span>
+  <div class="divider-line"></div>
+</div>
+
+<!-- DEPTH SNEAK PEEK -->
+<section class="depth-peek">
+  <div class="depth-peek-inner">
+    <div class="depth-peek-header">
+      <span class="depth-peek-label">⬡ Depth</span>
+      <a href="depth.html" class="depth-peek-link">See all pieces →</a>
+    </div>
+    <h2 class="depth-peek-title">The stories behind the headlines</h2>
+    <p class="depth-peek-sub">Long-form investigative journalism — finance, law, healthcare, and politics explored in full.</p>
+    <div class="depth-cards">
+
+      <a href="depth-finance-warsh-fed-tariff-inflation.html" class="depth-card">
+        <img src="chair.png" alt="Fed Chair Warsh" />
+        <div class="depth-card-body">
+          <span class="depth-card-tag">📈 Finance</span>
+          <h4>The Fed Chair Who Refuses to Say What Comes Next</h4>
+          <p>Kevin Warsh stripped the Fed's policy statement to 132 words and said nothing — while inflation hits 4.2%.</p>
+        </div>
+      </a>
+
+      <a href="depth-law-voting-rights-act-callais-section-2.html" class="depth-card">
+        <img src="section.png" alt="Voting Rights Act" />
+        <div class="depth-card-body">
+          <span class="depth-card-tag">⚖️ Law</span>
+          <h4>Section 2 Is Still on the Books. It No Longer Does Anything.</h4>
+          <p>After Louisiana v. Callais, the VRA's redistricting enforcement mechanism has been effectively ended.</p>
+        </div>
+      </a>
+
+      <a href="depth-healthcare-medicaid-work-requirements-implementation.html" class="depth-card">
+        <img src="80.png" alt="Medicaid work requirements" />
+        <div class="depth-card-body">
+          <span class="depth-card-tag">🏥 Healthcare</span>
+          <h4>What 80 Hours a Month Actually Means</h4>
+          <p>The Medicaid work requirement machinery is already turning — and history says who loses coverage won't track who isn't working.</p>
+        </div>
+      </a>
+
+      <a href="depth-politics-redistricting-republicans-house-2026.html" class="depth-card">
+        <img src="map.png" alt="Congressional redistricting" />
+        <div class="depth-card-body">
+          <span class="depth-card-tag">🏛 Politics</span>
+          <h4>The Party That Drew the Map Doesn't Always Win the Election</h4>
+          <p>Republicans have their best redistricting position in a generation — and may still lose the House.</p>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider">
+  <div class="divider-line"></div>
+  <span class="divider-anchor">⚓</span>
+  <div class="divider-line"></div>
+</div>
+<section class="newsletter white-section" id="newsletter">
+  <h2>Stay in the current</h2>
+  <p>Sign up for The Nautisk newsletter — clear, concise, and worth your time.</p>
+  <div class="newsletter-form">
+    <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="3933c9e1-b702-4bed-a004-71e3fed21b16"></script>
+  </div>
+</section>
+<div class="divider">
+  <div class="divider-line"></div>
+  <span class="divider-anchor">⚓</span>
+  <div class="divider-line"></div>
+</div>
+<footer id="contact">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">THE <span>NAUTISK</span></div>
+      <p>Independent journalism. Anchored in truth.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Coverage</h4>
+      <a href="finance.html">Finance</a>
+      <a href="law.html">Law</a>
+      <a href="healthcare.html">Healthcare</a>
+      <a href="politics.html">Politics</a>
+      <a href="#">Opinion</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="about.html">About Us</a>
+      <a href="about.html#mission">Our Mission</a>
+      <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Newsletter</a>
+      <a href="tidepool.html">Tidepool</a>
+      <a href="depth.html">Depth</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>Manhattan, New York</p>
+      <a href="mailto:evan@thenautisk.com">evan@thenautisk.com</a>
+      <a href="https://instagram.com/thenautisk" target="_blank" rel="noopener noreferrer">Instagram: @thenautisk</a>
+      <a href="tips.html">Submit a tip</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 The Nautisk. All rights reserved.</span>
+    <span class="footer-anchor">⚓</span>
+    <span>Manhattan, New York</span>
+  </div>
+  <div class="footer-legal">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Use</a>
+    <a href="editorial.html">Editorial Standards</a>
+    <a href="corrections.html">Corrections Policy</a>
+    <a href="#">Advertise</a>
+  </div>
+</footer>
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+</script>
+</body>
+</html>
