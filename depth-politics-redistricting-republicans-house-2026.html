@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Party That Drew the Map Doesn't Always Win the Election — The Nautisk | Depth</title>
+<meta name="description" content="Republicans have their best redistricting map in a generation, a structural advantage worth five to seven House seats, and may still lose the majority to a national environment driven by inflation, Medicaid cuts, and the historical physics of midterm elections." />
+<meta name="robots" content="index, follow" />
+<meta property="og:title" content="The Party That Drew the Map Doesn't Always Win the Election — The Nautisk | Depth" />
+<meta property="og:description" content="Republicans have their best redistricting map in a generation, a structural advantage worth five to seven House seats, and may still lose the majority to a national environment driven by inflation, Medicaid cuts, and the historical physics of midterm elections." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.thenautisk.com/depth-politics-redistricting-republicans-house-2026.html" />
+<meta property="og:image" content="https://images.unsplash.com/photo-placeholder" />
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+#progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: #4a7fa8; width: 0%; z-index: 1000; transition: width 0.1s; }
+:root {
+  --bg: #020c16; --text: #c8d8e8; --text-muted: #5a7a98;
+  --text-strong: #e0eaf4; --border: #0d2a40; --nav-bg: #03213a;
+  --article-bg: #020c16; --accent: #4a7fa8; --section-color: #bf7a7a;
+}
+body.professional {
+  --bg: #f8f9fa; --text: #222233; --text-muted: #555577;
+  --text-strong: #0a0a1a; --border: #dde3ec;
+  --article-bg: #ffffff; --accent: #1a4a8e;
+}
+body { font-family: Georgia, serif; background: var(--bg); color: var(--text); transition: background 0.3s, color 0.3s; line-height: 1.7; }
+nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2.5rem; border-bottom: 1px solid #1a4a6e; background: var(--nav-bg); position: sticky; top: 0; z-index: 200; }
+.nav-logo { font-size: 18px; font-weight: bold; letter-spacing: 0.14em; color: #c0cfe0; text-decoration: none; font-family: Arial, sans-serif; }
+.nav-logo span { color: #8ab4d4; }
+.nav-links { display: flex; gap: 1.5rem; align-items: center; }
+.nav-links a { font-size: 12px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; font-family: Arial, sans-serif; }
+.nav-links a:hover { color: #d6e8f5; }
+.depth-badge { font-size: 11px; color: #c0cfe0; background: transparent; border: 1px solid #4a7fa8; padding: 0.28rem 0.7rem; border-radius: 20px; font-family: Arial, sans-serif; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; }
+.mode-toggle { display: flex; align-items: center; gap: 0.4rem; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; padding: 0.28rem 0.7rem; cursor: pointer; font-size: 11px; color: #8ab4d4; font-family: Arial, sans-serif; letter-spacing: 0.06em; text-transform: uppercase; }
+.mode-toggle:hover { background: rgba(255,255,255,0.15); }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { display: block; width: 22px; height: 2px; background: #8ab4d4; border-radius: 2px; transition: all 0.3s; }
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+.mobile-nav { display: none; position: fixed; inset: 0; background: #03213a; z-index: 300; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; }
+.mobile-nav.open { display: flex; }
+.mobile-nav a { font-size: 20px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; font-family: Arial, sans-serif; }
+.section-top-bar { height: 3px; background: var(--section-color); }
+.article-hero-img { width: 100%; max-height: 520px; object-fit: cover; display: block; }
+.article-hero-caption { font-size: 12px; color: var(--text-muted); font-family: Arial, sans-serif; font-style: italic; padding: 0.5rem 2.5rem; border-bottom: 1px solid var(--border); }
+.article-wrapper { max-width: 760px; margin: 0 auto; padding: 0 2rem 5rem; }
+.article-header { padding: 2.5rem 0 1.5rem; }
+.depth-label { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--section-color); font-family: Arial, sans-serif; font-weight: bold; margin-bottom: 0.75rem; }
+.depth-label::before { content: '🌊'; font-size: 14px; }
+.article-section-tag { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--section-color); font-family: Arial, sans-serif; font-weight: bold; display: block; margin-bottom: 0.5rem; }
+.article-header h1 { font-size: 38px; font-weight: bold; color: var(--text-strong); line-height: 1.2; margin-bottom: 1rem; }
+.article-dek { font-size: 19px; color: var(--text-muted); line-height: 1.6; font-family: Arial, sans-serif; margin-bottom: 1.5rem; font-weight: normal; border-left: 3px solid var(--section-color); padding-left: 1rem; }
+.article-meta-bar { display: flex; align-items: center; gap: 1rem; padding: 1rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 2.5rem; font-family: Arial, sans-serif; font-size: 13px; color: var(--text-muted); flex-wrap: wrap; }
+.share-bar { display: flex; gap: 0.75rem; align-items: center; margin-left: auto; }
+.share-btn { font-size: 11px; font-family: Arial, sans-serif; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.75rem; border: 1px solid var(--border); background: none; color: var(--text-muted); cursor: pointer; border-radius: 2px; text-decoration: none; transition: border-color 0.2s, color 0.2s; }
+.share-btn:hover { border-color: var(--section-color); color: var(--section-color); }
+.article-body { font-size: 17px; line-height: 1.8; color: var(--text); }
+.article-body p { margin-bottom: 1.6rem; }
+.article-body p:first-of-type::first-letter { font-size: 4.2em; float: left; line-height: 0.8; padding-right: 0.1em; padding-top: 0.05em; color: var(--section-color); font-weight: bold; }
+.article-body h2 { font-size: 22px; color: var(--text-strong); margin: 3rem 0 1rem; font-weight: bold; border-left: 3px solid var(--section-color); padding-left: 0.75rem; }
+.article-body h3 { font-size: 18px; color: var(--text-strong); margin: 2rem 0 0.75rem; }
+.article-body ul, .article-body ol { margin: 0 0 1.6rem 1.75rem; }
+.article-body li { margin-bottom: 0.5rem; line-height: 1.75; }
+.article-body sup { font-size: 11px; color: var(--section-color); font-family: Arial, sans-serif; vertical-align: super; line-height: 0; }
+.article-body sup a { color: var(--section-color); text-decoration: none; }
+.article-body sup a:hover { text-decoration: underline; }
+.sources-section { margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--border); }
+.sources-section h2 { font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); font-family: Arial, sans-serif; margin-bottom: 1.25rem; border: none; padding: 0; }
+.sources-section ol { margin-left: 1.25rem; }
+.sources-section ol li { font-size: 13px; color: var(--text-muted); font-family: Arial, sans-serif; line-height: 1.7; margin-bottom: 0.6rem; }
+.sources-section ol li a { color: var(--accent); }
+.byline-block { margin-top: 3rem; padding-top: 1.5rem; border-top: 2px solid var(--border); display: flex; align-items: center; gap: 1rem; }
+.byline-avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--section-color); display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: bold; color: #fff; font-family: Arial, sans-serif; flex-shrink: 0; }
+.byline-info { font-family: Arial, sans-serif; }
+.byline-name { font-size: 14px; font-weight: bold; color: var(--text-strong); }
+.byline-title { font-size: 12px; color: var(--text-muted); margin-top: 0.2rem; }
+.depth-footer-note { margin-top: 2rem; padding: 1rem 1.25rem; background: rgba(74,127,168,0.06); border: 1px solid var(--border); border-radius: 3px; font-size: 12px; color: var(--text-muted); font-family: Arial, sans-serif; line-height: 1.7; }
+.divider { display: flex; align-items: center; gap: 1rem; padding: 0 2.5rem; background: var(--bg); }
+.divider-line { flex: 1; height: 1px; background: var(--border); }
+.divider-icon { color: var(--accent); font-size: 18px; padding: 0.75rem 0; }
+footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2rem 2.5rem 1.5rem; font-family: Arial, sans-serif; }
+.footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #1a4a6e; }
+.footer-brand { font-size: 15px; font-weight: bold; letter-spacing: 0.12em; color: #c0cfe0; }
+.footer-brand span { color: #8ab4d4; }
+.footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.footer-links a { font-size: 11px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; }
+.footer-links a:hover { color: #d6e8f5; }
+.footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+.footer-bottom span { font-size: 11px; color: #4a7fa8; }
+@media (max-width: 768px) {
+  .nav-links { display: none; } .hamburger { display: flex; }
+  nav { justify-content: space-between; padding: 0.9rem 1.25rem; }
+  .article-wrapper { padding: 0 1.25rem 3rem; }
+  .article-header h1 { font-size: 26px; }
+  .article-dek { font-size: 16px; }
+  .article-body { font-size: 16px; }
+  .article-meta-bar { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  .share-bar { margin-left: 0; }
+  footer { padding: 1.5rem 1.25rem; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+<div id="progress-bar"></div>
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html">Home</a>
+  <a href="finance.html">Finance</a>
+  <a href="law.html">Law</a>
+  <a href="healthcare.html">Healthcare</a>
+  <a href="politics.html">Politics</a>
+  <a href="depth.html">Depth</a>
+  <a href="about.html">Our Story</a>
+  <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Newsletter</a>
+</div>
+<div class="section-top-bar"></div>
+<nav>
+  <a href="index.html" class="nav-logo">THE <span>NAUTISK</span></a>
+  <div class="nav-links">
+    <a href="finance.html">Finance</a>
+    <a href="law.html">Law</a>
+    <a href="healthcare.html">Healthcare</a>
+    <a href="politics.html">Politics</a>
+    <a href="depth.html" class="depth-badge">Depth</a>
+    <a href="about.html">Our Story</a>
+    <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Newsletter</a>
+    <button class="mode-toggle" onclick="toggleMode()"><span id="modeIcon">🌊</span> <span id="modeLabel">Aquatic</span></button>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+<!-- EDITOR: REPLACE PLACEHOLDER IMAGE — search Unsplash for "us capitol building" or "election voting map" -->
+<img class="article-hero-img" src="https://images.unsplash.com/photo-placeholder" alt="United States Capitol building" />
+<p class="article-hero-caption">Photo via Unsplash — <em>image pending: replace before publishing</em></p>
+<div class="article-wrapper">
+  <header class="article-header">
+    <span class="depth-label">Depth</span>
+    <span class="article-section-tag">Politics</span>
+    <h1>The Party That Drew the Map Doesn't Always Win the Election</h1>
+    <p class="article-dek">Republicans have their best redistricting map in a generation, a structural advantage worth five to seven House seats, and may still lose the majority to a national environment driven by inflation, Medicaid cuts, and the historical physics of midterm elections.</p>
+    <div class="article-meta-bar">
+      <span>June 27, 2026</span>
+      <span>·</span>
+      <span>13 min read</span>
+      <span>·</span>
+      <span>3,100 words</span>
+      <div class="share-bar">
+        <a class="share-btn" href="https://twitter.com/intent/tweet?text=The%20Party%20That%20Drew%20the%20Map%20Doesn%27t%20Always%20Win%20the%20Election&url=https://www.thenautisk.com/depth-politics-redistricting-republicans-house-2026.html" target="_blank" rel="noopener noreferrer">Share</a>
+        <button class="share-btn" onclick="navigator.clipboard.writeText(window.location.href);this.textContent='Copied!'">Copy Link</button>
+      </div>
+    </div>
+  </header>
+  <div class="article-body">
+
+<p>American political history offers a consistent lesson about mid-decade redistricting advantages: they matter less than the national political environment. Gerrymandering can shift the odds in a handful of competitive districts. It cannot easily survive a wave.</p>
+
+<p>Republicans enter the fall 2026 campaign having achieved something genuinely unusual: a mid-decade redistricting advantage that, under almost any prior political cycle, would put the majority out of reach for the opposing party. They have redrawn maps in Texas, pushed through favorable configurations in Alabama following the Supreme Court's <em>Callais</em> ruling, and benefited from Republican-controlled legislatures in multiple Southern states that moved quickly after the VRA's Section 2 enforcement mechanism was gutted. Analysts project Republicans could net between five and seven seats from redistricting changes alone — meaningful in a chamber where the current Republican majority stands at 218-213.<sup><a href="#source-1" id="ref-1">[1]</a></sup><sup><a href="#source-2" id="ref-2">[2]</a></sup></p>
+
+<p>And yet Cook Political Report, one of the two most respected independent election forecasters, currently has Democrats favored to retake the House in November.<!-- EDITOR: VERIFY BEFORE PUBLISHING — confirm specific Cook Political Report language and publication date; confirm this characterization is accurate as of late June 2026 --><sup><a href="#source-3" id="ref-3">[3]</a></sup></p>
+
+<p>How those two facts coexist is the central political puzzle of 2026.</p>
+
+<h2>The Maps</h2>
+
+<p>By February 2026, six states had congressional district maps subject to change before the fall elections, and six more — California, Missouri, North Carolina, Ohio, Texas, and Utah — had already enacted new congressional maps.<sup><a href="#source-1" id="ref-1b">[1]</a></sup></p>
+
+<p>The proximate causes vary. In Texas, President Trump called publicly on the state legislature to redraw maps with the explicit goal of helping Republicans win five additional House seats. The legislature complied, producing new maps that moved several competitive suburban districts more firmly into Republican territory.<sup><a href="#source-4" id="ref-4">[4]</a></sup></p>
+
+<p>In California, Democrats responded in kind. After Texas moved, the California Legislature passed new maps designed to maximize Democratic seat count — an explicit counter-redistricting gambit. Those maps remain in effect for November, providing the most blatant example of what election law scholars have called the "partisan retaliation" dynamic that mid-decade redistricting creates.<sup><a href="#source-1" id="ref-1c">[1]</a></sup></p>
+
+<p>Virginia tried to play the same game California did, drawing new Democratic-favoring maps. The Virginia Supreme Court struck them down as unconstitutional, leaving Virginia's districts unchanged.<sup><a href="#source-1" id="ref-1d">[1]</a></sup></p>
+
+<p>The Supreme Court's ruling in <em>Louisiana v. Callais</em> on April 29 accelerated the redistricting scramble in the South. States that had been under legal compulsion to maintain majority-minority districts under Section 2 of the Voting Rights Act now had far more latitude. Alabama moved immediately to revise maps that had been drawn under court order. Georgia's legislative leadership resisted the governor's call for pre-2026 redistricting — but conceded that new maps would be required before the 2028 cycle.<sup><a href="#source-5" id="ref-5">[5]</a></sup><sup><a href="#source-6" id="ref-6">[6]</a></sup></p>
+
+<p>The net effect of all this activity, across all states and both parties, is that Republicans are in a structurally better position than they were in 2024. The question is whether structural better is enough.</p>
+
+<h2>The Environment</h2>
+
+<p>The factors that drive House election outcomes break down, roughly, into two categories: structural (maps, incumbency, candidate quality, fundraising) and environmental (the national political mood, presidential approval ratings, the economic conditions voters are experiencing). In wave elections, environmental factors overwhelm structural ones. In base elections, structure tends to dominate.</p>
+
+<p>The current environment is, by nearly every relevant metric, difficult for the party in power.</p>
+
+<p>President Trump's approval rating sits below 45%, a level that has historically been associated with significant House seat losses for the president's party.<!-- EDITOR: VERIFY BEFORE PUBLISHING — confirm Trump approval rating figure and polling source as of late June 2026 --> The historical pattern is well-established: since World War II, the president's party has lost House seats in midterm elections in all but two cycles (1998 and 2002, both years of unusual national circumstances).<!-- EDITOR: VERIFY BEFORE PUBLISHING — cite political science source on historical midterm presidential seat losses --> The question is not whether Republicans will face headwinds from this pattern — they will — but how severe those headwinds are.</p>
+
+<p>The economic context is not helping. Inflation is running at 4.2%, the highest in three years, driven by tariff pass-through and an oil price spike. The Fed has signaled it may need to hike rates. Real wages have been compressed. Consumer spending is increasingly dependent on wealth effects — the kind of structural dynamic that shows up in survey data as economic anxiety before it shows up in GDP numbers. Voters who feel financially squeezed have historically been predisposed to vote against incumbents, regardless of which party controls Congress.<sup><a href="#source-7" id="ref-7">[7]</a></sup></p>
+
+<p>The One Big Beautiful Bill Act, signed July 2025, is now becoming real to voters in ways it wasn't when it passed. The Medicaid work requirements, which the CBO projected would eliminate coverage for millions of people, begin taking effect this fall. The law's cuts to SNAP benefits are working through the food assistance system.<!-- EDITOR: VERIFY BEFORE PUBLISHING — confirm SNAP cut figures and implementation timeline from the One Big Beautiful Bill Act --> The fiscal logic of the legislation — large tax cuts for high earners, offset by reductions to healthcare and nutrition programs — is a political liability in the swing districts that determine House control.</p>
+
+<h2>The Redistricting Ceiling</h2>
+
+<p>Even Republicans who are bullish about the party's structural advantages tend to be honest about the ceiling. The projected net gain from redistricting — five to seven seats — is not transformative at the scale of the full 435-member chamber. It might preserve a Republican majority in a neutral-environment election. It is unlikely to overcome a genuine wave.</p>
+
+<p>The math is unforgiving. Democrats need a net gain of roughly five seats to win the majority.<!-- EDITOR: VERIFY BEFORE PUBLISHING — confirm exact seat count needed for Democratic majority based on current 218-213 split and any vacant seats --> Republicans' redistricting advantage might make that harder but not impossible — particularly if Democratic structural gains (California's new maps, favorable incumbency in certain seats, candidate recruitment) partially offset Republican structural gains.</p>
+
+<p>NBC News analysis from mid-June concluded that Republicans' redistricting wins had "strengthened their structural advantage" but that "several of the seats Republicans redrew in their favor remain very competitive." The estimate of five to seven net seats from redistricting depended on Republicans converting competitive seats that historically have moved with the national environment rather than against it.<sup><a href="#source-2" id="ref-2b">[2]</a></sup></p>
+
+<p>In Texas alone, Trump's direct intervention in the redistricting process — unusual and, in the view of some election lawyers, legally questionable — produced new maps but did not transform competitive suburban Dallas and Houston districts into safe Republican seats. Those districts were drawn to lean Republican; they were not drawn to be immune from a national Democratic wave.<sup><a href="#source-4" id="ref-4b">[4]</a></sup></p>
+
+<h2>The Progressive Coalition and the Mamdani Signal</h2>
+
+<p>While the national environment is the dominant variable, there are dynamics within the Democratic coalition worth watching. Progressive candidates backed by Zohran Mamdani — the New York City mayoral candidate whose political operation has become a proving ground for progressive electoral strategy — swept their primary elections across several New York legislative races. The sweep demonstrated that the progressive infrastructure that delivered his mayoral primary victory has broader organizing reach.<!-- EDITOR: VERIFY BEFORE PUBLISHING — confirm specific New York legislative races won by Mamdani-backed candidates and date of those primaries --></p>
+
+<p>Whether the progressive primary success translates to general election performance in swing districts is a separate question. Democratic primaries and general elections in competitive House districts are different political environments. The candidates who win progressive primaries in deep-blue legislative districts are not necessarily the candidates who win general elections in suburban swing districts. The tension between the Democratic Party's left flank, energized by both economic and civil rights concerns in 2026, and the party's need for centrist appeal in competitive seats is real and unresolved.</p>
+
+<h2>What Actually Decides the House</h2>
+
+<p>The academic literature on congressional elections is reasonably clear about what matters most in midterm years: presidential approval, the economic environment, and the number of seats the in-party holds (the more seats they hold, the more exposure they have in competitive races). Redistricting matters at the margins, but the size of those margins is smaller than politicians and redistricting advocates tend to claim.<!-- EDITOR: VERIFY BEFORE PUBLISHING — cite Gary Jacobson or equivalent political science source on congressional election determinants --></p>
+
+<p>The 2010 cycle is the relevant comparison case. Republicans, who were in the minority in 2010, did not benefit from favorable maps — the maps in that cycle were largely drawn under the 2000 census. What they had was an extremely hostile national environment for Democrats and ran up a net gain of 63 House seats. The structural conditions of 2026 are not 2010 for Democrats — Trump's approval is not as low as Obama's was in October 2010<!-- EDITOR: VERIFY BEFORE PUBLISHING — confirm Obama 2010 approval numbers for direct comparison -->, the economy is weak but not in a recovering-from-financial-crisis trough, and Republican structural advantages are real rather than nonexistent.</p>
+
+<p>A more likely historical analog may be 2018, when Democrats netted 41 House seats in a wave driven primarily by suburban voters reacting against Trump's first-term approval ratings and the political environment, not by structural advantages in the map. The 2026 version of that dynamic — suburban voters, particularly women, responding to the economic situation and to the Medicaid and nutrition cuts embedded in the One Big Beautiful Bill — is the scenario that keeps Republican incumbents in swing districts up at night.</p>
+
+<h2>Four Months Out</h2>
+
+<p>With November four months away, the redistricting battles are largely settled for this cycle. The maps are drawn; the courts have ruled on most challenges; the remaining litigation is unlikely to change more than a handful of seats before the election. What happens now is the air war — advertising, candidate recruitment, turnout infrastructure, and the steady accumulation of headlines about inflation, Medicaid, and the economy.</p>
+
+<p>Republicans have achieved something real in this redistricting cycle. They have made the structural playing field more favorable to themselves than it has been in a generation. The combination of mid-decade map redrawing in Texas, the downstream effects of the <em>Callais</em> ruling on Southern seats, and California's partially-offset counter-redistricting has shifted the baseline in the GOP's direction.</p>
+
+<p>But the history of midterm elections suggests that the baseline shift, absent a more favorable national environment, is unlikely to be sufficient. Voters don't vote on maps. They vote on whether they feel better or worse off than they did two years ago, whether the people in power have delivered on promises that affected their daily lives, and whether the opposition seems like a credible alternative. On each of those questions, the 2026 environment remains genuinely competitive — which means that what looked, six months ago, like an impossible lift for Democrats looks considerably more plausible today.</p>
+
+  </div>
+  <div class="sources-section">
+    <h2>Sources</h2>
+    <ol>
+      <li id="source-1">Ballotpedia. "Redistricting ahead of the 2026 elections." <a href="https://ballotpedia.org/Redistricting_ahead_of_the_2026_elections" target="_blank" rel="noopener noreferrer">ballotpedia.org</a></li>
+      <li id="source-2">NBC News. "Republicans gain upper hand in redistricting fight, but they still face midterm headwinds." <a href="https://www.nbcnews.com/politics/2026-election/republicans-redistricting-headwinds-democrats-midterm-house-majority-rcna344248" target="_blank" rel="noopener noreferrer">nbcnews.com</a></li>
+      <li id="source-3">Cook Political Report with Amy Walter. House race ratings, June 2026. <!-- EDITOR: VERIFY BEFORE PUBLISHING — confirm specific Cook rating language and date --></li>
+      <li id="source-4">NBC News. "Where the House redistricting battle stands heading into 2026 midterms." <a href="https://www.nbcnews.com/politics/2026-election/house-redistricting-gop-democrats-2026-midterm-elections-rcna348110" target="_blank" rel="noopener noreferrer">nbcnews.com</a></li>
+      <li id="source-5">NBC News. "Alabama and Tennessee set special sessions to consider new congressional maps after Supreme Court ruling." <a href="https://www.nbcnews.com/politics/2026-election/alabama-governor-calls-special-session-move-primaries-redistricting-ge-rcna343125" target="_blank" rel="noopener noreferrer">nbcnews.com</a></li>
+      <li id="source-6">PBS NewsHour. "State redistricting battles intensify following U.S. Supreme Court ruling on Voting Rights Act." <a href="https://www.pbs.org/newshour/politics/state-redistricting-battles-intensify-following-u-s-supreme-court-ruling-on-voting-rights-act" target="_blank" rel="noopener noreferrer">pbs.org</a></li>
+      <li id="source-7">EY. "US Economic Outlook, June 2026." <a href="https://www.ey.com/en_us/insights/strategy/macroeconomics/us-economic-outlook" target="_blank" rel="noopener noreferrer">ey.com</a></li>
+    </ol>
+  </div>
+  <div class="depth-footer-note">
+    This article was produced with AI-assisted research and drafting. All claims, citations, and sources were reviewed by The Nautisk editorial team before publication. Errors are corrected in accordance with our <a href="corrections.html">Corrections Policy</a>.
+  </div>
+  <div class="byline-block">
+    <div class="byline-avatar">N</div>
+    <div class="byline-info">
+      <div class="byline-name">The Nautisk | Depth</div>
+      <div class="byline-title">Long-form research journalism · Published June 27, 2026</div>
+    </div>
+  </div>
+</div>
+<div class="divider"><div class="divider-line"></div><span class="divider-icon">⚓</span><div class="divider-line"></div></div>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">THE <span>NAUTISK</span></div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="depth.html">Depth</a>
+      <a href="finance.html">Finance</a>
+      <a href="law.html">Law</a>
+      <a href="healthcare.html">Healthcare</a>
+      <a href="politics.html">Politics</a>
+      <a href="about.html">Our Story</a>
+      <a href="tips.html">Tips</a>
+      <a href="corrections.html">Corrections</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 The Nautisk. All rights reserved.</span>
+    <span>Manhattan, New York</span>
+  </div>
+</footer>
+<script>
+let isProfessional = false;
+function toggleMode() {
+  isProfessional = !isProfessional;
+  document.body.classList.toggle('professional', isProfessional);
+  document.getElementById('modeIcon').textContent = isProfessional ? '🏢' : '🌊';
+  document.getElementById('modeLabel').textContent = isProfessional ? 'Professional' : 'Aquatic';
+  localStorage.setItem('nautisk-mode', isProfessional ? 'professional' : 'aquatic');
+}
+if (localStorage.getItem('nautisk-mode') === 'professional') toggleMode();
+window.addEventListener('scroll', () => {
+  const doc = document.documentElement;
+  const progress = (doc.scrollTop / (doc.scrollHeight - doc.clientHeight)) * 100;
+  document.getElementById('progress-bar').style.width = progress + '%';
+});
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileNav.classList.toggle('open'); });
+mobileNav.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => { hamburger.classList.remove('open'); mobileNav.classList.remove('open'); }); });
+</script>
+</body>
+</html>

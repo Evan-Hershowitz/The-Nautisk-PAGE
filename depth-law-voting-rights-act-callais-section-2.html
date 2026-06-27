@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Section 2 Is Still on the Books. It No Longer Does Anything. — The Nautisk | Depth</title>
+<meta name="description" content="The Supreme Court's April ruling in Louisiana v. Callais replaced Section 2's results-based standard with an intent requirement that legal experts say is nearly impossible to meet — ending sixty years of VRA redistricting enforcement in practice if not on paper." />
+<meta name="robots" content="index, follow" />
+<meta property="og:title" content="Section 2 Is Still on the Books. It No Longer Does Anything. — The Nautisk | Depth" />
+<meta property="og:description" content="The Supreme Court's April ruling in Louisiana v. Callais replaced Section 2's results-based standard with an intent requirement that legal experts say is nearly impossible to meet — ending sixty years of VRA redistricting enforcement in practice if not on paper." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.thenautisk.com/depth-law-voting-rights-act-callais-section-2.html" />
+<meta property="og:image" content="https://images.unsplash.com/photo-placeholder" />
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+#progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: #4a7fa8; width: 0%; z-index: 1000; transition: width 0.1s; }
+:root {
+  --bg: #020c16; --text: #c8d8e8; --text-muted: #5a7a98;
+  --text-strong: #e0eaf4; --border: #0d2a40; --nav-bg: #03213a;
+  --article-bg: #020c16; --accent: #4a7fa8; --section-color: #8a7abf;
+}
+body.professional {
+  --bg: #f8f9fa; --text: #222233; --text-muted: #555577;
+  --text-strong: #0a0a1a; --border: #dde3ec;
+  --article-bg: #ffffff; --accent: #1a4a8e;
+}
+body { font-family: Georgia, serif; background: var(--bg); color: var(--text); transition: background 0.3s, color 0.3s; line-height: 1.7; }
+nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2.5rem; border-bottom: 1px solid #1a4a6e; background: var(--nav-bg); position: sticky; top: 0; z-index: 200; }
+.nav-logo { font-size: 18px; font-weight: bold; letter-spacing: 0.14em; color: #c0cfe0; text-decoration: none; font-family: Arial, sans-serif; }
+.nav-logo span { color: #8ab4d4; }
+.nav-links { display: flex; gap: 1.5rem; align-items: center; }
+.nav-links a { font-size: 12px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; font-family: Arial, sans-serif; }
+.nav-links a:hover { color: #d6e8f5; }
+.depth-badge { font-size: 11px; color: #c0cfe0; background: transparent; border: 1px solid #4a7fa8; padding: 0.28rem 0.7rem; border-radius: 20px; font-family: Arial, sans-serif; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; }
+.mode-toggle { display: flex; align-items: center; gap: 0.4rem; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; padding: 0.28rem 0.7rem; cursor: pointer; font-size: 11px; color: #8ab4d4; font-family: Arial, sans-serif; letter-spacing: 0.06em; text-transform: uppercase; }
+.mode-toggle:hover { background: rgba(255,255,255,0.15); }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { display: block; width: 22px; height: 2px; background: #8ab4d4; border-radius: 2px; transition: all 0.3s; }
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+.mobile-nav { display: none; position: fixed; inset: 0; background: #03213a; z-index: 300; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; }
+.mobile-nav.open { display: flex; }
+.mobile-nav a { font-size: 20px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; font-family: Arial, sans-serif; }
+.section-top-bar { height: 3px; background: var(--section-color); }
+.article-hero-img { width: 100%; max-height: 520px; object-fit: cover; display: block; }
+.article-hero-caption { font-size: 12px; color: var(--text-muted); font-family: Arial, sans-serif; font-style: italic; padding: 0.5rem 2.5rem; border-bottom: 1px solid var(--border); }
+.article-wrapper { max-width: 760px; margin: 0 auto; padding: 0 2rem 5rem; }
+.article-header { padding: 2.5rem 0 1.5rem; }
+.depth-label { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--section-color); font-family: Arial, sans-serif; font-weight: bold; margin-bottom: 0.75rem; }
+.depth-label::before { content: '🌊'; font-size: 14px; }
+.article-section-tag { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--section-color); font-family: Arial, sans-serif; font-weight: bold; display: block; margin-bottom: 0.5rem; }
+.article-header h1 { font-size: 38px; font-weight: bold; color: var(--text-strong); line-height: 1.2; margin-bottom: 1rem; }
+.article-dek { font-size: 19px; color: var(--text-muted); line-height: 1.6; font-family: Arial, sans-serif; margin-bottom: 1.5rem; font-weight: normal; border-left: 3px solid var(--section-color); padding-left: 1rem; }
+.article-meta-bar { display: flex; align-items: center; gap: 1rem; padding: 1rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 2.5rem; font-family: Arial, sans-serif; font-size: 13px; color: var(--text-muted); flex-wrap: wrap; }
+.share-bar { display: flex; gap: 0.75rem; align-items: center; margin-left: auto; }
+.share-btn { font-size: 11px; font-family: Arial, sans-serif; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.75rem; border: 1px solid var(--border); background: none; color: var(--text-muted); cursor: pointer; border-radius: 2px; text-decoration: none; transition: border-color 0.2s, color 0.2s; }
+.share-btn:hover { border-color: var(--section-color); color: var(--section-color); }
+.article-body { font-size: 17px; line-height: 1.8; color: var(--text); }
+.article-body p { margin-bottom: 1.6rem; }
+.article-body p:first-of-type::first-letter { font-size: 4.2em; float: left; line-height: 0.8; padding-right: 0.1em; padding-top: 0.05em; color: var(--section-color); font-weight: bold; }
+.article-body h2 { font-size: 22px; color: var(--text-strong); margin: 3rem 0 1rem; font-weight: bold; border-left: 3px solid var(--section-color); padding-left: 0.75rem; }
+.article-body h3 { font-size: 18px; color: var(--text-strong); margin: 2rem 0 0.75rem; }
+.article-body ul, .article-body ol { margin: 0 0 1.6rem 1.75rem; }
+.article-body li { margin-bottom: 0.5rem; line-height: 1.75; }
+.article-body sup { font-size: 11px; color: var(--section-color); font-family: Arial, sans-serif; vertical-align: super; line-height: 0; }
+.article-body sup a { color: var(--section-color); text-decoration: none; }
+.article-body sup a:hover { text-decoration: underline; }
+.pull-quote { border-top: 2px solid var(--section-color); border-bottom: 2px solid var(--section-color); padding: 1.5rem 0; margin: 2.5rem 0; font-size: 22px; line-height: 1.45; color: var(--text-strong); font-style: italic; text-align: center; }
+.sources-section { margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--border); }
+.sources-section h2 { font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); font-family: Arial, sans-serif; margin-bottom: 1.25rem; border: none; padding: 0; }
+.sources-section ol { margin-left: 1.25rem; }
+.sources-section ol li { font-size: 13px; color: var(--text-muted); font-family: Arial, sans-serif; line-height: 1.7; margin-bottom: 0.6rem; }
+.sources-section ol li a { color: var(--accent); }
+.byline-block { margin-top: 3rem; padding-top: 1.5rem; border-top: 2px solid var(--border); display: flex; align-items: center; gap: 1rem; }
+.byline-avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--section-color); display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: bold; color: #fff; font-family: Arial, sans-serif; flex-shrink: 0; }
+.byline-info { font-family: Arial, sans-serif; }
+.byline-name { font-size: 14px; font-weight: bold; color: var(--text-strong); }
+.byline-title { font-size: 12px; color: var(--text-muted); margin-top: 0.2rem; }
+.depth-footer-note { margin-top: 2rem; padding: 1rem 1.25rem; background: rgba(74,127,168,0.06); border: 1px solid var(--border); border-radius: 3px; font-size: 12px; color: var(--text-muted); font-family: Arial, sans-serif; line-height: 1.7; }
+.divider { display: flex; align-items: center; gap: 1rem; padding: 0 2.5rem; background: var(--bg); }
+.divider-line { flex: 1; height: 1px; background: var(--border); }
+.divider-icon { color: var(--accent); font-size: 18px; padding: 0.75rem 0; }
+footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2rem 2.5rem 1.5rem; font-family: Arial, sans-serif; }
+.footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #1a4a6e; }
+.footer-brand { font-size: 15px; font-weight: bold; letter-spacing: 0.12em; color: #c0cfe0; }
+.footer-brand span { color: #8ab4d4; }
+.footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.footer-links a { font-size: 11px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; }
+.footer-links a:hover { color: #d6e8f5; }
+.footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+.footer-bottom span { font-size: 11px; color: #4a7fa8; }
+@media (max-width: 768px) {
+  .nav-links { display: none; } .hamburger { display: flex; }
+  nav { justify-content: space-between; padding: 0.9rem 1.25rem; }
+  .article-wrapper { padding: 0 1.25rem 3rem; }
+  .article-header h1 { font-size: 26px; }
+  .article-dek { font-size: 16px; }
+  .article-body { font-size: 16px; }
+  .pull-quote { font-size: 18px; }
+  .article-meta-bar { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  .share-bar { margin-left: 0; }
+  footer { padding: 1.5rem 1.25rem; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+<div id="progress-bar"></div>
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html">Home</a>
+  <a href="finance.html">Finance</a>
+  <a href="law.html">Law</a>
+  <a href="healthcare.html">Healthcare</a>
+  <a href="politics.html">Politics</a>
+  <a href="depth.html">Depth</a>
+  <a href="about.html">Our Story</a>
+  <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Newsletter</a>
+</div>
+<div class="section-top-bar"></div>
+<nav>
+  <a href="index.html" class="nav-logo">THE <span>NAUTISK</span></a>
+  <div class="nav-links">
+    <a href="finance.html">Finance</a>
+    <a href="law.html">Law</a>
+    <a href="healthcare.html">Healthcare</a>
+    <a href="politics.html">Politics</a>
+    <a href="depth.html" class="depth-badge">Depth</a>
+    <a href="about.html">Our Story</a>
+    <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Newsletter</a>
+    <button class="mode-toggle" onclick="toggleMode()"><span id="modeIcon">🌊</span> <span id="modeLabel">Aquatic</span></button>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+<!-- EDITOR: REPLACE PLACEHOLDER IMAGE — search Unsplash for "supreme court building washington" or "voting rights civil rights" -->
+<img class="article-hero-img" src="https://images.unsplash.com/photo-placeholder" alt="United States Supreme Court building" />
+<p class="article-hero-caption">Photo via Unsplash — <em>image pending: replace before publishing</em></p>
+<div class="article-wrapper">
+  <header class="article-header">
+    <span class="depth-label">Depth</span>
+    <span class="article-section-tag">Law</span>
+    <h1>Section 2 Is Still on the Books. It No Longer Does Anything.</h1>
+    <p class="article-dek">The Supreme Court's April ruling in Louisiana v. Callais replaced Section 2's results-based standard with an intent requirement that legal experts say is nearly impossible to meet — ending sixty years of VRA redistricting enforcement in practice if not on paper.</p>
+    <div class="article-meta-bar">
+      <span>June 27, 2026</span>
+      <span>·</span>
+      <span>13 min read</span>
+      <span>·</span>
+      <span>3,200 words</span>
+      <div class="share-bar">
+        <a class="share-btn" href="https://twitter.com/intent/tweet?text=Section%202%20Is%20Still%20on%20the%20Books.%20It%20No%20Longer%20Does%20Anything.&url=https://www.thenautisk.com/depth-law-voting-rights-act-callais-section-2.html" target="_blank" rel="noopener noreferrer">Share</a>
+        <button class="share-btn" onclick="navigator.clipboard.writeText(window.location.href);this.textContent='Copied!'">Copy Link</button>
+      </div>
+    </div>
+  </header>
+  <div class="article-body">
+
+<p>Sixty-one years after Lyndon Johnson signed the Voting Rights Act into law — surrounded in the East Room by the leaders of a movement that had been beaten at the Edmund Pettus Bridge ten days earlier — the Supreme Court has effectively ended the statute's role as a tool for challenging discriminatory electoral maps.</p>
+
+<p>The decision in <em>Louisiana v. Callais</em>, handed down April 29, 2026, was 6-3. Justice Samuel Alito wrote for the majority. The holding was narrow enough to avoid saying outright that Section 2 cannot be used in redistricting cases. But the standard it installed makes proving a Section 2 violation — in practice, in a real courthouse — nearly impossible. And within two months of the ruling, states across the South had already begun acting on what the ruling permits them to do.<sup><a href="#source-1" id="ref-1">[1]</a></sup></p>
+
+<h2>What Section 2 Was, and What It Did</h2>
+
+<p>The Voting Rights Act of 1965 was not a single unified provision. Section 5, the preclearance requirement — which compelled certain states with histories of discrimination to get federal approval before changing their voting laws — was effectively killed by the Supreme Court's 2013 decision in <em>Shelby County v. Holder</em>. What remained as the primary enforcement tool was Section 2, a nationwide provision prohibiting any voting practice or procedure that "results in" the denial or abridgment of the right to vote on account of race, color, or membership in a language minority group.<sup><a href="#source-2" id="ref-2">[2]</a></sup></p>
+
+<p>The operative word was "results in." Courts interpreting Section 2 after the 1982 amendments to the Act did not require proof that state legislators intended to discriminate — they looked at the effects of electoral systems, using a framework established in the 1986 case <em>Thornburg v. Gingles</em>. Under <em>Gingles</em>, a racial minority group could challenge a redistricting map by showing, among other things, that it was sufficiently large and geographically compact to form a majority in a single-member district, that it voted cohesively, and that the white majority tended to vote as a bloc in ways that usually defeated the minority's preferred candidate. If those conditions were met, and if the "totality of circumstances" showed dilution, a court could order the state to draw a majority-minority district — one where minority voters had the opportunity to elect their preferred representative.<sup><a href="#source-3" id="ref-3">[3]</a></sup></p>
+
+<p>This is the framework that produced the Congressional Black Caucus as it exists today. It produced majority-Black congressional districts in Alabama, Georgia, Louisiana, Mississippi, South Carolina, and Texas — states where, without legal compulsion, legislatures dominated by white Republicans have shown little inclination to create them voluntarily.</p>
+
+<h2>What the Court Did in Callais</h2>
+
+<p>The case began as a paradox. Louisiana, under court order to draw a second majority-Black congressional district following an earlier Section 2 ruling, drew that district — and was then sued by a different set of plaintiffs who argued the resulting map was an unconstitutional racial gerrymander. The court had to decide whether a state that drew a race-conscious map in response to one legal obligation had thereby violated another.<sup><a href="#source-1" id="ref-1b">[1]</a></sup></p>
+
+<p>Alito's majority held that it had — that Louisiana's second majority-minority district was not actually required by Section 2 under the correct interpretation of the statute, and that drawing it anyway constituted an impermissible use of race. But the decision's real significance was in what it said about what Section 2 now requires of challengers.</p>
+
+<p>Previously, under the <em>Gingles</em> framework, plaintiffs had to show that minority voters had less opportunity than other members of the electorate to participate in the political process and elect representatives of their choice — a results-based inquiry. After <em>Callais</em>, the Court established that challengers must now demonstrate "evidence supporting a strong inference that the State intentionally drew its districts to afford minority voters less opportunity because of their race."<sup><a href="#source-4" id="ref-4">[4]</a></sup></p>
+
+<p>That shift from results to intent is not subtle. Intent is notoriously difficult to prove. State legislatures don't put discriminatory purposes in committee reports. Legislators don't testify about racial motivation. They invoke population equality, community of interest, compactness — facially neutral criteria that can be deployed to produce racially exclusionary outcomes without generating documentary evidence of discriminatory intent. The Court has said this before, in other contexts. It knows how legislative process works.<sup><a href="#source-5" id="ref-5">[5]</a></sup></p>
+
+<p>The Campaign Legal Center, one of the organizations that has litigated Section 2 cases for decades, was blunt: "The U.S. Supreme Court has eviscerated the Voting Rights Act."<sup><a href="#source-4" id="ref-4b">[4]</a></sup></p>
+
+<h2>Justice Thomas's Long Game</h2>
+
+<p>Clarence Thomas has been arguing for this outcome since the 1990s. In his concurrence in <em>Holder v. Hall</em> (1994), he wrote that the Court's redistricting jurisprudence under Section 2 had strayed far from the statutory text and had produced what amounted to a right to proportional representation for racial minorities — a concept he found constitutionally repugnant and, in his view, racially condescending.<!-- EDITOR: VERIFY BEFORE PUBLISHING — confirm specific quotation and citation from Thomas concurrence in Holder v. Hall, 512 U.S. 874 (1994) against official text before publication --><sup><a href="#source-10" id="ref-10">[10]</a></sup></p>
+
+<p>In <em>Callais</em>, Thomas concurred in the result but wrote separately, joined by Justice Gorsuch, to make explicit what the majority did not: he would go further. In his view, Section 2 as enacted simply does not apply to redistricting at all. The statutory phrase "voting practice or procedure" refers to rules about how voting works — registration requirements, polling place hours, ballot formats — not to the shape of legislative districts, which are a structural feature of representation, not a procedure for casting a vote. If Thomas's reading were adopted by the full Court, Section 2 redistricting claims would be categorically unavailable, not merely harder to win.<sup><a href="#source-1" id="ref-1c">[1]</a></sup></p>
+
+<p>Thomas did not get five votes for that position in <em>Callais</em>. He got two. But the opinion Alito wrote is, in its practical effect, nearly as limiting. And with Thomas's concurrence on the record as the logically next step in the Court's movement, the question of whether a future case might get him there — with a six-justice conservative supermajority that has shown no reluctance to move fast on questions its predecessors left open — is not theoretical.</p>
+
+<h2>What Has Happened in the Two Months Since</h2>
+
+<p>States did not wait for legal clarity to act. The speed of the post-<em>Callais</em> redistricting scramble has been striking.</p>
+
+<p>Alabama provides the clearest example. A federal district court had previously found that Alabama's congressional map violated Section 2 and ordered the state to draw a majority-Black district in the southwestern part of the state. Alabama complied — reluctantly, under threat of being held in contempt — and created a second majority-Black district. After <em>Callais</em> changed the standard for what Section 2 requires, Alabama moved to revise that map.<sup><a href="#source-6" id="ref-6">[6]</a></sup></p>
+
+<p>A panel of federal judges blocked Alabama's new map in late May, finding it violated the Fourteenth Amendment. But the Supreme Court reversed the panel on June 2, allowing Alabama to use the revised map for the 2026 elections — the same elections that are now four months away. Governor Kay Ivey scheduled special primaries in multiple congressional districts for August 11 to accommodate the new districts.<sup><a href="#source-7" id="ref-7">[7]</a></sup></p>
+
+<p>The Pew-affiliated Stateline project, analyzing the downstream effects of <em>Callais</em> beyond Congress, found that the ruling applies equally to state legislative maps and to maps for county commissions, school boards, city councils, and other local offices. Analysis by redistricting advocacy groups found that Republicans could gain more than 190 state legislative seats currently held by Black Democrats in majority-minority districts across ten Southern states — seats that exist because Section 2, under its old interpretation, required their existence.<sup><a href="#source-8" id="ref-8">[8]</a></sup></p>
+
+<p>The Congressional Research Service, in a report issued shortly after the ruling, described <em>Callais</em> as "narrowing" the VRA's reach — the most restrained possible characterization of a decision that legal scholars across the ideological spectrum were calling a fundamental transformation of the law.<sup><a href="#source-9" id="ref-9">[9]</a></sup></p>
+
+<h2>The "Color-Blind Constitution" and Its Critics</h2>
+
+<p>The intellectual framework animating the conservative Court's voting rights jurisprudence is what Thomas has called the "color-blind Constitution" — the view that the Equal Protection Clause prohibits government from classifying citizens by race, including for remedial purposes. Under this view, majority-minority districts are not a remedy for historical discrimination; they are themselves a form of racial discrimination, taking an attribute the Constitution is supposed to treat as irrelevant and making it determinative in a consequential civic matter.<sup><a href="#source-10" id="ref-10b">[10]</a></sup></p>
+
+<p>Critics of this position argue that it is historically illiterate in a way that matters. The Equal Protection Clause was ratified in 1868, three years after the Civil War, specifically as a response to racial oppression — not as a prohibition on consciousness of race but as a guarantee of equal treatment regardless of race. The 1965 Voting Rights Act was itself enacted under Congress's authority to enforce the Fourteenth and Fifteenth Amendments. Using the Fourteenth Amendment to strike down the mechanism Congress used to enforce it is, in the view of many constitutional historians, a logical inversion that would have puzzled the amendment's authors.<!-- EDITOR: VERIFY BEFORE PUBLISHING — confirm attribution for this legal-historical argument; draft attributed to Akhil Reed Amar; find specific source --></p>
+
+<p>The more immediate objection is empirical. Section 2, in the period when it was operative, produced measurable gains in Black elected representation. The number of Black elected officials in the South grew dramatically after majority-minority districts were required. If the remedial mechanism disappears, the question of whether those gains prove durable — or whether the structural conditions that required legal intervention in the first place reassert themselves — will be answered by the 2026 and 2028 election cycles.</p>
+
+<h2>The Local Government Dimension</h2>
+
+<p>Most of the national attention on <em>Callais</em> has focused on congressional seats — which party controls which district, what the House map looks like. This framing, while understandable, misses most of the story.</p>
+
+<p>The Stateline analysis found that majority-minority districts exist at every level of government, and that at the local level — county commissions, water districts, school boards, municipal councils — they often determine whether Black and Latino communities have any representation at all in the bodies that control their daily lives. Zoning decisions, school funding allocations, law enforcement oversight — these are local government functions. And local redistricting maps, which until April 29 were subject to the same Section 2 standard as congressional maps, are now governed by an intent standard that local plaintiffs, with far fewer resources than national civil rights organizations, will find even harder to satisfy than their congressional counterparts.<sup><a href="#source-8" id="ref-8b">[8]</a></sup></p>
+
+<p>The Brennan Center for Justice has described this as the "invisible layer" of the <em>Callais</em> ruling's consequences: the majority of the impact will unfold in proceedings that won't make national news, in counties and municipalities that voting rights lawyers don't have the bandwidth to monitor, with plaintiffs who don't have the money to litigate for years through federal courts.<sup><a href="#source-5" id="ref-5b">[5]</a></sup></p>
+
+<p>Congress retains theoretical authority to amend Section 2 to restore the results standard. With Republicans holding the House and Senate, and with the current Republican caucus largely supportive of the Court's direction on voting rights, the chance of that happening in this Congress is, to put it diplomatically, remote. A future Congress could revisit the question; <em>Callais</em> did not preclude congressional action. But the practical landscape, absent legislative intervention, is that the enforcement mechanism the VRA provided for sixty years no longer functions.<sup><a href="#source-9" id="ref-9b">[9]</a></sup></p>
+
+<p>The Section 2 that existed on April 28, 2026 and the Section 2 that exists today are the same six words in the U.S. Code. They have nothing else in common.</p>
+
+  </div>
+  <div class="sources-section">
+    <h2>Sources</h2>
+    <ol>
+      <li id="source-1">Supreme Court of the United States. <em>Louisiana v. Callais</em>, No. 24-109 (Apr. 29, 2026). <a href="https://www.supremecourt.gov/opinions/25pdf/24-109_21o3.pdf" target="_blank" rel="noopener noreferrer">supremecourt.gov</a></li>
+      <li id="source-2">Supreme Court of the United States. <em>Shelby County v. Holder</em>, 570 U.S. 529 (2013).</li>
+      <li id="source-3">Supreme Court of the United States. <em>Thornburg v. Gingles</em>, 478 U.S. 30 (1986).</li>
+      <li id="source-4">Campaign Legal Center. "The U.S. Supreme Court Has Eviscerated the Voting Rights Act — What's Next?" <a href="https://campaignlegal.org/update/us-supreme-court-has-eviscerated-voting-rights-act-whats-next" target="_blank" rel="noopener noreferrer">campaignlegal.org</a></li>
+      <li id="source-5">Brennan Center for Justice. "Louisiana v. Callais." <a href="https://www.brennancenter.org/our-work/research-reports/louisiana-v-callais" target="_blank" rel="noopener noreferrer">brennancenter.org</a></li>
+      <li id="source-6">CNBC. "Judges block Alabama redistricting maps that would dilute Black vote in midterms." May 26, 2026. <a href="https://www.cnbc.com/2026/05/26/alabama-redistricting-congress-black-votes-midterm-elections.html" target="_blank" rel="noopener noreferrer">cnbc.com</a></li>
+      <li id="source-7">Democracy Docket. "SCOTUS greenlights 11th-hour Alabama redistricting plan for 2026 election." <a href="https://www.democracydocket.com/news-alerts/scotus-greenlights-11th-hour-alabama-redistricting-plan-for-2026-election/" target="_blank" rel="noopener noreferrer">democracydocket.com</a></li>
+      <li id="source-8">Stateline / Pew Charitable Trusts. "Supreme Court Voting Rights Ruling Set to Reshape Local Power from Statehouses to School Boards." May 4, 2026. <a href="https://stateline.org/2026/05/04/supreme-court-voting-rights-ruling-set-to-reshape-local-power-from-statehouses-to-school-boards/" target="_blank" rel="noopener noreferrer">stateline.org</a></li>
+      <li id="source-9">Congressional Research Service. LSB11431. "Congressional Redistricting: High Court Narrows Voting Rights Act in Louisiana v. Callais." <a href="https://www.congress.gov/crs-product/LSB11431" target="_blank" rel="noopener noreferrer">congress.gov</a></li>
+      <li id="source-10">Thomas, C., concurring. <em>Louisiana v. Callais</em>, No. 24-109 (Apr. 29, 2026). <!-- EDITOR: VERIFY BEFORE PUBLISHING — confirm exact language of Thomas concurrence against slip opinion before publication --></li>
+    </ol>
+  </div>
+  <div class="depth-footer-note">
+    This article was produced with AI-assisted research and drafting. All claims, citations, and sources were reviewed by The Nautisk editorial team before publication. Errors are corrected in accordance with our <a href="corrections.html">Corrections Policy</a>.
+  </div>
+  <div class="byline-block">
+    <div class="byline-avatar">N</div>
+    <div class="byline-info">
+      <div class="byline-name">The Nautisk | Depth</div>
+      <div class="byline-title">Long-form research journalism · Published June 27, 2026</div>
+    </div>
+  </div>
+</div>
+<div class="divider"><div class="divider-line"></div><span class="divider-icon">⚓</span><div class="divider-line"></div></div>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">THE <span>NAUTISK</span></div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="depth.html">Depth</a>
+      <a href="finance.html">Finance</a>
+      <a href="law.html">Law</a>
+      <a href="healthcare.html">Healthcare</a>
+      <a href="politics.html">Politics</a>
+      <a href="about.html">Our Story</a>
+      <a href="tips.html">Tips</a>
+      <a href="corrections.html">Corrections</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 The Nautisk. All rights reserved.</span>
+    <span>Manhattan, New York</span>
+  </div>
+</footer>
+<script>
+let isProfessional = false;
+function toggleMode() {
+  isProfessional = !isProfessional;
+  document.body.classList.toggle('professional', isProfessional);
+  document.getElementById('modeIcon').textContent = isProfessional ? '🏢' : '🌊';
+  document.getElementById('modeLabel').textContent = isProfessional ? 'Professional' : 'Aquatic';
+  localStorage.setItem('nautisk-mode', isProfessional ? 'professional' : 'aquatic');
+}
+if (localStorage.getItem('nautisk-mode') === 'professional') toggleMode();
+window.addEventListener('scroll', () => {
+  const doc = document.documentElement;
+  const progress = (doc.scrollTop / (doc.scrollHeight - doc.clientHeight)) * 100;
+  document.getElementById('progress-bar').style.width = progress + '%';
+});
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileNav.classList.toggle('open'); });
+mobileNav.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => { hamburger.classList.remove('open'); mobileNav.classList.remove('open'); }); });
+</script>
+</body>
+</html>
