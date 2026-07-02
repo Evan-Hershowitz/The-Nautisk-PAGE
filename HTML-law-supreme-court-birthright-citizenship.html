@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Supreme Court Rejects Trump's Bid to End Birthright Citizenship, 6–3 — The Nautisk</title>
+<meta name="description" content="Chief Justice Roberts' majority opinion anchors the ruling in the 14th Amendment and a 128-year-old precedent, closing the door on one of the administration's most aggressive immigration moves." />
+<meta name="robots" content="index, follow" />
+<meta property="og:title" content="Supreme Court Rejects Trump's Bid to End Birthright Citizenship, 6–3 — The Nautisk" />
+<meta property="og:description" content="Chief Justice Roberts' majority opinion anchors the ruling in the 14th Amendment and a 128-year-old precedent, closing the door on one of the administration's most aggressive immigration moves." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.thenautisk.com/supreme-court-birthright-citizenship.html" />
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Progress bar */
+#progress-bar {
+  position: fixed; top: 0; left: 0; height: 3px;
+  background: var(--section-color, #4a7fa8);
+  width: 0%; z-index: 1000; transition: width 0.1s;
+}
+
+:root {
+  --bg: #03213a; --text: #e8eef4; --text-muted: #7a9bb8;
+  --text-strong: #d6e8f5; --border: #1a4a6e; --nav-bg: #03213a;
+  --body-bg: #03213a; --article-bg: #051525;
+  --section-color: #4a7fa8;
+}
+body.professional {
+  --bg: #f8f9fa; --text: #222233; --text-muted: #555577;
+  --text-strong: #0a0a1a; --border: #dde3ec;
+  --body-bg: #f8f9fa; --article-bg: #ffffff;
+}
+
+body { font-family: Georgia, serif; background: var(--body-bg); color: var(--text); transition: background 0.3s, color 0.3s; line-height: 1.7; }
+
+/* NAV */
+nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2.5rem; border-bottom: 1px solid #1a4a6e; background: var(--nav-bg); position: sticky; top: 0; z-index: 200; }
+.nav-logo { font-size: 18px; font-weight: bold; letter-spacing: 0.14em; color: #c0cfe0; text-decoration: none; font-family: Arial, sans-serif; }
+.nav-logo span { color: #8ab4d4; }
+.nav-links { display: flex; gap: 1.5rem; align-items: center; }
+.nav-links a { font-size: 12px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; font-family: Arial, sans-serif; }
+.nav-links a:hover { color: #d6e8f5; }
+.mode-toggle { display: flex; align-items: center; gap: 0.4rem; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; padding: 0.28rem 0.7rem; cursor: pointer; font-size: 11px; color: #8ab4d4; font-family: Arial, sans-serif; letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap; }
+.mode-toggle:hover { background: rgba(255,255,255,0.15); }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { display: block; width: 22px; height: 2px; background: #8ab4d4; border-radius: 2px; transition: all 0.3s; }
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+.mobile-nav { display: none; position: fixed; inset: 0; background: #03213a; z-index: 300; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; overflow-y: auto; padding: 2rem 1rem; }
+.mobile-nav.open { display: flex; }
+.mobile-nav a { font-size: 20px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; font-family: Arial, sans-serif; }
+.mobile-nav .mobile-toggle { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #8ab4d4; padding: 0.5rem 1.5rem; border-radius: 20px; font-size: 14px; font-family: Arial, sans-serif; cursor: pointer; letter-spacing: 0.06em; text-transform: uppercase; }
+
+/* SECTION TOP BAR */
+.section-top-bar { height: 3px; background: var(--section-color); }
+
+/* ARTICLE WRAPPER */
+.article-wrapper {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+}
+
+/* ARTICLE HERO IMAGE */
+.article-hero-img {
+  width: 100%;
+  max-height: 480px;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 0;
+}
+.article-hero-caption {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-family: Arial, sans-serif;
+  font-style: italic;
+  padding: 0.5rem 0 0;
+  border-top: 1px solid var(--border);
+  margin-bottom: 2.5rem;
+}
+
+/* ARTICLE HEADER */
+.article-header { padding: 2.5rem 0 1.5rem; }
+.article-section-tag {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--section-color);
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+.article-header h1 {
+  font-size: 36px;
+  font-weight: bold;
+  color: var(--text-strong);
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+.article-dek {
+  font-size: 18px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  font-family: Arial, sans-serif;
+  margin-bottom: 1.5rem;
+  font-weight: normal;
+}
+.article-meta-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2rem;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+}
+.article-meta-bar .meta-date { }
+.article-meta-bar .meta-sep { opacity: 0.4; }
+.article-meta-bar .meta-read { }
+
+/* SHARE BAR */
+.share-bar {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-left: auto;
+}
+.share-btn {
+  font-size: 11px;
+  font-family: Arial, sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--border);
+  background: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  border-radius: 2px;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+}
+.share-btn:hover { border-color: var(--section-color); color: var(--section-color); }
+
+/* ARTICLE BODY */
+.article-body { font-size: 17px; line-height: 1.75; color: var(--text); }
+.article-body p { margin-bottom: 1.5rem; }
+.article-body p:first-child::first-letter {
+  font-size: 4em;
+  float: left;
+  line-height: 0.8;
+  padding-right: 0.1em;
+  padding-top: 0.05em;
+  color: var(--section-color);
+  font-weight: bold;
+}
+.article-body h2 {
+  font-size: 22px;
+  color: var(--text-strong);
+  margin: 2.5rem 0 1rem;
+  font-weight: bold;
+  border-left: 3px solid var(--section-color);
+  padding-left: 0.75rem;
+}
+.article-body h3 {
+  font-size: 18px;
+  color: var(--text-strong);
+  margin: 2rem 0 0.75rem;
+}
+.article-body ul, .article-body ol {
+  margin: 0 0 1.5rem 1.5rem;
+}
+.article-body li { margin-bottom: 0.5rem; line-height: 1.7; }
+
+/* CALLOUT BOX */
+.callout-box {
+  border-left: 4px solid var(--section-color);
+  background: rgba(74, 127, 168, 0.08);
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0;
+  border-radius: 0 3px 3px 0;
+}
+body.professional .callout-box { background: rgba(74, 127, 168, 0.05); }
+.callout-box p { margin: 0; font-style: italic; font-size: 15px; color: var(--text-muted); }
+
+/* PULL QUOTE */
+.pull-quote {
+  border-top: 2px solid var(--section-color);
+  border-bottom: 2px solid var(--section-color);
+  padding: 1.5rem 0;
+  margin: 2.5rem 0;
+  font-size: 22px;
+  line-height: 1.45;
+  color: var(--text-strong);
+  font-style: italic;
+  text-align: center;
+}
+
+/* BYLINE BLOCK */
+.byline-block {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.byline-avatar {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: var(--section-color);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; font-weight: bold; color: #fff;
+  font-family: Arial, sans-serif;
+  flex-shrink: 0;
+}
+.byline-info { font-family: Arial, sans-serif; }
+.byline-name { font-size: 14px; font-weight: bold; color: var(--text-strong); letter-spacing: 0.04em; }
+.byline-title { font-size: 12px; color: var(--text-muted); margin-top: 0.2rem; }
+
+/* FOOTER */
+.divider { display: flex; align-items: center; gap: 1rem; padding: 0 2.5rem; background: var(--body-bg); }
+.divider-line { flex: 1; height: 1px; background: var(--border); }
+.divider-icon { color: var(--section-color); font-size: 18px; padding: 0.75rem 0; }
+footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2rem 2.5rem 1.5rem; font-family: Arial, sans-serif; }
+.footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #1a4a6e; }
+.footer-brand { font-size: 15px; font-weight: bold; letter-spacing: 0.12em; color: #c0cfe0; }
+.footer-brand span { color: #8ab4d4; }
+.footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.footer-links a { font-size: 11px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; }
+.footer-links a:hover { color: #d6e8f5; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+.footer-bottom span { font-size: 11px; color: #4a7fa8; }
+
+/* SOURCES */
+.article-body .sources-list { list-style: none; margin-left: 0; }
+.article-body .sources-list li { font-family: Arial, sans-serif; font-size: 13px; color: var(--text-muted); }
+.article-body .sources-list a { color: var(--section-color); text-decoration: none; }
+.article-body .sources-list a:hover { text-decoration: underline; }
+
+@media (max-width: 768px) {
+  .nav-links { display: none; } .hamburger { display: flex; }
+  nav { justify-content: space-between; padding: 0.9rem 1.25rem; }
+  .article-wrapper { padding: 0 1rem 3rem; }
+  .article-header h1 { font-size: 26px; }
+  .article-dek { font-size: 15px; }
+  .article-body { font-size: 16px; }
+  .pull-quote { font-size: 18px; }
+  .article-meta-bar { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  .share-bar { margin-left: 0; }
+  footer { padding: 1.5rem 1.25rem; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+  .divider { padding: 0 1rem; }
+}
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-toggle" onclick="toggleMode()">🌊 Switch Mode</button>
+  <a href="index.html">Home</a>
+  <a href="finance.html">Finance</a>
+  <a href="law.html">Law</a>
+  <a href="healthcare.html">Healthcare</a>
+  <a href="politics.html">Politics</a>
+  <a href="tidepool.html">Tidepool</a>
+  <a href="depth.html">Depth</a>
+  <a href="about.html">Our Story</a>
+  <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Newsletter</a>
+  <a href="tips.html">Tips</a>
+</div>
+
+<div class="section-top-bar"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">THE <span>NAUTISK</span></a>
+  <div class="nav-links">
+    <a href="finance.html">Finance</a>
+    <a href="law.html">Law</a>
+    <a href="healthcare.html">Healthcare</a>
+    <a href="politics.html">Politics</a>
+    <a href="tidepool.html">Tidepool</a>
+    <a href="depth.html">Depth</a>
+    <a href="about.html">Our Story</a>
+    <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Newsletter</a>
+    <button class="mode-toggle" onclick="toggleMode()"><span id="modeIcon">🌊</span> <span id="modeLabel">Aquatic</span></button>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="article-wrapper">
+
+  <!-- Article header -->
+  <header class="article-header">
+    <span class="article-section-tag">Law</span>
+    <h1>Supreme Court Rejects Trump's Bid to End Birthright Citizenship, 6–3</h1>
+    <p class="article-dek">Chief Justice Roberts' majority opinion anchors the ruling in the 14th Amendment and a 128-year-old precedent, closing the door on one of the administration's most aggressive immigration moves.</p>
+    <div class="article-meta-bar">
+      <span class="meta-date">July 1, 2026</span>
+      <span class="meta-sep">·</span>
+      <span class="meta-read">4 min read</span>
+      <div class="share-bar">
+        <a class="share-btn" href="https://twitter.com/intent/tweet?text=Supreme Court Rejects Trump's Bid to End Birthright Citizenship, 6–3&url=https://www.thenautisk.com/supreme-court-birthright-citizenship.html" target="_blank" rel="noopener noreferrer">Share</a>
+        <button class="share-btn" onclick="navigator.clipboard.writeText(window.location.href); this.textContent='Copied!'">Copy Link</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Article body — replace content between these comments -->
+  <!-- ARTICLE BODY START -->
+  <div class="article-body">
+
+    <p>The Supreme Court ruled 6–3 on Tuesday that the Constitution guarantees automatic citizenship to virtually all children born on U.S. soil, delivering a sharp rebuke to President Trump and permanently blocking his attempt to end birthright citizenship by executive order.</p>
+
+    <h2>Background</h2>
+
+    <p>On the first day of his second term, Trump signed an executive order directing federal agencies to deny citizenship documentation to children born in the United States to parents who were in the country illegally or on temporary visas. The order never took effect. Every lower court judge who reviewed it concluded it was unconstitutional, with one calling it "blatantly" so. Trump has long argued that the 14th Amendment's citizenship guarantee was meant only for the children of formerly enslaved people, not "the entire world," but American courts have never accepted that reading in the 160 years since the amendment's ratification.</p>
+
+    <p>The case turned on the amendment's text, which grants citizenship to all persons "born or naturalized in the United States, and subject to the jurisdiction thereof." The central legal question was whether children of undocumented immigrants or temporary visa holders count as "subject to the jurisdiction" of the United States. The Court had already resolved that question once before, in the 1898 case United States v. Wong Kim Ark, which upheld citizenship for a man born in San Francisco to Chinese immigrant parents who could not themselves become citizens under the immigration law of that era.</p>
+
+    <h2>What Happened</h2>
+
+    <p>Chief Justice John Roberts wrote the majority opinion, joined by five colleagues, tracing the history of birthright citizenship from the demand for "the rights of Englishmen" in the colonial era through the abolitionist movement's push for universal birthright citizenship after the Civil War. Roberts found that the 14th Amendment's drafters defined citizenship broadly on purpose, rejecting narrower alternatives that were available to them at the time. He held that the Wong Kim Ark precedent controls, meaning only children of foreign diplomats — one of a few historical exceptions — fall outside the amendment's guarantee. Justices Clarence Thomas, Neil Gorsuch, and Samuel Alito dissented, arguing for a narrower reading of the amendment's citizenship guarantee that would have allowed the executive order to stand.</p>
+
+    <p>The ruling arrived the same week as two other major Trump-related decisions: a 6–3 ruling expanding the president's authority to fire members of independent federal agencies without cause, and a separate 6–3 decision striking down decades-old limits on how much political parties can spend coordinating with candidates. Together, the three rulings gave Trump a mixed record — a significant win on executive power and campaign finance, but a decisive defeat on one of his signature immigration promises.</p>
+
+    <h2>Reactions</h2>
+
+    <p>Cecillia Wang of the American Civil Liberties Union, who argued the case in April and was herself born a citizen to Chinese immigrant parents under this same constitutional guarantee, has said the amendment's framers deliberately conferred citizenship on the child rather than the parent so that "we do not punish children for the sins of their fathers." Legal scholars described Tuesday's ruling as among the most consequential citizenship decisions in the modern era, both for its outcome and for the breadth of Roberts' historical reasoning, which forecloses future executive attempts to revisit the question short of a constitutional amendment. The White House had signaled anticipation of an unfavorable outcome in the days before the ruling.</p>
+
+    <blockquote class="pull-quote">
+      "We do not punish children for the sins of their fathers."
+    </blockquote>
+
+    <h2>What This Means</h2>
+
+    <p>For the roughly 150,000 children born each year in the U.S. to parents without permanent legal status, the ruling settles, for now, a question that had created real uncertainty about their legal status and rights. More broadly, it reaffirms a principle that has held since 1898: birth on U.S. soil confers citizenship, full stop, regardless of a parent's immigration status. Because the Court grounded its decision in constitutional text and long-standing precedent rather than the interpretation of a statute, undoing it would require either a future Supreme Court willing to overturn Wong Kim Ark or a constitutional amendment — a far higher bar than another executive order or act of Congress. For a White House that made restricting birthright citizenship central to its immigration agenda, that door is now effectively closed.</p>
+
+    <div class="callout-box">
+      <p>The bottom line: undoing this ruling would require the Supreme Court to overturn a 128-year-old precedent or a constitutional amendment — a far higher bar than another executive order.</p>
+    </div>
+
+    <h2>Sources</h2>
+
+    <ul class="sources-list">
+      <li><a href="https://www.npr.org/2026/06/30/nx-s1-5839358/birthright-citizenship-decision-scotus-trump" target="_blank" rel="noopener noreferrer">Supreme Court upholds birthright citizenship on constitutional grounds</a> — NPR, June 30, 2026</li>
+      <li><a href="https://www.aljazeera.com/news/2026/6/30/us-supreme-court-hands-trump-3-1-defeat-in-key-rulings-what-we-know" target="_blank" rel="noopener noreferrer">US Supreme Court hands Trump 3-1 defeat in key rulings: What we know</a> — Al Jazeera, June 30, 2026</li>
+      <li><a href="https://www.npr.org/2026/06/30/nx-s1-5827039/supreme-court-campaign-finance" target="_blank" rel="noopener noreferrer">Supreme Court strikes down limits on political party spending</a> — NPR, June 30, 2026</li>
+    </ul>
+
+  </div>
+  <!-- ARTICLE BODY END -->
+
+  <!-- BYLINE — author info at the bottom -->
+  <div class="byline-block">
+    <div class="byline-avatar">N</div>
+    <div class="byline-info">
+      <div class="byline-name">The Nautisk</div>
+      <div class="byline-title">Independent journalism · Manhattan, New York · Published July 1, 2026</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="divider"><div class="divider-line"></div><span class="divider-icon">⚓</span><div class="divider-line"></div></div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">THE <span>NAUTISK</span></div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="finance.html">Finance</a>
+      <a href="law.html">Law</a>
+      <a href="healthcare.html">Healthcare</a>
+      <a href="politics.html">Politics</a>
+      <a href="about.html">Our Story</a>
+      <a href="tips.html">Tips</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 The Nautisk. All rights reserved.</span>
+    <span>Manhattan, New York</span>
+  </div>
+</footer>
+
+<script>
+// Theme toggle (synced with rest of site via localStorage)
+let isProfessional = false;
+function toggleMode() {
+  isProfessional = !isProfessional;
+  document.body.classList.toggle('professional', isProfessional);
+  document.getElementById('modeIcon').textContent = isProfessional ? '🏢' : '🌊';
+  document.getElementById('modeLabel').textContent = isProfessional ? 'Professional' : 'Aquatic';
+  localStorage.setItem('nautisk-mode', isProfessional ? 'professional' : 'aquatic');
+}
+if (localStorage.getItem('nautisk-mode') === 'professional') toggleMode();
+
+// Reading progress bar
+window.addEventListener('scroll', () => {
+  const doc = document.documentElement;
+  const scrollTop = doc.scrollTop || document.body.scrollTop;
+  const scrollHeight = doc.scrollHeight - doc.clientHeight;
+  const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+  document.getElementById('progress-bar').style.width = progress + '%';
+});
+
+// Hamburger
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileNav.classList.toggle('open'); });
+mobileNav.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => { hamburger.classList.remove('open'); mobileNav.classList.remove('open'); }); });
+</script>
+</body>
+</html>
