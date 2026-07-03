@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tidepool — The Nautisk</title>
+  <meta name="description" content="Tidepool by The Nautisk — clear, accessible news for younger readers covering college, science, pop culture, and tech." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Tidepool — The Nautisk" />
+  <meta property="og:description" content="Clear, accessible news covering college, science, pop culture, and tech." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.thenautisk.com/tidepool.html" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Georgia, serif; background: #f0fdfb; color: #1a2e28; line-height: 1.75; }
+
+    /* NAV */
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 2.5rem; border-bottom: 1px solid #1a4a6e; background: #03213a; position: sticky; top: 0; z-index: 200; }
+    .nav-left { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-right { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-center { position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 0.75rem; }
+    .logo-img { height: 54px; width: 54px; object-fit: contain; }
+    .logo-text { font-size: 22px; font-weight: bold; letter-spacing: 0.14em; color: #c0cfe0; font-family: Arial, sans-serif; text-decoration: none; }
+    .logo-text span { color: #8ab4d4; }
+    .nav-btn { font-size: 13px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; font-family: Arial, sans-serif; background: none; border: none; cursor: pointer; padding: 0; }
+    .nav-btn:hover { color: #d6e8f5; }
+    .nav-btn-tidepool { font-size: 13px; color: #03213a; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; font-family: Arial, sans-serif; background: #7dd4c0; border: none; cursor: pointer; padding: 0.4rem 0.9rem; border-radius: 20px; font-weight: bold; }
+    .nav-btn-tidepool:hover { background: #5bbfaa; }
+    .nav-btn-depth { font-size: 13px; color: #c0cfe0; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; font-family: Arial, sans-serif; background: transparent; border: 1px solid #4a7fa8; cursor: pointer; padding: 0.4rem 0.9rem; border-radius: 20px; font-weight: bold; }
+    .nav-btn-depth:hover { background: #1a4a6e; color: #d6e8f5; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; z-index: 300; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #8ab4d4; border-radius: 2px; transition: all 0.3s; }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+    .mobile-menu { display: none; position: fixed; inset: 0; background: #03213a; z-index: 250; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 20px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; font-family: Arial, sans-serif; }
+    .mobile-menu .mobile-tidepool { background: #7dd4c0; color: #03213a; padding: 0.5rem 1.5rem; border-radius: 20px; font-weight: bold; }
+    .mobile-menu .mobile-depth { border: 1px solid #4a7fa8; color: #c0cfe0; padding: 0.5rem 1.5rem; border-radius: 20px; font-weight: bold; }
+
+    /* TOP BAR */
+    .tidepool-top-bar { height: 4px; background: linear-gradient(90deg, #7dd4c0, #4caf7d, #7dd4c0); }
+
+    /* HERO */
+    .tidepool-hero { padding: 4rem 2.5rem 3rem; text-align: center; background: #e8faf6; border-bottom: 2px solid #b8e8e0; position: relative; overflow: hidden; }
+    .tidepool-eyebrow { font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: #0a4a38; font-family: Arial, sans-serif; margin-bottom: 1rem; }
+    .tidepool-hero h1 { font-size: 42px; color: #0a1e18; font-weight: bold; line-height: 1.2; margin-bottom: 1rem; }
+    .tidepool-hero p { font-size: 16px; color: #4a7a6a; max-width: 520px; margin: 0 auto; line-height: 1.8; font-family: Arial, sans-serif; }
+    .tidepool-rule { width: 48px; height: 3px; background: #7dd4c0; margin: 0 auto 1.5rem; border-radius: 2px; }
+
+    /* ARTICLES */
+    .articles-section { padding: 3rem 2.5rem 5rem; max-width: 1200px; margin: 0 auto; }
+    .section-header { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 2rem; }
+    .section-label { font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: #0a4a38; font-family: Arial, sans-serif; font-weight: bold; }
+    .section-divider { flex: 1; height: 1px; background: #b8e8e0; }
+    .articles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+
+    /* ARTICLE CARD */
+    .article-card { background: #ffffff; border: 1px solid #b8e8e0; text-decoration: none; display: flex; flex-direction: column; border-radius: 4px; overflow: hidden; transition: border-color 0.2s, box-shadow 0.2s; }
+    .article-card:hover { border-color: #7dd4c0; box-shadow: 0 4px 20px rgba(125,212,192,0.2); }
+    .card-img { width: 100%; height: 180px; object-fit: cover; display: block; }
+    .card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+    .card-tidepool-label { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; font-family: Arial, sans-serif; font-weight: bold; color: #0a4a38; margin-bottom: 0.4rem; display: block; }
+    .card-tidepool-label::before { content: '🌊 '; }
+    .card-section-tag { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; font-family: Arial, sans-serif; font-weight: bold; color: #1a7a60; margin-bottom: 0.6rem; display: block; }
+    .article-card h3 { font-size: 18px; color: #0a1e18; line-height: 1.35; margin-bottom: 0.75rem; font-weight: bold; flex: 1; }
+    .article-card p { font-size: 13px; color: #4a7a6a; line-height: 1.7; font-family: Arial, sans-serif; margin-bottom: 1rem; }
+    .card-meta { font-size: 11px; color: #7aaa9a; font-family: Arial, sans-serif; margin-top: auto; padding-top: 0.75rem; border-top: 1px solid #b8e8e0; }
+
+    /* FOOTER */
+    footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5rem 1.5rem; font-family: Arial, sans-serif; }
+    .footer-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem; flex-wrap: wrap; gap: 2rem; }
+    .footer-brand .footer-logo { font-size: 20px; font-weight: bold; letter-spacing: 0.14em; color: #c0cfe0; margin-bottom: 0.4rem; }
+    .footer-brand .footer-logo span { color: #8ab4d4; }
+    .footer-brand p { font-size: 12px; color: #4a7fa8; letter-spacing: 0.06em; }
+    .footer-col h4 { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #4a7fa8; margin-bottom: 0.75rem; }
+    .footer-col p, .footer-col a { font-size: 13px; color: #8ab4d4; display: block; text-decoration: none; margin-bottom: 0.3rem; line-height: 1.7; }
+    .footer-col a:hover { color: #d6e8f5; }
+    .footer-bottom { border-top: 1px solid #1a4a6e; padding-top: 1.25rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-bottom span { font-size: 12px; color: #4a7fa8; letter-spacing: 0.06em; }
+    .footer-anchor { font-size: 28px; color: #ffffff; opacity: 0.8; }
+    .footer-legal { border-top: 1px solid #1a4a6e; padding-top: 1rem; margin-top: 1rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+    .footer-legal a { font-size: 11px; color: #4a7fa8; text-decoration: none; letter-spacing: 0.06em; }
+    .footer-legal a:hover { color: #8ab4d4; }
+
+    @media (max-width: 768px) {
+      .nav-left, .nav-right { display: none; }
+      .nav-center { position: static; transform: none; }
+      nav { justify-content: space-between; padding: 1rem 1.5rem; }
+      .hamburger { display: flex; }
+      .tidepool-hero { padding: 2.5rem 1.5rem 2rem; }
+      .tidepool-hero h1 { font-size: 28px; }
+      .articles-section { padding: 2rem 1.5rem 3rem; }
+      .articles-grid { grid-template-columns: 1fr; }
+      .footer-top { flex-direction: column; gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="tidepool-top-bar"></div>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="tidepool.html" class="mobile-tidepool">Tidepool</a>
+  <a href="depth.html" class="mobile-depth">Depth</a>
+  <a href="about.html">Our Story</a>
+  <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Newsletter</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<nav>
+  <div class="nav-left">
+    <a href="index.html" class="nav-btn">Home</a>
+    <a href="tidepool.html" class="nav-btn-tidepool">Tidepool</a>
+    <a href="about.html" class="nav-btn">Our Story</a>
+  </div>
+  <div class="nav-center">
+    <img src="logo.png" alt="The Nautisk Logo" class="logo-img" />
+    <a href="index.html" class="logo-text">THE <span>NAUTISK</span></a>
+  </div>
+  <div class="nav-right">
+    <a href="depth.html" class="nav-btn-depth">Depth</a>
+    <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer" class="nav-btn">Newsletter</a>
+    <a href="#contact" class="nav-btn">Contact</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<section class="tidepool-hero">
+  <div class="tidepool-rule"></div>
+  <div class="tidepool-eyebrow">Tidepool — News Made Accessible</div>
+  <h1>The news, explained<br>clearly</h1>
+  <p>Stories on college, science, pop culture, and tech — written to be understood, not just read.</p>
+</section>
+
+<div class="articles-section">
+  <div class="section-header">
+    <span class="section-label">June 27, 2026</span>
+    <div class="section-divider"></div>
+  </div>
+
+  <div class="articles-grid">
+
+    <a href="tidepool-college-grad-plus-loans-ended-new-caps.html" class="article-card">
+      <img src="loans.png" alt="Student loans" class="card-img" />
+      <div class="card-body">
+        <span class="card-tidepool-label">Tidepool</span>
+        <span class="card-section-tag">🎓 College</span>
+        <h3>The Student Loan Rules Just Changed. Here's What That Means If You're Heading to Grad School.</h3>
+        <p>Grad PLUS loans are gone, graduate borrowing is capped, and the students most affected are the ones who already planned around rules that no longer exist.</p>
+        <div class="card-meta">June 27, 2026 &nbsp;·&nbsp; 4 min read</div>
+      </div>
+    </a>
+
+    <a href="tidepool-science-heliconius-butterfly-longevity-aging.html" class="article-card">
+      <img src="butter.png" alt="Heliconius butterfly" class="card-img" />
+      <div class="card-body">
+        <span class="card-tidepool-label">Tidepool</span>
+        <span class="card-section-tag">🌿 Science</span>
+        <h3>A Tropical Butterfly That Barely Ages Could Change What We Know About Longevity</h3>
+        <p>A new study on Heliconius butterflies is giving longevity researchers a cleaner look at what aging actually is — and why some creatures slow down while others barely slow at all.</p>
+        <div class="card-meta">June 27, 2026 &nbsp;·&nbsp; 4 min read</div>
+      </div>
+    </a>
+
+    <a href="tidepool-popculture-world-cup-2026-america-soccer.html" class="article-card">
+      <img src="world.png" alt="World Cup 2026" class="card-img" />
+      <div class="card-body">
+        <span class="card-tidepool-label">Tidepool</span>
+        <span class="card-section-tag">🎵 Pop Culture</span>
+        <h3>The World Cup Is Here, and America Is Finally Being Tested as a Soccer Country</h3>
+        <p>The 2026 World Cup is the biggest stress test yet for whether America has actually become a soccer country — in the stands, on TV, and in the streets.</p>
+        <div class="card-meta">June 27, 2026 &nbsp;·&nbsp; 4 min read</div>
+      </div>
+    </a>
+
+    <a href="tidepool-tech-instagram-news-reuters-social-media.html" class="article-card">
+      <img src="insta.png" alt="Social media news" class="card-img" />
+      <div class="card-body">
+        <span class="card-tidepool-label">Tidepool</span>
+        <span class="card-section-tag">💻 Tech</span>
+        <h3>You've Been Getting Your News From Instagram. Here's What the Data Actually Shows.</h3>
+        <p>The Reuters Institute's new data describes what's happening — social media is now the world's primary news source, and Instagram leads the way among younger readers.</p>
+        <div class="card-meta">June 27, 2026 &nbsp;·&nbsp; 4 min read</div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<footer id="contact">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">THE <span>NAUTISK</span></div>
+      <p>Independent journalism. Anchored in truth.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Coverage</h4>
+      <a href="finance.html">Finance</a>
+      <a href="law.html">Law</a>
+      <a href="healthcare.html">Healthcare</a>
+      <a href="politics.html">Politics</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="about.html">About Us</a>
+      <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Newsletter</a>
+      <a href="tidepool.html">Tidepool</a>
+      <a href="depth.html">Depth</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>Manhattan, New York</p>
+      <a href="mailto:evan@thenautisk.com">evan@thenautisk.com</a>
+      <a href="https://instagram.com/thenautisk" target="_blank" rel="noopener noreferrer">Instagram: @thenautisk</a>
+      <a href="tips.html">Submit a tip</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 The Nautisk. All rights reserved.</span>
+    <span class="footer-anchor">⚓</span>
+    <span>Manhattan, New York</span>
+  </div>
+  <div class="footer-legal">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Use</a>
+    <a href="editorial.html">Editorial Standards</a>
+    <a href="corrections.html">Corrections Policy</a>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+</script>
+</body>
+</html>
