@@ -1,251 +1,259 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tidepool — The Nautisk</title>
-  <meta name="description" content="Tidepool by The Nautisk — clear, accessible news for younger readers covering college, science, pop culture, and tech." />
-  <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="Tidepool — The Nautisk" />
-  <meta property="og:description" content="Clear, accessible news covering college, science, pop culture, and tech." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.thenautisk.com/tidepool.html" />
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Georgia, serif; background: #f0fdfb; color: #1a2e28; line-height: 1.75; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tidepool — The Nautisk</title>
+<meta name="description" content="Tidepool is The Nautisk's accessible sub-brand — covering Money, Science, College, and World for high school and college-age readers." />
+<meta name="robots" content="index, follow" />
+<meta property="og:title" content="Tidepool — The Nautisk" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.thenautisk.com/tidepool.html" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%2303213a'/><text y='72' x='50' text-anchor='middle' font-size='62' font-family='Georgia,serif' font-weight='bold' fill='%238ab4d4'>N</text></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --teal: #00e5cc; --teal-dark: #007a68; --teal-mid: #00a08c;
+  --bg: #f0fdfb; --text: #0a2e28; --text-muted: #3a6a60;
+  --border: #b8e8e0; --nav-bg: #03213a;
+}
+body { font-family: Georgia, serif; background: var(--bg); color: var(--text); }
 
-    /* NAV */
-    nav { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 2.5rem; border-bottom: 1px solid #1a4a6e; background: #03213a; position: sticky; top: 0; z-index: 200; }
-    .nav-left { display: flex; gap: 1.5rem; align-items: center; }
-    .nav-right { display: flex; gap: 1.5rem; align-items: center; }
-    .nav-center { position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 0.75rem; }
-    .logo-img { height: 54px; width: 54px; object-fit: contain; }
-    .logo-text { font-size: 22px; font-weight: bold; letter-spacing: 0.14em; color: #c0cfe0; font-family: Arial, sans-serif; text-decoration: none; }
-    .logo-text span { color: #8ab4d4; }
-    .nav-btn { font-size: 13px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; font-family: Arial, sans-serif; background: none; border: none; cursor: pointer; padding: 0; }
-    .nav-btn:hover { color: #d6e8f5; }
-    .nav-btn-tidepool { font-size: 13px; color: #03213a; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; font-family: Arial, sans-serif; background: #7dd4c0; border: none; cursor: pointer; padding: 0.4rem 0.9rem; border-radius: 20px; font-weight: bold; }
-    .nav-btn-tidepool:hover { background: #5bbfaa; }
-    .nav-btn-depth { font-size: 13px; color: #c0cfe0; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; font-family: Arial, sans-serif; background: transparent; border: 1px solid #4a7fa8; cursor: pointer; padding: 0.4rem 0.9rem; border-radius: 20px; font-weight: bold; }
-    .nav-btn-depth:hover { background: #1a4a6e; color: #d6e8f5; }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; z-index: 300; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: #8ab4d4; border-radius: 2px; transition: all 0.3s; }
-    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
-    .mobile-menu { display: none; position: fixed; inset: 0; background: #03213a; z-index: 250; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a { font-size: 20px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; font-family: Arial, sans-serif; }
-    .mobile-menu .mobile-tidepool { background: #7dd4c0; color: #03213a; padding: 0.5rem 1.5rem; border-radius: 20px; font-weight: bold; }
-    .mobile-menu .mobile-depth { border: 1px solid #4a7fa8; color: #c0cfe0; padding: 0.5rem 1.5rem; border-radius: 20px; font-weight: bold; }
+/* NAV */
+nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2.5rem; border-bottom: 1px solid #1a4a6e; background: var(--nav-bg); position: sticky; top: 0; z-index: 200; }
+.nav-logo { font-size: 18px; font-weight: bold; letter-spacing: 0.14em; color: #c0cfe0; text-decoration: none; font-family: 'Inter', Arial, sans-serif; }
+.nav-logo span { color: #8ab4d4; }
+.nav-links { display: flex; gap: 1.5rem; align-items: center; }
+.nav-links a { font-size: 12px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; font-family: 'Inter', Arial, sans-serif; }
+.nav-links a:hover { color: #d6e8f5; }
+.tidepool-badge { font-size: 11px; color: #03213a; background: #7dd4c0; padding: 0.28rem 0.7rem; border-radius: 20px; font-family: 'Inter', Arial, sans-serif; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; font-weight: 600; }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { display: block; width: 22px; height: 2px; background: #8ab4d4; border-radius: 2px; transition: all 0.3s; }
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+.mobile-nav { display: none; position: fixed; inset: 0; background: #03213a; z-index: 300; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; }
+.mobile-nav.open { display: flex; }
+.mobile-nav a { font-size: 20px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'Inter', Arial, sans-serif; }
+.mobile-close { position: absolute; top: 1.25rem; right: 1.25rem; background: none; border: none; cursor: pointer; color: #8ab4d4; font-size: 28px; }
 
-    /* TOP BAR */
-    .tidepool-top-bar { height: 4px; background: linear-gradient(90deg, #7dd4c0, #4caf7d, #7dd4c0); }
+/* TOP BAR */
+.tidepool-top-bar { height: 4px; background: linear-gradient(90deg, #00e5cc, #00d4bb, #00e5cc); }
 
-    /* HERO */
-    .tidepool-hero { padding: 4rem 2.5rem 3rem; text-align: center; background: #e8faf6; border-bottom: 2px solid #b8e8e0; position: relative; overflow: hidden; }
-    .tidepool-eyebrow { font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: #0a4a38; font-family: Arial, sans-serif; margin-bottom: 1rem; }
-    .tidepool-hero h1 { font-size: 42px; color: #0a1e18; font-weight: bold; line-height: 1.2; margin-bottom: 1rem; }
-    .tidepool-hero p { font-size: 16px; color: #4a7a6a; max-width: 520px; margin: 0 auto; line-height: 1.8; font-family: Arial, sans-serif; }
-    .tidepool-rule { width: 48px; height: 3px; background: #7dd4c0; margin: 0 auto 1.5rem; border-radius: 2px; }
+/* HERO */
+.page-hero {
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-mid) 50%, #007a68 100%);
+  padding: 5rem 2.5rem 4rem;
+  position: relative; overflow: hidden;
+  min-height: 340px; display: flex; flex-direction: column; justify-content: flex-end;
+}
+.hero-deco { position: absolute; inset: 0; pointer-events: none; }
+.brand-label { font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(255,255,255,0.75); font-family: 'Inter', Arial, sans-serif; font-weight: 600; margin-bottom: 0.75rem; position: relative; }
+.page-hero h1 { font-size: 48px; font-weight: bold; color: #fff; line-height: 1.1; margin-bottom: 1rem; position: relative; }
+.page-hero p { font-size: 16px; color: rgba(255,255,255,0.85); max-width: 520px; line-height: 1.9; font-family: 'Inter', Arial, sans-serif; position: relative; }
 
-    /* ARTICLES */
-    .articles-section { padding: 3rem 2.5rem 5rem; max-width: 1200px; margin: 0 auto; }
-    .section-header { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 2rem; }
-    .section-label { font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: #0a4a38; font-family: Arial, sans-serif; font-weight: bold; }
-    .section-divider { flex: 1; height: 1px; background: #b8e8e0; }
-    .articles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+/* WHAT IS TIDEPOOL */
+.what-is { max-width: 900px; margin: 0 auto; padding: 4rem 2.5rem 3rem; }
+.what-label { font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--teal-dark); font-family: 'Inter', Arial, sans-serif; font-weight: 600; margin-bottom: 1.25rem; }
+.what-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; margin-top: 2rem; }
+.what-card { background: #fff; border: 1px solid var(--border); border-left: 3px solid var(--teal); padding: 1.5rem; border-radius: 3px; }
+.what-card h3 { font-size: 15px; color: var(--teal-dark); font-family: 'Inter', Arial, sans-serif; font-weight: 600; margin-bottom: 0.5rem; }
+.what-card p { font-size: 13px; color: var(--text-muted); line-height: 1.75; font-family: 'Inter', Arial, sans-serif; }
 
-    /* ARTICLE CARD */
-    .article-card { background: #ffffff; border: 1px solid #b8e8e0; text-decoration: none; display: flex; flex-direction: column; border-radius: 4px; overflow: hidden; transition: border-color 0.2s, box-shadow 0.2s; }
-    .article-card:hover { border-color: #7dd4c0; box-shadow: 0 4px 20px rgba(125,212,192,0.2); }
-    .card-img { width: 100%; height: 180px; object-fit: cover; display: block; }
-    .card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
-    .card-tidepool-label { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; font-family: Arial, sans-serif; font-weight: bold; color: #0a4a38; margin-bottom: 0.4rem; display: block; }
-    .card-tidepool-label::before { content: '🌊 '; }
-    .card-section-tag { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; font-family: Arial, sans-serif; font-weight: bold; color: #1a7a60; margin-bottom: 0.6rem; display: block; }
-    .article-card h3 { font-size: 18px; color: #0a1e18; line-height: 1.35; margin-bottom: 0.75rem; font-weight: bold; flex: 1; }
-    .article-card p { font-size: 13px; color: #4a7a6a; line-height: 1.7; font-family: Arial, sans-serif; margin-bottom: 1rem; }
-    .card-meta { font-size: 11px; color: #7aaa9a; font-family: Arial, sans-serif; margin-top: auto; padding-top: 0.75rem; border-top: 1px solid #b8e8e0; }
+/* SUBCATEGORY STRIP */
+.subcategory-strip { background: linear-gradient(135deg, var(--teal) 0%, var(--teal-mid) 100%); padding: 2.5rem; }
+.subcategory-strip .what-label { color: rgba(255,255,255,0.75); }
+.sub-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1.25rem; }
+.sub-card { background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3); border-radius: 4px; padding: 1.5rem; text-align: center; backdrop-filter: blur(4px); }
+.sub-card .sub-icon { font-size: 28px; margin-bottom: 0.6rem; display: block; }
+.sub-card h4 { font-size: 14px; color: #fff; font-family: 'Inter', Arial, sans-serif; font-weight: 600; margin-bottom: 0.4rem; }
+.sub-card p { font-size: 12px; color: rgba(255,255,255,0.8); font-family: 'Inter', Arial, sans-serif; line-height: 1.6; }
 
-    /* FOOTER */
-    footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5rem 1.5rem; font-family: Arial, sans-serif; }
-    .footer-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem; flex-wrap: wrap; gap: 2rem; }
-    .footer-brand .footer-logo { font-size: 20px; font-weight: bold; letter-spacing: 0.14em; color: #c0cfe0; margin-bottom: 0.4rem; }
-    .footer-brand .footer-logo span { color: #8ab4d4; }
-    .footer-brand p { font-size: 12px; color: #4a7fa8; letter-spacing: 0.06em; }
-    .footer-col h4 { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #4a7fa8; margin-bottom: 0.75rem; }
-    .footer-col p, .footer-col a { font-size: 13px; color: #8ab4d4; display: block; text-decoration: none; margin-bottom: 0.3rem; line-height: 1.7; }
-    .footer-col a:hover { color: #d6e8f5; }
-    .footer-bottom { border-top: 1px solid #1a4a6e; padding-top: 1.25rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-    .footer-bottom span { font-size: 12px; color: #4a7fa8; letter-spacing: 0.06em; }
-    .footer-anchor { font-size: 28px; color: #ffffff; opacity: 0.8; }
-    .footer-legal { border-top: 1px solid #1a4a6e; padding-top: 1rem; margin-top: 1rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
-    .footer-legal a { font-size: 11px; color: #4a7fa8; text-decoration: none; letter-spacing: 0.06em; }
-    .footer-legal a:hover { color: #8ab4d4; }
+/* ARTICLES */
+.articles-section { max-width: 900px; margin: 0 auto; padding: 3rem 2.5rem 4rem; }
+.coming-soon-block { text-align: center; padding: 4rem 2rem; border: 1px dashed rgba(0,196,168,0.35); border-radius: 6px; background: #fff; }
+.coming-soon-block .cs-icon { font-size: 40px; margin-bottom: 1.25rem; display: block; }
+.coming-soon-block h3 { font-size: 20px; color: var(--teal-dark); margin-bottom: 0.75rem; font-weight: normal; }
+.coming-soon-block p { font-size: 14px; color: var(--text-muted); font-family: 'Inter', Arial, sans-serif; line-height: 1.8; max-width: 420px; margin: 0 auto 1.75rem; }
+.coming-soon-block a { display: inline-block; padding: 0.65rem 1.5rem; background: var(--teal); color: #fff; font-family: 'Inter', Arial, sans-serif; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border-radius: 20px; font-weight: 600; transition: opacity 0.2s; }
+.coming-soon-block a:hover { opacity: 0.85; }
 
-    @media (max-width: 768px) {
-      .nav-left, .nav-right { display: none; }
-      .nav-center { position: static; transform: none; }
-      nav { justify-content: space-between; padding: 1rem 1.5rem; }
-      .hamburger { display: flex; }
-      .tidepool-hero { padding: 2.5rem 1.5rem 2rem; }
-      .tidepool-hero h1 { font-size: 28px; }
-      .articles-section { padding: 2rem 1.5rem 3rem; }
-      .articles-grid { grid-template-columns: 1fr; }
-      .footer-top { flex-direction: column; gap: 1.5rem; }
-    }
-  </style>
+/* DIVIDER */
+.divider { display: flex; align-items: center; gap: 1rem; padding: 0 2.5rem; background: var(--bg); }
+.divider-line { flex: 1; height: 1px; background: var(--border); }
+.divider-icon { color: var(--teal); font-size: 18px; padding: 0.75rem 0; }
+
+/* FOOTER */
+footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2rem 2.5rem 1.5rem; font-family: 'Inter', Arial, sans-serif; }
+.footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #1a4a6e; }
+.footer-brand { font-size: 15px; font-weight: bold; letter-spacing: 0.12em; color: #c0cfe0; }
+.footer-brand span { color: #8ab4d4; }
+.footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.footer-links a { font-size: 11px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; }
+.footer-links a:hover { color: #d6e8f5; }
+.footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+.footer-bottom span { font-size: 11px; color: #4a7fa8; }
+
+@media (max-width: 768px) {
+  .nav-links { display: none; } .hamburger { display: flex; }
+  nav { justify-content: space-between; padding: 0.9rem 1.25rem; }
+  .page-hero { padding: 3rem 1.25rem 2.5rem; min-height: auto; }
+  .page-hero h1 { font-size: 32px; }
+  .what-is, .articles-section { padding: 2rem 1.25rem; }
+  .subcategory-strip { padding: 2rem 1.25rem; }
+  .what-grid { grid-template-columns: 1fr; }
+  .sub-grid { grid-template-columns: 1fr 1fr; }
+  footer { padding: 1.5rem 1.25rem; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 480px) {
+  .sub-grid { grid-template-columns: 1fr; }
+}
+</style>
 </head>
 <body>
 
-<div class="tidepool-top-bar"></div>
-
-<div class="mobile-menu" id="mobileMenu">
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-close" id="mobileClose">&#x2715;</button>
   <a href="index.html">Home</a>
-  <a href="tidepool.html" class="mobile-tidepool">Tidepool</a>
-  <a href="depth.html" class="mobile-depth">Depth</a>
+  <a href="finance.html">Finance</a>
+  <a href="law.html">Law</a>
+  <a href="healthcare.html">Healthcare</a>
+  <a href="politics.html">Politics</a>
+  <a href="depth.html">Depth</a>
   <a href="about.html">Our Story</a>
   <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Newsletter</a>
-  <a href="#contact">Contact</a>
 </div>
 
+<div class="tidepool-top-bar"></div>
 <nav>
-  <div class="nav-left">
-    <a href="index.html" class="nav-btn">Home</a>
-    <a href="tidepool.html" class="nav-btn-tidepool">Tidepool</a>
-    <a href="about.html" class="nav-btn">Our Story</a>
-  </div>
-  <div class="nav-center">
-    <img src="logo.png" alt="The Nautisk Logo" class="logo-img" />
-    <a href="index.html" class="logo-text">THE <span>NAUTISK</span></a>
-  </div>
-  <div class="nav-right">
-    <a href="depth.html" class="nav-btn-depth">Depth</a>
-    <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer" class="nav-btn">Newsletter</a>
-    <a href="#contact" class="nav-btn">Contact</a>
+  <a href="index.html" class="nav-logo">THE <span>NAUTISK</span></a>
+  <div class="nav-links">
+    <a href="finance.html">Finance</a>
+    <a href="law.html">Law</a>
+    <a href="healthcare.html">Healthcare</a>
+    <a href="politics.html">Politics</a>
+    <a href="tidepool.html" class="tidepool-badge">Tidepool</a>
+    <a href="depth.html">Depth</a>
+    <a href="about.html">Our Story</a>
+    <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Newsletter</a>
   </div>
   <button class="hamburger" id="hamburger" aria-label="Open menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
-<section class="tidepool-hero">
-  <div class="tidepool-rule"></div>
-  <div class="tidepool-eyebrow">Tidepool — News Made Accessible</div>
-  <h1>The news, explained<br>clearly</h1>
-  <p>Stories on college, science, pop culture, and tech — written to be understood, not just read.</p>
-</section>
+<div class="page-hero">
+  <svg class="hero-deco" viewBox="0 0 1440 340" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    <path fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2" d="M0,220 C120,200 240,240 360,220 C480,200 600,240 720,220 C840,200 960,240 1080,220 C1200,200 1320,240 1440,220"/>
+    <path fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1.2" d="M0,245 C120,228 240,262 360,245 C480,228 600,262 720,245 C840,228 960,262 1080,245 C1200,228 1320,262 1440,245"/>
+    <circle cx="1100" cy="90" r="30" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+    <path fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.2" d="M1100,60 L1100,120 M1070,90 L1130,90 M1079,69 L1121,111 M1121,69 L1079,111"/>
+    <circle cx="1150" cy="130" r="11" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+    <ellipse cx="250" cy="280" rx="25" ry="10" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+    <path fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1" d="M238,280 C234,270 240,264 245,267 C250,264 256,270 252,280"/>
+  </svg>
+  <div class="brand-label">Tidepool — A Nautisk Sub-brand</div>
+  <h1>The news,<br>made for you.</h1>
+  <p>Tidepool explains the stuff that actually matters — money, science, college life, and the world — for high school and college readers who want real information without the complexity wall.</p>
+</div>
 
-<div class="articles-section">
-  <div class="section-header">
-    <span class="section-label">June 27, 2026</span>
-    <div class="section-divider"></div>
-  </div>
-
-  <div class="articles-grid">
-
-    <a href="tidepool-college-grad-plus-loans-ended-new-caps.html" class="article-card">
-      <img src="loans.png" alt="Student loans" class="card-img" />
-      <div class="card-body">
-        <span class="card-tidepool-label">Tidepool</span>
-        <span class="card-section-tag">🎓 College</span>
-        <h3>The Student Loan Rules Just Changed. Here's What That Means If You're Heading to Grad School.</h3>
-        <p>Grad PLUS loans are gone, graduate borrowing is capped, and the students most affected are the ones who already planned around rules that no longer exist.</p>
-        <div class="card-meta">June 27, 2026 &nbsp;·&nbsp; 4 min read</div>
-      </div>
-    </a>
-
-    <a href="tidepool-science-heliconius-butterfly-longevity-aging.html" class="article-card">
-      <img src="butter.png" alt="Heliconius butterfly" class="card-img" />
-      <div class="card-body">
-        <span class="card-tidepool-label">Tidepool</span>
-        <span class="card-section-tag">🌿 Science</span>
-        <h3>A Tropical Butterfly That Barely Ages Could Change What We Know About Longevity</h3>
-        <p>A new study on Heliconius butterflies is giving longevity researchers a cleaner look at what aging actually is — and why some creatures slow down while others barely slow at all.</p>
-        <div class="card-meta">June 27, 2026 &nbsp;·&nbsp; 4 min read</div>
-      </div>
-    </a>
-
-    <a href="tidepool-popculture-world-cup-2026-america-soccer.html" class="article-card">
-      <img src="world.png" alt="World Cup 2026" class="card-img" />
-      <div class="card-body">
-        <span class="card-tidepool-label">Tidepool</span>
-        <span class="card-section-tag">🎵 Pop Culture</span>
-        <h3>The World Cup Is Here, and America Is Finally Being Tested as a Soccer Country</h3>
-        <p>The 2026 World Cup is the biggest stress test yet for whether America has actually become a soccer country — in the stands, on TV, and in the streets.</p>
-        <div class="card-meta">June 27, 2026 &nbsp;·&nbsp; 4 min read</div>
-      </div>
-    </a>
-
-    <a href="tidepool-tech-instagram-news-reuters-social-media.html" class="article-card">
-      <img src="insta.png" alt="Social media news" class="card-img" />
-      <div class="card-body">
-        <span class="card-tidepool-label">Tidepool</span>
-        <span class="card-section-tag">💻 Tech</span>
-        <h3>You've Been Getting Your News From Instagram. Here's What the Data Actually Shows.</h3>
-        <p>The Reuters Institute's new data describes what's happening — social media is now the world's primary news source, and Instagram leads the way among younger readers.</p>
-        <div class="card-meta">June 27, 2026 &nbsp;·&nbsp; 4 min read</div>
-      </div>
-    </a>
-
+<div class="what-is">
+  <div class="what-label">What Tidepool covers</div>
+  <p style="font-size:16px;color:var(--text-muted);line-height:1.9;font-family:'Inter',Arial,sans-serif;max-width:660px;">The main Nautisk covers Finance, Law, Healthcare, Politics, and Tech for a general adult audience. Tidepool covers four different lenses — Money, Science, College, and World — and writes for a reader who is smart and curious but doesn't have years of background in these topics yet.</p>
+  <div class="what-grid">
+    <div class="what-card">
+      <h3>Conversational, not dumbed-down</h3>
+      <p>We assume you're intelligent. We don't assume you're an expert. There's a difference, and Tidepool is built around it.</p>
+    </div>
+    <div class="what-card">
+      <h3>600–900 words</h3>
+      <p>Long enough to actually explain something. Short enough that you'll read to the end. No padding, no filler.</p>
+    </div>
+    <div class="what-card">
+      <h3>Four categories</h3>
+      <p>Money, Science, College, and World — one fresh article per category per week, on topics you'd actually want to read about.</p>
+    </div>
+    <div class="what-card">
+      <h3>Real sourcing</h3>
+      <p>Every Tidepool article is based on real reporting — studies, data, and sources you can check. Accessible writing doesn't mean unchecked writing.</p>
+    </div>
   </div>
 </div>
 
-<footer id="contact">
-  <div class="footer-top">
-    <div class="footer-brand">
-      <div class="footer-logo">THE <span>NAUTISK</span></div>
-      <p>Independent journalism. Anchored in truth.</p>
+<div class="subcategory-strip">
+  <div class="what-label">The four subcategories</div>
+  <div class="sub-grid">
+    <div class="sub-card">
+      <span class="sub-icon">💰</span>
+      <h4>Money</h4>
+      <p>Personal finance, budgeting, student loans, credit, and how money actually works — explained for real life, not a textbook.</p>
     </div>
-    <div class="footer-col">
-      <h4>Coverage</h4>
+    <div class="sub-card">
+      <span class="sub-icon">🔬</span>
+      <h4>Science</h4>
+      <p>New discoveries, surprising research findings, and what they mean for your life — without the methodology lecture.</p>
+    </div>
+    <div class="sub-card">
+      <span class="sub-icon">🎓</span>
+      <h4>College</h4>
+      <p>Student debt, campus life, admissions, mental health, and what it actually costs to get a degree right now.</p>
+    </div>
+    <div class="sub-card">
+      <span class="sub-icon">🌍</span>
+      <h4>World</h4>
+      <p>Global events and international stories — what's happening beyond U.S. borders and why it matters to you.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider"><div class="divider-line"></div><span class="divider-icon">🌊</span><div class="divider-line"></div></div>
+
+<div class="articles-section">
+  <div class="what-label">Latest Tidepool Articles</div>
+  <!-- ADD NEW TIDEPOOL ARTICLE CARDS ABOVE THIS LINE -->
+  <div class="coming-soon-block">
+    <span class="cs-icon">🌊</span>
+    <h3>First Tidepool articles coming soon.</h3>
+    <p>We're working on our first round of pieces across Money, Science, College, and World. Subscribe to be the first to know when we publish.</p>
+    <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Subscribe for updates →</a>
+  </div>
+</div>
+
+<div class="divider"><div class="divider-line"></div><span class="divider-icon">🌊</span><div class="divider-line"></div></div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">THE <span>NAUTISK</span></div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="depth.html">Depth</a>
       <a href="finance.html">Finance</a>
       <a href="law.html">Law</a>
       <a href="healthcare.html">Healthcare</a>
       <a href="politics.html">Politics</a>
-    </div>
-    <div class="footer-col">
-      <h4>Company</h4>
-      <a href="about.html">About Us</a>
-      <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Newsletter</a>
-      <a href="tidepool.html">Tidepool</a>
-      <a href="depth.html">Depth</a>
-    </div>
-    <div class="footer-col">
-      <h4>Contact</h4>
-      <p>Manhattan, New York</p>
-      <a href="mailto:evan@thenautisk.com">evan@thenautisk.com</a>
-      <a href="https://instagram.com/thenautisk" target="_blank" rel="noopener noreferrer">Instagram: @thenautisk</a>
-      <a href="tips.html">Submit a tip</a>
+      <a href="about.html">Our Story</a>
+      <a href="tips.html">Tips</a>
     </div>
   </div>
   <div class="footer-bottom">
     <span>© 2026 The Nautisk. All rights reserved.</span>
-    <span class="footer-anchor">⚓</span>
     <span>Manhattan, New York</span>
-  </div>
-  <div class="footer-legal">
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="terms.html">Terms of Use</a>
-    <a href="editorial.html">Editorial Standards</a>
-    <a href="corrections.html">Corrections Policy</a>
   </div>
 </footer>
 
 <script>
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobileMenu');
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('open');
-    mobileMenu.classList.toggle('open');
-  });
-  mobileMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      hamburger.classList.remove('open');
-      mobileMenu.classList.remove('open');
-    });
-  });
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+const mobileClose = document.getElementById('mobileClose');
+function openMenu() { hamburger.classList.add('open'); mobileNav.classList.add('open'); document.body.style.overflow='hidden'; }
+function closeMenu() { hamburger.classList.remove('open'); mobileNav.classList.remove('open'); document.body.style.overflow=''; }
+hamburger.addEventListener('click', () => { mobileNav.classList.contains('open') ? closeMenu() : openMenu(); });
+mobileClose.addEventListener('click', closeMenu);
+mobileNav.querySelectorAll('a').forEach(l => l.addEventListener('click', closeMenu));
 </script>
 </body>
 </html>
