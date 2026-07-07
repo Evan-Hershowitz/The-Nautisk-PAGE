@@ -303,7 +303,7 @@ body.professional .coverage-grid-pro { display: grid; }
 
 /* STARFISH */
 .starfish-svg {
-  width: min(460px, 48vw); height: min(460px, 48vw); overflow: visible; cursor: default;
+  width: min(520px, 50vw); height: min(520px, 50vw); overflow: visible; cursor: default;
 }
 .sf-arm { cursor: pointer; }
 .sf-arm-path {
@@ -321,9 +321,9 @@ body.professional .coverage-grid-pro { display: grid; }
 .sf-arm.politics:hover .sf-arm-path, .sf-arm.politics.sf-active .sf-arm-path { stroke: #bf7a7a; fill: rgba(191,122,122,0.13); filter: drop-shadow(0 0 6px rgba(191,122,122,0.5)); }
 
 .sf-label {
-  font-family: 'Inter', Arial, sans-serif; font-size: 11.5px; font-weight: 800;
-  letter-spacing: 0.18em; fill: rgba(255,255,255,0.75); pointer-events: none;
-  transition: fill 0.25s; text-anchor: middle; dominant-baseline: middle;
+  font-family: 'Inter', Arial, sans-serif; font-size: 13px; font-weight: 800;
+  letter-spacing: 0.18em; fill: rgba(255,255,255,0.82);
+  transition: fill 0.25s;
 }
 .sf-arm:hover .sf-label, .sf-arm.sf-active .sf-label { fill: #ffffff; }
 .sf-dot { fill: none; stroke: rgba(255,255,255,0.3); stroke-width: 0.9; }
@@ -336,13 +336,13 @@ body.professional .coverage-grid-pro { display: grid; }
   .coverage-divider { width: 100%; height: 1px; }
   .coverage-left { padding: 2rem 1.5rem 1.5rem; }
   .coverage-right { padding: 1.5rem 1.5rem 2rem; }
-  .starfish-svg { width: min(260px, 72vw); height: min(260px, 72vw); }
+  .starfish-svg { width: min(320px, 72vw); height: min(320px, 72vw); }
   .cr-name { font-size: 24px; }
   .cr-default-text h3 { font-size: 18px; }
 }
 @media (max-width: 768px) {
   .coverage { margin: 0.75rem 1rem; }
-  .starfish-svg { width: min(230px, 76vw); height: min(230px, 76vw); }
+  .starfish-svg { width: min(280px, 76vw); height: min(280px, 76vw); }
   .coverage-grid-pro { padding: 1.25rem; grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 480px) {
@@ -673,7 +673,7 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5
         up, then rotated by multiples of 72°. Labels placed at fixed positions
         outside each arm tip, all right-side up using dominant-baseline.
       -->
-      <svg class="starfish-svg" viewBox="-240 -260 480 520" xmlns="http://www.w3.org/2000/svg">
+      <svg class="starfish-svg" viewBox="-260 -280 520 560" xmlns="http://www.w3.org/2000/svg">
 
   <!-- BACKGROUND SCENE -->
   <g opacity="0.16" style="pointer-events:none">
@@ -754,7 +754,7 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5
     <circle class="sf-dot" cx="0" cy="-144" r="2"/>
     <path d="M0,-45 C5,-80 5,-118 0,-155" stroke="rgba(255,255,255,0.22)" stroke-width="1" fill="none"/>
     <path d="M0,-45 C-5,-80 -5,-118 0,-155" stroke="rgba(255,255,255,0.22)" stroke-width="1" fill="none"/>
-    <text class="sf-label" x="0" y="-177" text-anchor="middle">FINANCE</text>
+    <text class="sf-label" x="0" y="-183" text-anchor="middle" style="cursor:pointer" onclick="showSection('finance')">FINANCE</text>
   </g>
 
   <!-- ARM 2: Law — 72° (upper right) — label right -->
@@ -768,7 +768,7 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5
     <path d="M0,-45 C-5,-80 -5,-118 0,-155" stroke="rgba(255,255,255,0.22)" stroke-width="1" fill="none"/>
   </g>
   <!-- Law label — absolute coords, right-side up -->
-  <text class="sf-label sf-no-events" x="168" y="-47" text-anchor="start" style="pointer-events:none">LAW</text>
+  <text class="sf-label" x="175" y="-47" text-anchor="start" style="cursor:pointer" onclick="showSection('law')">LAW</text>
 
   <!-- ARM 3: Tech — 144° (lower right) — label below-right -->
   <g class="sf-arm tech" data-section="tech" data-href="tech.html" transform="rotate(144)">
@@ -781,7 +781,7 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5
     <path d="M0,-45 C-5,-80 -5,-118 0,-155" stroke="rgba(255,255,255,0.22)" stroke-width="1" fill="none"/>
   </g>
   <!-- Tech label — absolute coords -->
-  <text class="sf-label sf-no-events" x="104" y="157" text-anchor="start" style="pointer-events:none">TECH</text>
+  <text class="sf-label" x="112" y="162" text-anchor="start" style="cursor:pointer" onclick="showSection('tech')">TECH</text>
 
   <!-- ARM 4: Healthcare — 216° (lower left) — label below-left -->
   <g class="sf-arm healthcare" data-section="healthcare" data-href="healthcare.html" transform="rotate(216)">
@@ -794,7 +794,7 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5
     <path d="M0,-45 C-5,-80 -5,-118 0,-155" stroke="rgba(255,255,255,0.22)" stroke-width="1" fill="none"/>
   </g>
   <!-- Healthcare label — absolute coords -->
-  <text class="sf-label sf-no-events" x="-104" y="157" text-anchor="end" style="pointer-events:none">HEALTHCARE</text>
+  <text class="sf-label" x="-112" y="162" text-anchor="end" style="cursor:pointer" onclick="showSection('healthcare')">HEALTHCARE</text>
 
   <!-- ARM 5: Politics — 288° (upper left) — label left -->
   <g class="sf-arm politics" data-section="politics" data-href="politics.html" transform="rotate(288)">
@@ -807,7 +807,7 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5
     <path d="M0,-45 C-5,-80 -5,-118 0,-155" stroke="rgba(255,255,255,0.22)" stroke-width="1" fill="none"/>
   </g>
   <!-- Politics label — absolute coords -->
-  <text class="sf-label sf-no-events" x="-168" y="-47" text-anchor="end" style="pointer-events:none">POLITICS</text>
+  <text class="sf-label" x="-175" y="-47" text-anchor="end" style="cursor:pointer" onclick="showSection('politics')">POLITICS</text>
 
   <!-- Center body -->
   <circle cx="0" cy="0" r="30" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.72)" stroke-width="1.5"/>
@@ -1165,10 +1165,13 @@ document.querySelectorAll('.sf-arm').forEach(arm => {
     const section = arm.dataset.section;
     if (section) showSection(section);
   });
+  // Expand SVG click area with pointer-events:all on children
+  arm.querySelectorAll('*').forEach(el => {
+    el.style.pointerEvents = 'all';
+  });
 });
 
 // ── SCROLL TO TOP ──────────────────────────────────────────────────────────
-const scrollTopBtn = document.getElementById('scrollTop'); ──────────────────────────────────────────────────────────
 const scrollTopBtn = document.getElementById('scrollTop');
 window.addEventListener('scroll', () => { scrollTopBtn.classList.toggle('visible', window.scrollY > 400); });
 scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
