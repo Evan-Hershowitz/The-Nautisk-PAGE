@@ -303,7 +303,7 @@ body.professional .coverage-grid-pro { display: grid; }
 
 /* STARFISH */
 .starfish-svg {
-  width: min(520px, 50vw); height: min(520px, 50vw); overflow: visible; cursor: default;
+  width: min(700px, 56vw); height: min(700px, 56vw); overflow: visible; cursor: default;
 }
 .sf-arm { cursor: pointer; }
 .sf-arm-path {
@@ -321,8 +321,8 @@ body.professional .coverage-grid-pro { display: grid; }
 .sf-arm.politics:hover .sf-arm-path, .sf-arm.politics.sf-active .sf-arm-path { stroke: #bf7a7a; fill: rgba(191,122,122,0.13); filter: drop-shadow(0 0 6px rgba(191,122,122,0.5)); }
 
 .sf-label {
-  font-family: 'Inter', Arial, sans-serif; font-size: 13px; font-weight: 800;
-  letter-spacing: 0.18em; fill: rgba(255,255,255,0.82);
+  font-family: 'Inter', Arial, sans-serif; font-size: 26px; font-weight: 800;
+  letter-spacing: 0.14em; fill: rgba(255,255,255,0.85);
   transition: fill 0.25s;
 }
 .sf-arm:hover .sf-label, .sf-arm.sf-active .sf-label { fill: #ffffff; }
@@ -336,13 +336,13 @@ body.professional .coverage-grid-pro { display: grid; }
   .coverage-divider { width: 100%; height: 1px; }
   .coverage-left { padding: 2rem 1.5rem 1.5rem; }
   .coverage-right { padding: 1.5rem 1.5rem 2rem; }
-  .starfish-svg { width: min(320px, 72vw); height: min(320px, 72vw); }
+  .starfish-svg { width: min(420px, 80vw); height: min(420px, 80vw); }
   .cr-name { font-size: 24px; }
   .cr-default-text h3 { font-size: 18px; }
 }
 @media (max-width: 768px) {
   .coverage { margin: 0.75rem 1rem; }
-  .starfish-svg { width: min(280px, 76vw); height: min(280px, 76vw); }
+  .starfish-svg { width: min(360px, 88vw); height: min(360px, 88vw); }
   .coverage-grid-pro { padding: 1.25rem; grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 480px) {
@@ -673,7 +673,7 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5
         up, then rotated by multiples of 72°. Labels placed at fixed positions
         outside each arm tip, all right-side up using dominant-baseline.
       -->
-      <svg class="starfish-svg" viewBox="-260 -280 520 560" xmlns="http://www.w3.org/2000/svg">
+      <svg class="starfish-svg" viewBox="-300 -330 600 660" xmlns="http://www.w3.org/2000/svg">
 
   <!-- BACKGROUND SCENE -->
   <g opacity="0.16" style="pointer-events:none">
@@ -754,7 +754,7 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5
     <circle class="sf-dot" cx="0" cy="-144" r="2"/>
     <path d="M0,-45 C5,-80 5,-118 0,-155" stroke="rgba(255,255,255,0.22)" stroke-width="1" fill="none"/>
     <path d="M0,-45 C-5,-80 -5,-118 0,-155" stroke="rgba(255,255,255,0.22)" stroke-width="1" fill="none"/>
-    <text class="sf-label" x="0" y="-183" text-anchor="middle" style="cursor:pointer" onclick="showSection('finance')">FINANCE</text>
+    <text class="sf-label" x="0" y="-210" text-anchor="middle" style="cursor:pointer" onclick="showSection('finance')">FINANCE</text>
   </g>
 
   <!-- ARM 2: Law — 72° (upper right) — label right -->
@@ -768,7 +768,7 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5
     <path d="M0,-45 C-5,-80 -5,-118 0,-155" stroke="rgba(255,255,255,0.22)" stroke-width="1" fill="none"/>
   </g>
   <!-- Law label — absolute coords, right-side up -->
-  <text class="sf-label" x="175" y="-47" text-anchor="start" style="cursor:pointer" onclick="showSection('law')">LAW</text>
+  <text class="sf-label" x="185" y="-44" text-anchor="start" style="cursor:pointer" onclick="showSection('law')">LAW</text>
 
   <!-- ARM 3: Tech — 144° (lower right) — label below-right -->
   <g class="sf-arm tech" data-section="tech" data-href="tech.html" transform="rotate(144)">
@@ -781,7 +781,7 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5
     <path d="M0,-45 C-5,-80 -5,-118 0,-155" stroke="rgba(255,255,255,0.22)" stroke-width="1" fill="none"/>
   </g>
   <!-- Tech label — absolute coords -->
-  <text class="sf-label" x="112" y="162" text-anchor="start" style="cursor:pointer" onclick="showSection('tech')">TECH</text>
+  <text class="sf-label" x="118" y="175" text-anchor="start" style="cursor:pointer" onclick="showSection('tech')">TECH</text>
 
   <!-- ARM 4: Healthcare — 216° (lower left) — label below-left -->
   <g class="sf-arm healthcare" data-section="healthcare" data-href="healthcare.html" transform="rotate(216)">
@@ -794,7 +794,7 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5
     <path d="M0,-45 C-5,-80 -5,-118 0,-155" stroke="rgba(255,255,255,0.22)" stroke-width="1" fill="none"/>
   </g>
   <!-- Healthcare label — absolute coords -->
-  <text class="sf-label" x="-112" y="162" text-anchor="end" style="cursor:pointer" onclick="showSection('healthcare')">HEALTHCARE</text>
+  <text class="sf-label" x="-118" y="175" text-anchor="end" style="cursor:pointer" onclick="showSection('healthcare')">HEALTHCARE</text>
 
   <!-- ARM 5: Politics — 288° (upper left) — label left -->
   <g class="sf-arm politics" data-section="politics" data-href="politics.html" transform="rotate(288)">
@@ -807,7 +807,7 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5
     <path d="M0,-45 C-5,-80 -5,-118 0,-155" stroke="rgba(255,255,255,0.22)" stroke-width="1" fill="none"/>
   </g>
   <!-- Politics label — absolute coords -->
-  <text class="sf-label" x="-175" y="-47" text-anchor="end" style="cursor:pointer" onclick="showSection('politics')">POLITICS</text>
+  <text class="sf-label" x="-185" y="-44" text-anchor="end" style="cursor:pointer" onclick="showSection('politics')">POLITICS</text>
 
   <!-- Center body -->
   <circle cx="0" cy="0" r="30" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.72)" stroke-width="1.5"/>
@@ -1146,29 +1146,43 @@ function prevSlide() { goToSlide(currentSlide - 1); }
 
 // ── STARFISH CLICK INTERACTION ────────────────────────────────────────────
 function showSection(section) {
-  // Hide default
   document.getElementById('crDefault').style.display = 'none';
-  // Hide all panels
   document.querySelectorAll('.cr-panel').forEach(p => p.classList.remove('visible'));
-  // Remove active from all arms
   document.querySelectorAll('.sf-arm').forEach(a => a.classList.remove('sf-active'));
-  // Show selected panel
   const panel = document.getElementById('cr-' + section);
   if (panel) panel.classList.add('visible');
-  // Activate arm
   const arm = document.querySelector('.sf-arm.' + section);
   if (arm) arm.classList.add('sf-active');
 }
 
+function resetSection() {
+  document.getElementById('crDefault').style.display = '';
+  document.querySelectorAll('.cr-panel').forEach(p => p.classList.remove('visible'));
+  document.querySelectorAll('.sf-arm').forEach(a => a.classList.remove('sf-active'));
+}
+
+// Arm clicks
 document.querySelectorAll('.sf-arm').forEach(arm => {
-  arm.addEventListener('click', () => {
+  arm.addEventListener('click', e => {
+    e.stopPropagation();
     const section = arm.dataset.section;
     if (section) showSection(section);
   });
-  // Expand SVG click area with pointer-events:all on children
-  arm.querySelectorAll('*').forEach(el => {
-    el.style.pointerEvents = 'all';
-  });
+  arm.querySelectorAll('*').forEach(el => { el.style.pointerEvents = 'all'; });
+});
+
+// Label text clicks (outside arms) — stop propagation so they don't reset
+document.querySelectorAll('.sf-label[onclick]').forEach(el => {
+  el.addEventListener('click', e => e.stopPropagation());
+});
+
+// Click anywhere outside starfish or right panel resets
+document.addEventListener('click', e => {
+  const sf = document.querySelector('.starfish-svg');
+  const cr = document.getElementById('coverageRight');
+  if (sf && !sf.contains(e.target) && cr && !cr.contains(e.target)) {
+    resetSection();
+  }
 });
 
 // ── SCROLL TO TOP ──────────────────────────────────────────────────────────
