@@ -188,121 +188,164 @@ body.professional .dot-toggle { background: #03213a; border-color: #ffffff; box-
 .about p { font-size: 16px; color: var(--section-text); line-height: 1.9; font-family: 'Inter', Arial, sans-serif; }
 .about p strong { color: var(--text-strong); }
 
-/* ── COVERAGE — STARFISH ── */
+/* ── COVERAGE — TWO PANEL ── */
 .coverage {
-  padding: 3rem 2.5rem 3.5rem;
-  background: #03213a;
-  border: 1px solid #1a4a6e;
   margin: 0 2.5rem 1.5rem;
   border-radius: 4px;
-  position: relative;
+  border: 1px solid #1a4a6e;
+  background: #03213a;
   overflow: hidden;
-  min-height: 520px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
-body.professional .coverage {
-  background: #ffffff;
-  border-color: #dde3ec;
-  min-height: auto;
+body.professional .coverage { background: #ffffff; border-color: #dde3ec; }
+
+.coverage-panels { display: flex; min-height: 480px; }
+body.professional .coverage-panels { display: none; }
+
+.coverage-divider { width: 1px; background: rgba(255,255,255,0.18); flex-shrink: 0; }
+
+/* LEFT */
+.coverage-left {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 2rem 1.5rem 2rem 2rem; position: relative;
 }
-.starfish-wrap {
-  position: relative;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem 0 0.5rem;
-  flex: 1;
+.coverage-left-label {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.2em;
+  text-transform: uppercase; color: #8ab4d4;
+  font-family: 'Inter', Arial, sans-serif;
+  margin-bottom: 1.25rem; align-self: flex-start;
 }
-body.professional .starfish-wrap { display: none; }
+
+/* RIGHT */
+.coverage-right {
+  flex: 1; display: flex; flex-direction: column;
+  justify-content: center; padding: 2.5rem 2.5rem 2.5rem 2rem;
+}
+.cr-default-text { transition: opacity 0.25s; }
+.cr-default-text h3 {
+  font-size: 21px; font-weight: normal; color: #d6e8f5;
+  font-family: Georgia, serif; line-height: 1.45; margin-bottom: 0.9rem;
+}
+.cr-default-text p {
+  font-size: 13px; color: #5a8aaa;
+  font-family: 'Inter', Arial, sans-serif; line-height: 1.8;
+}
+.cr-default-text .cr-hint {
+  margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem;
+}
+.cr-hint-pill {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; font-family: 'Inter', Arial, sans-serif;
+  padding: 0.3rem 0.7rem; border-radius: 20px; border: 1px solid;
+  opacity: 0.55; cursor: pointer; transition: opacity 0.2s;
+}
+.cr-hint-pill:hover { opacity: 1; }
+.cr-hint-pill.finance { color: #4a9abf; border-color: #4a9abf; }
+.cr-hint-pill.law { color: #8a7abf; border-color: #8a7abf; }
+.cr-hint-pill.tech { color: #e8a020; border-color: #e8a020; }
+.cr-hint-pill.healthcare { color: #4caf7d; border-color: #4caf7d; }
+.cr-hint-pill.politics { color: #bf7a7a; border-color: #bf7a7a; }
+
+.cr-panel { display: none; flex-direction: column; height: 100%; justify-content: center; }
+.cr-panel.visible { display: flex; }
+
+.cr-tag {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.22em;
+  text-transform: uppercase; font-family: 'Inter', Arial, sans-serif;
+  margin-bottom: 0.6rem;
+}
+.cr-tag.finance { color: #4a9abf; }
+.cr-tag.law { color: #8a7abf; }
+.cr-tag.tech { color: #e8a020; }
+.cr-tag.healthcare { color: #4caf7d; }
+.cr-tag.politics { color: #bf7a7a; }
+
+.cr-name {
+  font-size: 30px; font-weight: bold; color: #e0eaf4;
+  font-family: Georgia, serif; margin-bottom: 1rem; line-height: 1.1;
+}
+.cr-desc {
+  font-size: 14px; color: #8ab4d4;
+  font-family: 'Inter', Arial, sans-serif; line-height: 1.85; margin-bottom: 0.7rem;
+}
+.cr-examples {
+  font-size: 12px; color: #4a7fa8;
+  font-family: 'Inter', Arial, sans-serif; line-height: 1.8;
+  margin-bottom: 1.75rem; padding-left: 0.75rem;
+  border-left: 2px solid rgba(255,255,255,0.1);
+}
+.cr-btn {
+  display: inline-block; padding: 0.6rem 1.35rem;
+  font-family: 'Inter', Arial, sans-serif; font-size: 12px;
+  font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  text-decoration: none; border-radius: 2px;
+  transition: opacity 0.2s; align-self: flex-start; color: #fff;
+}
+.cr-btn:hover { opacity: 0.82; }
+.cr-btn.finance { background: #4a9abf; }
+.cr-btn.law { background: #8a7abf; }
+.cr-btn.tech { background: #e8a020; }
+.cr-btn.healthcare { background: #4caf7d; }
+.cr-btn.politics { background: #bf7a7a; }
 
 /* Professional fallback */
 .coverage-grid-pro {
   display: none;
   grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
-  gap: 1.1rem;
-  margin-top: 1.5rem;
-  width: 100%;
+  gap: 1.1rem; padding: 2rem;
 }
 body.professional .coverage-grid-pro { display: grid; }
-.coverage-card-pro { border: 1px solid #dde3ec; padding: 1.5rem 1.25rem; text-align: center; background: #f8f9fa; text-decoration: none; display: block; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; border-radius: 3px; }
-.coverage-card-pro:hover { border-color: #1a4a8e; transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+.coverage-card-pro { border: 1px solid #dde3ec; padding: 1.5rem 1.25rem; text-align: center; background: #f8f9fa; text-decoration: none; display: block; transition: border-color 0.2s, transform 0.2s; border-radius: 3px; }
+.coverage-card-pro:hover { border-color: #1a4a8e; transform: translateY(-2px); }
 .coverage-card-pro .icon { font-size: 24px; margin-bottom: 0.65rem; }
 .coverage-card-pro h3 { font-size: 13px; font-weight: 600; color: #0a0a1a; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.5rem; font-family: 'Inter', Arial, sans-serif; }
 .coverage-card-pro p { font-size: 12px; color: #555577; line-height: 1.65; font-family: 'Inter', Arial, sans-serif; }
 
-/* Starfish SVG */
+/* STARFISH */
 .starfish-svg {
-  width: min(460px, 85vw);
-  height: min(460px, 85vw);
-  overflow: visible;
+  width: min(340px, 44vw); height: min(340px, 44vw); overflow: visible; cursor: default;
 }
-.arm-group { cursor: pointer; }
-.arm-path {
-  fill: rgba(255,255,255,0.08);
-  stroke: rgba(255,255,255,0.85);
-  stroke-width: 1.4;
-  stroke-linejoin: round;
-  stroke-linecap: round;
+.sf-arm { cursor: pointer; }
+.sf-arm-path {
+  fill: rgba(255,255,255,0.05); stroke: rgba(255,255,255,0.7);
+  stroke-width: 1.3; stroke-linejoin: round;
   transition: fill 0.25s, stroke 0.25s, filter 0.25s;
 }
-.arm-group:hover .arm-path { fill: rgba(255,255,255,0.14); stroke: #ffffff; }
-.arm-group.arm-finance:hover .arm-path  { stroke: #4a9abf; fill: rgba(74,154,191,0.12); filter: drop-shadow(0 0 8px rgba(74,154,191,0.5)); }
-.arm-group.arm-law:hover .arm-path      { stroke: #8a7abf; fill: rgba(138,122,191,0.12); filter: drop-shadow(0 0 8px rgba(138,122,191,0.5)); }
-.arm-group.arm-tech:hover .arm-path     { stroke: #e8a020; fill: rgba(232,160,32,0.12); filter: drop-shadow(0 0 8px rgba(232,160,32,0.5)); }
-.arm-group.arm-healthcare:hover .arm-path { stroke: #4caf7d; fill: rgba(76,175,125,0.12); filter: drop-shadow(0 0 8px rgba(76,175,125,0.5)); }
-.arm-group.arm-politics:hover .arm-path  { stroke: #bf7a7a; fill: rgba(191,122,122,0.12); filter: drop-shadow(0 0 8px rgba(191,122,122,0.5)); }
-
-.star-center-outer { fill: rgba(255,255,255,0.06); stroke: rgba(255,255,255,0.7); stroke-width: 1.4; }
-.star-center-inner { fill: rgba(255,255,255,0.12); stroke: rgba(255,255,255,0.5); stroke-width: 1; }
-.dot-row { fill: none; stroke: rgba(255,255,255,0.45); stroke-width: 1; }
-
-.arm-label {
-  font-family: 'Inter', Arial, sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  fill: rgba(255,255,255,0.7);
-  pointer-events: none;
-  transition: fill 0.25s;
-  text-anchor: middle;
+.sf-arm:hover .sf-arm-path, .sf-arm.sf-active .sf-arm-path {
+  fill: rgba(255,255,255,0.12); stroke: #ffffff;
 }
-.arm-group:hover .arm-label { fill: #ffffff; }
+.sf-arm.finance:hover .sf-arm-path, .sf-arm.finance.sf-active .sf-arm-path { stroke: #4a9abf; fill: rgba(74,154,191,0.13); filter: drop-shadow(0 0 6px rgba(74,154,191,0.5)); }
+.sf-arm.law:hover .sf-arm-path, .sf-arm.law.sf-active .sf-arm-path { stroke: #8a7abf; fill: rgba(138,122,191,0.13); filter: drop-shadow(0 0 6px rgba(138,122,191,0.5)); }
+.sf-arm.tech:hover .sf-arm-path, .sf-arm.tech.sf-active .sf-arm-path { stroke: #e8a020; fill: rgba(232,160,32,0.13); filter: drop-shadow(0 0 6px rgba(232,160,32,0.5)); }
+.sf-arm.healthcare:hover .sf-arm-path, .sf-arm.healthcare.sf-active .sf-arm-path { stroke: #4caf7d; fill: rgba(76,175,125,0.13); filter: drop-shadow(0 0 6px rgba(76,175,125,0.5)); }
+.sf-arm.politics:hover .sf-arm-path, .sf-arm.politics.sf-active .sf-arm-path { stroke: #bf7a7a; fill: rgba(191,122,122,0.13); filter: drop-shadow(0 0 6px rgba(191,122,122,0.5)); }
 
-/* Tooltip */
-.sf-tooltip {
-  position: absolute;
-  pointer-events: none;
-  background: rgba(2,20,36,0.95);
-  border: 1px solid rgba(255,255,255,0.2);
-  color: #e8eef4;
-  font-family: 'Inter', Arial, sans-serif;
-  font-size: 13px;
-  line-height: 1.6;
-  padding: 0.75rem 1rem;
-  border-radius: 4px;
-  width: 210px;
-  opacity: 0;
-  transition: opacity 0.18s;
-  z-index: 50;
-  box-shadow: 0 8px 28px rgba(0,0,0,0.4);
+.sf-label {
+  font-family: 'Inter', Arial, sans-serif; font-size: 10px; font-weight: 700;
+  letter-spacing: 0.15em; fill: rgba(255,255,255,0.6); pointer-events: none;
+  transition: fill 0.25s; text-anchor: middle; dominant-baseline: middle;
 }
-.sf-tooltip.visible { opacity: 1; }
-.sf-tooltip strong { display: block; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #8ab4d4; margin-bottom: 0.3rem; }
-
-/* Background deco elements */
+.sf-arm:hover .sf-label, .sf-arm.sf-active .sf-label { fill: #ffffff; }
+.sf-dot { fill: none; stroke: rgba(255,255,255,0.3); stroke-width: 0.9; }
+.sf-center-outer { fill: rgba(255,255,255,0.06); stroke: rgba(255,255,255,0.65); stroke-width: 1.3; }
+.sf-center-inner { fill: rgba(255,255,255,0.1); stroke: rgba(255,255,255,0.4); stroke-width: 0.9; }
 .bg-deco { pointer-events: none; }
 
+@media (max-width: 900px) {
+  .coverage-panels { flex-direction: column; }
+  .coverage-divider { width: 100%; height: 1px; }
+  .coverage-left { padding: 2rem 1.5rem 1.5rem; }
+  .coverage-right { padding: 1.5rem 1.5rem 2rem; }
+  .starfish-svg { width: min(260px, 72vw); height: min(260px, 72vw); }
+  .cr-name { font-size: 24px; }
+  .cr-default-text h3 { font-size: 18px; }
+}
 @media (max-width: 768px) {
-  .coverage { min-height: 420px; padding: 2rem 1.25rem; margin: 0.75rem 1rem; }
-  .starfish-svg { width: min(320px, 88vw); height: min(320px, 88vw); }
-  .arm-label { font-size: 10px; }
+  .coverage { margin: 0.75rem 1rem; }
+  .starfish-svg { width: min(230px, 76vw); height: min(230px, 76vw); }
+  .coverage-grid-pro { padding: 1.25rem; grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 480px) {
-  .coverage { min-height: 360px; }
-  .starfish-svg { width: min(280px, 92vw); height: min(280px, 92vw); }
   .coverage-grid-pro { grid-template-columns: 1fr; }
 }
 
@@ -617,195 +660,209 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5
 
 <!-- ── COVERAGE ── -->
 <section class="coverage" id="coverage">
-  <div class="section-label" style="width:100%;text-align:left;">What we cover</div>
 
-  <!-- ── AQUATIC MODE: Starfish + underwater scene ── -->
-  <div class="starfish-wrap" id="starfishWrap">
-    <div class="sf-tooltip" id="sfTooltip"></div>
+  <!-- Aquatic: two-panel layout -->
+  <div class="coverage-panels">
 
-    <!--
-      COORDINATE SYSTEM: viewBox="-280 -300 560 580"
-      Center = 0,0
-      Arm tip positions (radius ~180 from center, evenly at 72° apart starting from top):
-        Arm 1 — top         (270° = -90°):  0, -180   → Finance
-        Arm 2 — upper-right (342° = -18°):  +171, -56  → Law
-        Arm 3 — lower-right (54°):          +106, +145 → Tech
-        Arm 4 — lower-left  (126°):         -106, +145 → Healthcare
-        Arm 5 — upper-left  (198°):         -171, -56  → Politics
-    -->
-    <svg class="starfish-svg" viewBox="-280 -300 560 600" xmlns="http://www.w3.org/2000/svg">
+    <!-- LEFT: starfish -->
+    <div class="coverage-left">
+      <div class="coverage-left-label">What we cover</div>
 
-      <!-- ░░ BACKGROUND SCENE — bubbles, coral, small fish ░░ -->
-      <g class="bg-deco" opacity="0.18">
-
-        <!-- Coral left -->
-        <path d="M-230,280 L-230,180 M-230,220 C-250,200 -260,170 -248,155 M-230,220 C-210,200 -205,168 -218,152 M-230,200 C-245,185 -252,162 -242,150 M-230,200 C-215,185 -210,162 -220,148" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
-        <ellipse cx="-248" cy="150" rx="7" ry="10" fill="none" stroke="white" stroke-width="1.5"/>
-        <ellipse cx="-218" cy="148" rx="6" ry="9" fill="none" stroke="white" stroke-width="1.5"/>
-        <ellipse cx="-242" cy="146" rx="5" ry="8" fill="none" stroke="white" stroke-width="1.5"/>
-        <ellipse cx="-220" cy="144" rx="5" ry="8" fill="none" stroke="white" stroke-width="1.5"/>
-
-        <!-- Coral right -->
-        <path d="M220,280 L220,200 M220,240 C238,220 245,195 235,180 M220,240 C202,220 198,193 210,178 M220,215 C234,200 240,180 230,168 M220,215 C206,200 202,180 214,166" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
-        <ellipse cx="235" cy="177" rx="7" ry="10" fill="none" stroke="white" stroke-width="1.5"/>
-        <ellipse cx="210" cy="175" rx="6" ry="9" fill="none" stroke="white" stroke-width="1.5"/>
-        <ellipse cx="230" cy="165" rx="5" ry="8" fill="none" stroke="white" stroke-width="1.5"/>
-        <ellipse cx="214" cy="163" rx="5" ry="8" fill="none" stroke="white" stroke-width="1.5"/>
-
-        <!-- Sea grass bottom left -->
-        <path d="M-180,290 C-184,260 -175,230 -180,200 C-185,170 -176,145 -180,120" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        <path d="M-165,290 C-162,255 -168,225 -162,195 C-156,165 -163,140 -160,115" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        <path d="M-150,290 C-152,265 -145,238 -150,212" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-
-        <!-- Sea grass bottom right -->
-        <path d="M155,290 C158,260 152,230 156,200 C160,170 153,148 157,122" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        <path d="M170,290 C167,258 173,228 168,198 C163,168 170,143 166,118" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-
-        <!-- Bubbles — scattered -->
-        <circle cx="-200" cy="60" r="6" fill="none" stroke="white" stroke-width="1.2"/>
-        <circle cx="-185" cy="30" r="4" fill="none" stroke="white" stroke-width="1"/>
-        <circle cx="-195" cy="0" r="3" fill="none" stroke="white" stroke-width="1"/>
-        <circle cx="-210" cy="-30" r="5" fill="none" stroke="white" stroke-width="1"/>
-        <circle cx="-198" cy="-60" r="3" fill="none" stroke="white" stroke-width="1"/>
-        <circle cx="205" cy="40" r="5" fill="none" stroke="white" stroke-width="1.2"/>
-        <circle cx="215" cy="10" r="4" fill="none" stroke="white" stroke-width="1"/>
-        <circle cx="200" cy="-20" r="6" fill="none" stroke="white" stroke-width="1"/>
-        <circle cx="210" cy="-55" r="3" fill="none" stroke="white" stroke-width="1"/>
-        <circle cx="-240" cy="-80" r="4" fill="none" stroke="white" stroke-width="1"/>
-        <circle cx="-255" cy="-110" r="3" fill="none" stroke="white" stroke-width="1"/>
-        <circle cx="240" cy="-90" r="5" fill="none" stroke="white" stroke-width="1"/>
-        <circle cx="255" cy="-130" r="3" fill="none" stroke="white" stroke-width="1"/>
-        <circle cx="-60" cy="-250" r="4" fill="none" stroke="white" stroke-width="1"/>
-        <circle cx="-45" cy="-272" r="3" fill="none" stroke="white" stroke-width="1"/>
-        <circle cx="55" cy="-255" r="5" fill="none" stroke="white" stroke-width="1"/>
-        <circle cx="38" cy="-278" r="3" fill="none" stroke="white" stroke-width="1"/>
-
-        <!-- Small fish — upper left -->
-        <g transform="translate(-220,-150) scale(0.9)">
-          <ellipse cx="0" cy="0" rx="16" ry="8" fill="none" stroke="white" stroke-width="1.3"/>
-          <path d="M16,0 C22,-6 30,-8 30,0 C30,8 22,6 16,0 Z" fill="none" stroke="white" stroke-width="1.3"/>
-          <circle cx="-6" cy="-2" r="2" fill="none" stroke="white" stroke-width="1"/>
-        </g>
-
-        <!-- Small fish — upper right -->
-        <g transform="translate(205,-180) scale(-0.85,0.85)">
-          <ellipse cx="0" cy="0" rx="16" ry="8" fill="none" stroke="white" stroke-width="1.3"/>
-          <path d="M16,0 C22,-6 30,-8 30,0 C30,8 22,6 16,0 Z" fill="none" stroke="white" stroke-width="1.3"/>
-          <circle cx="-6" cy="-2" r="2" fill="none" stroke="white" stroke-width="1"/>
-        </g>
-
-        <!-- Small fish — lower left -->
-        <g transform="translate(-195,130) scale(0.75)">
-          <ellipse cx="0" cy="0" rx="16" ry="8" fill="none" stroke="white" stroke-width="1.3"/>
-          <path d="M16,0 C22,-6 30,-8 30,0 C30,8 22,6 16,0 Z" fill="none" stroke="white" stroke-width="1.3"/>
-          <circle cx="-6" cy="-2" r="2" fill="none" stroke="white" stroke-width="1"/>
-        </g>
-
-        <!-- Small fish — lower right -->
-        <g transform="translate(180,110) scale(-0.8,0.8)">
-          <ellipse cx="0" cy="0" rx="16" ry="8" fill="none" stroke="white" stroke-width="1.3"/>
-          <path d="M16,0 C22,-6 30,-8 30,0 C30,8 22,6 16,0 Z" fill="none" stroke="white" stroke-width="1.3"/>
-          <circle cx="-6" cy="-2" r="2" fill="none" stroke="white" stroke-width="1"/>
-        </g>
-
-        <!-- Tiny fish school — top -->
-        <g transform="translate(-20,-240) scale(0.6)">
-          <ellipse cx="0" cy="0" rx="14" ry="6" fill="none" stroke="white" stroke-width="1.3"/>
-          <path d="M14,0 C19,-5 26,-6 26,0 C26,6 19,5 14,0 Z" fill="none" stroke="white" stroke-width="1.3"/>
-        </g>
-        <g transform="translate(15,-255) scale(0.55)">
-          <ellipse cx="0" cy="0" rx="14" ry="6" fill="none" stroke="white" stroke-width="1.3"/>
-          <path d="M14,0 C19,-5 26,-6 26,0 C26,6 19,5 14,0 Z" fill="none" stroke="white" stroke-width="1.3"/>
-        </g>
-
-        <!-- Wavy seabed lines -->
-        <path d="M-280,285 C-240,275 -200,292 -160,280 C-120,268 -80,285 -40,278 C0,271 40,285 80,278 C120,271 160,285 200,275 C240,265 260,282 280,278" stroke="white" stroke-width="1.2" fill="none"/>
-        <path d="M-280,295 C-240,287 -200,300 -160,290 C-120,280 -80,296 -40,288" stroke="white" stroke-width="0.8" fill="none"/>
-      </g>
-
-      <!-- ░░ STARFISH ░░ -->
       <!--
-        Each arm: a clean symmetrical leaf shape using cubic bezier.
-        Arm drawn pointing UP (toward negative Y), then rotated.
-        Arm shape: tapered at tip, wide at base near center.
-        Base width ~28px, length ~170px from center.
+        Clean five-arm starfish. Each arm is identical — drawn pointing straight
+        up, then rotated by multiples of 72°. Labels placed at fixed positions
+        outside each arm tip, all right-side up using dominant-baseline.
       -->
+      <svg class="starfish-svg" viewBox="-220 -240 440 480" xmlns="http://www.w3.org/2000/svg">
 
-      <!-- ARM 1 — Finance — pointing UP (0° rotation) -->
-      <g class="arm-group arm-finance" data-section="finance" data-href="finance.html">
-        <path class="arm-path" d="M -18,0 C -28,-40 -24,-100 0,-170 C 24,-100 28,-40 18,0 Z"/>
-        <!-- suction dots -->
-        <circle class="dot-row" cx="0" cy="-60" r="3.5"/>
-        <circle class="dot-row" cx="0" cy="-100" r="3"/>
-        <circle class="dot-row" cx="0" cy="-135" r="2.5"/>
-        <circle class="dot-row" cx="0" cy="-158" r="2"/>
-        <!-- texture line -->
-        <path d="M 0,-50 C 4,-80 4,-120 0,-165" stroke="rgba(255,255,255,0.3)" stroke-width="0.8" fill="none"/>
-        <path d="M 0,-50 C -4,-80 -4,-120 0,-165" stroke="rgba(255,255,255,0.3)" stroke-width="0.8" fill="none"/>
-        <!-- label -->
-        <text class="arm-label" x="0" y="-185">FINANCE</text>
-      </g>
+        <!-- Background underwater scene -->
+        <g class="bg-deco" opacity="0.16">
+          <!-- Bubbles -->
+          <circle cx="-170" cy="80" r="5" fill="none" stroke="white" stroke-width="1.1"/>
+          <circle cx="-155" cy="50" r="3.5" fill="none" stroke="white" stroke-width="1"/>
+          <circle cx="-165" cy="18" r="2.5" fill="none" stroke="white" stroke-width="1"/>
+          <circle cx="-175" cy="-18" r="4" fill="none" stroke="white" stroke-width="1"/>
+          <circle cx="-162" cy="-50" r="2.5" fill="none" stroke="white" stroke-width="1"/>
+          <circle cx="168" cy="55" r="4" fill="none" stroke="white" stroke-width="1.1"/>
+          <circle cx="176" cy="22" r="3" fill="none" stroke="white" stroke-width="1"/>
+          <circle cx="165" cy="-12" r="5" fill="none" stroke="white" stroke-width="1"/>
+          <circle cx="172" cy="-48" r="2.5" fill="none" stroke="white" stroke-width="1"/>
+          <circle cx="-30" cy="-200" r="3" fill="none" stroke="white" stroke-width="1"/>
+          <circle cx="22" cy="-210" r="4" fill="none" stroke="white" stroke-width="1"/>
+          <circle cx="5" cy="-225" r="2" fill="none" stroke="white" stroke-width="1"/>
+          <!-- Small fish left -->
+          <g transform="translate(-172,-120) scale(0.8)">
+            <ellipse cx="0" cy="0" rx="14" ry="6" fill="none" stroke="white" stroke-width="1.2"/>
+            <path d="M14,0 C20,-5 26,-5 26,0 C26,5 20,5 14,0 Z" fill="none" stroke="white" stroke-width="1.2"/>
+            <circle cx="-4" cy="-1" r="1.5" fill="none" stroke="white" stroke-width="1"/>
+          </g>
+          <!-- Small fish right -->
+          <g transform="translate(168,-140) scale(-0.75,0.75)">
+            <ellipse cx="0" cy="0" rx="14" ry="6" fill="none" stroke="white" stroke-width="1.2"/>
+            <path d="M14,0 C20,-5 26,-5 26,0 C26,5 20,5 14,0 Z" fill="none" stroke="white" stroke-width="1.2"/>
+            <circle cx="-4" cy="-1" r="1.5" fill="none" stroke="white" stroke-width="1"/>
+          </g>
+          <!-- Tiny school top -->
+          <g transform="translate(-18,-202) scale(0.55)">
+            <ellipse cx="0" cy="0" rx="13" ry="5" fill="none" stroke="white" stroke-width="1.2"/>
+            <path d="M13,0 C18,-4 23,-4 23,0 C23,4 18,4 13,0 Z" fill="none" stroke="white" stroke-width="1.2"/>
+          </g>
+          <g transform="translate(14,-215) scale(0.5)">
+            <ellipse cx="0" cy="0" rx="13" ry="5" fill="none" stroke="white" stroke-width="1.2"/>
+            <path d="M13,0 C18,-4 23,-4 23,0 C23,4 18,4 13,0 Z" fill="none" stroke="white" stroke-width="1.2"/>
+          </g>
+          <!-- Coral left bottom -->
+          <path d="M-185,235 L-185,165 M-185,195 C-198,178 -204,158 -194,146 M-185,195 C-172,178 -168,157 -178,144" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <ellipse cx="-194" cy="143" rx="6" ry="8" fill="none" stroke="white" stroke-width="1.3"/>
+          <ellipse cx="-178" cy="141" rx="5" ry="7" fill="none" stroke="white" stroke-width="1.3"/>
+          <!-- Coral right bottom -->
+          <path d="M178,235 L178,175 M178,205 C190,188 196,168 186,156 M178,205 C166,188 162,167 172,154" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <ellipse cx="186" cy="153" rx="6" ry="8" fill="none" stroke="white" stroke-width="1.3"/>
+          <ellipse cx="172" cy="151" rx="5" ry="7" fill="none" stroke="white" stroke-width="1.3"/>
+          <!-- Seagrass -->
+          <path d="M-130,238 C-133,210 -126,185 -130,162" stroke="white" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+          <path d="M-118,238 C-115,206 -120,180 -116,155" stroke="white" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+          <path d="M120,238 C123,210 117,185 121,162" stroke="white" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+          <path d="M132,238 C129,206 134,180 130,155" stroke="white" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+          <!-- Seabed wave -->
+          <path d="M-220,238 C-180,228 -140,244 -100,234 C-60,224 -20,240 20,232 C60,224 100,240 140,230 C170,222 195,236 220,230" stroke="white" stroke-width="1" fill="none"/>
+        </g>
 
-      <!-- ARM 2 — Law — 72° clockwise from top -->
-      <g class="arm-group arm-law" data-section="law" data-href="law.html" transform="rotate(72)">
-        <path class="arm-path" d="M -18,0 C -28,-40 -24,-100 0,-170 C 24,-100 28,-40 18,0 Z"/>
-        <circle class="dot-row" cx="0" cy="-60" r="3.5"/>
-        <circle class="dot-row" cx="0" cy="-100" r="3"/>
-        <circle class="dot-row" cx="0" cy="-135" r="2.5"/>
-        <circle class="dot-row" cx="0" cy="-158" r="2"/>
-        <path d="M 0,-50 C 4,-80 4,-120 0,-165" stroke="rgba(255,255,255,0.3)" stroke-width="0.8" fill="none"/>
-        <path d="M 0,-50 C -4,-80 -4,-120 0,-165" stroke="rgba(255,255,255,0.3)" stroke-width="0.8" fill="none"/>
-        <text class="arm-label" x="0" y="-185">LAW</text>
-      </g>
+        <!--
+          ARM SHAPE: smooth tapered bezier. Base ±16px wide at y=0, tip at y=-152.
+          The curve swoops outward then tapers to a soft point.
+          All 5 arms are this identical path, rotated.
+        -->
 
-      <!-- ARM 3 — Tech — 144° clockwise from top -->
-      <g class="arm-group arm-tech" data-section="tech" data-href="tech.html" transform="rotate(144)">
-        <path class="arm-path" d="M -18,0 C -28,-40 -24,-100 0,-170 C 24,-100 28,-40 18,0 Z"/>
-        <circle class="dot-row" cx="0" cy="-60" r="3.5"/>
-        <circle class="dot-row" cx="0" cy="-100" r="3"/>
-        <circle class="dot-row" cx="0" cy="-135" r="2.5"/>
-        <circle class="dot-row" cx="0" cy="-158" r="2"/>
-        <path d="M 0,-50 C 4,-80 4,-120 0,-165" stroke="rgba(255,255,255,0.3)" stroke-width="0.8" fill="none"/>
-        <path d="M 0,-50 C -4,-80 -4,-120 0,-165" stroke="rgba(255,255,255,0.3)" stroke-width="0.8" fill="none"/>
-        <text class="arm-label" x="0" y="-185">TECH</text>
-      </g>
+        <!-- ARM 1: Finance — straight up (0°) -->
+        <g class="sf-arm finance" data-section="finance" data-href="finance.html">
+          <path class="sf-arm-path" d="M -16,12 C -32,-20 -28,-80 0,-152 C 28,-80 32,-20 16,12 Z"/>
+          <circle class="sf-dot" cx="0" cy="-55" r="3"/>
+          <circle class="sf-dot" cx="0" cy="-90" r="2.5"/>
+          <circle class="sf-dot" cx="0" cy="-120" r="2"/>
+          <circle class="sf-dot" cx="0" cy="-142" r="1.5"/>
+          <text class="sf-label" x="0" y="-168">FINANCE</text>
+        </g>
 
-      <!-- ARM 4 — Healthcare — 216° clockwise from top -->
-      <g class="arm-group arm-healthcare" data-section="healthcare" data-href="healthcare.html" transform="rotate(216)">
-        <path class="arm-path" d="M -18,0 C -28,-40 -24,-100 0,-170 C 24,-100 28,-40 18,0 Z"/>
-        <circle class="dot-row" cx="0" cy="-60" r="3.5"/>
-        <circle class="dot-row" cx="0" cy="-100" r="3"/>
-        <circle class="dot-row" cx="0" cy="-135" r="2.5"/>
-        <circle class="dot-row" cx="0" cy="-158" r="2"/>
-        <path d="M 0,-50 C 4,-80 4,-120 0,-165" stroke="rgba(255,255,255,0.3)" stroke-width="0.8" fill="none"/>
-        <path d="M 0,-50 C -4,-80 -4,-120 0,-165" stroke="rgba(255,255,255,0.3)" stroke-width="0.8" fill="none"/>
-        <text class="arm-label" x="0" y="-185">HEALTHCARE</text>
-      </g>
+        <!-- ARM 2: Law — 72° clockwise -->
+        <g class="sf-arm law" data-section="law" data-href="law.html" transform="rotate(72)">
+          <path class="sf-arm-path" d="M -16,12 C -32,-20 -28,-80 0,-152 C 28,-80 32,-20 16,12 Z"/>
+          <circle class="sf-dot" cx="0" cy="-55" r="3"/>
+          <circle class="sf-dot" cx="0" cy="-90" r="2.5"/>
+          <circle class="sf-dot" cx="0" cy="-120" r="2"/>
+          <circle class="sf-dot" cx="0" cy="-142" r="1.5"/>
+          <!-- Label kept upright by counter-rotating -->
+          <text class="sf-label" x="0" y="-168" transform="rotate(-72) translate(144,52)">LAW</text>
+        </g>
 
-      <!-- ARM 5 — Politics — 288° clockwise from top -->
-      <g class="arm-group arm-politics" data-section="politics" data-href="politics.html" transform="rotate(288)">
-        <path class="arm-path" d="M -18,0 C -28,-40 -24,-100 0,-170 C 24,-100 28,-40 18,0 Z"/>
-        <circle class="dot-row" cx="0" cy="-60" r="3.5"/>
-        <circle class="dot-row" cx="0" cy="-100" r="3"/>
-        <circle class="dot-row" cx="0" cy="-135" r="2.5"/>
-        <circle class="dot-row" cx="0" cy="-158" r="2"/>
-        <path d="M 0,-50 C 4,-80 4,-120 0,-165" stroke="rgba(255,255,255,0.3)" stroke-width="0.8" fill="none"/>
-        <path d="M 0,-50 C -4,-80 -4,-120 0,-165" stroke="rgba(255,255,255,0.3)" stroke-width="0.8" fill="none"/>
-        <text class="arm-label" x="0" y="-185">POLITICS</text>
-      </g>
+        <!-- ARM 3: Tech — 144° clockwise -->
+        <g class="sf-arm tech" data-section="tech" data-href="tech.html" transform="rotate(144)">
+          <path class="sf-arm-path" d="M -16,12 C -32,-20 -28,-80 0,-152 C 28,-80 32,-20 16,12 Z"/>
+          <circle class="sf-dot" cx="0" cy="-55" r="3"/>
+          <circle class="sf-dot" cx="0" cy="-90" r="2.5"/>
+          <circle class="sf-dot" cx="0" cy="-120" r="2"/>
+          <circle class="sf-dot" cx="0" cy="-142" r="1.5"/>
+          <text class="sf-label" x="0" y="-168" transform="rotate(-144) translate(89,-120)">TECH</text>
+        </g>
 
-      <!-- Center body -->
-      <circle class="star-center-outer" cx="0" cy="0" r="32"/>
-      <circle class="star-center-inner" cx="0" cy="0" r="20"/>
-      <!-- Center texture dots -->
-      <circle cx="0" cy="-10" r="2.5" fill="rgba(255,255,255,0.35)"/>
-      <circle cx="9" cy="5" r="2.5" fill="rgba(255,255,255,0.35)"/>
-      <circle cx="-9" cy="5" r="2.5" fill="rgba(255,255,255,0.35)"/>
-      <circle cx="0" cy="0" r="5" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.6)" stroke-width="1"/>
-    </svg>
-  </div>
+        <!-- ARM 4: Healthcare — 216° clockwise -->
+        <g class="sf-arm healthcare" data-section="healthcare" data-href="healthcare.html" transform="rotate(216)">
+          <path class="sf-arm-path" d="M -16,12 C -32,-20 -28,-80 0,-152 C 28,-80 32,-20 16,12 Z"/>
+          <circle class="sf-dot" cx="0" cy="-55" r="3"/>
+          <circle class="sf-dot" cx="0" cy="-90" r="2.5"/>
+          <circle class="sf-dot" cx="0" cy="-120" r="2"/>
+          <circle class="sf-dot" cx="0" cy="-142" r="1.5"/>
+          <text class="sf-label" x="0" y="-168" transform="rotate(-216) translate(-89,-120)">HEALTHCARE</text>
+        </g>
 
-  <!-- ── PROFESSIONAL MODE: card grid ── -->
+        <!-- ARM 5: Politics — 288° clockwise -->
+        <g class="sf-arm politics" data-section="politics" data-href="politics.html" transform="rotate(288)">
+          <path class="sf-arm-path" d="M -16,12 C -32,-20 -28,-80 0,-152 C 28,-80 32,-20 16,12 Z"/>
+          <circle class="sf-dot" cx="0" cy="-55" r="3"/>
+          <circle class="sf-dot" cx="0" cy="-90" r="2.5"/>
+          <circle class="sf-dot" cx="0" cy="-120" r="2"/>
+          <circle class="sf-dot" cx="0" cy="-142" r="1.5"/>
+          <text class="sf-label" x="0" y="-168" transform="rotate(-288) translate(-144,52)">POLITICS</text>
+        </g>
+
+        <!-- Center -->
+        <circle class="sf-center-outer" cx="0" cy="0" r="26"/>
+        <circle class="sf-center-inner" cx="0" cy="0" r="16"/>
+        <circle cx="0" cy="-8" r="2" fill="rgba(255,255,255,0.3)"/>
+        <circle cx="7" cy="4" r="2" fill="rgba(255,255,255,0.3)"/>
+        <circle cx="-7" cy="4" r="2" fill="rgba(255,255,255,0.3)"/>
+        <circle cx="0" cy="0" r="4" fill="rgba(255,255,255,0.18)" stroke="rgba(255,255,255,0.55)" stroke-width="0.9"/>
+      </svg>
+    </div><!-- /coverage-left -->
+
+    <!-- Vertical divider -->
+    <div class="coverage-divider"></div>
+
+    <!-- RIGHT: description panel -->
+    <div class="coverage-right" id="coverageRight">
+
+      <!-- Default state -->
+      <div class="cr-default-text" id="crDefault">
+        <h3>Five areas of coverage.<br>One place to understand them.</h3>
+        <p>The Nautisk covers the stories that shape everyday life — the policy decisions, market forces, legal rulings, and technological changes that most outlets cover in passing.</p>
+        <div class="cr-hint">
+          <span class="cr-hint-pill finance" onclick="showSection('finance')">Finance</span>
+          <span class="cr-hint-pill law" onclick="showSection('law')">Law</span>
+          <span class="cr-hint-pill tech" onclick="showSection('tech')">Tech</span>
+          <span class="cr-hint-pill healthcare" onclick="showSection('healthcare')">Healthcare</span>
+          <span class="cr-hint-pill politics" onclick="showSection('politics')">Politics</span>
+        </div>
+      </div>
+
+      <!-- Finance panel -->
+      <div class="cr-panel" id="cr-finance">
+        <div class="cr-tag finance">Finance</div>
+        <div class="cr-name">Markets &amp; Money</div>
+        <div class="cr-desc">Economic policy, financial systems, and the market decisions that shape everyday life — reported clearly and without jargon.</div>
+        <div class="cr-examples">Interest rates · Corporate earnings · Housing markets · Inflation · Trade policy · The Fed</div>
+        <a href="finance.html" class="cr-btn finance">Go to Finance →</a>
+      </div>
+
+      <!-- Law panel -->
+      <div class="cr-panel" id="cr-law">
+        <div class="cr-tag law">Law</div>
+        <div class="cr-name">Courts &amp; Policy</div>
+        <div class="cr-desc">Landmark rulings, legislation, and regulatory decisions — explained in plain English without losing the legal substance that makes them matter.</div>
+        <div class="cr-examples">Supreme Court · Federal legislation · Regulatory enforcement · Civil rights · Corporate law</div>
+        <a href="law.html" class="cr-btn law">Go to Law →</a>
+      </div>
+
+      <!-- Tech panel -->
+      <div class="cr-panel" id="cr-tech">
+        <div class="cr-tag tech">Tech</div>
+        <div class="cr-name">Technology &amp; AI</div>
+        <div class="cr-desc">Artificial intelligence, platforms, cybersecurity, and the digital forces reshaping how we live, work, and communicate — reported without hype.</div>
+        <div class="cr-examples">AI regulation · Platform accountability · Cybersecurity · Big tech · Digital rights</div>
+        <a href="tech.html" class="cr-btn tech">Go to Tech →</a>
+      </div>
+
+      <!-- Healthcare panel -->
+      <div class="cr-panel" id="cr-healthcare">
+        <div class="cr-tag healthcare">Healthcare</div>
+        <div class="cr-name">Health &amp; Medicine</div>
+        <div class="cr-desc">Public health, medical research, drug pricing, and the policy decisions that determine what care people can access and afford.</div>
+        <div class="cr-examples">FDA decisions · Drug pricing · Insurance · Public health · Medical research · Medicare</div>
+        <a href="healthcare.html" class="cr-btn healthcare">Go to Healthcare →</a>
+      </div>
+
+      <!-- Politics panel -->
+      <div class="cr-panel" id="cr-politics">
+        <div class="cr-tag politics">Politics</div>
+        <div class="cr-name">Government &amp; Power</div>
+        <div class="cr-desc">Federal government, executive action, elections, and the political forces that translate into laws, budgets, and policy — covered without spin.</div>
+        <div class="cr-examples">Congress · Executive orders · Elections · Foreign policy · Budgets · Judicial appointments</div>
+        <a href="politics.html" class="cr-btn politics">Go to Politics →</a>
+      </div>
+
+    </div><!-- /coverage-right -->
+  </div><!-- /coverage-panels -->
+
+  <!-- Professional fallback -->
   <div class="coverage-grid-pro">
     <a href="finance.html" class="coverage-card-pro"><div class="icon">📈</div><h3>Finance</h3><p>Markets, economics, and money decisions — explained clearly.</p></a>
     <a href="law.html" class="coverage-card-pro"><div class="icon">⚖️</div><h3>Law</h3><p>Legal developments and landmark cases — without the jargon.</p></a>
@@ -813,9 +870,8 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5
     <a href="politics.html" class="coverage-card-pro"><div class="icon">🏛</div><h3>Politics</h3><p>Government, policy, and power — cutting through the noise.</p></a>
     <a href="tech.html" class="coverage-card-pro"><div class="icon">💻</div><h3>Tech</h3><p>Technology, AI, and the digital forces reshaping how we live and work.</p></a>
   </div>
-</section>
 
-<div class="divider"><div class="divider-line"></div><span class="divider-anchor">⚓</span><div class="divider-line"></div></div>
+</section>
 
 <!-- ── LATEST STORIES ── -->
 <section class="latest-stories">
@@ -1064,47 +1120,31 @@ function goToSlide(n) {
 function nextSlide() { goToSlide(currentSlide + 1); }
 function prevSlide() { goToSlide(currentSlide - 1); }
 
-// ── STARFISH TOOLTIP & NAVIGATION ─────────────────────────────────────────
-const sfData = {
-  finance:    { label: 'Finance',    text: 'Markets, economic policy, and the money decisions that shape everyday life — reported clearly.' },
-  law:        { label: 'Law',        text: 'Landmark rulings, legislation, and regulatory decisions — translated out of legalese.' },
-  tech:       { label: 'Tech',       text: 'AI, platforms, cybersecurity, and the digital forces reshaping how we live and work.' },
-  healthcare: { label: 'Healthcare', text: 'Public health, drug policy, medical research, and the systems that affect your wellbeing.' },
-  politics:   { label: 'Politics',   text: 'Government, power, and policy — what\'s happening in Washington and why it matters.' }
-};
-const sfTooltip = document.getElementById('sfTooltip');
-const sfWrap    = document.getElementById('starfishWrap');
-
-if (sfWrap && sfTooltip) {
-  sfWrap.querySelectorAll('.arm-group').forEach(arm => {
-    const section = arm.dataset.section;
-    const href    = arm.dataset.href;
-    const data    = sfData[section];
-    if (!data) return;
-
-    arm.addEventListener('mouseenter', e => {
-      if (document.body.classList.contains('professional')) return;
-      sfTooltip.innerHTML = `<strong>${data.label}</strong>${data.text}`;
-      sfTooltip.classList.add('visible');
-      moveTooltip(e);
-    });
-    arm.addEventListener('mousemove', moveTooltip);
-    arm.addEventListener('mouseleave', () => sfTooltip.classList.remove('visible'));
-    arm.addEventListener('click', () => { if (href) window.location.href = href; });
-  });
-
-  function moveTooltip(e) {
-    const rect = sfWrap.getBoundingClientRect();
-    let x = e.clientX - rect.left + 20;
-    let y = e.clientY - rect.top  + 16;
-    if (x + 220 > rect.width)  x = e.clientX - rect.left - 230;
-    if (y + 100 > rect.height) y = e.clientY - rect.top  - 110;
-    sfTooltip.style.left = x + 'px';
-    sfTooltip.style.top  = y + 'px';
-  }
+// ── STARFISH CLICK INTERACTION ────────────────────────────────────────────
+function showSection(section) {
+  // Hide default
+  document.getElementById('crDefault').style.display = 'none';
+  // Hide all panels
+  document.querySelectorAll('.cr-panel').forEach(p => p.classList.remove('visible'));
+  // Remove active from all arms
+  document.querySelectorAll('.sf-arm').forEach(a => a.classList.remove('sf-active'));
+  // Show selected panel
+  const panel = document.getElementById('cr-' + section);
+  if (panel) panel.classList.add('visible');
+  // Activate arm
+  const arm = document.querySelector('.sf-arm.' + section);
+  if (arm) arm.classList.add('sf-active');
 }
 
+document.querySelectorAll('.sf-arm').forEach(arm => {
+  arm.addEventListener('click', () => {
+    const section = arm.dataset.section;
+    if (section) showSection(section);
+  });
+});
+
 // ── SCROLL TO TOP ──────────────────────────────────────────────────────────
+const scrollTopBtn = document.getElementById('scrollTop'); ──────────────────────────────────────────────────────────
 const scrollTopBtn = document.getElementById('scrollTop');
 window.addEventListener('scroll', () => { scrollTopBtn.classList.toggle('visible', window.scrollY > 400); });
 scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
