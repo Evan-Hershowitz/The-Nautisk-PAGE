@@ -208,13 +208,51 @@ body.professional .coverage-panels { display: none; }
   flex: 1; display: flex; flex-direction: column;
   align-items: center; justify-content: center;
   padding: 2rem 1.5rem 2rem 2rem; position: relative;
+  overflow: hidden;
 }
 .coverage-left-label {
   font-size: 11px; font-weight: 600; letter-spacing: 0.2em;
   text-transform: uppercase; color: #8ab4d4;
   font-family: 'Inter', Arial, sans-serif;
-  margin-bottom: 1.25rem; align-self: flex-start;
+  margin-bottom: 1.25rem; text-align: center; width: 100%;
 }
+/* Full-panel ocean background */
+.ocean-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+/* Reset button */
+.sf-reset-btn {
+  position: absolute;
+  bottom: 1.1rem;
+  right: 1.25rem;
+  background: none;
+  border: 1px solid rgba(255,255,255,0.18);
+  color: rgba(255,255,255,0.38);
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.7rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, opacity 0.2s;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+}
+.sf-reset-btn.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+.sf-reset-btn:hover {
+  color: rgba(255,255,255,0.7);
+  border-color: rgba(255,255,255,0.4);
+}
+/* Raise starfish above bg */
+.starfish-svg { position: relative; z-index: 1; }
 
 /* RIGHT */
 .coverage-right {
@@ -666,7 +704,160 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5
 
     <!-- LEFT: starfish -->
     <div class="coverage-left">
+      <!-- Full-panel ocean floor background -->
+      <svg class="ocean-bg" viewBox="0 0 760 480" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <radialGradient id="oceanDepth" cx="50%" cy="100%" r="80%">
+            <stop offset="0%" stop-color="#0a2a42" stop-opacity="0.5"/>
+            <stop offset="100%" stop-color="#03213a" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <rect width="760" height="480" fill="url(#oceanDepth)"/>
+
+        <!-- Seabed waves at bottom -->
+        <path d="M0,455 C60,445 120,462 180,452 C240,442 300,458 360,448 C420,438 480,455 540,445 C600,435 660,452 760,444" stroke="rgba(255,255,255,0.14)" stroke-width="1.2" fill="none"/>
+        <path d="M0,468 C50,460 110,472 170,464 C230,456 290,470 350,462 C410,454 470,468 530,460 C590,452 660,466 760,458" stroke="rgba(255,255,255,0.09)" stroke-width="1" fill="none"/>
+
+        <!-- Coral cluster bottom-left -->
+        <path d="M55,475 L55,390 M55,430 C38,410 30,382 44,366 M55,430 C72,410 78,380 64,364 M55,408 C42,393 36,370 48,357 M55,408 C68,393 73,370 61,355" stroke="rgba(255,255,255,0.22)" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <ellipse cx="44" cy="363" rx="7" ry="10" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
+        <ellipse cx="64" cy="361" rx="6" ry="9" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
+        <ellipse cx="48" cy="354" rx="5" ry="8" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+        <ellipse cx="61" cy="352" rx="5" ry="8" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+
+        <!-- Coral cluster bottom-right -->
+        <path d="M695,475 L695,400 M695,438 C710,418 718,390 706,374 M695,438 C680,418 674,388 686,372 M695,415 C708,400 714,376 702,362 M695,415 C682,400 677,376 689,360" stroke="rgba(255,255,255,0.2)" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <ellipse cx="706" cy="371" rx="7" ry="10" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+        <ellipse cx="686" cy="369" rx="6" ry="9" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+        <ellipse cx="702" cy="359" rx="5" ry="8" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+        <ellipse cx="689" cy="357" rx="5" ry="8" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+
+        <!-- Coral cluster bottom-center -->
+        <path d="M370,475 L370,418 M370,445 C358,430 353,410 363,400 M370,445 C382,430 386,408 376,398" stroke="rgba(255,255,255,0.15)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <ellipse cx="363" cy="398" rx="5" ry="7" fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="1.3"/>
+        <ellipse cx="376" cy="396" rx="5" ry="7" fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="1.3"/>
+
+        <!-- Seagrass bottom-left cluster -->
+        <path d="M130,475 C126,448 132,420 128,395" stroke="rgba(255,255,255,0.18)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path d="M144,475 C148,445 142,415 146,388" stroke="rgba(255,255,255,0.18)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path d="M158,475 C154,450 160,428 155,405" stroke="rgba(255,255,255,0.14)" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+
+        <!-- Seagrass bottom-right cluster -->
+        <path d="M598,475 C602,448 596,420 600,395" stroke="rgba(255,255,255,0.16)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path d="M612,475 C608,445 614,415 610,388" stroke="rgba(255,255,255,0.16)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path d="M626,475 C630,450 624,428 628,405" stroke="rgba(255,255,255,0.12)" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+
+        <!-- Seagrass mid-left -->
+        <path d="M228,475 C224,452 230,430 226,408" stroke="rgba(255,255,255,0.13)" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+        <path d="M240,475 C244,452 238,432 242,410" stroke="rgba(255,255,255,0.11)" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+
+        <!-- Seagrass mid-right -->
+        <path d="M510,475 C514,452 508,430 512,408" stroke="rgba(255,255,255,0.13)" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+        <path d="M524,475 C520,452 526,432 522,410" stroke="rgba(255,255,255,0.11)" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+
+        <!-- Bubbles — scattered all over -->
+        <circle cx="28" cy="320" r="5" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.1"/>
+        <circle cx="42" cy="285" r="3.5" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+        <circle cx="22" cy="248" r="4" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
+        <circle cx="38" cy="210" r="2.5" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+        <circle cx="18" cy="178" r="5.5" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+        <circle cx="34" cy="140" r="3" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <circle cx="20" cy="105" r="4.5" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <circle cx="730" cy="310" r="5" fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="1.1"/>
+        <circle cx="718" cy="272" r="3.5" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
+        <circle cx="736" cy="235" r="4" fill="none" stroke="rgba(255,255,255,0.13)" stroke-width="1"/>
+        <circle cx="722" cy="196" r="2.5" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+        <circle cx="740" cy="158" r="5" fill="none" stroke="rgba(255,255,255,0.11)" stroke-width="1"/>
+        <circle cx="726" cy="118" r="3" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <circle cx="200" cy="340" r="4" fill="none" stroke="rgba(255,255,255,0.13)" stroke-width="1"/>
+        <circle cx="188" cy="305" r="2.5" fill="none" stroke="rgba(255,255,255,0.11)" stroke-width="1"/>
+        <circle cx="560" cy="350" r="4.5" fill="none" stroke="rgba(255,255,255,0.13)" stroke-width="1"/>
+        <circle cx="572" cy="312" r="3" fill="none" stroke="rgba(255,255,255,0.11)" stroke-width="1"/>
+        <circle cx="340" cy="80" r="3.5" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <circle cx="420" cy="55" r="4" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <circle cx="380" cy="38" r="2.5" fill="none" stroke="rgba(255,255,255,0.09)" stroke-width="1"/>
+        <circle cx="90" cy="65" r="3" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <circle cx="660" cy="72" r="3.5" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+
+        <!-- Fish 1 — upper left, swimming right -->
+        <g transform="translate(80,90)">
+          <ellipse cx="0" cy="0" rx="22" ry="9" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.4"/>
+          <path d="M22,0 C30,-7 40,-8 40,0 C40,8 30,7 22,0Z" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.4"/>
+          <circle cx="-8" cy="-2" r="2.5" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+        </g>
+
+        <!-- Fish 2 — upper right, swimming left -->
+        <g transform="translate(640,110) scale(-1,1)">
+          <ellipse cx="0" cy="0" rx="20" ry="8" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.3"/>
+          <path d="M20,0 C28,-6 36,-7 36,0 C36,7 28,6 20,0Z" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.3"/>
+          <circle cx="-7" cy="-2" r="2" fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="1"/>
+        </g>
+
+        <!-- Fish 3 — mid-left, swimming right -->
+        <g transform="translate(48,240)">
+          <ellipse cx="0" cy="0" rx="18" ry="7" fill="none" stroke="rgba(255,255,255,0.17)" stroke-width="1.3"/>
+          <path d="M18,0 C25,-5 32,-6 32,0 C32,6 25,5 18,0Z" fill="none" stroke="rgba(255,255,255,0.17)" stroke-width="1.3"/>
+          <circle cx="-6" cy="-1.5" r="2" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+        </g>
+
+        <!-- Fish 4 — mid-right, swimming left -->
+        <g transform="translate(700,260) scale(-1,1)">
+          <ellipse cx="0" cy="0" rx="19" ry="7.5" fill="none" stroke="rgba(255,255,255,0.17)" stroke-width="1.3"/>
+          <path d="M19,0 C26,-5 34,-6 34,0 C34,6 26,5 19,0Z" fill="none" stroke="rgba(255,255,255,0.17)" stroke-width="1.3"/>
+          <circle cx="-6" cy="-1.5" r="2" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+        </g>
+
+        <!-- Fish 5 — lower mid-left, swimming right, angled up -->
+        <g transform="translate(155,360) rotate(-12)">
+          <ellipse cx="0" cy="0" rx="16" ry="6" fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="1.2"/>
+          <path d="M16,0 C22,-5 28,-5 28,0 C28,5 22,5 16,0Z" fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="1.2"/>
+          <circle cx="-5" cy="-1.5" r="1.8" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
+        </g>
+
+        <!-- Fish 6 — lower mid-right, swimming left -->
+        <g transform="translate(590,370) scale(-1,1) rotate(-8)">
+          <ellipse cx="0" cy="0" rx="17" ry="6.5" fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="1.2"/>
+          <path d="M17,0 C23,-5 30,-5 30,0 C30,5 23,5 17,0Z" fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="1.2"/>
+          <circle cx="-5" cy="-1.5" r="1.8" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
+        </g>
+
+        <!-- Tiny school — upper center, swimming right -->
+        <g transform="translate(290,48)">
+          <ellipse cx="0" cy="0" rx="12" ry="5" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="1.1"/>
+          <path d="M12,0 C17,-4 22,-4 22,0 C22,4 17,4 12,0Z" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="1.1"/>
+        </g>
+        <g transform="translate(320,38)">
+          <ellipse cx="0" cy="0" rx="11" ry="4.5" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+          <path d="M11,0 C16,-3.5 20,-3.5 20,0 C20,3.5 16,3.5 11,0Z" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+        </g>
+        <g transform="translate(305,62)">
+          <ellipse cx="0" cy="0" rx="10" ry="4" fill="none" stroke="rgba(255,255,255,0.11)" stroke-width="1"/>
+          <path d="M10,0 C14,-3 18,-3 18,0 C18,3 14,3 10,0Z" fill="none" stroke="rgba(255,255,255,0.11)" stroke-width="1"/>
+        </g>
+
+        <!-- Tiny school — right side, swimming left -->
+        <g transform="translate(680,180) scale(-1,1)">
+          <ellipse cx="0" cy="0" rx="11" ry="4.5" fill="none" stroke="rgba(255,255,255,0.13)" stroke-width="1"/>
+          <path d="M11,0 C16,-3.5 21,-3.5 21,0 C21,3.5 16,3.5 11,0Z" fill="none" stroke="rgba(255,255,255,0.13)" stroke-width="1"/>
+        </g>
+        <g transform="translate(680,197) scale(-1,1)">
+          <ellipse cx="0" cy="0" rx="10" ry="4" fill="none" stroke="rgba(255,255,255,0.11)" stroke-width="1"/>
+          <path d="M10,0 C14,-3 19,-3 19,0 C19,3 14,3 10,0Z" fill="none" stroke="rgba(255,255,255,0.11)" stroke-width="1"/>
+        </g>
+
+        <!-- Rocks / pebbles on seabed -->
+        <ellipse cx="260" cy="462" rx="18" ry="8" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1.1"/>
+        <ellipse cx="285" cy="466" rx="12" ry="5" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <ellipse cx="460" cy="460" rx="14" ry="6" fill="none" stroke="rgba(255,255,255,0.11)" stroke-width="1"/>
+        <ellipse cx="482" cy="464" rx="9" ry="4" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <ellipse cx="108" cy="470" rx="10" ry="4" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <ellipse cx="640" cy="468" rx="11" ry="4.5" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+      </svg>
+
       <div class="coverage-left-label">What we cover</div>
+
+      <!-- Reset button — appears when a section is active -->
+      <button class="sf-reset-btn" id="sfResetBtn" onclick="resetSection()" title="Back to overview">↩ overview</button>
 
       <!--
         Clean five-arm starfish. Each arm is identical — drawn pointing straight
@@ -1153,12 +1344,16 @@ function showSection(section) {
   if (panel) panel.classList.add('visible');
   const arm = document.querySelector('.sf-arm.' + section);
   if (arm) arm.classList.add('sf-active');
+  const btn = document.getElementById('sfResetBtn');
+  if (btn) btn.classList.add('visible');
 }
 
 function resetSection() {
   document.getElementById('crDefault').style.display = '';
   document.querySelectorAll('.cr-panel').forEach(p => p.classList.remove('visible'));
   document.querySelectorAll('.sf-arm').forEach(a => a.classList.remove('sf-active'));
+  const btn = document.getElementById('sfResetBtn');
+  if (btn) btn.classList.remove('visible');
 }
 
 // Arm clicks
