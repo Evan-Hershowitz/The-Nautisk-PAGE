@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>The Nautisk</title>
-<meta name="description" content="The Nautisk — independent journalism covering finance, law, healthcare, politics, and tech. Anchored in truth." />
+<meta name="description" content="The Nautisk: independent journalism covering finance, law, healthcare, politics, and tech. Anchored in truth." />
 <meta name="robots" content="index, follow" />
 <meta property="og:title" content="The Nautisk" />
 <meta property="og:description" content="Independent journalism covering finance, law, healthcare, politics, and tech. Anchored in truth." />
@@ -58,21 +58,14 @@ nav {
 .dot-toggle:hover { opacity: 0.8; }
 body.professional .dot-toggle { background: #03213a; border-color: #ffffff; box-shadow: 0 0 0 1px #03213a; }
 
-/* Left nav group */
-.nav-left { display: flex; align-items: center; gap: 1.25rem; flex: 1; }
-
-/* Center logo */
-.nav-center {
-  display: flex; align-items: center; gap: 0.6rem;
-  position: absolute; left: 50%; transform: translateX(-50%);
-  pointer-events: none;
-}
-.logo-img { height: 46px; width: 46px; object-fit: contain; pointer-events: auto; }
-.logo-text { font-size: 20px; font-weight: bold; letter-spacing: 0.14em; color: #c0cfe0; font-family: 'Inter', Arial, sans-serif; pointer-events: auto; }
+/* Brand group — logo + name, pinned left */
+.nav-brand { display: flex; align-items: center; gap: 0.85rem; flex-shrink: 0; }
+.logo-img { height: 44px; width: 44px; object-fit: contain; }
+.logo-text { font-size: 19px; font-weight: bold; letter-spacing: 0.14em; color: #c0cfe0; font-family: 'Inter', Arial, sans-serif; white-space: nowrap; }
 .logo-text span { color: #8ab4d4; }
 
-/* Right nav group */
-.nav-right { display: flex; align-items: center; gap: 1.25rem; flex: 1; justify-content: flex-end; }
+/* Nav links group — evenly spaced, pinned right */
+.nav-links { display: flex; align-items: center; gap: 1.9rem; }
 
 /* Nav buttons */
 .nav-btn { font-size: 12px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; font-family: 'Inter', Arial, sans-serif; background: none; border: none; cursor: pointer; padding: 0; white-space: nowrap; }
@@ -518,8 +511,7 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5
   .slide-content { padding: 2rem; }
 }
 @media (max-width: 768px) {
-  .nav-left, .nav-right { display: none; }
-  .nav-center { position: static; transform: none; pointer-events: auto; }
+  .nav-links { display: none; }
   nav { padding: 0 1rem; justify-content: space-between; }
   .dot-toggle { display: flex; }
   .mob-btn { display: flex; }
@@ -612,11 +604,15 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5
 
 <!-- ── NAV ── -->
 <nav>
-  <!-- Far left: dot mode toggle -->
-  <button class="dot-toggle" id="dotToggle" aria-label="Toggle mode" title="Toggle Aquatic / Professional"></button>
+  <!-- Brand: dot toggle + logo + name, pinned left -->
+  <div class="nav-brand">
+    <button class="dot-toggle" id="dotToggle" aria-label="Toggle mode" title="Toggle Aquatic / Professional"></button>
+    <img src="logo.png" alt="The Nautisk" class="logo-img" />
+    <span class="logo-text">THE <span>NAUTISK</span></span>
+  </div>
 
-  <!-- Left group -->
-  <div class="nav-left">
+  <!-- Links: evenly spaced, pinned right -->
+  <div class="nav-links">
     <div class="dropdown" id="newsDropdown">
       <button class="nav-btn" id="newsDropBtn">News ▾</button>
       <div class="dropdown-menu">
@@ -629,19 +625,8 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5
     </div>
     <a href="opinion.html" class="nav-btn">Opinion</a>
     <a href="tidepool.html" class="nav-btn-tidepool">Tidepool</a>
-  </div>
-
-  <!-- Center logo -->
-  <div class="nav-center">
-    <img src="logo.png" alt="The Nautisk" class="logo-img" />
-    <span class="logo-text">THE <span>NAUTISK</span></span>
-  </div>
-
-  <!-- Right group -->
-  <div class="nav-right">
     <a href="depth.html" class="nav-btn-depth">Depth</a>
     <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer" class="nav-btn">Newsletter</a>
-    <!-- Far right: 3-line -->
     <button class="three-line-btn" id="threeLine" aria-label="More">
       <span></span><span></span><span></span>
     </button>
@@ -671,7 +656,7 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5
       <div class="slide-content">
         <span class="slide-section-tag finance" style="color:#4a7fa8;">The Nautisk</span>
         <h2 class="slide-headline">New stories are on the way.</h2>
-        <p class="slide-dek">We're working on our next round of coverage — finance, law, healthcare, politics, and tech, reported and written to our standards. Check back soon.</p>
+        <p class="slide-dek">We're working on our next round of coverage: finance, law, healthcare, politics, and tech, reported and written to our standards. Check back soon.</p>
         <p class="slide-meta">Coming soon</p>
         <a href="about.html" class="slide-read-btn">Our Story →</a>
       </div>
@@ -690,7 +675,7 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5
 <section class="about">
   <div class="about-inner">
     <div class="section-label">Anchored in truth</div>
-    <p>We shape the world, so it only makes sense that we begin to understand it. The Nautisk exists to make the stories that matter most accessible to everyone — not just the experts. We are achieving our mission if news becomes accessible, but most importantly <strong>UNDERSTANDABLE.</strong></p>
+    <p>We shape the world, so it only makes sense that we begin to understand it. The Nautisk exists to make the stories that matter most accessible to everyone, not just the experts. We are achieving our mission if news becomes accessible, but most importantly <strong>UNDERSTANDABLE.</strong></p>
   </div>
 </section>
 
@@ -1019,7 +1004,7 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5
       <!-- Default state -->
       <div class="cr-default-text" id="crDefault">
         <h3>Five areas of coverage.<br>One place to understand them.</h3>
-        <p>The Nautisk covers the stories that shape everyday life — the policy decisions, market forces, legal rulings, and technological changes that most outlets cover in passing.</p>
+        <p>The Nautisk covers the stories that shape everyday life: the policy decisions, market forces, legal rulings, and technological changes that most outlets cover in passing.</p>
         <div class="cr-hint">
           <span class="cr-hint-pill finance" onclick="showSection('finance')">Finance</span>
           <span class="cr-hint-pill law" onclick="showSection('law')">Law</span>
@@ -1033,7 +1018,7 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5
       <div class="cr-panel" id="cr-finance">
         <div class="cr-tag finance">Finance</div>
         <div class="cr-name">Markets &amp; Money</div>
-        <div class="cr-desc">Economic policy, financial systems, and the market decisions that shape everyday life — reported clearly and without jargon.</div>
+        <div class="cr-desc">Economic policy, financial systems, and the market decisions that shape everyday life, reported clearly and without jargon.</div>
         <div class="cr-examples">Interest rates · Corporate earnings · Housing markets · Inflation · Trade policy · The Fed</div>
         <a href="finance.html" class="cr-btn finance">Go to Finance →</a>
       </div>
@@ -1042,7 +1027,7 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5
       <div class="cr-panel" id="cr-law">
         <div class="cr-tag law">Law</div>
         <div class="cr-name">Courts &amp; Policy</div>
-        <div class="cr-desc">Landmark rulings, legislation, and regulatory decisions — explained in plain English without losing the legal substance that makes them matter.</div>
+        <div class="cr-desc">Landmark rulings, legislation, and regulatory decisions, explained in plain English without losing the legal substance that makes them matter.</div>
         <div class="cr-examples">Supreme Court · Federal legislation · Regulatory enforcement · Civil rights · Corporate law</div>
         <a href="law.html" class="cr-btn law">Go to Law →</a>
       </div>
@@ -1051,7 +1036,7 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5
       <div class="cr-panel" id="cr-tech">
         <div class="cr-tag tech">Tech</div>
         <div class="cr-name">Technology &amp; AI</div>
-        <div class="cr-desc">Artificial intelligence, platforms, cybersecurity, and the digital forces reshaping how we live, work, and communicate — reported without hype.</div>
+        <div class="cr-desc">Artificial intelligence, platforms, cybersecurity, and the digital forces reshaping how we live, work, and communicate, reported without hype.</div>
         <div class="cr-examples">AI regulation · Platform accountability · Cybersecurity · Big tech · Digital rights</div>
         <a href="tech.html" class="cr-btn tech">Go to Tech →</a>
       </div>
@@ -1069,7 +1054,7 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5
       <div class="cr-panel" id="cr-politics">
         <div class="cr-tag politics">Politics</div>
         <div class="cr-name">Government &amp; Power</div>
-        <div class="cr-desc">Federal government, executive action, elections, and the political forces that translate into laws, budgets, and policy — covered without spin.</div>
+        <div class="cr-desc">Federal government, executive action, elections, and the political forces that translate into laws, budgets, and policy, covered without spin.</div>
         <div class="cr-examples">Congress · Executive orders · Elections · Foreign policy · Budgets · Judicial appointments</div>
         <a href="politics.html" class="cr-btn politics">Go to Politics →</a>
       </div>
@@ -1079,10 +1064,10 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5
 
   <!-- Professional fallback -->
   <div class="coverage-grid-pro">
-    <a href="finance.html" class="coverage-card-pro"><div class="icon">📈</div><h3>Finance</h3><p>Markets, economics, and money decisions — explained clearly.</p></a>
-    <a href="law.html" class="coverage-card-pro"><div class="icon">⚖️</div><h3>Law</h3><p>Legal developments and landmark cases — without the jargon.</p></a>
-    <a href="healthcare.html" class="coverage-card-pro"><div class="icon">🏥</div><h3>Healthcare</h3><p>Medical news and public health — what matters for your wellbeing.</p></a>
-    <a href="politics.html" class="coverage-card-pro"><div class="icon">🏛</div><h3>Politics</h3><p>Government, policy, and power — cutting through the noise.</p></a>
+    <a href="finance.html" class="coverage-card-pro"><div class="icon">📈</div><h3>Finance</h3><p>Markets, economics, and money decisions, explained clearly.</p></a>
+    <a href="law.html" class="coverage-card-pro"><div class="icon">⚖️</div><h3>Law</h3><p>Legal developments and landmark cases, without the jargon.</p></a>
+    <a href="healthcare.html" class="coverage-card-pro"><div class="icon">🏥</div><h3>Healthcare</h3><p>Medical news and public health: what matters for your wellbeing.</p></a>
+    <a href="politics.html" class="coverage-card-pro"><div class="icon">🏛</div><h3>Politics</h3><p>Government, policy, and power, cutting through the noise.</p></a>
     <a href="tech.html" class="coverage-card-pro"><div class="icon">💻</div><h3>Tech</h3><p>Technology, AI, and the digital forces reshaping how we live and work.</p></a>
   </div>
 
@@ -1108,16 +1093,16 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5
     <div>
       <div class="radar-label">On Our Radar</div>
       <div class="radar-title">Stories We're Watching</div>
-      <div class="radar-desc">Topics diving beneath the surface — coverage coming soon.</div>
+      <div class="radar-desc">Topics diving beneath the surface, coverage coming soon.</div>
     </div>
   </div>
   <div class="radar-grid">
     <div class="radar-item"><div class="radar-item-section finance">Finance</div><h4>OpenAI's IPO Process & the $1 Trillion Valuation Question</h4><p>After delaying its public debut to 2027, we're tracking how OpenAI justifies its valuation and what it means for the broader AI investment bubble.</p><span class="radar-coming-soon">⬡ Coverage forthcoming</span></div>
-    <div class="radar-item"><div class="radar-item-section finance">Finance</div><h4>Federal Reserve Interest Rate Decisions — Q3 2026</h4><p>With inflation signals mixed and the labor market softening, the Fed's next move will ripple through mortgages, markets, and everyday spending.</p><span class="radar-coming-soon">⬡ Coverage forthcoming</span></div>
+    <div class="radar-item"><div class="radar-item-section finance">Finance</div><h4>Federal Reserve Interest Rate Decisions: Q3 2026</h4><p>With inflation signals mixed and the labor market softening, the Fed's next move will ripple through mortgages, markets, and everyday spending.</p><span class="radar-coming-soon">⬡ Coverage forthcoming</span></div>
     <div class="radar-item"><div class="radar-item-section law">Law</div><h4>Supreme Court's October 2026 Term</h4><p>Several high-stakes cases have already been granted cert. From executive power to digital privacy, the October term could reshape federal law.</p><span class="radar-coming-soon">⬡ Coverage forthcoming</span></div>
     <div class="radar-item"><div class="radar-item-section law">Law</div><h4>PFAS Regulation Expansion Post-Chemours</h4><p>The $450M settlement may be just the beginning. EPA rulemaking is accelerating, and more manufacturers are in the crosshairs.</p><span class="radar-coming-soon">⬡ Coverage forthcoming</span></div>
     <div class="radar-item"><div class="radar-item-section healthcare">Healthcare</div><h4>FDA Review of Next-Generation Weight-Loss Drugs</h4><p>Beyond GLP-1s, a new class of obesity treatments is in clinical trials. The FDA's review calendar for late 2026 could reshape a $100B market.</p><span class="radar-coming-soon">⬡ Coverage forthcoming</span></div>
-    <div class="radar-item"><div class="radar-item-section politics">Politics</div><h4>2026 Midterm Elections — Senate Map & Key Races</h4><p>Control of the Senate hangs on a handful of races. We're mapping the competitive seats, the money, and the issues driving each contest.</p><span class="radar-coming-soon">⬡ Coverage forthcoming</span></div>
+    <div class="radar-item"><div class="radar-item-section politics">Politics</div><h4>2026 Midterm Elections: Senate Map & Key Races</h4><p>Control of the Senate hangs on a handful of races. We're mapping the competitive seats, the money, and the issues driving each contest.</p><span class="radar-coming-soon">⬡ Coverage forthcoming</span></div>
     <div class="radar-item"><div class="radar-item-section tech">Tech</div><h4>AI Regulation: What Congress Is Actually Considering</h4><p>Several competing bills are moving through committee. We're tracking what each would do, who's behind them, and what tech companies are lobbying for.</p><span class="radar-coming-soon">⬡ Coverage forthcoming</span></div>
     <div class="radar-item"><div class="radar-item-section tech">Tech</div><h4>The Browser War Returns: Chrome, Safari, and What Comes Next</h4><p>With the DOJ's Chrome divestiture ruling still working through appeals, the browser market could look very different by 2027.</p><span class="radar-coming-soon">⬡ Coverage forthcoming</span></div>
   </div>
@@ -1138,7 +1123,7 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5
         <div>
           <div class="tidepool-label">Sub-brand</div>
           <div class="tidepool-name">Tidepool</div>
-          <div class="tidepool-tagline">The news, made approachable — Money, Science, College &amp; World.</div>
+          <div class="tidepool-tagline">The news, made approachable: Money, Science, College &amp; World.</div>
         </div>
       </div>
       <a href="tidepool.html" class="tidepool-visit-btn">Visit Tidepool →</a>
@@ -1148,7 +1133,7 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5
         <div class="tidepool-card-body">
           <span class="tidepool-card-tag">💰 Money</span>
           <h4>First Money article coming soon</h4>
-          <p>Personal finance, economics, and how money actually works — explained for everyone.</p>
+          <p>Personal finance, economics, and how money actually works, explained for everyone.</p>
           <span class="tidepool-card-coming">✦ Coming soon</span>
         </div>
       </div>
@@ -1156,7 +1141,7 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5
         <div class="tidepool-card-body">
           <span class="tidepool-card-tag">🔬 Science</span>
           <h4>First Science article coming soon</h4>
-          <p>New discoveries and research findings — what they mean and why they matter.</p>
+          <p>New discoveries and research findings: what they mean and why they matter.</p>
           <span class="tidepool-card-coming">✦ Coming soon</span>
         </div>
       </div>
@@ -1172,7 +1157,7 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5
         <div class="tidepool-card-body">
           <span class="tidepool-card-tag">🌍 World</span>
           <h4>First World article coming soon</h4>
-          <p>Global events and international stories — what's happening around the world and why it matters to you.</p>
+          <p>Global events and international stories: what's happening around the world and why it matters to you.</p>
           <span class="tidepool-card-coming">✦ Coming soon</span>
         </div>
       </div>
@@ -1196,13 +1181,13 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5
         <div>
           <div class="depth-label-text">Sub-brand</div>
           <div class="depth-name">Depth</div>
-          <div class="depth-tagline">Long-form research journalism — going below the surface.</div>
+          <div class="depth-tagline">Long-form research journalism, going below the surface.</div>
         </div>
       </div>
       <a href="depth.html" class="depth-visit-btn">Visit Depth →</a>
     </div>
     <div class="depth-cards">
-      <div class="depth-card"><div class="depth-card-body"><span class="depth-card-tag">📈 Finance</span><h4>First Finance piece coming soon</h4><p>In-depth analysis of markets, policy, and economic forces — fully sourced.</p><span class="depth-card-coming">⬡ Coming soon</span></div></div>
+      <div class="depth-card"><div class="depth-card-body"><span class="depth-card-tag">📈 Finance</span><h4>First Finance piece coming soon</h4><p>In-depth analysis of markets, policy, and economic forces, fully sourced.</p><span class="depth-card-coming">⬡ Coming soon</span></div></div>
       <div class="depth-card"><div class="depth-card-body"><span class="depth-card-tag">⚖️ Law</span><h4>First Law piece coming soon</h4><p>Extended legal analysis of rulings, judicial philosophy, and long-term implications.</p><span class="depth-card-coming">⬡ Coming soon</span></div></div>
       <div class="depth-card"><div class="depth-card-body"><span class="depth-card-tag">🏥 Healthcare</span><h4>First Healthcare piece coming soon</h4><p>Investigative reporting on policy, pharma, and public health systems.</p><span class="depth-card-coming">⬡ Coming soon</span></div></div>
       <div class="depth-card"><div class="depth-card-body"><span class="depth-card-tag">🏛 Politics</span><h4>First Politics piece coming soon</h4><p>Deep analysis of political movements, institutional change, and governance.</p><span class="depth-card-coming">⬡ Coming soon</span></div></div>
@@ -1219,7 +1204,7 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5
     <div class="newsletter-content">
       <div class="newsletter-tagline">The Nautisk Newsletter</div>
       <h2>Stay in the current.</h2>
-      <p>Clear, concise, and worth your time — independent coverage of finance, law, healthcare, politics, and tech delivered straight to your inbox.</p>
+      <p>Clear, concise, and worth your time: independent coverage of finance, law, healthcare, politics, and tech delivered straight to your inbox.</p>
       <div class="newsletter-form">
         <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="3933c9e1-b702-4bed-a004-71e3fed21b16"></script>
       </div>
