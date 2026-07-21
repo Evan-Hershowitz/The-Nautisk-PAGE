@@ -3,31 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Depth — The Nautisk</title>
-  <meta name="description" content="Depth by The Nautisk — long-form investigative journalism covering finance, law, healthcare, and politics. Anchored in truth." />
+  <title>Depth — Coming Soon | The Nautisk</title>
+  <meta name="description" content="Depth, The Nautisk's long-form investigative section, is in development. Weekly deep-dive reporting on finance, law, healthcare, politics, and tech is on the way." />
   <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="Depth — The Nautisk" />
-  <meta property="og:description" content="Long-form investigative journalism covering finance, law, healthcare, and politics." />
+  <meta property="og:title" content="Depth — Coming Soon | The Nautisk" />
+  <meta property="og:description" content="Long-form investigative journalism, coming soon to The Nautisk." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.thenautisk.com/depth.html" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%2303213a'/><text y='72' x='50' text-anchor='middle' font-size='62' font-family='Georgia,serif' font-weight='bold' fill='%238ab4d4'>N</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: Georgia, serif; background: #020c16; color: #c8d8e8; line-height: 1.7; }
 
-    /* NAV */
-    nav { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 2.5rem; border-bottom: 1px solid #1a4a6e; background: #03213a; position: sticky; top: 0; z-index: 200; }
-    .nav-left { display: flex; gap: 1.5rem; align-items: center; }
-    .nav-right { display: flex; gap: 1.5rem; align-items: center; }
-    .nav-center { position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 0.75rem; }
-    .logo-img { height: 54px; width: 54px; object-fit: contain; }
-    .logo-text { font-size: 22px; font-weight: bold; letter-spacing: 0.14em; color: #c0cfe0; font-family: Arial, sans-serif; text-decoration: none; }
+    /* NAV — brand pinned left, links evenly spaced right */
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 0 2.5rem; height: 68px; border-bottom: 1px solid #1a4a6e; background: #03213a; position: sticky; top: 0; z-index: 200; }
+    .nav-brand { display: flex; align-items: center; gap: 0.75rem; flex-shrink: 0; }
+    .logo-img { height: 44px; width: 44px; object-fit: contain; }
+    .logo-text { font-size: 19px; font-weight: bold; letter-spacing: 0.14em; color: #c0cfe0; font-family: 'Inter', Arial, sans-serif; text-decoration: none; }
     .logo-text span { color: #8ab4d4; }
-    .nav-btn { font-size: 13px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; font-family: Arial, sans-serif; background: none; border: none; cursor: pointer; padding: 0; }
+    .nav-links { display: flex; gap: 1.9rem; align-items: center; }
+    .nav-btn { font-size: 13px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; font-family: 'Inter', Arial, sans-serif; background: none; border: none; cursor: pointer; padding: 0; }
     .nav-btn:hover { color: #d6e8f5; }
-    .nav-btn-tidepool { font-size: 13px; color: #03213a; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; font-family: Arial, sans-serif; background: #7dd4c0; border: none; cursor: pointer; padding: 0.4rem 0.9rem; border-radius: 20px; font-weight: bold; }
+    .nav-btn-tidepool { font-size: 13px; color: #03213a; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; font-family: 'Inter', Arial, sans-serif; background: #7dd4c0; border: none; cursor: pointer; padding: 0.4rem 0.9rem; border-radius: 20px; font-weight: bold; }
     .nav-btn-tidepool:hover { background: #5bbfaa; }
-    .nav-btn-depth { font-size: 13px; color: #c0cfe0; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; font-family: Arial, sans-serif; background: transparent; border: 1px solid #4a7fa8; cursor: pointer; padding: 0.4rem 0.9rem; border-radius: 20px; font-weight: bold; }
-    .nav-btn-depth:hover { background: #1a4a6e; color: #d6e8f5; }
+    .nav-btn-depth { font-size: 13px; color: #d6e8f5; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; font-family: 'Inter', Arial, sans-serif; background: #0d2a40; border: 1px solid #4a7fa8; cursor: pointer; padding: 0.4rem 0.9rem; border-radius: 20px; font-weight: bold; }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; z-index: 300; }
     .hamburger span { display: block; width: 24px; height: 2px; background: #8ab4d4; border-radius: 2px; transition: all 0.3s; }
     .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
@@ -35,43 +37,53 @@
     .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
     .mobile-menu { display: none; position: fixed; inset: 0; background: #03213a; z-index: 250; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; }
     .mobile-menu.open { display: flex; }
-    .mobile-menu a { font-size: 20px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; font-family: Arial, sans-serif; }
+    .mobile-menu a { font-size: 20px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'Inter', Arial, sans-serif; }
     .mobile-menu .mobile-tidepool { background: #7dd4c0; color: #03213a; padding: 0.5rem 1.5rem; border-radius: 20px; font-weight: bold; }
-    .mobile-menu .mobile-depth { border: 1px solid #4a7fa8; color: #c0cfe0; padding: 0.5rem 1.5rem; border-radius: 20px; font-weight: bold; }
 
-    /* HERO */
-    .depth-hero { padding: 4rem 2.5rem 3rem; text-align: center; background: #051525; border-bottom: 1px solid #1a4a6e; position: relative; overflow: hidden; }
-    .depth-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 0%, rgba(74,127,168,0.12) 0%, transparent 70%); pointer-events: none; }
-    .depth-eyebrow { font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: #4a7fa8; font-family: Arial, sans-serif; margin-bottom: 1rem; }
-    .depth-hero h1 { font-size: 42px; color: #d6e8f5; font-weight: bold; line-height: 1.2; margin-bottom: 1rem; letter-spacing: 0.02em; position: relative; }
-    .depth-hero p { font-size: 16px; color: #5a7a98; max-width: 520px; margin: 0 auto; line-height: 1.8; font-family: Arial, sans-serif; position: relative; }
-    .depth-rule { width: 48px; height: 2px; background: #4a7fa8; margin: 0 auto 1.5rem; }
+    /* SONAR HERO */
+    .sonar-hero {
+      position: relative; overflow: hidden;
+      min-height: 640px; display: flex; align-items: center; justify-content: center;
+      background: radial-gradient(ellipse at 50% 55%, #08283f 0%, #041424 55%, #020c16 100%);
+      border-bottom: 1px solid #1a4a6e;
+    }
+    .sonar-field { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; }
+    .sonar-svg { width: min(720px, 90vw); height: min(720px, 90vw); }
+    .sonar-ring { fill: none; stroke: #3f7ca8; stroke-width: 1.4; opacity: 0; transform-origin: 200px 200px; animation: sonarPulse 4.5s cubic-bezier(0.2,0.6,0.4,1) infinite; }
+    .sonar-ring.r2 { animation-delay: 1.5s; }
+    .sonar-ring.r3 { animation-delay: 3s; }
+    @keyframes sonarPulse {
+      0%   { r: 14;  opacity: 0.85; stroke-width: 2.4; }
+      70%  { opacity: 0.18; }
+      100% { r: 260; opacity: 0; stroke-width: 0.4; }
+    }
+    .sonar-dot { fill: #6fa8d0; }
+    .sonar-dot-core { animation: dotGlow 4.5s ease-in-out infinite; }
+    @keyframes dotGlow {
+      0%, 100% { opacity: 0.7; }
+      50% { opacity: 1; }
+    }
+    .sonar-particle { fill: #4a7fa8; opacity: 0.5; }
 
-    /* ARTICLES GRID */
-    .articles-section { padding: 3rem 2.5rem 5rem; max-width: 1200px; margin: 0 auto; }
-    .section-header { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 2rem; }
-    .section-label { font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: #4a7fa8; font-family: Arial, sans-serif; font-weight: bold; }
-    .section-divider { flex: 1; height: 1px; background: #0d2a40; }
-    .articles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+    .sonar-content { position: relative; z-index: 2; text-align: center; padding: 2rem 2.5rem; max-width: 640px; }
+    .depth-eyebrow { font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: #6fa8d0; font-family: 'Inter', Arial, sans-serif; margin-bottom: 1.25rem; font-weight: 600; }
+    .sonar-content h1 { font-size: 44px; color: #e8f2fb; font-weight: bold; line-height: 1.2; margin-bottom: 1.25rem; letter-spacing: 0.01em; }
+    .sonar-content p { font-size: 16px; color: #7a9bb8; max-width: 520px; margin: 0 auto 2rem; line-height: 1.85; font-family: 'Inter', Arial, sans-serif; }
+    .status-pill { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #6fa8d0; font-family: 'Inter', Arial, sans-serif; font-weight: 600; border: 1px solid #2a5f8a; border-radius: 20px; padding: 0.5rem 1.1rem; margin-bottom: 1.75rem; }
+    .status-pill .ping { width: 7px; height: 7px; border-radius: 50%; background: #6fa8d0; animation: dotGlow 2s ease-in-out infinite; }
+    .home-link { display: inline-block; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #03213a; background: #6fa8d0; text-decoration: none; padding: 0.75rem 1.75rem; border-radius: 24px; font-family: 'Inter', Arial, sans-serif; font-weight: 700; transition: opacity 0.2s, transform 0.2s; }
+    .home-link:hover { opacity: 0.88; transform: translateY(-1px); }
 
-    /* ARTICLE CARD */
-    .article-card { background: #051525; border: 1px solid #0d2a40; text-decoration: none; display: flex; flex-direction: column; transition: border-color 0.2s, box-shadow 0.2s; }
-    .article-card:hover { border-color: #4a7fa8; box-shadow: 0 4px 24px rgba(0,0,0,0.4); }
-    .card-img { width: 100%; height: 180px; object-fit: cover; display: block; }
-    .card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
-    .card-section-tag { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; font-family: Arial, sans-serif; font-weight: bold; margin-bottom: 0.6rem; display: block; }
-    .card-section-tag.finance { color: #4a9abf; }
-    .card-section-tag.law { color: #8a7abf; }
-    .card-section-tag.healthcare { color: #4caf7d; }
-    .card-section-tag.politics { color: #bf7a7a; }
-    .article-card h3 { font-size: 18px; color: #d6e8f5; line-height: 1.35; margin-bottom: 0.75rem; font-weight: bold; flex: 1; }
-    .article-card p { font-size: 13px; color: #5a7a98; line-height: 1.7; font-family: Arial, sans-serif; margin-bottom: 1rem; }
-    .card-meta { font-size: 11px; color: #3a5a78; font-family: Arial, sans-serif; margin-top: auto; padding-top: 0.75rem; border-top: 1px solid #0d2a40; }
-    .card-depth-label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #4a7fa8; font-family: Arial, sans-serif; display: inline-block; margin-bottom: 0.5rem; }
-    .card-depth-label::before { content: '🌊 '; }
+    /* WHAT IS DEPTH */
+    .about-section { max-width: 880px; margin: 0 auto; padding: 4rem 2.5rem; }
+    .about-label { font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase; color: #4a7fa8; font-family: 'Inter', Arial, sans-serif; font-weight: bold; margin-bottom: 2rem; }
+    .about-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+    .about-card { background: #051525; border: 1px solid #0d2a40; border-left: 3px solid #4a7fa8; padding: 1.5rem; border-radius: 3px; }
+    .about-card h3 { font-size: 15px; color: #a8cbe6; font-family: 'Inter', Arial, sans-serif; font-weight: 600; margin-bottom: 0.6rem; }
+    .about-card p { font-size: 13.5px; color: #5a7a98; line-height: 1.8; font-family: 'Inter', Arial, sans-serif; }
 
     /* FOOTER */
-    footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5rem 1.5rem; font-family: Arial, sans-serif; }
+    footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5rem 1.5rem; font-family: 'Inter', Arial, sans-serif; }
     .footer-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem; flex-wrap: wrap; gap: 2rem; }
     .footer-brand .footer-logo { font-size: 20px; font-weight: bold; letter-spacing: 0.14em; color: #c0cfe0; margin-bottom: 0.4rem; }
     .footer-brand .footer-logo span { color: #8ab4d4; }
@@ -87,14 +99,13 @@
     .footer-legal a:hover { color: #8ab4d4; }
 
     @media (max-width: 768px) {
-      .nav-left, .nav-right { display: none; }
-      .nav-center { position: static; transform: none; }
-      nav { justify-content: space-between; padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      nav { justify-content: space-between; padding: 0 1.5rem; }
       .hamburger { display: flex; }
-      .depth-hero { padding: 2.5rem 1.5rem 2rem; }
-      .depth-hero h1 { font-size: 28px; }
-      .articles-section { padding: 2rem 1.5rem 3rem; }
-      .articles-grid { grid-template-columns: 1fr; }
+      .sonar-hero { min-height: 520px; }
+      .sonar-content h1 { font-size: 30px; }
+      .about-section { padding: 2.5rem 1.5rem; }
+      .about-grid { grid-template-columns: 1fr; }
       .footer-top { flex-direction: column; gap: 1.5rem; }
     }
   </style>
@@ -104,91 +115,71 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="index.html">Home</a>
   <a href="tidepool.html" class="mobile-tidepool">Tidepool</a>
-  <a href="depth.html" class="mobile-depth">Depth</a>
   <a href="about.html">Our Story</a>
   <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Newsletter</a>
   <a href="#contact">Contact</a>
 </div>
 
 <nav>
-  <div class="nav-left">
-    <a href="index.html" class="nav-btn">Home</a>
-    <a href="tidepool.html" class="nav-btn-tidepool">Tidepool</a>
-    <a href="about.html" class="nav-btn">Our Story</a>
-  </div>
-  <div class="nav-center">
+  <div class="nav-brand">
     <img src="logo.png" alt="The Nautisk Logo" class="logo-img" />
     <a href="index.html" class="logo-text">THE <span>NAUTISK</span></a>
   </div>
-  <div class="nav-right">
+  <div class="nav-links">
+    <a href="index.html" class="nav-btn">Home</a>
+    <a href="tidepool.html" class="nav-btn-tidepool">Tidepool</a>
     <a href="depth.html" class="nav-btn-depth">Depth</a>
     <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer" class="nav-btn">Newsletter</a>
-    <a href="#contact" class="nav-btn">Contact</a>
+    <a href="about.html" class="nav-btn">Our Story</a>
   </div>
   <button class="hamburger" id="hamburger" aria-label="Open menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
-<section class="depth-hero">
-  <div class="depth-rule"></div>
-  <div class="depth-eyebrow">Depth — Long-form Journalism</div>
-  <h1>The stories behind<br>the headlines</h1>
-  <p>Investigative reporting and extended analysis — finance, law, healthcare, and politics, explored in full.</p>
+<section class="sonar-hero">
+  <div class="sonar-field">
+    <svg class="sonar-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+      <circle class="sonar-ring r1" cx="200" cy="200" r="14" />
+      <circle class="sonar-ring r2" cx="200" cy="200" r="14" />
+      <circle class="sonar-ring r3" cx="200" cy="200" r="14" />
+      <circle class="sonar-particle" cx="120" cy="150" r="1.6" />
+      <circle class="sonar-particle" cx="280" cy="130" r="1.2" />
+      <circle class="sonar-particle" cx="310" cy="240" r="1.8" />
+      <circle class="sonar-particle" cx="95" cy="260" r="1.3" />
+      <circle class="sonar-particle" cx="230" cy="310" r="1.5" />
+      <circle class="sonar-particle" cx="150" cy="90" r="1.1" />
+      <circle class="sonar-dot sonar-dot-core" cx="200" cy="200" r="5" />
+    </svg>
+  </div>
+  <div class="sonar-content">
+    <div class="status-pill"><span class="ping"></span>In development</div>
+    <div class="depth-eyebrow">Depth · Long-form Journalism</div>
+    <h1>We're still sounding this one out.</h1>
+    <p>Depth is The Nautisk's home for long-form investigative reporting: one deep-dive per topic, dropped together each week. We're building it right after we've got our daily coverage running smoothly, so it launches at the quality it deserves.</p>
+    <a href="index.html" class="home-link">Back to The Nautisk</a>
+  </div>
 </section>
 
-<div class="articles-section">
-  <div class="section-header">
-    <span class="section-label">June 27, 2026</span>
-    <div class="section-divider"></div>
-  </div>
-
-  <div class="articles-grid">
-
-    <a href="depth-finance-warsh-fed-tariff-inflation.html" class="article-card">
-      <img src="chair.png" alt="Federal Reserve" class="card-img" />
-      <div class="card-body">
-        <span class="card-depth-label">Depth</span>
-        <span class="card-section-tag finance">Finance</span>
-        <h3>The Fed Chair Who Refuses to Say What Comes Next</h3>
-        <p>Kevin Warsh stripped the Fed's policy statement to 132 words, launched five task forces, and said nothing about what comes next — all while inflation hits 4.2%.</p>
-        <div class="card-meta">June 27, 2026 &nbsp;·&nbsp; 14 min read</div>
-      </div>
-    </a>
-
-    <a href="depth-law-voting-rights-act-callais-section-2.html" class="article-card">
-      <img src="section.png" alt="Voting Rights Act" class="card-img" />
-      <div class="card-body">
-        <span class="card-depth-label">Depth</span>
-        <span class="card-section-tag law">Law</span>
-        <h3>Section 2 Is Still on the Books. It No Longer Does Anything.</h3>
-        <p>After Louisiana v. Callais, the Voting Rights Act's redistricting enforcement mechanism has been effectively ended — what the ruling means and what comes next.</p>
-        <div class="card-meta">June 27, 2026 &nbsp;·&nbsp; 14 min read</div>
-      </div>
-    </a>
-
-    <a href="depth-healthcare-medicaid-work-requirements-implementation.html" class="article-card">
-      <img src="80.png" alt="Medicaid" class="card-img" />
-      <div class="card-body">
-        <span class="card-depth-label">Depth</span>
-        <span class="card-section-tag healthcare">Healthcare</span>
-        <h3>What 80 Hours a Month Actually Means</h3>
-        <p>The Medicaid work requirement machinery is already turning. History suggests coverage losses won't track who's actually not working.</p>
-        <div class="card-meta">June 27, 2026 &nbsp;·&nbsp; 14 min read</div>
-      </div>
-    </a>
-
-    <a href="depth-politics-redistricting-republicans-house-2026.html" class="article-card">
-      <img src="map.png" alt="Congressional redistricting" class="card-img" />
-      <div class="card-body">
-        <span class="card-depth-label">Depth</span>
-        <span class="card-section-tag politics">Politics</span>
-        <h3>The Party That Drew the Map Doesn't Always Win the Election</h3>
-        <p>Republicans have their best redistricting position in a generation — and may still lose the House.</p>
-        <div class="card-meta">June 27, 2026 &nbsp;·&nbsp; 14 min read</div>
-      </div>
-    </a>
-
+<div class="about-section">
+  <div class="about-label">What to expect</div>
+  <div class="about-grid">
+    <div class="about-card">
+      <h3>Weekly, not daily</h3>
+      <p>Five investigations drop together once a week, giving each story the reporting time it needs.</p>
+    </div>
+    <div class="about-card">
+      <h3>One per beat</h3>
+      <p>Finance, law, healthcare, politics, and tech each get a dedicated long-form piece, fully sourced.</p>
+    </div>
+    <div class="about-card">
+      <h3>Beneath the headline</h3>
+      <p>Where the daily Nautisk covers what happened, Depth explains why it happened and what comes next.</p>
+    </div>
+    <div class="about-card">
+      <h3>Coming after daily coverage</h3>
+      <p>We're prioritizing a reliable daily news cycle first. Depth follows once that rhythm is solid.</p>
+    </div>
   </div>
 </div>
 
@@ -204,6 +195,7 @@
       <a href="law.html">Law</a>
       <a href="healthcare.html">Healthcare</a>
       <a href="politics.html">Politics</a>
+      <a href="tech.html">Tech</a>
     </div>
     <div class="footer-col">
       <h4>Company</h4>
