@@ -17,8 +17,8 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
   --teal: #4dd9ec; --teal-dark: #0e8fa8; --teal-mid: #2bc4dc;
-  --bg: #eafbff; --text: #0a2a38; --text-muted: #2f6478;
-  --border: #b8e6f5; --nav-bg: #03213a;
+  --bg: #073b4c; --text: #eaf6fb; --text-muted: #9fd0dc;
+  --border: rgba(77,217,236,0.3); --nav-bg: #03213a;
 }
 body { font-family: Georgia, serif; background: var(--bg); color: var(--text); }
 
@@ -129,11 +129,13 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 
 /* WHAT IS TIDEPOOL */
 .what-is { max-width: 900px; margin: 0 auto; padding: 4rem 2.5rem 3rem; }
-.what-label { font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--teal-dark); font-family: 'Inter', Arial, sans-serif; font-weight: 700; margin-bottom: 1.5rem; }
+.what-label { font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: #6fe0f2; font-family: 'Inter', Arial, sans-serif; font-weight: 700; margin-bottom: 1.5rem; }
 .sub-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
-.sub-card { background: #fff; border: 1px solid var(--border); border-radius: 6px; padding: 1.5rem; text-align: center; }
-.sub-card .sub-icon { width: 64px; height: 64px; margin: 0 auto 0.75rem; display: block; }
-.sub-card h4 { font-size: 14px; color: var(--teal-dark); font-family: 'Inter', Arial, sans-serif; font-weight: 700; margin-bottom: 0.4rem; }
+.sub-card { background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 6px; padding: 1.5rem; text-align: center; transition: background 0.2s, border-color 0.2s; }
+.sub-card:hover { background: rgba(255,255,255,0.1); border-color: rgba(77,217,236,0.55); }
+.sub-card .icon-badge { width: 72px; height: 72px; border-radius: 50%; background: #eafbff; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.85rem; }
+.sub-card .sub-icon { width: 56px; height: 56px; display: block; }
+.sub-card h4 { font-size: 14px; color: #6fe0f2; font-family: 'Inter', Arial, sans-serif; font-weight: 700; margin-bottom: 0.4rem; }
 .sub-card p { font-size: 12.5px; color: var(--text-muted); font-family: 'Inter', Arial, sans-serif; line-height: 1.7; }
 
 /* FOOTER */
@@ -243,7 +245,8 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2rem 2.5re
   <div class="what-label">What Tidepool will cover</div>
   <div class="sub-grid">
     <div class="sub-card">
-      <svg class="sub-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+      <div class="icon-badge">
+        <svg class="sub-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
         <ellipse cx="30" cy="40" rx="22" ry="15" fill="#ff9ec4" stroke="#0a2a38" stroke-width="2"/>
         <circle cx="49" cy="38" r="7" fill="#ff9ec4" stroke="#0a2a38" stroke-width="2"/>
         <circle cx="52" cy="36" r="1.4" fill="#0a2a38"/>
@@ -254,11 +257,13 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2rem 2.5re
         <circle cx="53" cy="18" r="9" fill="#ffd23f" stroke="#0a2a38" stroke-width="2"/>
         <text x="53" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#0a2a38">$</text>
       </svg>
+      </div>
       <h4>Money</h4>
       <p>How money actually works.</p>
     </div>
     <div class="sub-card">
-      <svg class="sub-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+      <div class="icon-badge">
+        <svg class="sub-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
         <path d="M27 8 L27 26 L14 52 C12 56 15 59 19 59 L45 59 C49 59 52 56 50 52 L37 26 L37 8 Z" fill="#eaf9ff" stroke="#0a2a38" stroke-width="2" stroke-linejoin="round"/>
         <path d="M18 46 C24 42 40 42 46 46 L50 52 C52 56 49 59 45 59 L19 59 C15 59 12 56 14 52 Z" fill="#4dd9ec" stroke="#0a2a38" stroke-width="2" stroke-linejoin="round"/>
         <rect x="24" y="6" width="16" height="4" rx="1.5" fill="#0a2a38"/>
@@ -268,11 +273,13 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2rem 2.5re
         <circle cx="30" cy="21" r="1.6" fill="#4dd9ec"/>
         <circle cx="34" cy="16" r="1.3" fill="#4dd9ec"/>
       </svg>
+      </div>
       <h4>Science</h4>
       <p>New discoveries, made simple.</p>
     </div>
     <div class="sub-card">
-      <svg class="sub-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+      <div class="icon-badge">
+        <svg class="sub-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
         <rect x="14" y="44" width="36" height="8" rx="1.5" fill="#0e8fa8" stroke="#0a2a38" stroke-width="2"/>
         <rect x="17" y="37" width="30" height="8" rx="1.5" fill="#4dd9ec" stroke="#0a2a38" stroke-width="2"/>
         <rect x="20" y="30" width="24" height="8" rx="1.5" fill="#8de9f5" stroke="#0a2a38" stroke-width="2"/>
@@ -281,11 +288,13 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2rem 2.5re
         <path d="M48 21 L48 31 C48 33 44 34 44 31" fill="none" stroke="#0a2a38" stroke-width="2" stroke-linecap="round"/>
         <circle cx="44" cy="32" r="2" fill="#ffd23f" stroke="#0a2a38" stroke-width="1.5"/>
       </svg>
+      </div>
       <h4>College</h4>
       <p>Admissions and campus life.</p>
     </div>
     <div class="sub-card">
-      <svg class="sub-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+      <div class="icon-badge">
+        <svg class="sub-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
         <circle cx="32" cy="32" r="22" fill="#4dd9ec" stroke="#0a2a38" stroke-width="2"/>
         <path d="M10 32 A22 22 0 0 0 54 32" fill="none" stroke="#0a2a38" stroke-width="1.5" opacity="0.5"/>
         <path d="M32 10 C24 18 24 46 32 54" fill="none" stroke="#0a2a38" stroke-width="1.5" opacity="0.5"/>
@@ -293,6 +302,7 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2rem 2.5re
         <path d="M20 20 C24 17 30 19 28 24 C32 22 36 26 33 30 C30 34 22 32 20 28 Z" fill="#7ddc8a" stroke="#0a2a38" stroke-width="1.6" stroke-linejoin="round"/>
         <path d="M38 34 C42 32 47 35 45 39 C48 41 45 46 40 44 C37 43 36 37 38 34 Z" fill="#7ddc8a" stroke="#0a2a38" stroke-width="1.6" stroke-linejoin="round"/>
       </svg>
+      </div>
       <h4>World</h4>
       <p>Global news, close to home.</p>
     </div>
