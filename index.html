@@ -26,7 +26,7 @@
   --card-border: rgba(255,255,255,0.12); --section-bg: rgba(255,255,255,0.05);
   --section-text: #e8eef4; --section-label: #8ab4d4; --divider-bg: #03213a;
   --hero-illustrations: block;
-  --teal: #00e5cc; --teal-dark: #007a68;
+  --teal: #4dd9ec; --teal-dark: #0e8fa8;
   --tech: #e8a020;
 }
 body.professional {
@@ -40,14 +40,19 @@ body { font-family: Georgia, serif; background: var(--bg); color: var(--text); t
 
 /* ── NAV ── */
 nav {
-  display: flex; align-items: center; justify-content: space-between;
+  display: flex; align-items: center;
   padding: 0 1.75rem; height: 60px;
   border-bottom: 1px solid var(--border); background: var(--nav-bg);
   position: sticky; top: 0; z-index: 200;
-  gap: 1rem;
 }
 
-/* Dot mode toggle — far left */
+/* Left half — brand centered within it */
+.nav-half-left { flex: 1; display: flex; align-items: center; justify-content: center; gap: 0.85rem; }
+
+/* Right half — buttons spread evenly across the full width */
+.nav-half-right { flex: 1; display: flex; align-items: center; justify-content: space-between; }
+
+/* Dot mode toggle */
 .dot-toggle {
   width: 22px; height: 22px; border-radius: 50%;
   background: #ffffff; border: 2px solid rgba(255,255,255,0.4);
@@ -58,14 +63,11 @@ nav {
 .dot-toggle:hover { opacity: 0.8; }
 body.professional .dot-toggle { background: #03213a; border-color: #ffffff; box-shadow: 0 0 0 1px #03213a; }
 
-/* Brand group — logo + name, pinned left */
+/* Brand group — logo + name */
 .nav-brand { display: flex; align-items: center; gap: 0.85rem; flex-shrink: 0; }
 .logo-img { height: 44px; width: 44px; object-fit: contain; }
 .logo-text { font-size: 19px; font-weight: bold; letter-spacing: 0.14em; color: #c0cfe0; font-family: 'Inter', Arial, sans-serif; white-space: nowrap; }
 .logo-text span { color: #8ab4d4; }
-
-/* Nav links group — evenly spaced, pinned right */
-.nav-links { display: flex; align-items: center; gap: 1.9rem; }
 
 /* Nav buttons */
 .nav-btn { font-size: 12px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; font-family: 'Inter', Arial, sans-serif; background: none; border: none; cursor: pointer; padding: 0; white-space: nowrap; }
@@ -428,7 +430,7 @@ body.professional .radar-item p { color: #555577; }
 .radar-coming-soon { font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; font-family: 'Inter', Arial, sans-serif; color: #4a9abf; margin-top: 0.5rem; display: block; opacity: 0.7; }
 
 /* ── TIDEPOOL — SUPER BRIGHT TEAL ── */
-.tidepool-section { margin: 0 2.5rem 1.5rem; border-radius: 6px; overflow: hidden; background: linear-gradient(135deg, #00e5cc 0%, #00d4bb 40%, #00c4a8 70%, #00b09b 100%); border: 1px solid #00e5cc; position: relative; }
+.tidepool-section { margin: 0 2.5rem 1.5rem; border-radius: 6px; overflow: hidden; background: linear-gradient(135deg, #4dd9ec 0%, #3dd0e4 40%, #2bc4dc 70%, #1ab4cc 100%); border: 1px solid #4dd9ec; position: relative; }
 .tidepool-bg-deco { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
 .tidepool-inner { position: relative; z-index: 1; padding: 2rem 2.5rem; }
 .tidepool-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1.5rem; gap: 1rem; flex-wrap: wrap; }
@@ -437,7 +439,7 @@ body.professional .radar-item p { color: #555577; }
 .tidepool-label { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.8); font-family: 'Inter', Arial, sans-serif; font-weight: 600; margin-bottom: 0.2rem; }
 .tidepool-name { font-size: 24px; font-weight: bold; color: #fff; font-family: Georgia, serif; }
 .tidepool-tagline { font-size: 13px; color: rgba(255,255,255,0.85); font-family: 'Inter', Arial, sans-serif; margin-top: 0.2rem; }
-.tidepool-visit-btn { display: inline-block; padding: 0.5rem 1.25rem; background: #fff; color: #007a68; font-family: 'Inter', Arial, sans-serif; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border-radius: 20px; transition: opacity 0.2s; white-space: nowrap; align-self: center; font-weight: 700; }
+.tidepool-visit-btn { display: inline-block; padding: 0.5rem 1.25rem; background: #fff; color: #0e8fa8; font-family: 'Inter', Arial, sans-serif; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border-radius: 20px; transition: opacity 0.2s; white-space: nowrap; align-self: center; font-weight: 700; }
 .tidepool-visit-btn:hover { opacity: 0.85; }
 .tidepool-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
 .tidepool-card { background: rgba(255,255,255,0.22); border: 1px solid rgba(255,255,255,0.35); border-radius: 4px; overflow: hidden; text-decoration: none; display: flex; flex-direction: column; transition: background 0.2s, transform 0.2s; backdrop-filter: blur(4px); }
@@ -511,7 +513,8 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5
   .slide-content { padding: 2rem; }
 }
 @media (max-width: 768px) {
-  .nav-links { display: none; }
+  .nav-half-right { display: none; }
+  .nav-half-left { flex: none; justify-content: flex-start; }
   nav { padding: 0 1rem; justify-content: space-between; }
   .dot-toggle { display: flex; }
   .mob-btn { display: flex; }
@@ -604,15 +607,17 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5
 
 <!-- ── NAV ── -->
 <nav>
-  <!-- Brand: dot toggle + logo + name, pinned left -->
-  <div class="nav-brand">
+  <!-- Left half: brand, centered within it -->
+  <div class="nav-half-left">
     <button class="dot-toggle" id="dotToggle" aria-label="Toggle mode" title="Toggle Aquatic / Professional"></button>
-    <img src="logo.png" alt="The Nautisk" class="logo-img" />
-    <span class="logo-text">THE <span>NAUTISK</span></span>
+    <div class="nav-brand">
+      <img src="logo.png" alt="The Nautisk" class="logo-img" />
+      <span class="logo-text">THE <span>NAUTISK</span></span>
+    </div>
   </div>
 
-  <!-- Links: evenly spaced, pinned right -->
-  <div class="nav-links">
+  <!-- Right half: buttons spread evenly across the full width -->
+  <div class="nav-half-right">
     <div class="dropdown" id="newsDropdown">
       <button class="nav-btn" id="newsDropBtn">News ▾</button>
       <div class="dropdown-menu">
