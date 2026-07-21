@@ -4,526 +4,974 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>The Nautisk</title>
-<meta name="description" content="The Nautisk: independent journalism covering finance, law, healthcare, politics, and tech. Anchored in truth." />
+<meta http-equiv="X-Content-Type-Options" content="nosniff" />
+<meta http-equiv="X-Frame-Options" content="DENY" />
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+<meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
+<meta name="description" content="The Nautisk — independent journalism covering finance, law, healthcare, and politics. Anchored in truth." />
 <meta name="robots" content="index, follow" />
+<meta name="author" content="The Nautisk" />
 <meta property="og:title" content="The Nautisk" />
-<meta property="og:description" content="Independent journalism covering finance, law, healthcare, politics, and tech. Anchored in truth." />
+<meta property="og:description" content="Independent journalism covering finance, law, healthcare, and politics. Anchored in truth." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.thenautisk.com" />
-<meta property="og:image" content="https://www.thenautisk.com/newsletter.png" />
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%2303213a'/><text y='72' x='50' text-anchor='middle' font-size='62' font-family='Georgia,serif' font-weight='bold' fill='%238ab4d4'>N</text></svg>" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
+/* ===================== RESET & BASE ===================== */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
-/* ── CSS VARIABLES ── */
+/* ===================== CSS VARIABLES — AQUATIC (default) ===================== */
 :root {
-  --bg: #03213a; --text: #e8eef4; --text-muted: #7a9bb8;
-  --text-strong: #d6e8f5; --border: #1a4a6e; --accent: #4a7fa8;
-  --nav-bg: #03213a; --card-bg: rgba(255,255,255,0.06);
-  --card-border: rgba(255,255,255,0.12); --section-bg: rgba(255,255,255,0.05);
-  --section-text: #e8eef4; --section-label: #8ab4d4; --divider-bg: #03213a;
+  --bg: #03213a;
+  --bg-secondary: #051525;
+  --text: #e8eef4;
+  --text-muted: #7a9bb8;
+  --text-strong: #d6e8f5;
+  --border: #1a4a6e;
+  --accent: #4a7fa8;
+  --nav-bg: #03213a;
+  --card-bg: rgba(255,255,255,0.06);
+  --card-border: rgba(255,255,255,0.12);
+  --card-hover-bg: rgba(255,255,255,0.1);
+  --section-bg: rgba(255,255,255,0.05);
+  --section-text: #e8eef4;
+  --section-label: #8ab4d4;
+  --divider-bg: #03213a;
   --hero-illustrations: block;
-  --teal: #4dd9ec; --teal-dark: #0e8fa8;
-  --tech: #e8a020;
 }
+/* ===================== PROFESSIONAL MODE ===================== */
 body.professional {
-  --bg: #f8f9fa; --text: #1a1a2e; --text-muted: #555577;
-  --text-strong: #0a0a1a; --border: #dde3ec; --accent: #1a4a8e;
-  --card-bg: #ffffff; --card-border: #dde3ec; --section-bg: #ffffff;
-  --section-text: #1a1a2e; --section-label: #1a4a8e; --divider-bg: #f8f9fa;
+  --bg: #f8f9fa;
+  --bg-secondary: #ffffff;
+  --text: #1a1a2e;
+  --text-muted: #555577;
+  --text-strong: #0a0a1a;
+  --border: #dde3ec;
+  --accent: #1a4a8e;
+  --nav-bg: #03213a;
+  --card-bg: #ffffff;
+  --card-border: #dde3ec;
+  --card-hover-bg: #f0f4f8;
+  --section-bg: #ffffff;
+  --section-text: #1a1a2e;
+  --section-label: #1a4a8e;
+  --divider-bg: #f8f9fa;
   --hero-illustrations: none;
 }
-body { font-family: Georgia, serif; background: var(--bg); color: var(--text); transition: background 0.3s, color 0.3s; }
-
-/* ── NAV ── */
+body {
+  font-family: Georgia, serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+}
+/* ===================== NAV ===================== */
 nav {
-  display: flex; align-items: center;
-  padding: 0 1.75rem; height: 60px;
-  border-bottom: 1px solid var(--border); background: var(--nav-bg);
-  position: sticky; top: 0; z-index: 200;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2.5rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--nav-bg);
+  position: sticky;
+  top: 0;
+  z-index: 200;
 }
-
-/* Left half — brand centered within it */
-.nav-half-left { flex: 1; display: flex; align-items: center; justify-content: center; gap: 0.85rem; }
-
-/* Right half — buttons spread evenly across the full width */
-.nav-half-right { flex: 1; display: flex; align-items: center; justify-content: space-between; }
-
-/* Dot mode toggle */
-.dot-toggle {
-  width: 22px; height: 22px; border-radius: 50%;
-  background: #ffffff; border: 2px solid rgba(255,255,255,0.4);
-  cursor: pointer; flex-shrink: 0;
-  transition: background 0.25s, border-color 0.25s;
-  display: flex; align-items: center; justify-content: center;
+.nav-left { display: flex; gap: 1.2rem; align-items: center; }
+.nav-right { display: flex; gap: 1.2rem; align-items: center; }
+.nav-center {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
-.dot-toggle:hover { opacity: 0.8; }
-body.professional .dot-toggle { background: #03213a; border-color: #ffffff; box-shadow: 0 0 0 1px #03213a; }
-
-/* Brand group — logo + name */
-.nav-brand { display: flex; align-items: center; gap: 0.85rem; flex-shrink: 0; }
-.logo-img { height: 44px; width: 44px; object-fit: contain; }
-.logo-text { font-size: 19px; font-weight: bold; letter-spacing: 0.14em; color: #c0cfe0; font-family: 'Inter', Arial, sans-serif; white-space: nowrap; }
+.logo-img { height: 52px; width: 52px; object-fit: contain; }
+.logo-text { font-size: 22px; font-weight: bold; letter-spacing: 0.14em; color: #c0cfe0; }
 .logo-text span { color: #8ab4d4; }
-
-/* Nav buttons */
-.nav-btn { font-size: 12px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; font-family: 'Inter', Arial, sans-serif; background: none; border: none; cursor: pointer; padding: 0; white-space: nowrap; }
+.nav-btn {
+  font-size: 12px;
+  color: #8ab4d4;
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-family: Arial, sans-serif;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  white-space: nowrap;
+}
 .nav-btn:hover { color: #d6e8f5; }
-.nav-btn-tidepool { font-size: 12px; color: #03213a; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; font-family: 'Inter', Arial, sans-serif; background: var(--teal); border: none; cursor: pointer; padding: 0.3rem 0.75rem; border-radius: 20px; font-weight: 700; }
-.nav-btn-tidepool:hover { opacity: 0.85; }
-.nav-btn-depth { font-size: 12px; color: #c0cfe0; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; font-family: 'Inter', Arial, sans-serif; background: transparent; border: 1px solid #4a7fa8; cursor: pointer; padding: 0.3rem 0.75rem; border-radius: 20px; font-weight: 600; }
+.nav-btn-tidepool {
+  font-size: 12px; color: #03213a; text-decoration: none;
+  letter-spacing: 0.06em; text-transform: uppercase; font-family: Arial, sans-serif;
+  background: #7dd4c0; border: none; cursor: pointer;
+  padding: 0.35rem 0.8rem; border-radius: 20px; font-weight: bold;
+}
+.nav-btn-tidepool:hover { background: #5bbfaa; }
+.nav-btn-depth {
+  font-size: 12px; color: #c0cfe0; text-decoration: none;
+  letter-spacing: 0.06em; text-transform: uppercase; font-family: Arial, sans-serif;
+  background: transparent; border: 1px solid #4a7fa8; cursor: pointer;
+  padding: 0.35rem 0.8rem; border-radius: 20px; font-weight: bold;
+}
 .nav-btn-depth:hover { background: #1a4a6e; color: #d6e8f5; }
-
-/* News dropdown */
+.nav-btn-tips {
+  font-size: 12px; color: #e8d5a3; text-decoration: none;
+  letter-spacing: 0.06em; text-transform: uppercase; font-family: Arial, sans-serif;
+  background: transparent; border: 1px solid #a08040; cursor: pointer;
+  padding: 0.35rem 0.8rem; border-radius: 20px; font-weight: bold;
+}
+.nav-btn-tips:hover { background: #2a1a00; color: #f0e0b0; }
+/* Toggle button */
+.mode-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 20px;
+  padding: 0.3rem 0.75rem;
+  cursor: pointer;
+  font-size: 11px;
+  color: #8ab4d4;
+  font-family: Arial, sans-serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+.mode-toggle:hover { background: rgba(255,255,255,0.15); }
+.mode-toggle .toggle-icon { font-size: 14px; }
+/* Dropdown */
 .dropdown { position: relative; }
 .dropdown-menu {
-  display: none; position: absolute; top: calc(100% + 10px); left: 0;
-  background: #03213a; border: 1px solid #1a4a6e; min-width: 160px;
-  z-index: 400; box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background: #03213a;
+  border: 1px solid #1a4a6e;
+  min-width: 150px;
+  z-index: 300;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
 }
-.dropdown-menu a { display: block; padding: 0.7rem 1rem; font-size: 12px; color: #8ab4d4; text-decoration: none; font-family: 'Inter', Arial, sans-serif; letter-spacing: 0.06em; text-transform: uppercase; border-bottom: 1px solid #1a4a6e; }
+.dropdown-menu a {
+  display: block;
+  padding: 0.7rem 1rem;
+  font-size: 12px;
+  color: #8ab4d4;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-bottom: 1px solid #1a4a6e;
+}
 .dropdown-menu a:last-child { border-bottom: none; }
 .dropdown-menu a:hover { background: #0a3352; color: #d6e8f5; }
 .dropdown.open .dropdown-menu { display: block; }
-
-/* 3-line menu button */
-.three-line-btn { display: flex; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; flex-shrink: 0; }
-.three-line-btn span { display: block; width: 22px; height: 2px; background: #8ab4d4; border-radius: 2px; }
-
-/* Sliding side panel */
-.side-panel {
-  position: fixed; top: 0; right: -280px; width: 280px; height: 100vh;
-  background: #02141f; border-left: 1px solid #1a4a6e;
-  z-index: 500; transition: right 0.3s ease;
-  display: flex; flex-direction: column;
-  box-shadow: -8px 0 32px rgba(0,0,0,0.4);
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+  z-index: 300;
+}
+.hamburger span {
+  display: block; width: 24px; height: 2px;
+  background: #8ab4d4; border-radius: 2px; transition: all 0.3s;
+}
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+/* Mobile menu */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: #03213a;
+  z-index: 250;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.4rem;
   overflow-y: auto;
+  padding: 2rem 1rem;
 }
-.side-panel.open { right: 0; }
-.side-panel-header {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 1.25rem 1.5rem; border-bottom: 1px solid #1a4a6e;
+.mobile-menu.open { display: flex; }
+.mobile-menu a, .mobile-menu button {
+  font-size: 18px; color: #8ab4d4; text-decoration: none;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  font-family: Arial, sans-serif; background: none; border: none; cursor: pointer;
 }
-.side-panel-logo { font-size: 14px; font-weight: bold; letter-spacing: 0.12em; color: #c0cfe0; font-family: 'Inter', Arial, sans-serif; }
-.side-panel-logo span { color: #8ab4d4; }
-.side-panel-close { background: none; border: none; color: #8ab4d4; font-size: 22px; cursor: pointer; line-height: 1; }
-.side-panel-close:hover { color: #fff; }
-.side-panel-links { padding: 1rem 0; }
-.side-panel-links a {
-  display: block; padding: 1rem 1.5rem;
-  font-size: 13px; color: #8ab4d4; text-decoration: none;
-  font-family: 'Inter', Arial, sans-serif; letter-spacing: 0.08em; text-transform: uppercase;
-  border-bottom: 1px solid #0d2a40; transition: color 0.2s, background 0.2s;
+.mobile-menu a:hover { color: #d6e8f5; }
+.mobile-menu .mobile-tidepool { background: #7dd4c0; color: #03213a; padding: 0.5rem 1.5rem; border-radius: 20px; font-weight: bold; }
+.mobile-menu .mobile-depth { border: 1px solid #4a7fa8; color: #c0cfe0; padding: 0.5rem 1.5rem; border-radius: 20px; font-weight: bold; }
+.mobile-menu .mobile-tips { border: 1px solid #a08040; color: #e8d5a3; padding: 0.5rem 1.5rem; border-radius: 20px; font-weight: bold; }
+.mobile-menu .mobile-toggle {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2) !important;
+  color: #8ab4d4 !important;
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  font-size: 14px !important;
 }
-.side-panel-links a:hover { color: #d6e8f5; background: #0a2030; }
-.side-panel-links a:last-child { border-bottom: none; }
-.side-panel-footer { padding: 1.5rem; border-top: 1px solid #1a4a6e; margin-top: auto; }
-.side-panel-footer p { font-size: 11px; color: #4a7fa8; font-family: 'Inter', Arial, sans-serif; line-height: 1.6; }
-.side-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 490; }
-.side-overlay.open { display: block; }
-
-/* Mobile menu (small screens) */
-.mob-btn { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
-.mob-btn span { display: block; width: 22px; height: 2px; background: #8ab4d4; border-radius: 2px; transition: all 0.3s; }
-.mob-btn.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
-.mob-btn.open span:nth-child(2) { opacity: 0; }
-.mob-btn.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
-.mobile-fullscreen {
-  display: none; position: fixed; inset: 0; background: #03213a;
-  z-index: 600; flex-direction: column; align-items: center; justify-content: center;
-  gap: 1.4rem; overflow-y: auto; padding: 2rem 1rem;
+.mobile-divider { width: 40px; height: 1px; background: #1a4a6e; }
+/* ===================== HERO SLIDESHOW ===================== */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg);
+  padding: 2rem 2.5rem;
 }
-.mobile-fullscreen.open { display: flex; }
-.mob-close { position: absolute; top: 1.25rem; right: 1.25rem; background: none; border: none; color: #8ab4d4; font-size: 28px; cursor: pointer; }
-.mobile-fullscreen a, .mobile-fullscreen button { font-size: 17px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'Inter', Arial, sans-serif; background: none; border: none; cursor: pointer; }
-.mobile-fullscreen a:hover { color: #d6e8f5; }
-.mob-tidepool { background: var(--teal) !important; color: #03213a !important; padding: 0.5rem 1.5rem; border-radius: 20px; font-weight: 700 !important; }
-.mob-depth { border: 1px solid #4a7fa8 !important; color: #c0cfe0 !important; padding: 0.5rem 1.5rem; border-radius: 20px; }
-.mob-divider { width: 40px; height: 1px; background: #1a4a6e; }
-
-/* ── HERO ── */
-.hero { position: relative; overflow: hidden; background: var(--bg); padding: 2rem 2.5rem; }
-.hero-scene { position: absolute; inset: 0; pointer-events: none; display: var(--hero-illustrations); }
-.slideshow-container { position: relative; width: 100%; min-height: 460px; border-radius: 6px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.25); }
-.slide { position: absolute; inset: 0; display: flex; align-items: stretch; opacity: 0; transition: opacity 0.7s ease; pointer-events: none; }
-.slide.active { opacity: 1; pointer-events: auto; }
-.slide-image { width: 48%; flex-shrink: 0; overflow: hidden; }
-.slide-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.slide-content { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 3rem 3.5rem; background: var(--bg); }
-.slide-section-tag { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; font-family: 'Inter', Arial, sans-serif; font-weight: 600; margin-bottom: 1rem; }
+.hero-scene {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  display: var(--hero-illustrations);
+}
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  min-height: 460px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+}
+.slide {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  align-items: stretch;
+  opacity: 0;
+  transition: opacity 0.7s ease;
+  pointer-events: none;
+}
+.slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.slide-image {
+  width: 48%;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.slide-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.slide-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem 3.5rem;
+  background: var(--bg);
+}
+.slide-section-tag {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
 .slide-section-tag.finance { color: #4a9abf; }
 .slide-section-tag.law { color: #8a7abf; }
 .slide-section-tag.politics { color: #bf7a7a; }
 .slide-section-tag.healthcare { color: #4caf7d; }
-.slide-section-tag.tech { color: var(--tech); }
-.slide-headline { font-size: 28px; font-weight: bold; color: var(--text-strong); line-height: 1.3; margin-bottom: 1rem; }
-.slide-dek { font-size: 15px; color: var(--text-muted); line-height: 1.8; font-family: 'Inter', Arial, sans-serif; margin-bottom: 1.5rem; }
-.slide-meta { font-size: 12px; color: var(--text-muted); font-family: 'Inter', Arial, sans-serif; margin-bottom: 1.5rem; }
-.slide-read-btn { display: inline-block; padding: 0.65rem 1.5rem; background: var(--accent); color: #fff; text-decoration: none; font-family: 'Inter', Arial, sans-serif; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 2px; transition: opacity 0.2s; align-self: flex-start; font-weight: 500; }
+.slide-headline {
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--text-strong);
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+.slide-dek {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.8;
+  font-family: Arial, sans-serif;
+  margin-bottom: 1.5rem;
+}
+.slide-meta {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-family: Arial, sans-serif;
+  margin-bottom: 1.5rem;
+}
+.slide-read-btn {
+  display: inline-block;
+  padding: 0.65rem 1.5rem;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: opacity 0.2s;
+  align-self: flex-start;
+}
 .slide-read-btn:hover { opacity: 0.85; }
-.slide-dots { position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 10; }
-.slide-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.3); cursor: pointer; border: none; transition: background 0.3s; }
+/* Slideshow controls */
+.slide-dots {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+.slide-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  cursor: pointer;
+  border: none;
+  transition: background 0.3s;
+}
 .slide-dot.active { background: #8ab4d4; }
-.slide-arrows { position: absolute; top: 50%; transform: translateY(-50%); width: 100%; display: flex; justify-content: space-between; padding: 0 1rem; z-index: 10; pointer-events: none; }
-.slide-arrow { pointer-events: auto; background: rgba(0,0,0,0.35); border: none; color: #fff; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+.slide-arrows {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  z-index: 10;
+  pointer-events: none;
+}
+.slide-arrow {
+  pointer-events: auto;
+  background: rgba(0,0,0,0.35);
+  border: none;
+  color: #fff;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
 .slide-arrow:hover { background: rgba(0,0,0,0.6); }
-
-/* ── DIVIDER ── */
-.divider { display: flex; align-items: center; gap: 1rem; padding: 0 2.5rem; background: var(--divider-bg); }
+/* ===================== ANCHORED IN TRUTH ===================== */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 2.5rem;
+  background: var(--divider-bg);
+}
 .divider-line { flex: 1; height: 1px; background: var(--border); }
 .divider-anchor { color: var(--accent); font-size: 22px; padding: 0.75rem 0; }
-
-/* ── ABOUT ── */
-.about { padding: 3.5rem 2.5rem; background: var(--section-bg); border: 1px solid var(--card-border); margin: 1.5rem 2.5rem; border-radius: 4px; }
+.about {
+  padding: 3.5rem 2.5rem;
+  background: var(--section-bg);
+  border: 1px solid var(--card-border);
+  margin: 1.5rem 2.5rem;
+  border-radius: 4px;
+}
 .about-inner { max-width: 780px; margin: 0 auto; text-align: center; }
-.section-label { font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--section-label); font-family: 'Inter', Arial, sans-serif; margin-bottom: 1.25rem; }
-.about p { font-size: 16px; color: var(--section-text); line-height: 1.9; font-family: 'Inter', Arial, sans-serif; }
+.section-label {
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--section-label);
+  font-family: Arial, sans-serif;
+  margin-bottom: 1.25rem;
+}
+.about p {
+  font-size: 16px;
+  color: var(--section-text);
+  line-height: 1.9;
+  font-family: Arial, sans-serif;
+}
 .about p strong { color: var(--text-strong); }
-
-/* ── COVERAGE — TWO PANEL ── */
+/* ===================== COVERAGE CARDS ===================== */
 .coverage {
+  padding: 2.5rem 2.5rem;
+  background: var(--section-bg);
+  border: 1px solid var(--card-border);
   margin: 0 2.5rem 1.5rem;
   border-radius: 4px;
-  border: 1px solid #1a4a6e;
-  background: #03213a;
-  overflow: hidden;
 }
-body.professional .coverage { background: #ffffff; border-color: #dde3ec; }
-
-.coverage-panels { display: flex; min-height: 360px; }
-body.professional .coverage-panels { display: none; }
-
-.coverage-divider { width: 1px; background: rgba(255,255,255,0.18); flex-shrink: 0; }
-
-/* LEFT */
-.coverage-left {
-  flex: 1; display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  padding: 2rem 1.5rem 2rem 2rem; position: relative;
-  overflow: hidden;
+.coverage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
 }
-.coverage-left-label {
-  font-size: 11px; font-weight: 600; letter-spacing: 0.2em;
-  text-transform: uppercase; color: #8ab4d4;
-  font-family: 'Inter', Arial, sans-serif;
-  margin-bottom: 1.25rem; text-align: center; width: 100%;
+.coverage-card {
+  border: 1px solid var(--card-border);
+  padding: 1.75rem 1.5rem;
+  text-align: center;
+  background: var(--card-bg);
+  text-decoration: none;
+  display: block;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  border-radius: 3px;
 }
-/* Full-panel ocean background */
-.ocean-bg {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
+.coverage-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
 }
-/* Reset button */
-.sf-reset-btn {
-  position: absolute;
-  bottom: 1.1rem;
-  right: 1.25rem;
-  background: none;
-  border: 1px solid rgba(255,255,255,0.18);
-  color: rgba(255,255,255,0.38);
-  font-family: 'Inter', Arial, sans-serif;
-  font-size: 10px;
-  letter-spacing: 0.1em;
+.coverage-card .icon { font-size: 26px; margin-bottom: 0.75rem; }
+.coverage-card h3 {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--text-strong);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 0.3rem 0.7rem;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: color 0.2s, border-color 0.2s, opacity 0.2s;
-  z-index: 10;
-  opacity: 0;
-  pointer-events: none;
-}
-.sf-reset-btn.visible {
-  opacity: 1;
-  pointer-events: auto;
-}
-.sf-reset-btn:hover {
-  color: rgba(255,255,255,0.7);
-  border-color: rgba(255,255,255,0.4);
-}
-/* Raise starfish above bg */
-.starfish-svg { position: relative; z-index: 1; }
-
-/* RIGHT */
-.coverage-right {
-  flex: 1; display: flex; flex-direction: column;
-  justify-content: center; padding: 2rem 2.5rem 2rem 2rem;
-  text-align: center; align-items: center;
-}
-.cr-default-text { transition: opacity 0.25s; }
-.cr-default-text h3 {
-  font-size: 26px; font-weight: bold; color: #d6e8f5;
-  font-family: Georgia, serif; line-height: 1.35; margin-bottom: 0.9rem;
-}
-.cr-default-text p {
-  font-size: 15px; color: #5a8aaa;
-  font-family: 'Inter', Arial, sans-serif; line-height: 1.8; max-width: 380px;
-}
-.cr-default-text .cr-hint {
-  margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;
-}
-.cr-hint-pill {
-  font-size: 10px; font-weight: 600; letter-spacing: 0.14em;
-  text-transform: uppercase; font-family: 'Inter', Arial, sans-serif;
-  padding: 0.3rem 0.7rem; border-radius: 20px; border: 1px solid;
-  opacity: 0.55; cursor: pointer; transition: opacity 0.2s;
-}
-.cr-hint-pill:hover { opacity: 1; }
-.cr-hint-pill.finance { color: #4a9abf; border-color: #4a9abf; }
-.cr-hint-pill.law { color: #8a7abf; border-color: #8a7abf; }
-.cr-hint-pill.tech { color: #e8a020; border-color: #e8a020; }
-.cr-hint-pill.healthcare { color: #4caf7d; border-color: #4caf7d; }
-.cr-hint-pill.politics { color: #bf7a7a; border-color: #bf7a7a; }
-
-.cr-panel { display: none; flex-direction: column; height: 100%; justify-content: center; }
-.cr-panel.visible { display: flex; }
-
-.cr-tag {
-  font-size: 10px; font-weight: 700; letter-spacing: 0.22em;
-  text-transform: uppercase; font-family: 'Inter', Arial, sans-serif;
   margin-bottom: 0.6rem;
 }
-.cr-tag.finance { color: #4a9abf; }
-.cr-tag.law { color: #8a7abf; }
-.cr-tag.tech { color: #e8a020; }
-.cr-tag.healthcare { color: #4caf7d; }
-.cr-tag.politics { color: #bf7a7a; }
-
-.cr-name {
-  font-size: 32px; font-weight: bold; color: #e0eaf4;
-  font-family: Georgia, serif; margin-bottom: 1rem; line-height: 1.1;
+.coverage-card p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  font-family: Arial, sans-serif;
 }
-.cr-desc {
-  font-size: 15px; color: #8ab4d4;
-  font-family: 'Inter', Arial, sans-serif; line-height: 1.85; margin-bottom: 0.7rem; max-width: 380px;
+/* ===================== LATEST STORIES ===================== */
+.latest-stories {
+  padding: 2.5rem 2.5rem;
+  background: var(--section-bg);
+  border: 1px solid var(--card-border);
+  margin: 0 2.5rem 1.5rem;
+  border-radius: 4px;
 }
-.cr-examples {
-  font-size: 13px; color: #4a7fa8;
-  font-family: 'Inter', Arial, sans-serif; line-height: 1.8;
-  margin-bottom: 1.75rem; max-width: 380px;
+.article-grid-home {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.25rem;
 }
-.cr-btn {
-  display: inline-block; padding: 0.65rem 1.5rem;
-  font-family: 'Inter', Arial, sans-serif; font-size: 12px;
-  font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
-  text-decoration: none; border-radius: 2px;
-  transition: opacity 0.2s; color: #fff;
+.article-card-home {
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  border-radius: 3px;
+  overflow: hidden;
 }
-.cr-btn:hover { opacity: 0.82; }
-.cr-btn.finance { background: #4a9abf; }
-.cr-btn.law { background: #8a7abf; }
-.cr-btn.tech { background: #e8a020; }
-.cr-btn.healthcare { background: #4caf7d; }
-.cr-btn.politics { background: #bf7a7a; }
-
-/* Professional fallback */
-.coverage-grid-pro {
-  display: none;
-  grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
-  gap: 1.1rem; padding: 2rem;
+.article-card-home:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  transform: translateY(-2px);
 }
-body.professional .coverage-grid-pro { display: grid; }
-.coverage-card-pro { border: 1px solid #dde3ec; padding: 1.5rem 1.25rem; text-align: center; background: #f8f9fa; text-decoration: none; display: block; transition: border-color 0.2s, transform 0.2s; border-radius: 3px; }
-.coverage-card-pro:hover { border-color: #1a4a8e; transform: translateY(-2px); }
-.coverage-card-pro .icon { font-size: 24px; margin-bottom: 0.65rem; }
-.coverage-card-pro h3 { font-size: 13px; font-weight: 600; color: #0a0a1a; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.5rem; font-family: 'Inter', Arial, sans-serif; }
-.coverage-card-pro p { font-size: 12px; color: #555577; line-height: 1.65; font-family: 'Inter', Arial, sans-serif; }
-
-/* STARFISH */
-.starfish-svg {
-  width: min(420px, 46vw); height: min(420px, 46vw); overflow: visible; cursor: default;
+.article-card-home .card-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
 }
-.sf-arm { cursor: pointer; }
-.sf-arm-path {
-  fill: rgba(255,255,255,0.07); stroke: rgba(255,255,255,0.82);
-  stroke-width: 1.6; stroke-linejoin: round;
-  transition: fill 0.25s, stroke 0.25s, filter 0.25s;
-}
-.sf-arm:hover .sf-arm-path, .sf-arm.sf-active .sf-arm-path {
-  fill: rgba(255,255,255,0.12); stroke: #ffffff;
-}
-.sf-arm.finance:hover .sf-arm-path, .sf-arm.finance.sf-active .sf-arm-path { stroke: #4a9abf; fill: rgba(74,154,191,0.13); filter: drop-shadow(0 0 6px rgba(74,154,191,0.5)); }
-.sf-arm.law:hover .sf-arm-path, .sf-arm.law.sf-active .sf-arm-path { stroke: #8a7abf; fill: rgba(138,122,191,0.13); filter: drop-shadow(0 0 6px rgba(138,122,191,0.5)); }
-.sf-arm.tech:hover .sf-arm-path, .sf-arm.tech.sf-active .sf-arm-path { stroke: #e8a020; fill: rgba(232,160,32,0.13); filter: drop-shadow(0 0 6px rgba(232,160,32,0.5)); }
-.sf-arm.healthcare:hover .sf-arm-path, .sf-arm.healthcare.sf-active .sf-arm-path { stroke: #4caf7d; fill: rgba(76,175,125,0.13); filter: drop-shadow(0 0 6px rgba(76,175,125,0.5)); }
-.sf-arm.politics:hover .sf-arm-path, .sf-arm.politics.sf-active .sf-arm-path { stroke: #bf7a7a; fill: rgba(191,122,122,0.13); filter: drop-shadow(0 0 6px rgba(191,122,122,0.5)); }
-
-.sf-label {
-  font-family: 'Inter', Arial, sans-serif; font-size: 26px; font-weight: 800;
-  letter-spacing: 0.14em; fill: rgba(255,255,255,0.85);
-  transition: fill 0.25s;
-}
-.sf-arm:hover .sf-label, .sf-arm.sf-active .sf-label { fill: #ffffff; }
-.sf-dot { fill: none; stroke: rgba(255,255,255,0.3); stroke-width: 0.9; }
-.sf-center-outer { fill: rgba(255,255,255,0.06); stroke: rgba(255,255,255,0.65); stroke-width: 1.3; }
-.sf-center-inner { fill: rgba(255,255,255,0.1); stroke: rgba(255,255,255,0.4); stroke-width: 0.9; }
-.bg-deco { pointer-events: none; }
-
-@media (max-width: 900px) {
-  .coverage-panels { flex-direction: column; }
-  .coverage-divider { width: 100%; height: 1px; }
-  .coverage-left { padding: 2rem 1.5rem 1.5rem; }
-  .coverage-right { padding: 1.5rem 1.5rem 2rem; }
-  .starfish-svg { width: min(420px, 80vw); height: min(420px, 80vw); }
-  .cr-name { font-size: 24px; }
-  .cr-default-text h3 { font-size: 18px; }
-}
-@media (max-width: 768px) {
-  .coverage { margin: 0.75rem 1rem; }
-  .starfish-svg { width: min(360px, 88vw); height: min(360px, 88vw); }
-  .coverage-grid-pro { padding: 1.25rem; grid-template-columns: 1fr 1fr; }
-}
-@media (max-width: 480px) {
-  .coverage-grid-pro { grid-template-columns: 1fr; }
-}
-
-/* ── LATEST STORIES ── */
-.latest-stories { padding: 2.5rem; background: var(--section-bg); border: 1px solid var(--card-border); margin: 0 2.5rem 1.5rem; border-radius: 4px; }
-.article-grid-home { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem; margin-top: 1.25rem; }
-.article-card-home { border: 1px solid var(--card-border); background: var(--card-bg); text-decoration: none; display: flex; flex-direction: column; transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s; border-radius: 3px; overflow: hidden; }
-.article-card-home:hover { border-color: var(--accent); box-shadow: 0 4px 16px rgba(0,0,0,0.12); transform: translateY(-2px); }
-.article-card-home .card-img { width: 100%; height: 160px; object-fit: cover; display: block; }
 .article-card-home .card-body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; }
-.card-section-label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; font-family: 'Inter', Arial, sans-serif; font-weight: 600; margin-bottom: 0.5rem; display: block; }
+.card-section-label {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  display: block;
+}
 .card-section-label.finance { color: #4a9abf; }
 .card-section-label.law { color: #8a7abf; }
 .card-section-label.healthcare { color: #4caf7d; }
 .card-section-label.politics { color: #bf7a7a; }
-.card-section-label.tech { color: var(--tech); }
-.article-card-home h3 { font-size: 15px; color: var(--text-strong); line-height: 1.4; margin-bottom: 0.5rem; font-weight: bold; flex-grow: 1; }
-.article-card-home p { font-size: 13px; color: var(--text-muted); line-height: 1.65; font-family: 'Inter', Arial, sans-serif; margin-bottom: 0.75rem; }
-.article-card-home .card-date { font-size: 11px; color: var(--text-muted); font-family: 'Inter', Arial, sans-serif; margin-top: auto; }
-
-/* ── ON OUR RADAR ── */
-.on-radar { padding: 0; margin: 0 2.5rem 1.5rem; border-radius: 6px; overflow: hidden; background: #021829; border: 1px solid #0d3352; }
+.card-section-label.opinion { color: #e65100; }
+.article-card-home h3 {
+  font-size: 15px;
+  color: var(--text-strong);
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  font-family: Georgia, serif;
+  flex-grow: 1;
+}
+.article-card-home p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.65;
+  font-family: Arial, sans-serif;
+  margin-bottom: 0.75rem;
+}
+.article-card-home .card-date {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-family: Arial, sans-serif;
+  margin-top: auto;
+}
+/* ===================== ON OUR RADAR ===================== */
+.on-radar {
+  padding: 0;
+  margin: 0 2.5rem 1.5rem;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #021829;
+  border: 1px solid #0d3352;
+  position: relative;
+}
 body.professional .on-radar { background: #f0f4f8; border-color: #dde3ec; }
-.radar-header { display: flex; align-items: center; gap: 1rem; padding: 1.75rem 2.5rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.radar-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.75rem 2.5rem 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
 body.professional .radar-header { border-bottom-color: #dde3ec; }
 .radar-sub-icon { font-size: 28px; }
-.radar-label { font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: #4a9abf; font-family: 'Inter', Arial, sans-serif; font-weight: 600; margin-bottom: 0.2rem; }
-.radar-title { font-size: 20px; font-weight: bold; color: #d6e8f5; font-family: Georgia, serif; }
+.radar-titles { flex: 1; }
+.radar-label {
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #4a9abf;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+}
+.radar-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #d6e8f5;
+  font-family: Georgia, serif;
+}
 body.professional .radar-title { color: #0a1628; }
-.radar-desc { font-size: 13px; color: #5a8aaa; font-family: 'Inter', Arial, sans-serif; margin-top: 0.15rem; }
+.radar-desc {
+  font-size: 13px;
+  color: #5a8aaa;
+  font-family: Arial, sans-serif;
+  margin-top: 0.15rem;
+}
 body.professional .radar-desc { color: #555577; }
-.radar-grid { display: grid; grid-template-columns: repeat(2, 1fr); }
-.radar-item { padding: 1.5rem 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.05); border-right: 1px solid rgba(255,255,255,0.05); }
+.radar-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+}
+.radar-item {
+  padding: 1.5rem 2.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  border-right: 1px solid rgba(255,255,255,0.05);
+  position: relative;
+}
 body.professional .radar-item { border-bottom-color: #dde3ec; border-right-color: #dde3ec; }
 .radar-item:nth-child(even) { border-right: none; }
 .radar-item:nth-last-child(-n+2) { border-bottom: none; }
-.radar-item-section { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; font-family: 'Inter', Arial, sans-serif; font-weight: 600; margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.5rem; }
-.radar-item-section::before { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: currentColor; animation: radar-ping 2s ease-in-out infinite; }
-@keyframes radar-ping { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.4; transform:scale(0.7); } }
+.radar-item-section {
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.radar-item-section::before {
+  content: '';
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: radar-ping 2s ease-in-out infinite;
+}
+@keyframes radar-ping {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
 .radar-item-section.finance { color: #4a9abf; }
 .radar-item-section.law { color: #8a7abf; }
 .radar-item-section.healthcare { color: #4caf7d; }
 .radar-item-section.politics { color: #bf7a7a; }
-.radar-item-section.tech { color: var(--tech); }
-.radar-item h4 { font-size: 15px; color: #d6e8f5; font-family: Georgia, serif; line-height: 1.35; margin-bottom: 0.4rem; font-weight: normal; }
+.radar-item h4 {
+  font-size: 15px;
+  color: #d6e8f5;
+  font-family: Georgia, serif;
+  line-height: 1.35;
+  margin-bottom: 0.4rem;
+  font-weight: normal;
+}
 body.professional .radar-item h4 { color: #0a1628; }
-.radar-item p { font-size: 12px; color: #5a8aaa; font-family: 'Inter', Arial, sans-serif; line-height: 1.6; }
+.radar-item p {
+  font-size: 12px;
+  color: #5a8aaa;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
 body.professional .radar-item p { color: #555577; }
-.radar-coming-soon { font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; font-family: 'Inter', Arial, sans-serif; color: #4a9abf; margin-top: 0.5rem; display: block; opacity: 0.7; }
-
-/* ── TIDEPOOL — DARK TEAL, AQUA ACCENTS ── */
-.tidepool-section { margin: 0 2.5rem 1.5rem; border-radius: 6px; overflow: hidden; background: linear-gradient(135deg, #0b4a5c 0%, #073b4c 55%, #052a38 100%); border: 1px solid #0e6b82; position: relative; }
-.tidepool-bg-deco { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.radar-coming-soon {
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-family: Arial, sans-serif;
+  color: #4a9abf;
+  margin-top: 0.5rem;
+  display: block;
+  opacity: 0.7;
+}
+/* ===================== TIDEPOOL SNEAK PEEK ===================== */
+.tidepool-section {
+  margin: 0 2.5rem 1.5rem;
+  border-radius: 6px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #e8f8f5 0%, #c8f0e8 40%, #a8e8dc 70%, #88ddd0 100%);
+  border: 1px solid #7dd4c0;
+  position: relative;
+}
+body.professional .tidepool-section { background: linear-gradient(135deg, #f0fdfb 0%, #e0f8f4 100%); }
+.tidepool-bg-deco {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
 .tidepool-inner { position: relative; z-index: 1; padding: 2rem 2.5rem; }
-.tidepool-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1.5rem; gap: 1rem; flex-wrap: wrap; }
+.tidepool-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
 .tidepool-brand { display: flex; align-items: center; gap: 0.75rem; }
-.tidepool-label { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #6fe0f2; font-family: 'Inter', Arial, sans-serif; font-weight: 700; margin-bottom: 0.2rem; }
-.tidepool-name { font-size: 24px; font-weight: bold; color: #fff; font-family: Georgia, serif; }
-.tidepool-tagline { font-size: 13px; color: rgba(255,255,255,0.75); font-family: 'Inter', Arial, sans-serif; margin-top: 0.2rem; }
-.tidepool-visit-btn { display: inline-block; padding: 0.5rem 1.25rem; background: #4dd9ec; color: #052a38; font-family: 'Inter', Arial, sans-serif; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border-radius: 20px; transition: opacity 0.2s; white-space: nowrap; align-self: center; font-weight: 700; }
-.tidepool-visit-btn:hover { opacity: 0.85; }
-.tidepool-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
-.tidepool-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(77,217,236,0.3); border-radius: 4px; overflow: hidden; text-decoration: none; display: flex; flex-direction: column; transition: background 0.2s, transform 0.2s, border-color 0.2s; }
-.tidepool-card:hover { background: rgba(255,255,255,0.1); border-color: rgba(77,217,236,0.55); transform: translateY(-2px); }
+.tidepool-emoji { font-size: 36px; }
+.tidepool-brand-text {}
+.tidepool-label {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #1a7a60;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+}
+.tidepool-name {
+  font-size: 24px;
+  font-weight: bold;
+  color: #0a4a38;
+  font-family: Georgia, serif;
+}
+.tidepool-tagline {
+  font-size: 13px;
+  color: #2a6a58;
+  font-family: Arial, sans-serif;
+  margin-top: 0.2rem;
+}
+.tidepool-visit-btn {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  background: #0a4a38;
+  color: #e8f8f5;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 20px;
+  transition: background 0.2s;
+  white-space: nowrap;
+  align-self: center;
+}
+.tidepool-visit-btn:hover { background: #1a6a50; }
+.tidepool-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+.tidepool-card {
+  background: rgba(255,255,255,0.65);
+  border: 1px solid rgba(10,74,56,0.15);
+  border-radius: 4px;
+  overflow: hidden;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.2s, transform 0.2s;
+}
+.tidepool-card:hover { background: rgba(255,255,255,0.85); transform: translateY(-2px); }
+.tidepool-card img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  display: block;
+}
 .tidepool-card-body { padding: 1.25rem; display: flex; flex-direction: column; gap: 0.4rem; flex: 1; }
-.tidepool-icon-badge { width: 52px; height: 52px; flex-shrink: 0; }
-.tidepool-card-tag { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; font-family: 'Inter', Arial, sans-serif; font-weight: 700; color: #6fe0f2; display: inline-flex; align-items: center; gap: 0.4rem; }
-.tidepool-card-tag svg { width: 16px; height: 16px; flex-shrink: 0; }
-.tidepool-card h4 { font-size: 14px; color: #fff; font-family: Georgia, serif; line-height: 1.35; font-weight: bold; }
-.tidepool-card p { font-size: 12px; color: rgba(255,255,255,0.72); font-family: 'Inter', Arial, sans-serif; line-height: 1.55; }
-.tidepool-card-coming { font-size: 10px; color: rgba(111,224,242,0.75); font-family: 'Inter', Arial, sans-serif; font-style: italic; margin-top: 0.25rem; }
-
-/* ── DEPTH ── */
-.depth-section { margin: 0 2.5rem 1.5rem; border-radius: 6px; overflow: hidden; background: linear-gradient(160deg, #020d18 0%, #041520 40%, #061d2a 70%, #081f2e 100%); border: 1px solid #0d3352; position: relative; }
+.tidepool-card-tag {
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  color: #1a7a60;
+}
+.tidepool-card h4 {
+  font-size: 14px;
+  color: #0a2a20;
+  font-family: Georgia, serif;
+  line-height: 1.35;
+  font-weight: bold;
+}
+.tidepool-card p {
+  font-size: 12px;
+  color: #2a5a48;
+  font-family: Arial, sans-serif;
+  line-height: 1.55;
+}
+/* ===================== DEPTH SNEAK PEEK ===================== */
+.depth-section {
+  margin: 0 2.5rem 1.5rem;
+  border-radius: 6px;
+  overflow: hidden;
+  background: linear-gradient(160deg, #020d18 0%, #041520 40%, #061d2a 70%, #081f2e 100%);
+  border: 1px solid #0d3352;
+  position: relative;
+}
 body.professional .depth-section { background: linear-gradient(160deg, #0a1628 0%, #0d1e32 100%); }
 .depth-inner { position: relative; z-index: 1; padding: 2rem 2.5rem; }
-.depth-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1.5rem; gap: 1rem; flex-wrap: wrap; }
+.depth-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
 .depth-brand { display: flex; align-items: center; gap: 0.75rem; }
-.depth-icon-badge { width: 52px; height: 52px; flex-shrink: 0; }
-.depth-label-text { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #4a7fa8; font-family: 'Inter', Arial, sans-serif; font-weight: 600; margin-bottom: 0.2rem; }
-.depth-name { font-size: 24px; font-weight: bold; color: #c0d8f0; font-family: Georgia, serif; }
-.depth-tagline { font-size: 13px; color: #4a7fa8; font-family: 'Inter', Arial, sans-serif; margin-top: 0.2rem; }
-.depth-visit-btn { display: inline-block; padding: 0.5rem 1.25rem; background: transparent; color: #8ab4d4; font-family: 'Inter', Arial, sans-serif; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border-radius: 20px; border: 1px solid #4a7fa8; transition: background 0.2s, color 0.2s; white-space: nowrap; align-self: center; font-weight: 600; }
+.depth-emoji { font-size: 36px; }
+.depth-label {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #4a7fa8;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+}
+.depth-name {
+  font-size: 24px;
+  font-weight: bold;
+  color: #c0d8f0;
+  font-family: Georgia, serif;
+}
+.depth-tagline {
+  font-size: 13px;
+  color: #4a7fa8;
+  font-family: Arial, sans-serif;
+  margin-top: 0.2rem;
+}
+.depth-visit-btn {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  background: transparent;
+  color: #8ab4d4;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 20px;
+  border: 1px solid #4a7fa8;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+  align-self: center;
+}
 .depth-visit-btn:hover { background: #1a4a6e; color: #d6e8f5; }
-.depth-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
-.depth-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(74,127,168,0.2); border-radius: 4px; overflow: hidden; text-decoration: none; display: flex; flex-direction: column; transition: background 0.2s, transform 0.2s; }
+.depth-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+.depth-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(74,127,168,0.2);
+  border-radius: 4px;
+  overflow: hidden;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.2s, transform 0.2s;
+}
 .depth-card:hover { background: rgba(255,255,255,0.08); transform: translateY(-2px); }
+.depth-card img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  display: block;
+}
 .depth-card-body { padding: 1.25rem; display: flex; flex-direction: column; gap: 0.4rem; flex: 1; }
-.depth-card-tag { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; font-family: 'Inter', Arial, sans-serif; font-weight: 600; color: #4a9abf; display: inline-flex; align-items: center; gap: 0.4rem; }
-.depth-card-tag svg { width: 16px; height: 16px; flex-shrink: 0; }
-.depth-card h4 { font-size: 14px; color: #c0d8f0; font-family: Georgia, serif; line-height: 1.35; font-weight: bold; }
-.depth-card p { font-size: 12px; color: #5a8aaa; font-family: 'Inter', Arial, sans-serif; line-height: 1.55; }
-.depth-card-coming { font-size: 10px; color: #4a7fa8; font-family: 'Inter', Arial, sans-serif; font-style: italic; margin-top: 0.25rem; }
-
-/* ── NEWSLETTER ── */
-.newsletter { padding: 0; background: var(--section-bg); border: 1px solid var(--card-border); margin: 0 2.5rem 1.5rem; border-radius: 4px; overflow: hidden; }
-.newsletter-inner { display: flex; align-items: stretch; min-height: 360px; }
-.newsletter-image { width: 50%; flex-shrink: 0; overflow: hidden; }
-.newsletter-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.newsletter-content { width: 50%; padding: 3rem; display: flex; flex-direction: column; justify-content: center; }
-.newsletter h2 { font-size: 26px; font-weight: bold; color: var(--text-strong); margin-bottom: 0.75rem; }
-.newsletter .newsletter-tagline { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); font-family: 'Inter', Arial, sans-serif; margin-bottom: 0.85rem; }
-.newsletter p { font-size: 14px; color: var(--text-muted); margin-bottom: 1.75rem; font-family: 'Inter', Arial, sans-serif; line-height: 1.75; }
+.depth-card-tag {
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  color: #4a9abf;
+}
+.depth-card h4 {
+  font-size: 14px;
+  color: #c0d8f0;
+  font-family: Georgia, serif;
+  line-height: 1.35;
+  font-weight: bold;
+}
+.depth-card p {
+  font-size: 12px;
+  color: #5a8aaa;
+  font-family: Arial, sans-serif;
+  line-height: 1.55;
+}
+/* ===================== NEWSLETTER ===================== */
+.newsletter {
+  padding: 0;
+  background: var(--section-bg);
+  border: 1px solid var(--card-border);
+  margin: 0 2.5rem 1.5rem;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.newsletter-inner {
+  display: flex;
+  align-items: stretch;
+  min-height: 360px;
+}
+.newsletter-image {
+  width: 50%;
+  flex-shrink: 0;
+  overflow: hidden;
+  position: relative;
+}
+.newsletter-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.newsletter-content {
+  width: 50%;
+  padding: 3rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+.newsletter h2 {
+  font-size: 26px;
+  font-weight: bold;
+  color: var(--text-strong);
+  margin-bottom: 0.75rem;
+  line-height: 1.25;
+}
+.newsletter .newsletter-tagline {
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-family: Arial, sans-serif;
+  margin-bottom: 0.85rem;
+}
+.newsletter p {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 1.75rem;
+  font-family: Arial, sans-serif;
+  line-height: 1.75;
+}
 .newsletter-form { display: flex; flex-wrap: wrap; }
-
-/* ── FOOTER ── */
-footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5rem 1.5rem; font-family: 'Inter', Arial, sans-serif; margin-top: 1.5rem; }
-.footer-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem; flex-wrap: wrap; gap: 2rem; }
-.footer-brand .footer-logo { font-size: 18px; font-weight: bold; letter-spacing: 0.14em; color: #c0cfe0; margin-bottom: 0.4rem; }
+/* ===================== FOOTER ===================== */
+footer {
+  background: #03213a;
+  border-top: 1px solid #1a4a6e;
+  padding: 2.5rem 2.5rem 1.5rem;
+  font-family: Arial, sans-serif;
+  margin-top: 1.5rem;
+}
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.footer-brand .footer-logo {
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 0.14em;
+  color: #c0cfe0;
+  margin-bottom: 0.4rem;
+}
 .footer-brand .footer-logo span { color: #8ab4d4; }
-.footer-brand p { font-size: 12px; color: #4a7fa8; }
-.footer-col h4 { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #4a7fa8; margin-bottom: 0.75rem; font-weight: 600; }
-.footer-col p, .footer-col a { font-size: 13px; color: #8ab4d4; display: block; text-decoration: none; margin-bottom: 0.3rem; line-height: 1.7; }
+.footer-brand p { font-size: 12px; color: #4a7fa8; letter-spacing: 0.06em; }
+.footer-col h4 {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #4a7fa8;
+  margin-bottom: 0.75rem;
+}
+.footer-col p, .footer-col a {
+  font-size: 13px; color: #8ab4d4; display: block;
+  text-decoration: none; margin-bottom: 0.3rem; line-height: 1.7;
+}
 .footer-col a:hover { color: #d6e8f5; }
-.footer-social { display: flex; gap: 0.75rem; margin-top: 0.5rem; }
-.footer-social a { font-size: 13px; color: #8ab4d4; text-decoration: none; display: flex; align-items: center; gap: 0.4rem; }
-.footer-social a:hover { color: #d6e8f5; }
-.footer-bottom { border-top: 1px solid #1a4a6e; padding-top: 1.25rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-.footer-bottom span { font-size: 12px; color: #4a7fa8; }
-.footer-anchor { font-size: 24px; color: #fff; opacity: 0.8; }
-.footer-legal { border-top: 1px solid #1a4a6e; padding-top: 1rem; margin-top: 1rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
-.footer-legal a { font-size: 11px; color: #4a7fa8; text-decoration: none; }
+.footer-bottom {
+  border-top: 1px solid #1a4a6e;
+  padding-top: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-bottom span { font-size: 12px; color: #4a7fa8; letter-spacing: 0.06em; }
+.footer-anchor { font-size: 24px; color: #ffffff; opacity: 0.8; }
+.footer-legal {
+  border-top: 1px solid #1a4a6e;
+  padding-top: 1rem;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.footer-legal a {
+  font-size: 11px; color: #4a7fa8; text-decoration: none; letter-spacing: 0.06em;
+}
 .footer-legal a:hover { color: #8ab4d4; }
-
-/* ── SCROLL TO TOP ── */
-.scroll-top { position: fixed; bottom: 2rem; right: 2rem; width: 44px; height: 44px; background: var(--accent); color: #fff; border: none; border-radius: 50%; cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,0,0,0.3); opacity: 0; pointer-events: none; transition: opacity 0.3s, transform 0.3s; z-index: 100; }
-.scroll-top.visible { opacity: 1; pointer-events: auto; }
-.scroll-top:hover { transform: translateY(-2px); }
-
-/* ── RESPONSIVE ── */
+/* ===================== RESPONSIVE ===================== */
 @media (max-width: 900px) {
   .slide-image { width: 38%; }
   .slide-headline { font-size: 22px; }
   .slide-content { padding: 2rem; }
 }
 @media (max-width: 768px) {
-  .nav-half-right { display: none; }
-  .nav-half-left { flex: none; justify-content: flex-start; }
-  nav { padding: 0 1rem; justify-content: space-between; }
-  .dot-toggle { display: flex; }
-  .mob-btn { display: flex; }
-  .three-line-btn { display: none; }
-  .logo-text { font-size: 17px; }
-  .logo-img { height: 38px; width: 38px; }
-  .hero { padding: 1rem; }
+  .nav-left, .nav-right { display: none; }
+  .nav-center { position: static; transform: none; }
+  nav { justify-content: space-between; padding: 0.9rem 1.25rem; }
+  .hamburger { display: flex; }
+  .logo-text { font-size: 18px; }
+  .logo-img { height: 40px; width: 40px; }
+  .hero { padding: 1rem 1rem; }
   .slideshow-container { min-height: 480px; }
   .slide { flex-direction: column; }
   .slide-image { width: 100%; height: 200px; flex-shrink: 0; }
@@ -531,11 +979,7 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5
   .slide-headline { font-size: 20px; }
   .slide-dek { font-size: 14px; }
   .slide-arrows { display: none; }
-  .about, .coverage, .latest-stories, .newsletter { margin: 0.75rem 1rem; }
-  .about { padding: 2rem 1.25rem; }
-  .coverage { padding: 2rem 1.25rem; }
-  .starfish-svg { width: min(340px, 88vw); height: min(340px, 88vw); }
-  .latest-stories { padding: 2rem 1.25rem; }
+  .about, .coverage, .latest-stories, .newsletter { margin: 0.75rem 1rem; padding: 2rem 1.25rem; }
   .on-radar, .tidepool-section, .depth-section { margin: 0.75rem 1rem; }
   .radar-grid { grid-template-columns: 1fr; }
   .radar-item { border-right: none !important; }
@@ -543,83 +987,46 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5
   .radar-item:last-child { border-bottom: none; }
   .tidepool-cards, .depth-cards { grid-template-columns: 1fr; }
   .tidepool-header, .depth-header { flex-direction: column; align-items: flex-start; }
-  .newsletter { margin: 0.75rem 1rem; padding: 0; }
+  .newsletter { padding: 0; }
   .newsletter-inner { flex-direction: column; }
   .newsletter-image { width: 100%; height: 200px; }
-  .newsletter-content { width: 100%; padding: 1.75rem 1.25rem; }
-  .coverage-grid-pro { grid-template-columns: 1fr 1fr; }
+  .newsletter-content { padding: 1.75rem 1.25rem; }
+  .coverage-grid { grid-template-columns: 1fr 1fr; }
   .article-grid-home { grid-template-columns: 1fr; }
   .footer-top { flex-direction: column; gap: 1.5rem; }
-  .footer-legal { gap: 0.6rem; }
-  .footer-bottom { flex-direction: column; align-items: center; }
+  .footer-legal { gap: 0.75rem; }
   .divider { padding: 0 1rem; }
-  .scroll-top { bottom: 1.25rem; right: 1.25rem; width: 38px; height: 38px; font-size: 16px; }
 }
 @media (max-width: 480px) {
-  .coverage-grid-pro { grid-template-columns: 1fr; }
+  .coverage-grid { grid-template-columns: 1fr; }
   .slide-headline { font-size: 18px; }
-  .footer-legal { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .footer-legal a { font-size: 10px; }
 }
 </style>
 </head>
 <body>
-
-<!-- ── SIDE OVERLAY ── -->
-<div class="side-overlay" id="sideOverlay"></div>
-
-<!-- ── SLIDING SIDE PANEL ── -->
-<div class="side-panel" id="sidePanel">
-  <div class="side-panel-header">
-    <span class="side-panel-logo">THE <span>NAUTISK</span></span>
-    <button class="side-panel-close" id="sidePanelClose">&#x2715;</button>
-  </div>
-  <div class="side-panel-links">
-    <a href="about.html">Our Story</a>
-    <a href="tips.html">Tips</a>
-    <a href="mailto:evan@thenautisk.com">Contact Us</a>
-    <a href="opinion.html">Opinion</a>
-    <a href="editorial.html">Editorial Standards</a>
-    <a href="corrections.html">Corrections</a>
-  </div>
-  <div class="side-panel-footer">
-    <p>The Nautisk · Independent journalism · Manhattan, New York · © 2026</p>
-  </div>
-</div>
-
-<!-- ── MOBILE FULLSCREEN MENU ── -->
-<div class="mobile-fullscreen" id="mobileFullscreen">
-  <button class="mob-close" id="mobClose">&#x2715;</button>
-  <button class="nav-btn" onclick="toggleMobNews()">News ▾</button>
-  <div id="mobNewsLinks" style="display:none;flex-direction:column;align-items:center;gap:0.75rem;">
+<!-- ===================== MOBILE MENU ===================== -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-toggle" onclick="toggleMode()">🌊 Switch Mode</button>
+  <div class="mobile-divider"></div>
+  <button class="nav-btn" onclick="toggleDropdownMobile()">News ▾</button>
+  <div id="mobileNewsLinks" style="display:none; flex-direction:column; align-items:center; gap:0.75rem;">
     <a href="finance.html">Finance</a>
     <a href="law.html">Law</a>
     <a href="healthcare.html">Healthcare</a>
     <a href="politics.html">Politics</a>
-    <a href="tech.html">Tech</a>
   </div>
-  <a href="tidepool.html" class="mob-tidepool">Tidepool</a>
-  <div class="mob-divider"></div>
-  <a href="depth.html" class="mob-depth">Depth</a>
-  <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Newsletter</a>
-  <div class="mob-divider"></div>
+  <a href="opinion.html">Opinion</a>
+  <a href="tidepool.html" class="mobile-tidepool">Tidepool</a>
+  <a href="tips.html" class="mobile-tips">Tips</a>
+  <div class="mobile-divider"></div>
+  <a href="depth.html" class="mobile-depth">Depth</a>
   <a href="about.html">Our Story</a>
-  <a href="tips.html">Tips</a>
-  <a href="mailto:evan@thenautisk.com">Contact Us</a>
+  <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Newsletter</a>
 </div>
-
-<!-- ── NAV ── -->
+<!-- ===================== NAV ===================== -->
 <nav>
-  <!-- Left half: brand, centered within it -->
-  <div class="nav-half-left">
-    <button class="dot-toggle" id="dotToggle" aria-label="Toggle mode" title="Toggle Aquatic / Professional"></button>
-    <div class="nav-brand">
-      <img src="logo.png" alt="The Nautisk" class="logo-img" />
-      <span class="logo-text">THE <span>NAUTISK</span></span>
-    </div>
-  </div>
-
-  <!-- Right half: buttons spread evenly across the full width -->
-  <div class="nav-half-right">
+  <div class="nav-left">
     <div class="dropdown" id="newsDropdown">
       <button class="nav-btn" id="newsDropBtn">News ▾</button>
       <div class="dropdown-menu">
@@ -627,634 +1034,510 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5
         <a href="law.html">Law</a>
         <a href="healthcare.html">Healthcare</a>
         <a href="politics.html">Politics</a>
-        <a href="tech.html">Tech</a>
       </div>
     </div>
     <a href="opinion.html" class="nav-btn">Opinion</a>
     <a href="tidepool.html" class="nav-btn-tidepool">Tidepool</a>
-    <a href="depth.html" class="nav-btn-depth">Depth</a>
-    <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer" class="nav-btn">Newsletter</a>
-    <button class="three-line-btn" id="threeLine" aria-label="More">
-      <span></span><span></span><span></span>
-    </button>
+    <a href="tips.html" class="nav-btn-tips">Tips</a>
   </div>
-
-  <!-- Mobile hamburger (replaces everything on small screens) -->
-  <button class="mob-btn" id="mobBtn" aria-label="Open menu">
+  <div class="nav-center">
+    <img src="logo.png" alt="The Nautisk Logo" class="logo-img" />
+    <span class="logo-text">THE <span>NAUTISK</span></span>
+  </div>
+  <div class="nav-right">
+    <button class="mode-toggle" onclick="toggleMode()" id="modeToggleBtn">
+      <span class="toggle-icon">🌊</span>
+      <span id="modeLabel">Aquatic</span>
+    </button>
+    <a href="depth.html" class="nav-btn-depth">Depth</a>
+    <a href="about.html" class="nav-btn">Our Story</a>
+    <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer" class="nav-btn">Newsletter</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
-
-<!-- ── HERO ── -->
+<!-- ===================== HERO SLIDESHOW ===================== -->
 <section class="hero">
   <svg class="hero-scene" viewBox="0 0 1440 520" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
     <path fill="none" stroke="#2a5f8a" stroke-width="1.2" opacity="0.6" d="M0,290 C120,275 240,305 360,290 C480,275 600,305 720,290 C840,275 960,305 1080,290 C1200,275 1320,305 1440,290"/>
     <path fill="none" stroke="#2a5f8a" stroke-width="0.7" opacity="0.35" d="M0,308 C120,296 240,320 360,308 C480,296 600,320 720,308 C840,296 960,320 1080,308 C1200,296 1320,320 1440,308"/>
+    <ellipse cx="150" cy="60" rx="60" ry="20" fill="none" stroke="#2a5f8a" stroke-width="0.8" opacity="0.2"/>
+    <ellipse cx="750" cy="45" rx="70" ry="22" fill="none" stroke="#2a5f8a" stroke-width="0.8" opacity="0.18"/>
+    <ellipse cx="1300" cy="70" rx="55" ry="18" fill="none" stroke="#2a5f8a" stroke-width="0.8" opacity="0.18"/>
   </svg>
   <div class="slideshow-container" id="slideshowContainer">
+    <!-- SLIDE 1: Finance — July 21, 2026 -->
     <div class="slide active" id="slide-0">
-      <div class="slide-image" style="background:linear-gradient(135deg,#03213a,#0a3352);display:flex;align-items:center;justify-content:center;">
-        <svg viewBox="0 0 200 200" width="120" xmlns="http://www.w3.org/2000/svg" opacity="0.25">
-          <path fill="none" stroke="#4a7fa8" stroke-width="2" d="M0,100 C33,85 66,115 100,100 C133,85 166,115 200,100"/>
-          <path fill="none" stroke="#4a7fa8" stroke-width="1.2" d="M0,120 C33,108 66,132 100,120 C133,108 166,132 200,120"/>
-          <text x="100" y="95" text-anchor="middle" font-family="Georgia,serif" font-size="48" font-weight="bold" fill="#4a7fa8">N</text>
-        </svg>
+      <div class="slide-image">
+        <img src="inflation-0721.png" alt="Inflation Fed Decision" onerror="this.parentElement.style.background='#071e30'" />
       </div>
       <div class="slide-content">
-        <span class="slide-section-tag finance" style="color:#4a7fa8;">The Nautisk</span>
-        <h2 class="slide-headline">New stories are on the way.</h2>
-        <p class="slide-dek">We're working on our next round of coverage: finance, law, healthcare, politics, and tech, reported and written to our standards. Check back soon.</p>
-        <p class="slide-meta">Coming soon</p>
-        <a href="about.html" class="slide-read-btn">Our Story →</a>
+        <span class="slide-section-tag finance">Finance</span>
+        <h2 class="slide-headline">Inflation's Sudden Retreat Sets Up a Pivotal Fed Decision</h2>
+        <p class="slide-dek">The Consumer Price Index dropped 0.4 percent in June — the biggest monthly fall in six years. The FOMC meets July 28, and the data has already moved markets.</p>
+        <p class="slide-meta">July 21, 2026 &nbsp;·&nbsp; 4 min read</p>
+        <a href="inflation-fed-decision-july-2026.html" class="slide-read-btn">Read Article →</a>
       </div>
     </div>
-    <div class="slide-dots"><button class="slide-dot active" onclick="goToSlide(0)"></button></div>
+    <!-- SLIDE 2: Law — July 21, 2026 -->
+    <div class="slide" id="slide-1">
+      <div class="slide-image">
+        <img src="paramount-0721.png" alt="Paramount Warner Deal Frozen" onerror="this.parentElement.style.background='#071e30'" />
+      </div>
+      <div class="slide-content">
+        <span class="slide-section-tag law">Law</span>
+        <h2 class="slide-headline">A Federal Judge Puts the Paramount-Warner Deal on Ice</h2>
+        <p class="slide-dek">A coalition of 12 state AGs won a temporary restraining order freezing the $110 billion merger. A full hearing is set for August 3 in Oakland.</p>
+        <p class="slide-meta">July 21, 2026 &nbsp;·&nbsp; 4 min read</p>
+        <a href="paramount-warner-tro-july-2026.html" class="slide-read-btn">Read Article →</a>
+      </div>
+    </div>
+    <!-- SLIDE 3: Politics — July 21, 2026 -->
+    <div class="slide" id="slide-2">
+      <div class="slide-image">
+        <img src="canada-0721.png" alt="Canada Tariffs" onerror="this.parentElement.style.background='#071e30'" />
+      </div>
+      <div class="slide-content">
+        <span class="slide-section-tag politics">Politics</span>
+        <h2 class="slide-headline">Under a 94-Year-Old Law, Trump Hits Canada with 50% Duties</h2>
+        <p class="slide-dek">President Trump invoked Section 338 of the Tariff Act of 1930 — a legal authority unused by modern presidents — to impose sweeping tariffs on Canadian imports. Thirty days until they land.</p>
+        <p class="slide-meta">July 21, 2026 &nbsp;·&nbsp; 4 min read</p>
+        <a href="canada-tariffs-july-2026.html" class="slide-read-btn">Read Article →</a>
+      </div>
+    </div>
+    <!-- SLIDE 4: Healthcare — July 21, 2026 -->
+    <div class="slide" id="slide-3">
+      <div class="slide-image">
+        <img src="medicaid-0721.png" alt="Medicaid Work Requirements" onerror="this.parentElement.style.background='#071e30'" />
+      </div>
+      <div class="slide-content">
+        <span class="slide-section-tag healthcare">Healthcare</span>
+        <h2 class="slide-headline">Medicaid Work Requirements Are Already Reshaping Coverage</h2>
+        <p class="slide-dek">Nebraska is already enforcing the 80-hour monthly requirement. Every expansion state must comply by December 31, with 7.6 million enrollees in the crosshairs.</p>
+        <p class="slide-meta">July 21, 2026 &nbsp;·&nbsp; 5 min read</p>
+        <a href="medicaid-work-requirements-july-2026.html" class="slide-read-btn">Read Article →</a>
+      </div>
+    </div>
+    <!-- SLIDE 5: Tech — July 21, 2026 -->
+    <div class="slide" id="slide-4">
+      <div class="slide-image">
+        <img src="goldeagle-0721.png" alt="Gold Eagle AI Cybersecurity" onerror="this.parentElement.style.background='#071e30'" />
+      </div>
+      <div class="slide-content">
+        <span class="slide-section-tag" style="color:#e67e22;">Tech</span>
+        <h2 class="slide-headline">The White House Built a Cybersecurity War Room Powered by AI</h2>
+        <p class="slide-dek">Gold Eagle brings together Treasury, DHS, and DOD with private partners including Anthropic to catch software vulnerabilities before attackers do.</p>
+        <p class="slide-meta">July 21, 2026 &nbsp;·&nbsp; 4 min read</p>
+        <a href="gold-eagle-cybersecurity-july-2026.html" class="slide-read-btn">Read Article →</a>
+      </div>
+    </div>
+    <!-- Dots -->
+    <div class="slide-dots">
+      <button class="slide-dot active" onclick="goToSlide(0)"></button>
+      <button class="slide-dot" onclick="goToSlide(1)"></button>
+      <button class="slide-dot" onclick="goToSlide(2)"></button>
+      <button class="slide-dot" onclick="goToSlide(3)"></button>
+      <button class="slide-dot" onclick="goToSlide(4)"></button>
+    </div>
+    <!-- Arrows -->
     <div class="slide-arrows">
       <button class="slide-arrow" onclick="prevSlide()">&#8249;</button>
       <button class="slide-arrow" onclick="nextSlide()">&#8250;</button>
     </div>
   </div>
 </section>
-
-<div class="divider"><div class="divider-line"></div><span class="divider-anchor">⚓</span><div class="divider-line"></div></div>
-
-<!-- ── ABOUT ── -->
+<div class="divider">
+  <div class="divider-line"></div>
+  <span class="divider-anchor">⚓</span>
+  <div class="divider-line"></div>
+</div>
+<!-- ===================== ANCHORED IN TRUTH ===================== -->
 <section class="about">
   <div class="about-inner">
     <div class="section-label">Anchored in truth</div>
-    <p>We shape the world, so it only makes sense that we begin to understand it. The Nautisk exists to make the stories that matter most accessible to everyone, not just the experts. We are achieving our mission if news becomes accessible, but most importantly <strong>UNDERSTANDABLE.</strong></p>
+    <p>We shape the world, so it only makes sense that we begin to understand it. The Nautisk exists to make the stories that matter most accessible to everyone — not just the experts. We are achieving our mission if news becomes accessible, but most importantly <strong>UNDERSTANDABLE.</strong></p>
   </div>
 </section>
-
-<div class="divider"><div class="divider-line"></div><span class="divider-anchor">⚓</span><div class="divider-line"></div></div>
-
-<!-- ── COVERAGE ── -->
+<div class="divider">
+  <div class="divider-line"></div>
+  <span class="divider-anchor">⚓</span>
+  <div class="divider-line"></div>
+</div>
+<!-- ===================== WHAT WE COVER ===================== -->
 <section class="coverage" id="coverage">
-
-  <!-- Aquatic: two-panel layout -->
-  <div class="coverage-panels">
-
-    <!-- LEFT: starfish -->
-    <div class="coverage-left">
-      <!-- Full-panel ocean floor background -->
-      <svg class="ocean-bg" viewBox="0 0 760 480" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-        <defs>
-          <radialGradient id="oceanDepth" cx="50%" cy="100%" r="80%">
-            <stop offset="0%" stop-color="#0a2a42" stop-opacity="0.5"/>
-            <stop offset="100%" stop-color="#03213a" stop-opacity="0"/>
-          </radialGradient>
-        </defs>
-        <rect width="760" height="480" fill="url(#oceanDepth)"/>
-
-        <!-- Seabed waves at bottom -->
-        <path d="M0,455 C60,445 120,462 180,452 C240,442 300,458 360,448 C420,438 480,455 540,445 C600,435 660,452 760,444" stroke="rgba(255,255,255,0.14)" stroke-width="1.2" fill="none"/>
-        <path d="M0,468 C50,460 110,472 170,464 C230,456 290,470 350,462 C410,454 470,468 530,460 C590,452 660,466 760,458" stroke="rgba(255,255,255,0.09)" stroke-width="1" fill="none"/>
-
-        <!-- Coral cluster bottom-left -->
-        <path d="M55,475 L55,390 M55,430 C38,410 30,382 44,366 M55,430 C72,410 78,380 64,364 M55,408 C42,393 36,370 48,357 M55,408 C68,393 73,370 61,355" stroke="rgba(255,255,255,0.22)" stroke-width="2" fill="none" stroke-linecap="round"/>
-        <ellipse cx="44" cy="363" rx="7" ry="10" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
-        <ellipse cx="64" cy="361" rx="6" ry="9" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
-        <ellipse cx="48" cy="354" rx="5" ry="8" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
-        <ellipse cx="61" cy="352" rx="5" ry="8" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
-
-        <!-- Coral cluster bottom-right -->
-        <path d="M695,475 L695,400 M695,438 C710,418 718,390 706,374 M695,438 C680,418 674,388 686,372 M695,415 C708,400 714,376 702,362 M695,415 C682,400 677,376 689,360" stroke="rgba(255,255,255,0.2)" stroke-width="2" fill="none" stroke-linecap="round"/>
-        <ellipse cx="706" cy="371" rx="7" ry="10" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
-        <ellipse cx="686" cy="369" rx="6" ry="9" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
-        <ellipse cx="702" cy="359" rx="5" ry="8" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
-        <ellipse cx="689" cy="357" rx="5" ry="8" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
-
-        <!-- Coral cluster bottom-center -->
-        <path d="M370,475 L370,418 M370,445 C358,430 353,410 363,400 M370,445 C382,430 386,408 376,398" stroke="rgba(255,255,255,0.15)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-        <ellipse cx="363" cy="398" rx="5" ry="7" fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="1.3"/>
-        <ellipse cx="376" cy="396" rx="5" ry="7" fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="1.3"/>
-
-        <!-- Seagrass bottom-left cluster -->
-        <path d="M130,475 C126,448 132,420 128,395" stroke="rgba(255,255,255,0.18)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        <path d="M144,475 C148,445 142,415 146,388" stroke="rgba(255,255,255,0.18)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        <path d="M158,475 C154,450 160,428 155,405" stroke="rgba(255,255,255,0.14)" stroke-width="1.3" fill="none" stroke-linecap="round"/>
-
-        <!-- Seagrass bottom-right cluster -->
-        <path d="M598,475 C602,448 596,420 600,395" stroke="rgba(255,255,255,0.16)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        <path d="M612,475 C608,445 614,415 610,388" stroke="rgba(255,255,255,0.16)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        <path d="M626,475 C630,450 624,428 628,405" stroke="rgba(255,255,255,0.12)" stroke-width="1.3" fill="none" stroke-linecap="round"/>
-
-        <!-- Seagrass mid-left -->
-        <path d="M228,475 C224,452 230,430 226,408" stroke="rgba(255,255,255,0.13)" stroke-width="1.3" fill="none" stroke-linecap="round"/>
-        <path d="M240,475 C244,452 238,432 242,410" stroke="rgba(255,255,255,0.11)" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-
-        <!-- Seagrass mid-right -->
-        <path d="M510,475 C514,452 508,430 512,408" stroke="rgba(255,255,255,0.13)" stroke-width="1.3" fill="none" stroke-linecap="round"/>
-        <path d="M524,475 C520,452 526,432 522,410" stroke="rgba(255,255,255,0.11)" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-
-        <!-- Bubbles — scattered all over -->
-        <circle cx="28" cy="320" r="5" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.1"/>
-        <circle cx="42" cy="285" r="3.5" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-        <circle cx="22" cy="248" r="4" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
-        <circle cx="38" cy="210" r="2.5" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
-        <circle cx="18" cy="178" r="5.5" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
-        <circle cx="34" cy="140" r="3" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-        <circle cx="20" cy="105" r="4.5" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-        <circle cx="730" cy="310" r="5" fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="1.1"/>
-        <circle cx="718" cy="272" r="3.5" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
-        <circle cx="736" cy="235" r="4" fill="none" stroke="rgba(255,255,255,0.13)" stroke-width="1"/>
-        <circle cx="722" cy="196" r="2.5" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
-        <circle cx="740" cy="158" r="5" fill="none" stroke="rgba(255,255,255,0.11)" stroke-width="1"/>
-        <circle cx="726" cy="118" r="3" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-        <circle cx="200" cy="340" r="4" fill="none" stroke="rgba(255,255,255,0.13)" stroke-width="1"/>
-        <circle cx="188" cy="305" r="2.5" fill="none" stroke="rgba(255,255,255,0.11)" stroke-width="1"/>
-        <circle cx="560" cy="350" r="4.5" fill="none" stroke="rgba(255,255,255,0.13)" stroke-width="1"/>
-        <circle cx="572" cy="312" r="3" fill="none" stroke="rgba(255,255,255,0.11)" stroke-width="1"/>
-        <circle cx="340" cy="80" r="3.5" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-        <circle cx="420" cy="55" r="4" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-        <circle cx="380" cy="38" r="2.5" fill="none" stroke="rgba(255,255,255,0.09)" stroke-width="1"/>
-        <circle cx="90" cy="65" r="3" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-        <circle cx="660" cy="72" r="3.5" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-
-        <!-- Fish 1 — upper left, swimming right -->
-        <g transform="translate(80,90)">
-          <ellipse cx="0" cy="0" rx="22" ry="9" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.4"/>
-          <path d="M22,0 C30,-7 40,-8 40,0 C40,8 30,7 22,0Z" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.4"/>
-          <circle cx="-8" cy="-2" r="2.5" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
-        </g>
-
-        <!-- Fish 2 — upper right, swimming left -->
-        <g transform="translate(640,110) scale(-1,1)">
-          <ellipse cx="0" cy="0" rx="20" ry="8" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.3"/>
-          <path d="M20,0 C28,-6 36,-7 36,0 C36,7 28,6 20,0Z" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.3"/>
-          <circle cx="-7" cy="-2" r="2" fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="1"/>
-        </g>
-
-        <!-- Fish 3 — mid-left, swimming right -->
-        <g transform="translate(48,240)">
-          <ellipse cx="0" cy="0" rx="18" ry="7" fill="none" stroke="rgba(255,255,255,0.17)" stroke-width="1.3"/>
-          <path d="M18,0 C25,-5 32,-6 32,0 C32,6 25,5 18,0Z" fill="none" stroke="rgba(255,255,255,0.17)" stroke-width="1.3"/>
-          <circle cx="-6" cy="-1.5" r="2" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-        </g>
-
-        <!-- Fish 4 — mid-right, swimming left -->
-        <g transform="translate(700,260) scale(-1,1)">
-          <ellipse cx="0" cy="0" rx="19" ry="7.5" fill="none" stroke="rgba(255,255,255,0.17)" stroke-width="1.3"/>
-          <path d="M19,0 C26,-5 34,-6 34,0 C34,6 26,5 19,0Z" fill="none" stroke="rgba(255,255,255,0.17)" stroke-width="1.3"/>
-          <circle cx="-6" cy="-1.5" r="2" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-        </g>
-
-        <!-- Fish 5 — lower mid-left, swimming right, angled up -->
-        <g transform="translate(155,360) rotate(-12)">
-          <ellipse cx="0" cy="0" rx="16" ry="6" fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="1.2"/>
-          <path d="M16,0 C22,-5 28,-5 28,0 C28,5 22,5 16,0Z" fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="1.2"/>
-          <circle cx="-5" cy="-1.5" r="1.8" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
-        </g>
-
-        <!-- Fish 6 — lower mid-right, swimming left -->
-        <g transform="translate(590,370) scale(-1,1) rotate(-8)">
-          <ellipse cx="0" cy="0" rx="17" ry="6.5" fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="1.2"/>
-          <path d="M17,0 C23,-5 30,-5 30,0 C30,5 23,5 17,0Z" fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="1.2"/>
-          <circle cx="-5" cy="-1.5" r="1.8" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
-        </g>
-
-        <!-- Tiny school — upper center, swimming right -->
-        <g transform="translate(290,48)">
-          <ellipse cx="0" cy="0" rx="12" ry="5" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="1.1"/>
-          <path d="M12,0 C17,-4 22,-4 22,0 C22,4 17,4 12,0Z" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="1.1"/>
-        </g>
-        <g transform="translate(320,38)">
-          <ellipse cx="0" cy="0" rx="11" ry="4.5" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
-          <path d="M11,0 C16,-3.5 20,-3.5 20,0 C20,3.5 16,3.5 11,0Z" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
-        </g>
-        <g transform="translate(305,62)">
-          <ellipse cx="0" cy="0" rx="10" ry="4" fill="none" stroke="rgba(255,255,255,0.11)" stroke-width="1"/>
-          <path d="M10,0 C14,-3 18,-3 18,0 C18,3 14,3 10,0Z" fill="none" stroke="rgba(255,255,255,0.11)" stroke-width="1"/>
-        </g>
-
-        <!-- Tiny school — right side, swimming left -->
-        <g transform="translate(680,180) scale(-1,1)">
-          <ellipse cx="0" cy="0" rx="11" ry="4.5" fill="none" stroke="rgba(255,255,255,0.13)" stroke-width="1"/>
-          <path d="M11,0 C16,-3.5 21,-3.5 21,0 C21,3.5 16,3.5 11,0Z" fill="none" stroke="rgba(255,255,255,0.13)" stroke-width="1"/>
-        </g>
-        <g transform="translate(680,197) scale(-1,1)">
-          <ellipse cx="0" cy="0" rx="10" ry="4" fill="none" stroke="rgba(255,255,255,0.11)" stroke-width="1"/>
-          <path d="M10,0 C14,-3 19,-3 19,0 C19,3 14,3 10,0Z" fill="none" stroke="rgba(255,255,255,0.11)" stroke-width="1"/>
-        </g>
-
-        <!-- Rocks / pebbles on seabed -->
-        <ellipse cx="260" cy="462" rx="18" ry="8" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1.1"/>
-        <ellipse cx="285" cy="466" rx="12" ry="5" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-        <ellipse cx="460" cy="460" rx="14" ry="6" fill="none" stroke="rgba(255,255,255,0.11)" stroke-width="1"/>
-        <ellipse cx="482" cy="464" rx="9" ry="4" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-        <ellipse cx="108" cy="470" rx="10" ry="4" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-        <ellipse cx="640" cy="468" rx="11" ry="4.5" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-      </svg>
-
-      <div class="coverage-left-label">What we cover</div>
-
-      <!-- Reset button — appears when a section is active -->
-      <button class="sf-reset-btn" id="sfResetBtn" onclick="resetSection()" title="Back to overview">↩ overview</button>
-
-      <!--
-        Clean five-arm starfish. Each arm is identical — drawn pointing straight
-        up, then rotated by multiples of 72°. Labels placed at fixed positions
-        outside each arm tip, all right-side up using dominant-baseline.
-      -->
-      <svg class="starfish-svg" viewBox="-300 -330 600 660" xmlns="http://www.w3.org/2000/svg">
-
-  <!-- BACKGROUND SCENE -->
-  <g opacity="0.16" style="pointer-events:none">
-    <!-- Bubbles left -->
-    <circle cx="-185" cy="70" r="6" fill="none" stroke="white" stroke-width="1.1"/>
-    <circle cx="-170" cy="38" r="4" fill="none" stroke="white" stroke-width="1"/>
-    <circle cx="-180" cy="4" r="3" fill="none" stroke="white" stroke-width="1"/>
-    <circle cx="-190" cy="-30" r="5" fill="none" stroke="white" stroke-width="1"/>
-    <circle cx="-175" cy="-62" r="2.5" fill="none" stroke="white" stroke-width="1"/>
-    <!-- Bubbles right -->
-    <circle cx="182" cy="48" r="5" fill="none" stroke="white" stroke-width="1.1"/>
-    <circle cx="192" cy="14" r="3.5" fill="none" stroke="white" stroke-width="1"/>
-    <circle cx="178" cy="-20" r="6" fill="none" stroke="white" stroke-width="1"/>
-    <circle cx="188" cy="-56" r="2.5" fill="none" stroke="white" stroke-width="1"/>
-    <!-- Bubbles top -->
-    <circle cx="-28" cy="-200" r="3.5" fill="none" stroke="white" stroke-width="1"/>
-    <circle cx="24" cy="-212" r="4.5" fill="none" stroke="white" stroke-width="1"/>
-    <circle cx="6" cy="-228" r="2" fill="none" stroke="white" stroke-width="1"/>
-    <!-- Fish left -->
-    <g transform="translate(-185,-132) scale(0.85)">
-      <ellipse cx="0" cy="0" rx="15" ry="6.5" fill="none" stroke="white" stroke-width="1.3"/>
-      <path d="M15,0 C21,-5 28,-5 28,0 C28,5 21,5 15,0Z" fill="none" stroke="white" stroke-width="1.3"/>
-      <circle cx="-4" cy="-1" r="1.8" fill="none" stroke="white" stroke-width="1"/>
-    </g>
-    <!-- Fish right -->
-    <g transform="translate(182,-152) scale(-0.8,0.8)">
-      <ellipse cx="0" cy="0" rx="15" ry="6.5" fill="none" stroke="white" stroke-width="1.3"/>
-      <path d="M15,0 C21,-5 28,-5 28,0 C28,5 21,5 15,0Z" fill="none" stroke="white" stroke-width="1.3"/>
-      <circle cx="-4" cy="-1" r="1.8" fill="none" stroke="white" stroke-width="1"/>
-    </g>
-    <!-- Tiny school top -->
-    <g transform="translate(-10,-205) scale(0.6)">
-      <ellipse cx="0" cy="0" rx="13" ry="5" fill="none" stroke="white" stroke-width="1.2"/>
-      <path d="M13,0 C18,-4 24,-4 24,0 C24,4 18,4 13,0Z" fill="none" stroke="white" stroke-width="1.2"/>
-    </g>
-    <g transform="translate(18,-218) scale(0.55)">
-      <ellipse cx="0" cy="0" rx="13" ry="5" fill="none" stroke="white" stroke-width="1.2"/>
-      <path d="M13,0 C18,-4 24,-4 24,0 C24,4 18,4 13,0Z" fill="none" stroke="white" stroke-width="1.2"/>
-    </g>
-    <!-- Coral left -->
-    <path d="M-200,248 L-200,172 M-200,210 C-215,192 -222,168 -210,154 M-200,210 C-185,192 -180,167 -192,153" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
-    <ellipse cx="-210" cy="151" rx="7" ry="9" fill="none" stroke="white" stroke-width="1.4"/>
-    <ellipse cx="-192" cy="149" rx="6" ry="8" fill="none" stroke="white" stroke-width="1.4"/>
-    <!-- Coral right -->
-    <path d="M194,248 L194,180 M194,216 C208,198 214,175 202,161 M194,216 C180,198 176,174 188,160" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
-    <ellipse cx="202" cy="158" rx="7" ry="9" fill="none" stroke="white" stroke-width="1.4"/>
-    <ellipse cx="188" cy="156" rx="6" ry="8" fill="none" stroke="white" stroke-width="1.4"/>
-    <!-- Seagrass -->
-    <path d="M-140,252 C-144,220 -136,194 -140,168" stroke="white" stroke-width="1.4" fill="none" stroke-linecap="round"/>
-    <path d="M-126,252 C-122,216 -128,188 -124,162" stroke="white" stroke-width="1.4" fill="none" stroke-linecap="round"/>
-    <path d="M128,252 C132,220 125,194 129,168" stroke="white" stroke-width="1.4" fill="none" stroke-linecap="round"/>
-    <path d="M142,252 C138,216 144,188 140,162" stroke="white" stroke-width="1.4" fill="none" stroke-linecap="round"/>
-    <!-- Seabed -->
-    <path d="M-240,252 C-200,242 -160,256 -120,246 C-80,236 -40,252 0,244 C40,236 80,252 120,242 C160,232 190,248 240,242" stroke="white" stroke-width="1.1" fill="none"/>
-  </g>
-
-  <!--
-    STARFISH — clean symmetric design.
-    Each arm: identical bezier path drawn pointing UP (toward -y),
-    then rotated by 0, 72, 144, 216, 288 degrees.
-
-    Arm path: base ±18px at y=0, smooth curve to tip at y=-158.
-    Labels placed at EXACT absolute coordinates (pre-calculated):
-      Finance   (0°):   (0,      -177)
-      Law       (72°):  (168.3,  -54.7)
-      Tech      (144°): (104.0,  143.2)
-      Healthcare(216°): (-104.0, 143.2)
-      Politics  (288°): (-168.3, -54.7)
-    Each label uses text-anchor appropriate to position.
-  -->
-
-  <!-- ARM 1: Finance — 0° (top) — label above -->
-  <g class="sf-arm finance" data-section="finance" data-href="finance.html">
-    <path class="sf-arm-path" d="M -18,14 C -38,-18 -34,-78 0,-158 C 34,-78 38,-18 18,14 Z"/>
-    <circle class="sf-dot" cx="0" cy="-52" r="3.5"/>
-    <circle class="sf-dot" cx="0" cy="-88" r="3"/>
-    <circle class="sf-dot" cx="0" cy="-120" r="2.5"/>
-    <circle class="sf-dot" cx="0" cy="-144" r="2"/>
-    <path d="M0,-45 C5,-80 5,-118 0,-155" stroke="rgba(255,255,255,0.22)" stroke-width="1" fill="none"/>
-    <path d="M0,-45 C-5,-80 -5,-118 0,-155" stroke="rgba(255,255,255,0.22)" stroke-width="1" fill="none"/>
-    <text class="sf-label" x="0" y="-210" text-anchor="middle" style="cursor:pointer" onclick="showSection('finance')">FINANCE</text>
-  </g>
-
-  <!-- ARM 2: Law — 72° (upper right) — label right -->
-  <g class="sf-arm law" data-section="law" data-href="law.html" transform="rotate(72)">
-    <path class="sf-arm-path" d="M -18,14 C -38,-18 -34,-78 0,-158 C 34,-78 38,-18 18,14 Z"/>
-    <circle class="sf-dot" cx="0" cy="-52" r="3.5"/>
-    <circle class="sf-dot" cx="0" cy="-88" r="3"/>
-    <circle class="sf-dot" cx="0" cy="-120" r="2.5"/>
-    <circle class="sf-dot" cx="0" cy="-144" r="2"/>
-    <path d="M0,-45 C5,-80 5,-118 0,-155" stroke="rgba(255,255,255,0.22)" stroke-width="1" fill="none"/>
-    <path d="M0,-45 C-5,-80 -5,-118 0,-155" stroke="rgba(255,255,255,0.22)" stroke-width="1" fill="none"/>
-  </g>
-  <!-- Law label — absolute coords, right-side up -->
-  <text class="sf-label" x="185" y="-44" text-anchor="start" style="cursor:pointer" onclick="showSection('law')">LAW</text>
-
-  <!-- ARM 3: Tech — 144° (lower right) — label below-right -->
-  <g class="sf-arm tech" data-section="tech" data-href="tech.html" transform="rotate(144)">
-    <path class="sf-arm-path" d="M -18,14 C -38,-18 -34,-78 0,-158 C 34,-78 38,-18 18,14 Z"/>
-    <circle class="sf-dot" cx="0" cy="-52" r="3.5"/>
-    <circle class="sf-dot" cx="0" cy="-88" r="3"/>
-    <circle class="sf-dot" cx="0" cy="-120" r="2.5"/>
-    <circle class="sf-dot" cx="0" cy="-144" r="2"/>
-    <path d="M0,-45 C5,-80 5,-118 0,-155" stroke="rgba(255,255,255,0.22)" stroke-width="1" fill="none"/>
-    <path d="M0,-45 C-5,-80 -5,-118 0,-155" stroke="rgba(255,255,255,0.22)" stroke-width="1" fill="none"/>
-  </g>
-  <!-- Tech label — absolute coords -->
-  <text class="sf-label" x="118" y="175" text-anchor="start" style="cursor:pointer" onclick="showSection('tech')">TECH</text>
-
-  <!-- ARM 4: Healthcare — 216° (lower left) — label below-left -->
-  <g class="sf-arm healthcare" data-section="healthcare" data-href="healthcare.html" transform="rotate(216)">
-    <path class="sf-arm-path" d="M -18,14 C -38,-18 -34,-78 0,-158 C 34,-78 38,-18 18,14 Z"/>
-    <circle class="sf-dot" cx="0" cy="-52" r="3.5"/>
-    <circle class="sf-dot" cx="0" cy="-88" r="3"/>
-    <circle class="sf-dot" cx="0" cy="-120" r="2.5"/>
-    <circle class="sf-dot" cx="0" cy="-144" r="2"/>
-    <path d="M0,-45 C5,-80 5,-118 0,-155" stroke="rgba(255,255,255,0.22)" stroke-width="1" fill="none"/>
-    <path d="M0,-45 C-5,-80 -5,-118 0,-155" stroke="rgba(255,255,255,0.22)" stroke-width="1" fill="none"/>
-  </g>
-  <!-- Healthcare label — absolute coords -->
-  <text class="sf-label" x="-118" y="175" text-anchor="end" style="cursor:pointer" onclick="showSection('healthcare')">HEALTHCARE</text>
-
-  <!-- ARM 5: Politics — 288° (upper left) — label left -->
-  <g class="sf-arm politics" data-section="politics" data-href="politics.html" transform="rotate(288)">
-    <path class="sf-arm-path" d="M -18,14 C -38,-18 -34,-78 0,-158 C 34,-78 38,-18 18,14 Z"/>
-    <circle class="sf-dot" cx="0" cy="-52" r="3.5"/>
-    <circle class="sf-dot" cx="0" cy="-88" r="3"/>
-    <circle class="sf-dot" cx="0" cy="-120" r="2.5"/>
-    <circle class="sf-dot" cx="0" cy="-144" r="2"/>
-    <path d="M0,-45 C5,-80 5,-118 0,-155" stroke="rgba(255,255,255,0.22)" stroke-width="1" fill="none"/>
-    <path d="M0,-45 C-5,-80 -5,-118 0,-155" stroke="rgba(255,255,255,0.22)" stroke-width="1" fill="none"/>
-  </g>
-  <!-- Politics label — absolute coords -->
-  <text class="sf-label" x="-185" y="-44" text-anchor="end" style="cursor:pointer" onclick="showSection('politics')">POLITICS</text>
-
-  <!-- Center body -->
-  <circle cx="0" cy="0" r="30" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.72)" stroke-width="1.5"/>
-  <circle cx="0" cy="0" r="19" fill="rgba(255,255,255,0.11)" stroke="rgba(255,255,255,0.38)" stroke-width="1"/>
-  <circle cx="0" cy="-9" r="2.5" fill="rgba(255,255,255,0.32)"/>
-  <circle cx="8" cy="4.5" r="2.5" fill="rgba(255,255,255,0.32)"/>
-  <circle cx="-8" cy="4.5" r="2.5" fill="rgba(255,255,255,0.32)"/>
-  <circle cx="0" cy="0" r="5" fill="rgba(255,255,255,0.18)" stroke="rgba(255,255,255,0.58)" stroke-width="1"/>
-</svg>
-    </div><!-- /coverage-left -->
-
-    <!-- Vertical divider -->
-    <div class="coverage-divider"></div>
-
-    <!-- RIGHT: description panel -->
-    <div class="coverage-right" id="coverageRight">
-
-      <!-- Default state -->
-      <div class="cr-default-text" id="crDefault">
-        <h3>Five areas of coverage.<br>One place to understand them.</h3>
-        <p>The Nautisk covers the stories that shape everyday life: the policy decisions, market forces, legal rulings, and technological changes that most outlets cover in passing.</p>
-        <div class="cr-hint">
-          <span class="cr-hint-pill finance" onclick="showSection('finance')">Finance</span>
-          <span class="cr-hint-pill law" onclick="showSection('law')">Law</span>
-          <span class="cr-hint-pill tech" onclick="showSection('tech')">Tech</span>
-          <span class="cr-hint-pill healthcare" onclick="showSection('healthcare')">Healthcare</span>
-          <span class="cr-hint-pill politics" onclick="showSection('politics')">Politics</span>
-        </div>
-      </div>
-
-      <!-- Finance panel -->
-      <div class="cr-panel" id="cr-finance">
-        <div class="cr-tag finance">Finance</div>
-        <div class="cr-name">Markets &amp; Money</div>
-        <div class="cr-desc">Economic policy, financial systems, and the market decisions that shape everyday life, reported clearly and without jargon.</div>
-        <div class="cr-examples">Interest rates · Corporate earnings · Housing markets · Inflation · Trade policy · The Fed</div>
-        <a href="finance.html" class="cr-btn finance">Go to Finance →</a>
-      </div>
-
-      <!-- Law panel -->
-      <div class="cr-panel" id="cr-law">
-        <div class="cr-tag law">Law</div>
-        <div class="cr-name">Courts &amp; Policy</div>
-        <div class="cr-desc">Landmark rulings, legislation, and regulatory decisions, explained in plain English without losing the legal substance that makes them matter.</div>
-        <div class="cr-examples">Supreme Court · Federal legislation · Regulatory enforcement · Civil rights · Corporate law</div>
-        <a href="law.html" class="cr-btn law">Go to Law →</a>
-      </div>
-
-      <!-- Tech panel -->
-      <div class="cr-panel" id="cr-tech">
-        <div class="cr-tag tech">Tech</div>
-        <div class="cr-name">Technology &amp; AI</div>
-        <div class="cr-desc">Artificial intelligence, platforms, cybersecurity, and the digital forces reshaping how we live, work, and communicate, reported without hype.</div>
-        <div class="cr-examples">AI regulation · Platform accountability · Cybersecurity · Big tech · Digital rights</div>
-        <a href="tech.html" class="cr-btn tech">Go to Tech →</a>
-      </div>
-
-      <!-- Healthcare panel -->
-      <div class="cr-panel" id="cr-healthcare">
-        <div class="cr-tag healthcare">Healthcare</div>
-        <div class="cr-name">Health &amp; Medicine</div>
-        <div class="cr-desc">Public health, medical research, drug pricing, and the policy decisions that determine what care people can access and afford.</div>
-        <div class="cr-examples">FDA decisions · Drug pricing · Insurance · Public health · Medical research · Medicare</div>
-        <a href="healthcare.html" class="cr-btn healthcare">Go to Healthcare →</a>
-      </div>
-
-      <!-- Politics panel -->
-      <div class="cr-panel" id="cr-politics">
-        <div class="cr-tag politics">Politics</div>
-        <div class="cr-name">Government &amp; Power</div>
-        <div class="cr-desc">Federal government, executive action, elections, and the political forces that translate into laws, budgets, and policy, covered without spin.</div>
-        <div class="cr-examples">Congress · Executive orders · Elections · Foreign policy · Budgets · Judicial appointments</div>
-        <a href="politics.html" class="cr-btn politics">Go to Politics →</a>
-      </div>
-
-    </div><!-- /coverage-right -->
-  </div><!-- /coverage-panels -->
-
-  <!-- Professional fallback -->
-  <div class="coverage-grid-pro">
-    <a href="finance.html" class="coverage-card-pro"><div class="icon">📈</div><h3>Finance</h3><p>Markets, economics, and money decisions, explained clearly.</p></a>
-    <a href="law.html" class="coverage-card-pro"><div class="icon">⚖️</div><h3>Law</h3><p>Legal developments and landmark cases, without the jargon.</p></a>
-    <a href="healthcare.html" class="coverage-card-pro"><div class="icon">🏥</div><h3>Healthcare</h3><p>Medical news and public health: what matters for your wellbeing.</p></a>
-    <a href="politics.html" class="coverage-card-pro"><div class="icon">🏛</div><h3>Politics</h3><p>Government, policy, and power, cutting through the noise.</p></a>
-    <a href="tech.html" class="coverage-card-pro"><div class="icon">💻</div><h3>Tech</h3><p>Technology, AI, and the digital forces reshaping how we live and work.</p></a>
+  <div class="section-label">What we cover</div>
+  <div class="coverage-grid">
+    <a href="finance.html" class="coverage-card">
+      <div class="icon">📈</div>
+      <h3>Finance</h3>
+      <p>Markets, economics, and the money decisions that shape everyday life — explained clearly.</p>
+    </a>
+    <a href="law.html" class="coverage-card">
+      <div class="icon">⚖️</div>
+      <h3>Law</h3>
+      <p>Legal developments, landmark cases, and policy changes that affect you — without the jargon.</p>
+    </a>
+    <a href="healthcare.html" class="coverage-card">
+      <div class="icon">🏥</div>
+      <h3>Healthcare</h3>
+      <p>Medical news, policy, and public health — breaking down what matters for your wellbeing.</p>
+    </a>
+    <a href="politics.html" class="coverage-card">
+      <div class="icon">🏛</div>
+      <h3>Politics</h3>
+      <p>Government, policy, and power — cutting through the noise to what actually matters.</p>
+    </a>
   </div>
-
 </section>
-
-<!-- ── LATEST STORIES ── -->
+<div class="divider">
+  <div class="divider-line"></div>
+  <span class="divider-anchor">⚓</span>
+  <div class="divider-line"></div>
+</div>
+<!-- ===================== LATEST STORIES ===================== -->
 <section class="latest-stories">
   <div class="section-label">Latest Stories</div>
   <div class="article-grid-home">
     <!-- ADD NEW ARTICLE CARDS ABOVE THIS LINE -->
-    <div style="grid-column:1/-1;padding:3rem 1rem;text-align:center;">
-      <p style="font-size:14px;color:var(--text-muted);font-family:'Inter',Arial,sans-serif;line-height:1.8;">New articles coming soon. <a href="https://thenautisk.beehiiv.com/subscribe" style="color:var(--accent);">Subscribe to the newsletter</a> to be notified when we publish.</p>
-    </div>
+    <a class="article-card-home" href="inflation-fed-decision-july-2026.html">
+      <div class="card-body">
+        <span class="card-section-label finance">Finance</span>
+        <h3>Inflation's Sudden Retreat Sets Up a Pivotal Fed Decision</h3>
+        <p>The CPI dropped 0.4% in June — the biggest fall in six years. The Fed meets July 28 and markets are already pricing in a September cut.</p>
+        <span class="card-date">July 21, 2026 &nbsp;·&nbsp; 4 min read</span>
+      </div>
+    </a>
+    <a class="article-card-home" href="paramount-warner-tro-july-2026.html">
+      <div class="card-body">
+        <span class="card-section-label law">Law</span>
+        <h3>A Federal Judge Puts the Paramount-Warner Deal on Ice</h3>
+        <p>A coalition of 12 state AGs won a TRO freezing the $110B merger. A federal judge found the antitrust theory plausible enough to stop a deal this size.</p>
+        <span class="card-date">July 21, 2026 &nbsp;·&nbsp; 4 min read</span>
+      </div>
+    </a>
+    <a class="article-card-home" href="canada-tariffs-july-2026.html">
+      <div class="card-body">
+        <span class="card-section-label politics">Politics</span>
+        <h3>Under a 94-Year-Old Law, Trump Hits Canada with 50% Duties</h3>
+        <p>Section 338 of the Tariff Act of 1930 — untouched by modern presidents — now imposes 50% duties on dairy, cement, construction materials, and more.</p>
+        <span class="card-date">July 21, 2026 &nbsp;·&nbsp; 4 min read</span>
+      </div>
+    </a>
+    <a class="article-card-home" href="medicaid-work-requirements-july-2026.html">
+      <div class="card-body">
+        <span class="card-section-label healthcare">Healthcare</span>
+        <h3>Medicaid Work Requirements Are Already Reshaping Coverage</h3>
+        <p>Nebraska enforced the 80-hour monthly rule first. Every expansion state must comply by December 31, with 7.6 million enrollees affected — many already working.</p>
+        <span class="card-date">July 21, 2026 &nbsp;·&nbsp; 5 min read</span>
+      </div>
+    </a>
+    <a class="article-card-home" href="gold-eagle-cybersecurity-july-2026.html">
+      <div class="card-body">
+        <span class="card-section-label" style="color:#e67e22;font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-family:Arial,sans-serif;font-weight:bold;margin-bottom:.5rem;display:block;">Tech</span>
+        <h3>The White House Built a Cybersecurity War Room Powered by AI</h3>
+        <p>Gold Eagle unifies Treasury, DHS, and DOD with private partners including Anthropic to catch software vulnerabilities before attackers find them.</p>
+        <span class="card-date">July 21, 2026 &nbsp;·&nbsp; 4 min read</span>
+      </div>
+    </a>
+    <a class="article-card-home" href="fed-chair-warsh-inflation-fight.html">
+      <img class="card-img" src="stability.png" alt="Fed Chair Warsh Inflation Fight" />
+      <div class="card-body">
+        <span class="card-section-label finance">Finance</span>
+        <h3>New Fed Chair Kevin Warsh Signals No Retreat From Inflation Fight, Rattling Rate-Cut Hopes</h3>
+        <p>In his first major address on the global stage, Warsh told central bankers the Fed will deliver price stability.</p>
+        <span class="card-date">July 1, 2026 &nbsp;·&nbsp; 4 min read</span>
+      </div>
+    </a>
+    <a class="article-card-home" href="supreme-court-birthright-citizenship.html">
+      <img class="card-img" src="14th.png" alt="Supreme Court Birthright Citizenship Ruling" />
+      <div class="card-body">
+        <span class="card-section-label law">Law</span>
+        <h3>Supreme Court Rejects Trump's Bid to End Birthright Citizenship, 6–3</h3>
+        <p>Chief Justice Roberts' majority opinion anchors the ruling in the 14th Amendment and a 128-year-old precedent.</p>
+        <span class="card-date">July 1, 2026 &nbsp;·&nbsp; 4 min read</span>
+      </div>
+    </a>
+    <a class="article-card-home" href="medicare-glp1-weight-loss-coverage.html">
+      <img class="card-img" src="glp.png" alt="Medicare GLP-1 Coverage" />
+      <div class="card-body">
+        <span class="card-section-label healthcare">Healthcare</span>
+        <h3>Medicare Begins Covering GLP-1 Weight-Loss Drugs Today, Capping Copays at $50</h3>
+        <p>A new CMS demonstration program opens access to Wegovy and Zepbound for millions of seniors who qualify.</p>
+        <span class="card-date">July 1, 2026 &nbsp;·&nbsp; 4 min read</span>
+      </div>
+    </a>
+    <a class="article-card-home" href="democratic-socialists-colorado-primary-win.html">
+      <img class="card-img" src="melat.png" alt="Melat Kiros Colorado Primary Win" />
+      <div class="card-body">
+        <span class="card-section-label politics">Politics</span>
+        <h3>Democratic Socialists Extend Primary Winning Streak, Toppling a 30-Year Colorado Incumbent</h3>
+        <p>Melat Kiros's defeat of Rep. Diana DeGette follows a wave of insurgent wins in New York.</p>
+        <span class="card-date">July 1, 2026 &nbsp;·&nbsp; 4 min read</span>
+      </div>
+    </a>
+    <a class="article-card-home" href="supreme-court-asylum-metering-ruling.html">
+      <img class="card-img" src="asylum.png" alt="Supreme Court Asylum Ruling" />
+      <div class="card-body">
+        <span class="card-section-label politics">Politics</span>
+        <h3>Supreme Court Rules 6-3 That Government May Block Asylum Seekers by Preventing Border Entry</h3>
+        <p>The decision allows federal officials to keep people waiting indefinitely in Mexico.</p>
+        <span class="card-date">June 26, 2026 &nbsp;·&nbsp; 4 min read</span>
+      </div>
+    </a>
+    <a class="article-card-home" href="chemours-pfas-settlement-450-million.html">
+      <img class="card-img" src="450.png" alt="Chemours PFAS Settlement" />
+      <div class="card-body">
+        <span class="card-section-label law">Law</span>
+        <h3>Chemours Agrees to Pay $450 Million Over PFAS Contamination in Landmark Federal Settlement</h3>
+        <p>The first time the federal government has held a PFAS manufacturer comprehensively accountable.</p>
+        <span class="card-date">June 26, 2026 &nbsp;·&nbsp; 4 min read</span>
+      </div>
+    </a>
+    <a class="article-card-home" href="openai-ipo-delayed-2027.html">
+      <img class="card-img" src="space.png" alt="OpenAI IPO" />
+      <div class="card-body">
+        <span class="card-section-label finance">Finance</span>
+        <h3>OpenAI Delays IPO to 2027 as Market Conditions Fall Short of $1 Trillion Target</h3>
+        <p>After confidentially filing to go public, OpenAI reversed course pointing to a rough post-debut by SpaceX.</p>
+        <span class="card-date">June 26, 2026 &nbsp;·&nbsp; 4 min read</span>
+      </div>
+    </a>
+    <a class="article-card-home" href="glyphosate-antibiotic-resistance-study.html">
+      <img class="card-img" src="crop.png" alt="Weedkiller Study" />
+      <div class="card-body">
+        <span class="card-section-label healthcare">Healthcare</span>
+        <h3>Widely Used Weedkiller May Be Accelerating Antibiotic Resistance, Study Finds</h3>
+        <p>Researchers found a biochemical link between agricultural herbicide use and drug-resistant infections.</p>
+        <span class="card-date">June 26, 2026 &nbsp;·&nbsp; 4 min read</span>
+      </div>
+    </a>
   </div>
 </section>
-
-<div class="divider"><div class="divider-line"></div><span class="divider-anchor">⚓</span><div class="divider-line"></div></div>
-
-<!-- ── ON OUR RADAR ── -->
+<div class="divider">
+  <div class="divider-line"></div>
+  <span class="divider-anchor">⚓</span>
+  <div class="divider-line"></div>
+</div>
+<!-- ===================== ON OUR RADAR ===================== -->
 <section class="on-radar">
   <div class="radar-header">
     <span class="radar-sub-icon">🔭</span>
-    <div>
+    <div class="radar-titles">
       <div class="radar-label">On Our Radar</div>
       <div class="radar-title">Stories We're Watching</div>
-      <div class="radar-desc">Topics diving beneath the surface, coverage coming soon.</div>
+      <div class="radar-desc">Topics diving beneath the surface — coverage coming soon.</div>
     </div>
   </div>
   <div class="radar-grid">
-    <div class="radar-item"><div class="radar-item-section finance">Finance</div><h4>OpenAI's IPO Process & the $1 Trillion Valuation Question</h4><p>After delaying its public debut to 2027, we're tracking how OpenAI justifies its valuation and what it means for the broader AI investment bubble.</p><span class="radar-coming-soon">⬡ Coverage forthcoming</span></div>
-    <div class="radar-item"><div class="radar-item-section finance">Finance</div><h4>Federal Reserve Interest Rate Decisions: Q3 2026</h4><p>With inflation signals mixed and the labor market softening, the Fed's next move will ripple through mortgages, markets, and everyday spending.</p><span class="radar-coming-soon">⬡ Coverage forthcoming</span></div>
-    <div class="radar-item"><div class="radar-item-section law">Law</div><h4>Supreme Court's October 2026 Term</h4><p>Several high-stakes cases have already been granted cert. From executive power to digital privacy, the October term could reshape federal law.</p><span class="radar-coming-soon">⬡ Coverage forthcoming</span></div>
-    <div class="radar-item"><div class="radar-item-section law">Law</div><h4>PFAS Regulation Expansion Post-Chemours</h4><p>The $450M settlement may be just the beginning. EPA rulemaking is accelerating, and more manufacturers are in the crosshairs.</p><span class="radar-coming-soon">⬡ Coverage forthcoming</span></div>
-    <div class="radar-item"><div class="radar-item-section healthcare">Healthcare</div><h4>FDA Review of Next-Generation Weight-Loss Drugs</h4><p>Beyond GLP-1s, a new class of obesity treatments is in clinical trials. The FDA's review calendar for late 2026 could reshape a $100B market.</p><span class="radar-coming-soon">⬡ Coverage forthcoming</span></div>
-    <div class="radar-item"><div class="radar-item-section politics">Politics</div><h4>2026 Midterm Elections: Senate Map & Key Races</h4><p>Control of the Senate hangs on a handful of races. We're mapping the competitive seats, the money, and the issues driving each contest.</p><span class="radar-coming-soon">⬡ Coverage forthcoming</span></div>
-    <div class="radar-item"><div class="radar-item-section tech">Tech</div><h4>AI Regulation: What Congress Is Actually Considering</h4><p>Several competing bills are moving through committee. We're tracking what each would do, who's behind them, and what tech companies are lobbying for.</p><span class="radar-coming-soon">⬡ Coverage forthcoming</span></div>
-    <div class="radar-item"><div class="radar-item-section tech">Tech</div><h4>The Browser War Returns: Chrome, Safari, and What Comes Next</h4><p>With the DOJ's Chrome divestiture ruling still working through appeals, the browser market could look very different by 2027.</p><span class="radar-coming-soon">⬡ Coverage forthcoming</span></div>
+    <div class="radar-item">
+      <div class="radar-item-section finance">Finance</div>
+      <h4>OpenAI's IPO Process & the $1 Trillion Valuation Question</h4>
+      <p>After delaying its public debut to 2027, the pressure is mounting. We're tracking how OpenAI justifies its valuation and what it means for the broader AI investment bubble.</p>
+      <span class="radar-coming-soon">⬡ Coverage forthcoming</span>
+    </div>
+    <div class="radar-item">
+      <div class="radar-item-section finance">Finance</div>
+      <h4>Federal Reserve Interest Rate Decisions — Q3 2026</h4>
+      <p>With inflation signals mixed and the labor market softening, the Fed's next move will ripple through mortgages, markets, and everyday spending. We're watching every signal.</p>
+      <span class="radar-coming-soon">⬡ Coverage forthcoming</span>
+    </div>
+    <div class="radar-item">
+      <div class="radar-item-section law">Law</div>
+      <h4>Supreme Court's October 2026 Term</h4>
+      <p>Several high-stakes cases have already been granted cert. From executive power to digital privacy, the October term could reshape federal law across multiple domains.</p>
+      <span class="radar-coming-soon">⬡ Coverage forthcoming</span>
+    </div>
+    <div class="radar-item">
+      <div class="radar-item-section law">Law</div>
+      <h4>PFAS Regulation Expansion Post-Chemours</h4>
+      <p>The $450M Chemours settlement may be just the beginning. EPA rulemaking is accelerating, and more manufacturers are in the crosshairs. We're following the regulatory cascade.</p>
+      <span class="radar-coming-soon">⬡ Coverage forthcoming</span>
+    </div>
+    <div class="radar-item">
+      <div class="radar-item-section healthcare">Healthcare</div>
+      <h4>FDA Review of Next-Generation Weight-Loss Drugs</h4>
+      <p>Beyond GLP-1s, a new class of obesity treatments is moving through clinical trials. The FDA's review calendar for late 2026 could reshape the $100B weight-loss market.</p>
+      <span class="radar-coming-soon">⬡ Coverage forthcoming</span>
+    </div>
+    <div class="radar-item">
+      <div class="radar-item-section healthcare">Healthcare</div>
+      <h4>Medicare Drug Price Negotiation Results</h4>
+      <p>The first round of negotiated drug prices takes effect this year. We're tracking what gets cheaper, what doesn't, and whether pharma's legal challenges will delay implementation.</p>
+      <span class="radar-coming-soon">⬡ Coverage forthcoming</span>
+    </div>
+    <div class="radar-item">
+      <div class="radar-item-section politics">Politics</div>
+      <h4>2026 Midterm Elections — Senate Map & Key Races</h4>
+      <p>Control of the Senate hangs on a handful of races. We're mapping the competitive seats, the money, and the issues driving each contest as November approaches.</p>
+      <span class="radar-coming-soon">⬡ Coverage forthcoming</span>
+    </div>
+    <div class="radar-item">
+      <div class="radar-item-section politics">Politics</div>
+      <h4>Asylum Policy Implementation After the Supreme Court Ruling</h4>
+      <p>The 6-3 ruling gave the executive branch broad power to meter border entry. How the administration actually implements it — and legal challenges ahead — will define the story.</p>
+      <span class="radar-coming-soon">⬡ Coverage forthcoming</span>
+    </div>
   </div>
 </section>
-
-<div class="divider"><div class="divider-line"></div><span class="divider-anchor">⚓</span><div class="divider-line"></div></div>
-
-<!-- ── TIDEPOOL ── -->
+<div class="divider">
+  <div class="divider-line"></div>
+  <span class="divider-anchor">⚓</span>
+  <div class="divider-line"></div>
+</div>
+<!-- ===================== TIDEPOOL SNEAK PEEK ===================== -->
 <section class="tidepool-section">
   <svg class="tidepool-bg-deco" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-    <path fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" d="M0,180 C100,160 200,200 300,180 C400,160 500,200 600,180 C700,160 750,185 800,180"/>
-    <path fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1" d="M0,200 C100,183 200,217 300,200 C400,183 500,217 600,200 C700,183 750,203 800,200"/>
+    <path fill="none" stroke="#7dd4c0" stroke-width="1.5" opacity="0.3" d="M0,180 C100,160 200,200 300,180 C400,160 500,200 600,180 C700,160 750,185 800,180"/>
+    <path fill="none" stroke="#7dd4c0" stroke-width="1" opacity="0.2" d="M0,200 C100,183 200,217 300,200 C400,183 500,217 600,200 C700,183 750,203 800,200"/>
+    <circle cx="680" cy="80" r="22" fill="none" stroke="#4caf7d" stroke-width="1.2" opacity="0.25"/>
+    <path fill="none" stroke="#4caf7d" stroke-width="1" opacity="0.2" d="M680,58 L680,102 M658,80 L702,80 M665,65 L695,95 M695,65 L665,95"/>
+    <circle cx="720" cy="110" r="8" fill="none" stroke="#7dd4c0" stroke-width="1" opacity="0.2"/>
+    <ellipse cx="100" cy="240" rx="18" ry="8" fill="none" stroke="#4caf7d" stroke-width="1" opacity="0.2"/>
+    <path fill="none" stroke="#4caf7d" stroke-width="0.8" opacity="0.18" d="M90,240 C85,228 95,220 100,225 C105,220 115,228 110,240"/>
   </svg>
   <div class="tidepool-inner">
     <div class="tidepool-header">
       <div class="tidepool-brand">
-        <svg class="tidepool-icon-badge" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="32" cy="32" r="30" fill="#4dd9ec"/>
-          <path d="M10 36 C10 24, 22 24, 22 34 C22 44, 34 44, 34 34 C34 24, 46 24, 46 36 L46 46 C46 48 44 50 42 50 L14 50 C12 50 10 48 10 46 Z" fill="#eafbff"/>
-          <circle cx="16" cy="28" r="1.8" fill="#eafbff"/>
-          <circle cx="32" cy="24" r="2.2" fill="#eafbff"/>
-          <circle cx="48" cy="28" r="1.8" fill="#eafbff"/>
-        </svg>
-        <div>
+        <span class="tidepool-emoji">🌊</span>
+        <div class="tidepool-brand-text">
           <div class="tidepool-label">Sub-brand</div>
           <div class="tidepool-name">Tidepool</div>
-          <div class="tidepool-tagline">The news, made approachable: Money, Science, College &amp; World.</div>
+          <div class="tidepool-tagline">The news, made approachable — for everyone.</div>
         </div>
       </div>
       <a href="tidepool.html" class="tidepool-visit-btn">Visit Tidepool →</a>
     </div>
     <div class="tidepool-cards">
-      <div class="tidepool-card">
+      <a href="tidepool-college-grad-plus-loans-ended-new-caps.html" class="tidepool-card">
+        <img src="loans.png" alt="Student loans" />
         <div class="tidepool-card-body">
-          <span class="tidepool-card-tag">
-            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="13" fill="#ffd23f" stroke="#0a2a38" stroke-width="2"/><text x="16" y="21" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="14" fill="#0a2a38">$</text></svg>
-            Money
-          </span>
-          <h4>First Money article coming soon</h4>
-          <p>Personal finance, economics, and how money actually works, explained for everyone.</p>
-          <span class="tidepool-card-coming">✦ Coming soon</span>
+          <span class="tidepool-card-tag">🎓 College</span>
+          <h4>The Student Loan Rules Just Changed. Here's What That Means If You're Heading to Grad School.</h4>
+          <p>Grad PLUS is gone and borrowing is capped — here's what it means if you're heading to grad school.</p>
         </div>
-      </div>
-      <div class="tidepool-card">
+      </a>
+      <a href="tidepool-science-heliconius-butterfly-longevity-aging.html" class="tidepool-card">
+        <img src="butter.png" alt="Heliconius butterfly" />
         <div class="tidepool-card-body">
-          <span class="tidepool-card-tag">
-            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M13 4 L13 13 L6 26 C5 28 6 29 8 29 L24 29 C26 29 27 28 26 26 L19 13 L19 4 Z" fill="#eafbff" stroke="#0a2a38" stroke-width="2" stroke-linejoin="round"/><path d="M9 21 C12 19 20 19 23 21 L26 26 C27 28 26 29 24 29 L8 29 C6 29 5 28 6 26 Z" fill="#4dd9ec"/><rect x="12" y="3" width="8" height="2.4" rx="1" fill="#0a2a38"/></svg>
-            Science
-          </span>
-          <h4>First Science article coming soon</h4>
-          <p>New discoveries and research findings: what they mean and why they matter.</p>
-          <span class="tidepool-card-coming">✦ Coming soon</span>
+          <span class="tidepool-card-tag">🌿 Science</span>
+          <h4>A Tropical Butterfly That Barely Ages Could Change What We Know About Longevity</h4>
+          <p>A new study on Heliconius butterflies is giving longevity researchers a cleaner look at what aging actually is.</p>
         </div>
-      </div>
-      <div class="tidepool-card">
+      </a>
+      <a href="tidepool-popculture-world-cup-2026-america-soccer.html" class="tidepool-card">
+        <img src="world.png" alt="World Cup 2026" />
         <div class="tidepool-card-body">
-          <span class="tidepool-card-tag">
-            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 6 L28 11 L16 16 L4 11 Z" fill="#0a2a38"/><circle cx="16" cy="11" r="1.6" fill="#ffd23f"/><path d="M24 12.5 L24 18 C24 20 20 21.5 16 21.5 C12 21.5 8 20 8 18 L8 12.5" fill="none" stroke="#0a2a38" stroke-width="2"/></svg>
-            College
-          </span>
-          <h4>First College article coming soon</h4>
-          <p>Campus life, student debt, admissions, and everything about the college experience.</p>
-          <span class="tidepool-card-coming">✦ Coming soon</span>
+          <span class="tidepool-card-tag">🎵 Pop Culture</span>
+          <h4>The World Cup Is Here, and America Is Finally Being Tested as a Soccer Country</h4>
+          <p>The 2026 World Cup is the biggest stress test yet for whether America has actually become a soccer country.</p>
         </div>
-      </div>
-      <div class="tidepool-card">
+      </a>
+      <a href="tidepool-tech-instagram-news-reuters-social-media.html" class="tidepool-card">
+        <img src="insta.png" alt="Social media news" />
         <div class="tidepool-card-body">
-          <span class="tidepool-card-tag">
-            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="13" fill="#4dd9ec" stroke="#0a2a38" stroke-width="2"/><path d="M6 16 A10 10 0 0 0 26 16" fill="none" stroke="#0a2a38" stroke-width="1" opacity="0.5"/><path d="M16 3 C11 9 11 23 16 29" fill="none" stroke="#0a2a38" stroke-width="1" opacity="0.5"/><path d="M9 10 C11 9 14 10 13 13 C16 12 18 15 16 17 C13 19 8 17 9 14 Z" fill="#7ddc8a"/></svg>
-            World
-          </span>
-          <h4>First World article coming soon</h4>
-          <p>Global events and international stories: what's happening around the world and why it matters to you.</p>
-          <span class="tidepool-card-coming">✦ Coming soon</span>
+          <span class="tidepool-card-tag">💻 Tech</span>
+          <h4>You've Been Getting Your News From Instagram. Here's What the Data Actually Shows.</h4>
+          <p>Social media is now the world's primary news source — here's what the Reuters data actually says.</p>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
-
-<div class="divider"><div class="divider-line"></div><span class="divider-anchor">⚓</span><div class="divider-line"></div></div>
-
-<!-- ── DEPTH ── -->
+<div class="divider">
+  <div class="divider-line"></div>
+  <span class="divider-anchor">⚓</span>
+  <div class="divider-line"></div>
+</div>
+<!-- ===================== DEPTH SNEAK PEEK ===================== -->
 <section class="depth-section">
-  <svg style="position:absolute;inset:0;pointer-events:none;" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <svg style="position:absolute;top:0;left:0;right:0;bottom:0;pointer-events:none;overflow:hidden;" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
     <circle cx="650" cy="60" r="80" fill="none" stroke="#1a4a6e" stroke-width="1" opacity="0.4"/>
     <circle cx="650" cy="60" r="130" fill="none" stroke="#1a4a6e" stroke-width="0.5" opacity="0.2"/>
+    <circle cx="650" cy="60" r="180" fill="none" stroke="#1a4a6e" stroke-width="0.3" opacity="0.15"/>
+    <line x1="570" y1="60" x2="730" y2="60" stroke="#1a4a6e" stroke-width="0.6" opacity="0.3"/>
+    <line x1="650" y1="-20" x2="650" y2="140" stroke="#1a4a6e" stroke-width="0.6" opacity="0.3"/>
     <path fill="none" stroke="#0d3352" stroke-width="1.5" opacity="0.5" d="M0,240 C100,228 200,252 300,240 C400,228 500,252 600,240 C700,228 750,245 800,240"/>
+    <path fill="none" stroke="#0d3352" stroke-width="1" opacity="0.3" d="M0,260 C100,248 200,270 300,260 C400,248 500,270 600,260 C700,248 750,263 800,260"/>
+    <ellipse cx="120" cy="200" rx="40" ry="15" fill="none" stroke="#1a4a6e" stroke-width="1" opacity="0.25"/>
+    <ellipse cx="120" cy="200" rx="25" ry="9" fill="none" stroke="#1a4a6e" stroke-width="0.7" opacity="0.2"/>
+    <path fill="none" stroke="#4a7fa8" stroke-width="1.2" opacity="0.3" d="M160,200 L175,195 L185,200 L175,205 Z"/>
   </svg>
   <div class="depth-inner">
     <div class="depth-header">
       <div class="depth-brand">
-        <svg class="depth-icon-badge" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="32" cy="32" r="30" fill="#0d3352"/>
-          <circle cx="32" cy="32" r="23" fill="none" stroke="#2a5f8a" stroke-width="1" opacity="0.5"/>
-          <circle cx="32" cy="32" r="15" fill="none" stroke="#4a7fa8" stroke-width="1.5" opacity="0.8"/>
-          <circle cx="32" cy="32" r="7" fill="none" stroke="#8ab4d4" stroke-width="2"/>
-          <circle cx="32" cy="32" r="3" fill="#c0d8f0"/>
-        </svg>
+        <span class="depth-emoji">🌊</span>
         <div>
-          <div class="depth-label-text">Sub-brand</div>
+          <div class="depth-label">Sub-brand</div>
           <div class="depth-name">Depth</div>
-          <div class="depth-tagline">Long-form research journalism, going below the surface.</div>
+          <div class="depth-tagline">Long-form research journalism — going below the surface.</div>
         </div>
       </div>
       <a href="depth.html" class="depth-visit-btn">Visit Depth →</a>
     </div>
     <div class="depth-cards">
-      <div class="depth-card"><div class="depth-card-body"><span class="depth-card-tag"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="18" width="5" height="9" rx="1" fill="#4a7fa8"/><rect x="13" y="12" width="5" height="15" rx="1" fill="#6a9fc4"/><rect x="21" y="6" width="5" height="21" rx="1" fill="#8ab4d4"/></svg>Finance</span><h4>First Finance piece coming soon</h4><p>In-depth analysis of markets, policy, and economic forces, fully sourced.</p><span class="depth-card-coming">⬡ Coming soon</span></div></div>
-      <div class="depth-card"><div class="depth-card-body"><span class="depth-card-tag"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><line x1="16" y1="4" x2="16" y2="26" stroke="#8ab4d4" stroke-width="2"/><line x1="6" y1="10" x2="26" y2="10" stroke="#8ab4d4" stroke-width="2"/><path d="M6 10 L2 18 A4 4 0 0 0 10 18 Z" fill="none" stroke="#4a7fa8" stroke-width="1.5"/><path d="M26 10 L22 18 A4 4 0 0 0 30 18 Z" fill="none" stroke="#4a7fa8" stroke-width="1.5"/><rect x="11" y="25" width="10" height="3" rx="1" fill="#4a7fa8"/></svg>Law</span><h4>First Law piece coming soon</h4><p>Extended legal analysis of rulings, judicial philosophy, and long-term implications.</p><span class="depth-card-coming">⬡ Coming soon</span></div></div>
-      <div class="depth-card"><div class="depth-card-body"><span class="depth-card-tag"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><rect x="13" y="5" width="6" height="22" rx="2" fill="#4a7fa8"/><rect x="5" y="13" width="22" height="6" rx="2" fill="#4a7fa8"/><path d="M4 16 L10 16 L13 10 L17 22 L20 16 L28 16" fill="none" stroke="#c0d8f0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Healthcare</span><h4>First Healthcare piece coming soon</h4><p>Investigative reporting on policy, pharma, and public health systems.</p><span class="depth-card-coming">⬡ Coming soon</span></div></div>
-      <div class="depth-card"><div class="depth-card-body"><span class="depth-card-tag"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 4 L28 12 L4 12 Z" fill="#4a7fa8"/><rect x="6" y="14" width="3" height="12" fill="#8ab4d4"/><rect x="12" y="14" width="3" height="12" fill="#8ab4d4"/><rect x="17" y="14" width="3" height="12" fill="#8ab4d4"/><rect x="23" y="14" width="3" height="12" fill="#8ab4d4"/><rect x="4" y="27" width="24" height="3" rx="1" fill="#2a5f8a"/></svg>Politics</span><h4>First Politics piece coming soon</h4><p>Deep analysis of political movements, institutional change, and governance.</p><span class="depth-card-coming">⬡ Coming soon</span></div></div>
+      <a href="depth-finance-warsh-fed-tariff-inflation.html" class="depth-card">
+        <img src="chair.png" alt="Fed Chair Warsh" />
+        <div class="depth-card-body">
+          <span class="depth-card-tag">📈 Finance</span>
+          <h4>The Fed Chair Who Refuses to Say What Comes Next</h4>
+          <p>Kevin Warsh stripped the Fed's policy statement to 132 words and said nothing — while inflation hits 4.2%.</p>
+        </div>
+      </a>
+      <a href="depth-law-voting-rights-act-callais-section-2.html" class="depth-card">
+        <img src="section.png" alt="Voting Rights Act" />
+        <div class="depth-card-body">
+          <span class="depth-card-tag">⚖️ Law</span>
+          <h4>Section 2 Is Still on the Books. It No Longer Does Anything.</h4>
+          <p>After Louisiana v. Callais, the VRA's redistricting enforcement mechanism has been effectively ended.</p>
+        </div>
+      </a>
+      <a href="depth-healthcare-medicaid-work-requirements-implementation.html" class="depth-card">
+        <img src="80.png" alt="Medicaid work requirements" />
+        <div class="depth-card-body">
+          <span class="depth-card-tag">🏥 Healthcare</span>
+          <h4>What 80 Hours a Month Actually Means</h4>
+          <p>The Medicaid work requirement machinery is already turning — and history says who loses coverage won't track who isn't working.</p>
+        </div>
+      </a>
+      <a href="depth-politics-redistricting-republicans-house-2026.html" class="depth-card">
+        <img src="map.png" alt="Congressional redistricting" />
+        <div class="depth-card-body">
+          <span class="depth-card-tag">🏛 Politics</span>
+          <h4>The Party That Drew the Map Doesn't Always Win the Election</h4>
+          <p>Republicans have their best redistricting position in a generation — and may still lose the House.</p>
+        </div>
+      </a>
     </div>
   </div>
 </section>
-
-<div class="divider"><div class="divider-line"></div><span class="divider-anchor">⚓</span><div class="divider-line"></div></div>
-
-<!-- ── NEWSLETTER ── -->
+<div class="divider">
+  <div class="divider-line"></div>
+  <span class="divider-anchor">⚓</span>
+  <div class="divider-line"></div>
+</div>
+<!-- ===================== NEWSLETTER ===================== -->
 <section class="newsletter" id="newsletter">
   <div class="newsletter-inner">
-    <div class="newsletter-image"><img src="newsletter.png" alt="The Nautisk Newsletter" /></div>
+    <div class="newsletter-image">
+      <img src="newsletter.png" alt="The Nautisk Newsletter" />
+    </div>
     <div class="newsletter-content">
       <div class="newsletter-tagline">The Nautisk Newsletter</div>
       <h2>Stay in the current.</h2>
-      <p>Clear, concise, and worth your time: independent coverage of finance, law, healthcare, politics, and tech delivered straight to your inbox.</p>
+      <p>Clear, concise, and worth your time — independent coverage of finance, law, healthcare, and politics delivered straight to your inbox.</p>
       <div class="newsletter-form">
         <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="3933c9e1-b702-4bed-a004-71e3fed21b16"></script>
       </div>
     </div>
   </div>
 </section>
-
-<!-- ── FOOTER ── -->
+<!-- ===================== FOOTER ===================== -->
 <footer id="contact">
   <div class="footer-top">
     <div class="footer-brand">
       <div class="footer-logo">THE <span>NAUTISK</span></div>
       <p>Independent journalism. Anchored in truth.</p>
-      <div class="footer-social">
-        <a href="https://instagram.com/thenautisk" target="_blank" rel="noopener noreferrer">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          @thenautisk
-        </a>
-      </div>
     </div>
     <div class="footer-col">
       <h4>Coverage</h4>
@@ -1262,21 +1545,21 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5
       <a href="law.html">Law</a>
       <a href="healthcare.html">Healthcare</a>
       <a href="politics.html">Politics</a>
-      <a href="tech.html">Tech</a>
       <a href="opinion.html">Opinion</a>
-    </div>
-    <div class="footer-col">
-      <h4>Sub-brands</h4>
-      <a href="tidepool.html">Tidepool</a>
-      <a href="depth.html">Depth</a>
-      <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Newsletter</a>
     </div>
     <div class="footer-col">
       <h4>Company</h4>
       <a href="about.html">About Us</a>
-      <a href="tips.html">Submit a Tip</a>
-      <a href="mailto:evan@thenautisk.com">Contact Us</a>
-      <p style="margin-top:0.25rem;">Manhattan, New York</p>
+      <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Newsletter</a>
+      <a href="tidepool.html">Tidepool</a>
+      <a href="depth.html">Depth</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>Manhattan, New York</p>
+      <a href="mailto:evan@thenautisk.com">evan@thenautisk.com</a>
+      <a href="https://instagram.com/thenautisk" target="_blank" rel="noopener noreferrer">@thenautisk</a>
+      <a href="tips.html">Submit a tip</a>
     </div>
   </div>
   <div class="footer-bottom">
@@ -1291,55 +1574,55 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2.5rem 2.5
     <a href="corrections.html">Corrections Policy</a>
   </div>
 </footer>
-
-<button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
-
 <script>
-// ── MODE TOGGLE (dot) ──────────────────────────────────────────────────────
+// ===================== THEME TOGGLE =====================
 let isProfessional = false;
-const dotToggle = document.getElementById('dotToggle');
-function setMode(pro) {
-  isProfessional = pro;
-  document.body.classList.toggle('professional', pro);
-  localStorage.setItem('nautisk-mode', pro ? 'professional' : 'aquatic');
+function toggleMode() {
+  isProfessional = !isProfessional;
+  document.body.classList.toggle('professional', isProfessional);
+  const icon = document.querySelector('.toggle-icon');
+  const label = document.getElementById('modeLabel');
+  if (isProfessional) {
+    if (icon) icon.textContent = '🏢';
+    if (label) label.textContent = 'Professional';
+  } else {
+    if (icon) icon.textContent = '🌊';
+    if (label) label.textContent = 'Aquatic';
+  }
+  localStorage.setItem('nautisk-mode', isProfessional ? 'professional' : 'aquatic');
 }
-dotToggle.addEventListener('click', () => setMode(!isProfessional));
-if (localStorage.getItem('nautisk-mode') === 'professional') setMode(true);
-
-// ── NEWS DROPDOWN ──────────────────────────────────────────────────────────
+// Restore saved mode
+if (localStorage.getItem('nautisk-mode') === 'professional') toggleMode();
+// ===================== HAMBURGER =====================
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+mobileMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  });
+});
+function toggleDropdownMobile() {
+  const links = document.getElementById('mobileNewsLinks');
+  links.style.display = links.style.display === 'none' ? 'flex' : 'none';
+}
+// ===================== DROPDOWN (click to stay open) =====================
 const newsDropBtn = document.getElementById('newsDropBtn');
 const newsDropdown = document.getElementById('newsDropdown');
-newsDropBtn.addEventListener('click', e => { e.stopPropagation(); newsDropdown.classList.toggle('open'); });
-document.addEventListener('click', e => { if (!newsDropdown.contains(e.target)) newsDropdown.classList.remove('open'); });
-
-// ── SIDE PANEL (3-line) ────────────────────────────────────────────────────
-const threeLine = document.getElementById('threeLine');
-const sidePanel = document.getElementById('sidePanel');
-const sideOverlay = document.getElementById('sideOverlay');
-const sidePanelClose = document.getElementById('sidePanelClose');
-function openPanel() { sidePanel.classList.add('open'); sideOverlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
-function closePanel() { sidePanel.classList.remove('open'); sideOverlay.classList.remove('open'); document.body.style.overflow = ''; }
-threeLine.addEventListener('click', openPanel);
-sidePanelClose.addEventListener('click', closePanel);
-sideOverlay.addEventListener('click', closePanel);
-
-// ── MOBILE FULLSCREEN ──────────────────────────────────────────────────────
-const mobBtn = document.getElementById('mobBtn');
-const mobFullscreen = document.getElementById('mobileFullscreen');
-const mobClose = document.getElementById('mobClose');
-function openMob() { mobBtn.classList.add('open'); mobFullscreen.classList.add('open'); document.body.style.overflow = 'hidden'; }
-function closeMob() { mobBtn.classList.remove('open'); mobFullscreen.classList.remove('open'); document.body.style.overflow = ''; }
-mobBtn.addEventListener('click', () => mobFullscreen.classList.contains('open') ? closeMob() : openMob());
-mobClose.addEventListener('click', closeMob);
-mobFullscreen.querySelectorAll('a').forEach(l => l.addEventListener('click', closeMob));
-function toggleMobNews() {
-  const el = document.getElementById('mobNewsLinks');
-  el.style.display = el.style.display === 'none' ? 'flex' : 'none';
-}
-
-// ── SLIDESHOW ──────────────────────────────────────────────────────────────
+newsDropBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  newsDropdown.classList.toggle('open');
+});
+document.addEventListener('click', (e) => {
+  if (!newsDropdown.contains(e.target)) newsDropdown.classList.remove('open');
+});
+// ===================== SLIDESHOW =====================
 let currentSlide = 0;
-const totalSlides = 1;
+const totalSlides = 5;
 let slideshowTimer = null;
 function goToSlide(n) {
   document.getElementById('slide-' + currentSlide).classList.remove('active');
@@ -1347,59 +1630,15 @@ function goToSlide(n) {
   currentSlide = (n + totalSlides) % totalSlides;
   document.getElementById('slide-' + currentSlide).classList.add('active');
   document.querySelectorAll('.slide-dot')[currentSlide].classList.add('active');
+  resetTimer();
 }
 function nextSlide() { goToSlide(currentSlide + 1); }
 function prevSlide() { goToSlide(currentSlide - 1); }
-
-// ── STARFISH CLICK INTERACTION ────────────────────────────────────────────
-function showSection(section) {
-  document.getElementById('crDefault').style.display = 'none';
-  document.querySelectorAll('.cr-panel').forEach(p => p.classList.remove('visible'));
-  document.querySelectorAll('.sf-arm').forEach(a => a.classList.remove('sf-active'));
-  const panel = document.getElementById('cr-' + section);
-  if (panel) panel.classList.add('visible');
-  const arm = document.querySelector('.sf-arm.' + section);
-  if (arm) arm.classList.add('sf-active');
-  const btn = document.getElementById('sfResetBtn');
-  if (btn) btn.classList.add('visible');
+function resetTimer() {
+  if (slideshowTimer) clearInterval(slideshowTimer);
+  slideshowTimer = setInterval(nextSlide, 5000);
 }
-
-function resetSection() {
-  document.getElementById('crDefault').style.display = '';
-  document.querySelectorAll('.cr-panel').forEach(p => p.classList.remove('visible'));
-  document.querySelectorAll('.sf-arm').forEach(a => a.classList.remove('sf-active'));
-  const btn = document.getElementById('sfResetBtn');
-  if (btn) btn.classList.remove('visible');
-}
-
-// Arm clicks
-document.querySelectorAll('.sf-arm').forEach(arm => {
-  arm.addEventListener('click', e => {
-    e.stopPropagation();
-    const section = arm.dataset.section;
-    if (section) showSection(section);
-  });
-  arm.querySelectorAll('*').forEach(el => { el.style.pointerEvents = 'all'; });
-});
-
-// Label text clicks (outside arms) — stop propagation so they don't reset
-document.querySelectorAll('.sf-label[onclick]').forEach(el => {
-  el.addEventListener('click', e => e.stopPropagation());
-});
-
-// Click anywhere outside starfish or right panel resets
-document.addEventListener('click', e => {
-  const sf = document.querySelector('.starfish-svg');
-  const cr = document.getElementById('coverageRight');
-  if (sf && !sf.contains(e.target) && cr && !cr.contains(e.target)) {
-    resetSection();
-  }
-});
-
-// ── SCROLL TO TOP ──────────────────────────────────────────────────────────
-const scrollTopBtn = document.getElementById('scrollTop');
-window.addEventListener('scroll', () => { scrollTopBtn.classList.toggle('visible', window.scrollY > 400); });
-scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+resetTimer();
 </script>
 </body>
 </html>
