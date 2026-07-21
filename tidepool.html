@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Tidepool — The Nautisk</title>
-<meta name="description" content="Tidepool is The Nautisk's accessible sub-brand — covering Money, Science, College, and World for high school and college-age readers." />
+<title>Tidepool — Coming Soon | The Nautisk</title>
+<meta name="description" content="Tidepool, The Nautisk's section for younger readers, is in development. Money, Science, College, and World coverage for high school and early college readers is on the way." />
 <meta name="robots" content="index, follow" />
-<meta property="og:title" content="Tidepool — The Nautisk" />
+<meta property="og:title" content="Tidepool — Coming Soon | The Nautisk" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.thenautisk.com/tidepool.html" />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%2303213a'/><text y='72' x='50' text-anchor='middle' font-size='62' font-family='Georgia,serif' font-weight='bold' fill='%238ab4d4'>N</text></svg>" />
@@ -16,20 +16,22 @@
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
-  --teal: #00e5cc; --teal-dark: #007a68; --teal-mid: #00a08c;
-  --bg: #f0fdfb; --text: #0a2e28; --text-muted: #3a6a60;
-  --border: #b8e8e0; --nav-bg: #03213a;
+  --teal: #4dd9ec; --teal-dark: #0e8fa8; --teal-mid: #2bc4dc;
+  --bg: #eafbff; --text: #0a2a38; --text-muted: #2f6478;
+  --border: #b8e6f5; --nav-bg: #03213a;
 }
 body { font-family: Georgia, serif; background: var(--bg); color: var(--text); }
 
-/* NAV */
-nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2.5rem; border-bottom: 1px solid #1a4a6e; background: var(--nav-bg); position: sticky; top: 0; z-index: 200; }
+/* NAV — brand pinned left, links evenly spaced right */
+nav { display: flex; justify-content: space-between; align-items: center; padding: 0 2.5rem; height: 66px; border-bottom: 1px solid #1a4a6e; background: var(--nav-bg); position: sticky; top: 0; z-index: 200; }
+.nav-brand { display: flex; align-items: center; gap: 0.7rem; flex-shrink: 0; }
+.logo-img { height: 40px; width: 40px; object-fit: contain; }
 .nav-logo { font-size: 18px; font-weight: bold; letter-spacing: 0.14em; color: #c0cfe0; text-decoration: none; font-family: 'Inter', Arial, sans-serif; }
 .nav-logo span { color: #8ab4d4; }
-.nav-links { display: flex; gap: 1.5rem; align-items: center; }
+.nav-links { display: flex; gap: 1.9rem; align-items: center; }
 .nav-links a { font-size: 12px; color: #8ab4d4; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; font-family: 'Inter', Arial, sans-serif; }
 .nav-links a:hover { color: #d6e8f5; }
-.tidepool-badge { font-size: 11px; color: #03213a; background: #7dd4c0; padding: 0.28rem 0.7rem; border-radius: 20px; font-family: 'Inter', Arial, sans-serif; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; font-weight: 600; }
+.tidepool-badge { font-size: 11px; color: #03213a; background: #6fe0f2; padding: 0.28rem 0.7rem; border-radius: 20px; font-family: 'Inter', Arial, sans-serif; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; font-weight: 600; }
 .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
 .hamburger span { display: block; width: 22px; height: 2px; background: #8ab4d4; border-radius: 2px; transition: all 0.3s; }
 .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
@@ -41,50 +43,98 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .mobile-close { position: absolute; top: 1.25rem; right: 1.25rem; background: none; border: none; cursor: pointer; color: #8ab4d4; font-size: 28px; }
 
 /* TOP BAR */
-.tidepool-top-bar { height: 4px; background: linear-gradient(90deg, #00e5cc, #00d4bb, #00e5cc); }
+.tidepool-top-bar { height: 4px; background: linear-gradient(90deg, #4dd9ec, #3dd0e4, #4dd9ec); }
 
-/* HERO */
-.page-hero {
-  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-mid) 50%, #007a68 100%);
-  padding: 5rem 2.5rem 4rem;
+/* WAVE HERO */
+.wave-hero {
   position: relative; overflow: hidden;
-  min-height: 340px; display: flex; flex-direction: column; justify-content: flex-end;
+  min-height: 600px; display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(180deg, #eaf9ff 0%, #cdeefc 100%);
 }
-.hero-deco { position: absolute; inset: 0; pointer-events: none; }
-.brand-label { font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(255,255,255,0.75); font-family: 'Inter', Arial, sans-serif; font-weight: 600; margin-bottom: 0.75rem; position: relative; }
-.page-hero h1 { font-size: 48px; font-weight: bold; color: #fff; line-height: 1.1; margin-bottom: 1rem; position: relative; }
-.page-hero p { font-size: 16px; color: rgba(255,255,255,0.85); max-width: 520px; line-height: 1.9; font-family: 'Inter', Arial, sans-serif; position: relative; }
+.wave-layers { position: absolute; inset: 0; z-index: 0; }
+.wave-svg { position: absolute; bottom: 0; left: 0; width: 200%; height: auto; }
+.wave-back { opacity: 0.35; animation: driftSlow 7s linear infinite; }
+.wave-mid { opacity: 0.55; animation: driftMed 4.5s linear infinite; }
+.wave-front { opacity: 0.95; animation: driftFast 2.6s linear infinite; }
+@keyframes driftSlow { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes driftMed  { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes driftFast { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* Beach + crashing foam wash */
+.beach { position: absolute; bottom: 0; left: 0; right: 0; height: 130px; z-index: 1; background: linear-gradient(180deg, #f3e0b8 0%, #e8d19f 45%, #dcc287 100%); }
+.beach::before {
+  content: ''; position: absolute; top: -2px; left: 0; right: 0; height: 14px;
+  background: radial-gradient(circle at 15% 50%, rgba(255,255,255,0.7) 0%, transparent 60%),
+              radial-gradient(circle at 45% 50%, rgba(255,255,255,0.7) 0%, transparent 60%),
+              radial-gradient(circle at 75% 50%, rgba(255,255,255,0.7) 0%, transparent 60%);
+  opacity: 0.6;
+}
+
+/* The wave wall right at the waterline */
+.foam-crest {
+  position: absolute; left: -5%; right: -5%; bottom: 122px; height: 46px; z-index: 2;
+  background: radial-gradient(ellipse at 50% 100%, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.55) 50%, transparent 80%);
+  transform-origin: bottom center;
+  animation: foamCrash 2.2s cubic-bezier(0.3,0.6,0.3,1) infinite;
+}
+/* The sheet of water that actually rushes up over the sand, then pulls back */
+.wash-sand {
+  position: absolute; left: -5%; right: -5%; bottom: 0; height: 92px; z-index: 2;
+  background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.55) 55%, rgba(255,255,255,0) 100%);
+  transform-origin: bottom center;
+  transform: scaleY(0.05);
+  animation: washUp 2.2s cubic-bezier(0.3,0.6,0.3,1) infinite;
+}
+@keyframes foamCrash {
+  0%   { transform: scaleY(0.15); opacity: 0.15; }
+  40%  { transform: scaleY(1.25); opacity: 1; }
+  70%  { transform: scaleY(0.7); opacity: 0.6; }
+  100% { transform: scaleY(0.15); opacity: 0.15; }
+}
+@keyframes washUp {
+  0%   { transform: scaleY(0.05); opacity: 0.2; }
+  45%  { transform: scaleY(1); opacity: 0.95; }
+  75%  { transform: scaleY(0.4); opacity: 0.5; }
+  100% { transform: scaleY(0.05); opacity: 0.2; }
+}
+
+.foam-dot { fill: #ffffff; opacity: 0; animation: foamPop 2s ease-in-out infinite; }
+@keyframes foamPop {
+  0%, 100% { opacity: 0; transform: translateY(0) scale(0.6); }
+  15% { opacity: 0.9; transform: translateY(-4px) scale(1); }
+  35% { opacity: 0; transform: translateY(-10px) scale(0.7); }
+}
+
+/* Crab, scuttling across the sand and off screen */
+.crab-wrap { position: absolute; bottom: 22px; left: -70px; z-index: 3; animation: crabRun 13s linear infinite; }
+.crab-svg { width: 56px; height: 40px; display: block; animation: crabBob 0.22s ease-in-out infinite alternate; }
+@keyframes crabBob { from { transform: translateY(0) rotate(-2deg); } to { transform: translateY(-3px) rotate(2deg); } }
+@keyframes crabRun {
+  0%   { transform: translateX(0); opacity: 0; }
+  2%   { opacity: 1; }
+  42%  { transform: translateX(calc(100vw + 140px)); opacity: 1; }
+  44%  { opacity: 0; }
+  100% { transform: translateX(calc(100vw + 140px)); opacity: 0; }
+}
+
+.wave-content { position: relative; z-index: 2; text-align: center; padding: 2rem 2.5rem 6.5rem; max-width: 640px; }
+.brand-label { font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--teal-dark); font-family: 'Inter', Arial, sans-serif; font-weight: 700; margin-bottom: 1.25rem; }
+.wave-content h1 { font-size: 46px; font-weight: bold; color: #0a2a38; line-height: 1.15; margin-bottom: 1.25rem; }
+.wave-content p { font-size: 16px; color: var(--text-muted); max-width: 520px; margin: 0 auto 2rem; line-height: 1.9; font-family: 'Inter', Arial, sans-serif; }
+.status-pill { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal-dark); font-family: 'Inter', Arial, sans-serif; font-weight: 700; border: 1px solid var(--teal); border-radius: 20px; padding: 0.5rem 1.1rem; margin-bottom: 1.75rem; background: rgba(255,255,255,0.6); }
+.status-pill .ping { width: 7px; height: 7px; border-radius: 50%; background: var(--teal-dark); animation: dotGlow 2s ease-in-out infinite; }
+@keyframes dotGlow { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+.home-link { display: inline-block; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #fff; background: var(--teal-dark); text-decoration: none; padding: 0.75rem 1.75rem; border-radius: 24px; font-family: 'Inter', Arial, sans-serif; font-weight: 700; transition: opacity 0.2s, transform 0.2s; }
+.home-link:hover { opacity: 0.88; transform: translateY(-1px); }
 
 /* WHAT IS TIDEPOOL */
 .what-is { max-width: 900px; margin: 0 auto; padding: 4rem 2.5rem 3rem; }
-.what-label { font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--teal-dark); font-family: 'Inter', Arial, sans-serif; font-weight: 600; margin-bottom: 1.25rem; }
-.what-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; margin-top: 2rem; }
-.what-card { background: #fff; border: 1px solid var(--border); border-left: 3px solid var(--teal); padding: 1.5rem; border-radius: 3px; }
-.what-card h3 { font-size: 15px; color: var(--teal-dark); font-family: 'Inter', Arial, sans-serif; font-weight: 600; margin-bottom: 0.5rem; }
-.what-card p { font-size: 13px; color: var(--text-muted); line-height: 1.75; font-family: 'Inter', Arial, sans-serif; }
-
-/* SUBCATEGORY STRIP */
-.subcategory-strip { background: linear-gradient(135deg, var(--teal) 0%, var(--teal-mid) 100%); padding: 2.5rem; }
-.subcategory-strip .what-label { color: rgba(255,255,255,0.75); }
-.sub-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1.25rem; }
-.sub-card { background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3); border-radius: 4px; padding: 1.5rem; text-align: center; backdrop-filter: blur(4px); }
-.sub-card .sub-icon { font-size: 28px; margin-bottom: 0.6rem; display: block; }
-.sub-card h4 { font-size: 14px; color: #fff; font-family: 'Inter', Arial, sans-serif; font-weight: 600; margin-bottom: 0.4rem; }
-.sub-card p { font-size: 12px; color: rgba(255,255,255,0.8); font-family: 'Inter', Arial, sans-serif; line-height: 1.6; }
-
-/* ARTICLES */
-.articles-section { max-width: 900px; margin: 0 auto; padding: 3rem 2.5rem 4rem; }
-.coming-soon-block { text-align: center; padding: 4rem 2rem; border: 1px dashed rgba(0,196,168,0.35); border-radius: 6px; background: #fff; }
-.coming-soon-block .cs-icon { font-size: 40px; margin-bottom: 1.25rem; display: block; }
-.coming-soon-block h3 { font-size: 20px; color: var(--teal-dark); margin-bottom: 0.75rem; font-weight: normal; }
-.coming-soon-block p { font-size: 14px; color: var(--text-muted); font-family: 'Inter', Arial, sans-serif; line-height: 1.8; max-width: 420px; margin: 0 auto 1.75rem; }
-.coming-soon-block a { display: inline-block; padding: 0.65rem 1.5rem; background: var(--teal); color: #fff; font-family: 'Inter', Arial, sans-serif; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border-radius: 20px; font-weight: 600; transition: opacity 0.2s; }
-.coming-soon-block a:hover { opacity: 0.85; }
-
-/* DIVIDER */
-.divider { display: flex; align-items: center; gap: 1rem; padding: 0 2.5rem; background: var(--bg); }
-.divider-line { flex: 1; height: 1px; background: var(--border); }
-.divider-icon { color: var(--teal); font-size: 18px; padding: 0.75rem 0; }
+.what-label { font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--teal-dark); font-family: 'Inter', Arial, sans-serif; font-weight: 700; margin-bottom: 1.5rem; }
+.sub-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.sub-card { background: #fff; border: 1px solid var(--border); border-radius: 6px; padding: 1.5rem; text-align: center; }
+.sub-card .sub-icon { width: 64px; height: 64px; margin: 0 auto 0.75rem; display: block; }
+.sub-card h4 { font-size: 14px; color: var(--teal-dark); font-family: 'Inter', Arial, sans-serif; font-weight: 700; margin-bottom: 0.4rem; }
+.sub-card p { font-size: 12.5px; color: var(--text-muted); font-family: 'Inter', Arial, sans-serif; line-height: 1.7; }
 
 /* FOOTER */
 footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2rem 2.5rem 1.5rem; font-family: 'Inter', Arial, sans-serif; }
@@ -99,12 +149,10 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2rem 2.5re
 
 @media (max-width: 768px) {
   .nav-links { display: none; } .hamburger { display: flex; }
-  nav { justify-content: space-between; padding: 0.9rem 1.25rem; }
-  .page-hero { padding: 3rem 1.25rem 2.5rem; min-height: auto; }
-  .page-hero h1 { font-size: 32px; }
-  .what-is, .articles-section { padding: 2rem 1.25rem; }
-  .subcategory-strip { padding: 2rem 1.25rem; }
-  .what-grid { grid-template-columns: 1fr; }
+  nav { justify-content: space-between; padding: 0 1.25rem; }
+  .wave-hero { min-height: 460px; }
+  .wave-content h1 { font-size: 30px; }
+  .what-is { padding: 2rem 1.25rem; }
   .sub-grid { grid-template-columns: 1fr 1fr; }
   footer { padding: 1.5rem 1.25rem; }
   .footer-inner { flex-direction: column; align-items: flex-start; }
@@ -119,10 +167,6 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2rem 2.5re
 <div class="mobile-nav" id="mobileNav">
   <button class="mobile-close" id="mobileClose">&#x2715;</button>
   <a href="index.html">Home</a>
-  <a href="finance.html">Finance</a>
-  <a href="law.html">Law</a>
-  <a href="healthcare.html">Healthcare</a>
-  <a href="politics.html">Politics</a>
   <a href="depth.html">Depth</a>
   <a href="about.html">Our Story</a>
   <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Newsletter</a>
@@ -130,100 +174,130 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2rem 2.5re
 
 <div class="tidepool-top-bar"></div>
 <nav>
-  <a href="index.html" class="nav-logo">THE <span>NAUTISK</span></a>
+  <div class="nav-brand">
+    <img src="logo.png" alt="The Nautisk Logo" class="logo-img" />
+    <a href="index.html" class="nav-logo">THE <span>NAUTISK</span></a>
+  </div>
   <div class="nav-links">
-    <a href="finance.html">Finance</a>
-    <a href="law.html">Law</a>
-    <a href="healthcare.html">Healthcare</a>
-    <a href="politics.html">Politics</a>
+    <a href="index.html">Home</a>
     <a href="tidepool.html" class="tidepool-badge">Tidepool</a>
     <a href="depth.html">Depth</a>
-    <a href="about.html">Our Story</a>
     <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Newsletter</a>
+    <a href="about.html">Our Story</a>
   </div>
   <button class="hamburger" id="hamburger" aria-label="Open menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
-<div class="page-hero">
-  <svg class="hero-deco" viewBox="0 0 1440 340" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-    <path fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2" d="M0,220 C120,200 240,240 360,220 C480,200 600,240 720,220 C840,200 960,240 1080,220 C1200,200 1320,240 1440,220"/>
-    <path fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1.2" d="M0,245 C120,228 240,262 360,245 C480,228 600,262 720,245 C840,228 960,262 1080,245 C1200,228 1320,262 1440,245"/>
-    <circle cx="1100" cy="90" r="30" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
-    <path fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.2" d="M1100,60 L1100,120 M1070,90 L1130,90 M1079,69 L1121,111 M1121,69 L1079,111"/>
-    <circle cx="1150" cy="130" r="11" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-    <ellipse cx="250" cy="280" rx="25" ry="10" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-    <path fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1" d="M238,280 C234,270 240,264 245,267 C250,264 256,270 252,280"/>
-  </svg>
-  <div class="brand-label">Tidepool — A Nautisk Sub-brand</div>
-  <h1>The news,<br>made for you.</h1>
-  <p>Tidepool explains the stuff that actually matters — money, science, college life, and the world — for high school and college readers who want real information without the complexity wall.</p>
-</div>
+<section class="wave-hero">
+  <div class="wave-layers">
+    <svg class="wave-svg wave-back" viewBox="0 0 1440 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path fill="#2bc4dc" d="M0,90 C120,60 240,120 360,90 C480,60 600,120 720,90 C840,60 960,120 1080,90 C1200,60 1320,120 1440,90 L1440,200 L0,200 Z" />
+      <path fill="#2bc4dc" d="M1440,90 C1560,60 1680,120 1800,90 C1920,60 2040,120 2160,90 C2280,60 2400,120 2520,90 C2640,60 2760,120 2880,90 L2880,200 L1440,200 Z" />
+    </svg>
+    <svg class="wave-svg wave-mid" viewBox="0 0 1440 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path fill="#4dd9ec" d="M0,110 C100,85 200,130 300,110 C400,90 500,130 600,110 C700,90 800,130 900,110 C1000,90 1100,130 1200,110 C1300,90 1400,130 1440,110 L1440,200 L0,200 Z" />
+      <path fill="#4dd9ec" d="M1440,110 C1540,85 1640,130 1740,110 C1840,90 1940,130 2040,110 C2140,90 2240,130 2340,110 C2440,90 2540,130 2640,110 C2740,90 2840,130 2880,110 L2880,200 L1440,200 Z" />
+    </svg>
+    <svg class="wave-svg wave-front" viewBox="0 0 1440 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path fill="#8de9f5" d="M0,140 C90,120 180,155 270,140 C360,125 450,155 540,140 C630,125 720,155 810,140 C900,125 990,155 1080,140 C1170,125 1260,155 1350,140 C1400,133 1420,138 1440,140 L1440,200 L0,200 Z" />
+      <path fill="#8de9f5" d="M1440,140 C1530,120 1620,155 1710,140 C1800,125 1890,155 1980,140 C2070,125 2160,155 2250,140 C2340,125 2430,155 2520,140 C2610,125 2700,155 2790,140 C2840,133 2860,138 2880,140 L2880,200 L1440,200 Z" />
+      <circle class="foam-dot" cx="230" cy="128" r="3" />
+      <circle class="foam-dot" cx="640" cy="128" r="2.5" style="animation-delay:0.9s" />
+      <circle class="foam-dot" cx="1020" cy="128" r="3.5" style="animation-delay:1.8s" />
+      <circle class="foam-dot" cx="1310" cy="130" r="2.2" style="animation-delay:2.4s" />
+    </svg>
+    <div class="beach"></div>
+    <div class="foam-crest"></div>
+    <div class="wash-sand"></div>
+    <div class="crab-wrap">
+      <svg class="crab-svg" viewBox="0 0 60 42" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="30" cy="24" rx="16" ry="11" fill="#e6432a" />
+        <ellipse cx="30" cy="21" rx="16" ry="10" fill="#f2503a" />
+        <circle cx="21" cy="12" r="2.6" fill="#e6432a" />
+        <circle cx="39" cy="12" r="2.6" fill="#e6432a" />
+        <line x1="22" y1="14" x2="21" y2="9" stroke="#e6432a" stroke-width="2" stroke-linecap="round" />
+        <line x1="38" y1="14" x2="39" y2="9" stroke="#e6432a" stroke-width="2" stroke-linecap="round" />
+        <circle cx="21" cy="9" r="2" fill="#241811" />
+        <circle cx="39" cy="9" r="2" fill="#241811" />
+        <path d="M10 18 C2 15, 0 20, 4 25 C7 27, 12 24, 14 20 Z" fill="#e6432a" />
+        <path d="M50 18 C58 15, 60 20, 56 25 C53 27, 48 24, 46 20 Z" fill="#e6432a" />
+        <path d="M14 32 L8 38" stroke="#c93a24" stroke-width="2.5" stroke-linecap="round" />
+        <path d="M22 35 L18 41" stroke="#c93a24" stroke-width="2.5" stroke-linecap="round" />
+        <path d="M38 35 L42 41" stroke="#c93a24" stroke-width="2.5" stroke-linecap="round" />
+        <path d="M46 32 L52 38" stroke="#c93a24" stroke-width="2.5" stroke-linecap="round" />
+      </svg>
+    </div>
+  </div>
+  <div class="wave-content">
+    <div class="status-pill"><span class="ping"></span>In development</div>
+    <div class="brand-label">Tidepool · For younger readers</div>
+    <h1>The tide's still coming in.</h1>
+    <p>Tidepool is The Nautisk's approachable section for high schoolers and early college readers: Money, Science, College, and World, explained without jargon. We're launching it once our daily coverage is running smoothly.</p>
+    <a href="index.html" class="home-link">Back to The Nautisk</a>
+  </div>
+</section>
 
 <div class="what-is">
-  <div class="what-label">What Tidepool covers</div>
-  <p style="font-size:16px;color:var(--text-muted);line-height:1.9;font-family:'Inter',Arial,sans-serif;max-width:660px;">The main Nautisk covers Finance, Law, Healthcare, Politics, and Tech for a general adult audience. Tidepool covers four different lenses — Money, Science, College, and World — and writes for a reader who is smart and curious but doesn't have years of background in these topics yet.</p>
-  <div class="what-grid">
-    <div class="what-card">
-      <h3>Conversational, not dumbed-down</h3>
-      <p>We assume you're intelligent. We don't assume you're an expert. There's a difference, and Tidepool is built around it.</p>
-    </div>
-    <div class="what-card">
-      <h3>600–900 words</h3>
-      <p>Long enough to actually explain something. Short enough that you'll read to the end. No padding, no filler.</p>
-    </div>
-    <div class="what-card">
-      <h3>Four categories</h3>
-      <p>Money, Science, College, and World — one fresh article per category per week, on topics you'd actually want to read about.</p>
-    </div>
-    <div class="what-card">
-      <h3>Real sourcing</h3>
-      <p>Every Tidepool article is based on real reporting — studies, data, and sources you can check. Accessible writing doesn't mean unchecked writing.</p>
-    </div>
-  </div>
-</div>
-
-<div class="subcategory-strip">
-  <div class="what-label">The four subcategories</div>
+  <div class="what-label">What Tidepool will cover</div>
   <div class="sub-grid">
     <div class="sub-card">
-      <span class="sub-icon">💰</span>
+      <svg class="sub-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="30" cy="40" rx="22" ry="15" fill="#ff9ec4" stroke="#0a2a38" stroke-width="2"/>
+        <circle cx="49" cy="38" r="7" fill="#ff9ec4" stroke="#0a2a38" stroke-width="2"/>
+        <circle cx="52" cy="36" r="1.4" fill="#0a2a38"/>
+        <path d="M18 27 L12 20 L22 24 Z" fill="#ff9ec4" stroke="#0a2a38" stroke-width="2" stroke-linejoin="round"/>
+        <rect x="16" y="52" width="5" height="7" rx="2" fill="#ff9ec4" stroke="#0a2a38" stroke-width="2"/>
+        <rect x="40" y="52" width="5" height="7" rx="2" fill="#ff9ec4" stroke="#0a2a38" stroke-width="2"/>
+        <rect x="24" y="27" width="10" height="4" rx="2" fill="#0a2a38"/>
+        <circle cx="53" cy="18" r="9" fill="#ffd23f" stroke="#0a2a38" stroke-width="2"/>
+        <text x="53" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#0a2a38">$</text>
+      </svg>
       <h4>Money</h4>
-      <p>Personal finance, budgeting, student loans, credit, and how money actually works — explained for real life, not a textbook.</p>
+      <p>How money actually works.</p>
     </div>
     <div class="sub-card">
-      <span class="sub-icon">🔬</span>
+      <svg class="sub-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <path d="M27 8 L27 26 L14 52 C12 56 15 59 19 59 L45 59 C49 59 52 56 50 52 L37 26 L37 8 Z" fill="#eaf9ff" stroke="#0a2a38" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M18 46 C24 42 40 42 46 46 L50 52 C52 56 49 59 45 59 L19 59 C15 59 12 56 14 52 Z" fill="#4dd9ec" stroke="#0a2a38" stroke-width="2" stroke-linejoin="round"/>
+        <rect x="24" y="6" width="16" height="4" rx="1.5" fill="#0a2a38"/>
+        <circle cx="24" cy="50" r="2.4" fill="#fff"/>
+        <circle cx="34" cy="53" r="1.8" fill="#fff"/>
+        <circle cx="41" cy="49" r="2.1" fill="#fff"/>
+        <circle cx="30" cy="21" r="1.6" fill="#4dd9ec"/>
+        <circle cx="34" cy="16" r="1.3" fill="#4dd9ec"/>
+      </svg>
       <h4>Science</h4>
-      <p>New discoveries, surprising research findings, and what they mean for your life — without the methodology lecture.</p>
+      <p>New discoveries, made simple.</p>
     </div>
     <div class="sub-card">
-      <span class="sub-icon">🎓</span>
+      <svg class="sub-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <rect x="14" y="44" width="36" height="8" rx="1.5" fill="#0e8fa8" stroke="#0a2a38" stroke-width="2"/>
+        <rect x="17" y="37" width="30" height="8" rx="1.5" fill="#4dd9ec" stroke="#0a2a38" stroke-width="2"/>
+        <rect x="20" y="30" width="24" height="8" rx="1.5" fill="#8de9f5" stroke="#0a2a38" stroke-width="2"/>
+        <path d="M32 12 L54 21 L32 30 L10 21 Z" fill="#0a2a38" stroke="#0a2a38" stroke-width="2" stroke-linejoin="round"/>
+        <circle cx="32" cy="21" r="3" fill="#ffd23f" stroke="#0a2a38" stroke-width="1.5"/>
+        <path d="M48 21 L48 31 C48 33 44 34 44 31" fill="none" stroke="#0a2a38" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="44" cy="32" r="2" fill="#ffd23f" stroke="#0a2a38" stroke-width="1.5"/>
+      </svg>
       <h4>College</h4>
-      <p>Student debt, campus life, admissions, mental health, and what it actually costs to get a degree right now.</p>
+      <p>Admissions and campus life.</p>
     </div>
     <div class="sub-card">
-      <span class="sub-icon">🌍</span>
+      <svg class="sub-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="32" cy="32" r="22" fill="#4dd9ec" stroke="#0a2a38" stroke-width="2"/>
+        <path d="M10 32 A22 22 0 0 0 54 32" fill="none" stroke="#0a2a38" stroke-width="1.5" opacity="0.5"/>
+        <path d="M32 10 C24 18 24 46 32 54" fill="none" stroke="#0a2a38" stroke-width="1.5" opacity="0.5"/>
+        <path d="M32 10 C40 18 40 46 32 54" fill="none" stroke="#0a2a38" stroke-width="1.5" opacity="0.5"/>
+        <path d="M20 20 C24 17 30 19 28 24 C32 22 36 26 33 30 C30 34 22 32 20 28 Z" fill="#7ddc8a" stroke="#0a2a38" stroke-width="1.6" stroke-linejoin="round"/>
+        <path d="M38 34 C42 32 47 35 45 39 C48 41 45 46 40 44 C37 43 36 37 38 34 Z" fill="#7ddc8a" stroke="#0a2a38" stroke-width="1.6" stroke-linejoin="round"/>
+      </svg>
       <h4>World</h4>
-      <p>Global events and international stories — what's happening beyond U.S. borders and why it matters to you.</p>
+      <p>Global news, close to home.</p>
     </div>
   </div>
 </div>
-
-<div class="divider"><div class="divider-line"></div><span class="divider-icon">🌊</span><div class="divider-line"></div></div>
-
-<div class="articles-section">
-  <div class="what-label">Latest Tidepool Articles</div>
-  <!-- ADD NEW TIDEPOOL ARTICLE CARDS ABOVE THIS LINE -->
-  <div class="coming-soon-block">
-    <span class="cs-icon">🌊</span>
-    <h3>First Tidepool articles coming soon.</h3>
-    <p>We're working on our first round of pieces across Money, Science, College, and World. Subscribe to be the first to know when we publish.</p>
-    <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Subscribe for updates →</a>
-  </div>
-</div>
-
-<div class="divider"><div class="divider-line"></div><span class="divider-icon">🌊</span><div class="divider-line"></div></div>
 
 <footer>
   <div class="footer-inner">
@@ -231,12 +305,9 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2rem 2.5re
     <div class="footer-links">
       <a href="index.html">Home</a>
       <a href="depth.html">Depth</a>
-      <a href="finance.html">Finance</a>
-      <a href="law.html">Law</a>
-      <a href="healthcare.html">Healthcare</a>
-      <a href="politics.html">Politics</a>
       <a href="about.html">Our Story</a>
-      <a href="tips.html">Tips</a>
+      <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Newsletter</a>
+      <a href="mailto:evan@thenautisk.com">Contact</a>
     </div>
   </div>
   <div class="footer-bottom">
@@ -246,14 +317,12 @@ footer { background: #03213a; border-top: 1px solid #1a4a6e; padding: 2rem 2.5re
 </footer>
 
 <script>
-const hamburger = document.getElementById('hamburger');
-const mobileNav = document.getElementById('mobileNav');
-const mobileClose = document.getElementById('mobileClose');
-function openMenu() { hamburger.classList.add('open'); mobileNav.classList.add('open'); document.body.style.overflow='hidden'; }
-function closeMenu() { hamburger.classList.remove('open'); mobileNav.classList.remove('open'); document.body.style.overflow=''; }
-hamburger.addEventListener('click', () => { mobileNav.classList.contains('open') ? closeMenu() : openMenu(); });
-mobileClose.addEventListener('click', closeMenu);
-mobileNav.querySelectorAll('a').forEach(l => l.addEventListener('click', closeMenu));
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  const mobileClose = document.getElementById('mobileClose');
+  hamburger.addEventListener('click', () => mobileNav.classList.add('open'));
+  mobileClose.addEventListener('click', () => mobileNav.classList.remove('open'));
+  mobileNav.querySelectorAll('a').forEach(l => l.addEventListener('click', () => mobileNav.classList.remove('open')));
 </script>
 </body>
 </html>
