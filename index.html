@@ -74,8 +74,8 @@ nav {
   top: 0;
   z-index: 200;
 }
-.nav-left { display: flex; gap: 1.2rem; align-items: center; }
-.nav-right { display: flex; gap: 1.2rem; align-items: center; }
+.nav-left { display: flex; align-items: center; width: 50%; position: relative; }
+.nav-right { display: flex; gap: 1.2rem; align-items: center; width: 50%; justify-content: flex-end; }
 .nav-center {
   display: flex;
   align-items: center;
@@ -124,24 +124,22 @@ nav {
 .nav-btn-tips:hover { background: #2a1a00; color: #f0e0b0; }
 /* Toggle button */
 .mode-toggle {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 20px;
-  padding: 0.3rem 0.75rem;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
   cursor: pointer;
-  font-size: 11px;
-  color: #8ab4d4;
-  font-family: Arial, sans-serif;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  transition: all 0.2s;
+  border: 2px solid #000;
+  background: #fff;
+  padding: 0;
+  flex-shrink: 0;
+  transition: background 0.3s, border-color 0.3s;
+  margin-right: 1rem;
 }
-.mode-toggle:hover { background: rgba(255,255,255,0.15); }
-.mode-toggle .toggle-icon { font-size: 14px; }
+.mode-toggle:hover { opacity: 0.85; }
+body.professional .mode-toggle {
+  background: #1a4a8e;
+  border-color: #fff;
+}
 /* Dropdown */
 .dropdown { position: relative; }
 .dropdown-menu {
@@ -1027,14 +1025,11 @@ footer {
 <!-- ===================== NAV ===================== -->
 <nav>
   <div class="nav-left">
-    <button class="mode-toggle" onclick="toggleMode()" id="modeToggleBtn">
-      <span class="toggle-icon">🌊</span>
-      <span id="modeLabel">Aquatic</span>
-    </button>
-  </div>
-  <div class="nav-center">
-    <img src="logo.png" alt="The Nautisk Logo" class="logo-img" />
-    <span class="logo-text">THE <span>NAUTISK</span></span>
+    <button class="mode-toggle" onclick="toggleMode()" id="modeToggleBtn" aria-label="Toggle display mode"></button>
+    <div class="nav-center">
+      <img src="logo.png" alt="The Nautisk Logo" class="logo-img" />
+      <span class="logo-text">THE <span>NAUTISK</span></span>
+    </div>
   </div>
   <div class="nav-right">
     <div class="dropdown" id="newsDropdown">
@@ -1070,7 +1065,7 @@ footer {
     <!-- SLIDE 1: Finance — July 21, 2026 -->
     <div class="slide active" id="slide-0">
       <div class="slide-image">
-        <img src="inflation-0721.png" alt="Inflation Fed Decision" onerror="this.parentElement.style.background='#071e30'" />
+        <img src="images/inflation-0721.png" alt="Inflation Fed Decision" onerror="this.parentElement.style.background='#071e30'" />
       </div>
       <div class="slide-content">
         <span class="slide-section-tag finance">Finance</span>
@@ -1083,7 +1078,7 @@ footer {
     <!-- SLIDE 2: Law — July 21, 2026 -->
     <div class="slide" id="slide-1">
       <div class="slide-image">
-        <img src="paramount-0721.png" alt="Paramount Warner Deal Frozen" onerror="this.parentElement.style.background='#071e30'" />
+        <img src="images/paramount-0721.png" alt="Paramount Warner Deal Frozen" onerror="this.parentElement.style.background='#071e30'" />
       </div>
       <div class="slide-content">
         <span class="slide-section-tag law">Law</span>
@@ -1096,7 +1091,7 @@ footer {
     <!-- SLIDE 3: Politics — July 21, 2026 -->
     <div class="slide" id="slide-2">
       <div class="slide-image">
-        <img src="canada-0721.png" alt="Canada Tariffs" onerror="this.parentElement.style.background='#071e30'" />
+        <img src="images/canada-0721.png" alt="Canada Tariffs" onerror="this.parentElement.style.background='#071e30'" />
       </div>
       <div class="slide-content">
         <span class="slide-section-tag politics">Politics</span>
@@ -1109,7 +1104,7 @@ footer {
     <!-- SLIDE 4: Healthcare — July 21, 2026 -->
     <div class="slide" id="slide-3">
       <div class="slide-image">
-        <img src="medicaid-0721.png" alt="Medicaid Work Requirements" onerror="this.parentElement.style.background='#071e30'" />
+        <img src="images/medicaid-0721.png" alt="Medicaid Work Requirements" onerror="this.parentElement.style.background='#071e30'" />
       </div>
       <div class="slide-content">
         <span class="slide-section-tag healthcare">Healthcare</span>
@@ -1122,7 +1117,7 @@ footer {
     <!-- SLIDE 5: Tech — July 21, 2026 -->
     <div class="slide" id="slide-4">
       <div class="slide-image">
-        <img src="goldeagle-0721.png" alt="Gold Eagle AI Cybersecurity" onerror="this.parentElement.style.background='#071e30'" />
+        <img src="images/goldeagle-0721.png" alt="Gold Eagle AI Cybersecurity" onerror="this.parentElement.style.background='#071e30'" />
       </div>
       <div class="slide-content">
         <span class="slide-section-tag" style="color:#e67e22;">Tech</span>
@@ -1201,7 +1196,7 @@ footer {
   <div class="article-grid-home">
     <!-- ADD NEW ARTICLE CARDS ABOVE THIS LINE -->
     <a class="article-card-home" href="inflation-fed-decision-july-2026.html">
-      <img class="card-img" src="inflation-0721.png" alt="Trader watches inflation data at NYSE" />
+      <img class="card-img" src="images/inflation-0721.png" alt="Trader watches inflation data at NYSE" />
       <div class="card-body">
         <span class="card-section-label finance">Finance</span>
         <h3>Inflation's Sudden Retreat Sets Up a Pivotal Fed Decision</h3>
@@ -1210,7 +1205,7 @@ footer {
       </div>
     </a>
     <a class="article-card-home" href="paramount-warner-tro-july-2026.html">
-      <img class="card-img" src="paramount-0721.png" alt="Federal court hearing on the Paramount-Warner merger" />
+      <img class="card-img" src="images/paramount-0721.png" alt="Federal court hearing on the Paramount-Warner merger" />
       <div class="card-body">
         <span class="card-section-label law">Law</span>
         <h3>A Federal Judge Puts the Paramount-Warner Deal on Ice</h3>
@@ -1219,7 +1214,7 @@ footer {
       </div>
     </a>
     <a class="article-card-home" href="canada-tariffs-july-2026.html">
-      <img class="card-img" src="canada-0721.png" alt="White House press briefing on Canada tariffs" />
+      <img class="card-img" src="images/canada-0721.png" alt="White House press briefing on Canada tariffs" />
       <div class="card-body">
         <span class="card-section-label politics">Politics</span>
         <h3>Under a 94-Year-Old Law, Trump Hits Canada with 50% Duties</h3>
@@ -1228,7 +1223,7 @@ footer {
       </div>
     </a>
     <a class="article-card-home" href="medicaid-work-requirements-july-2026.html">
-      <img class="card-img" src="medicaid-0721.png" alt="Healthcare professionals discussing Medicaid policy" />
+      <img class="card-img" src="images/medicaid-0721.png" alt="Healthcare professionals discussing Medicaid policy" />
       <div class="card-body">
         <span class="card-section-label healthcare">Healthcare</span>
         <h3>Medicaid Work Requirements Are Already Reshaping Coverage</h3>
@@ -1237,7 +1232,7 @@ footer {
       </div>
     </a>
     <a class="article-card-home" href="gold-eagle-cybersecurity-july-2026.html">
-      <img class="card-img" src="goldeagle-0721.png" alt="AI cybersecurity conference — Gold Eagle initiative" />
+      <img class="card-img" src="images/goldeagle-0721.png" alt="AI cybersecurity conference — Gold Eagle initiative" />
       <div class="card-body">
         <span class="card-section-label" style="color:#e67e22;font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-family:Arial,sans-serif;font-weight:bold;margin-bottom:.5rem;display:block;">Tech</span>
         <h3>The White House Built a Cybersecurity War Room Powered by AI</h3>
