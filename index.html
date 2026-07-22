@@ -1027,6 +1027,16 @@ footer {
 <!-- ===================== NAV ===================== -->
 <nav>
   <div class="nav-left">
+    <button class="mode-toggle" onclick="toggleMode()" id="modeToggleBtn">
+      <span class="toggle-icon">🌊</span>
+      <span id="modeLabel">Aquatic</span>
+    </button>
+  </div>
+  <div class="nav-center">
+    <img src="logo.png" alt="The Nautisk Logo" class="logo-img" />
+    <span class="logo-text">THE <span>NAUTISK</span></span>
+  </div>
+  <div class="nav-right">
     <div class="dropdown" id="newsDropdown">
       <button class="nav-btn" id="newsDropBtn">News ▾</button>
       <div class="dropdown-menu">
@@ -1038,20 +1048,10 @@ footer {
     </div>
     <a href="opinion.html" class="nav-btn">Opinion</a>
     <a href="tidepool.html" class="nav-btn-tidepool">Tidepool</a>
-    <a href="tips.html" class="nav-btn-tips">Tips</a>
-  </div>
-  <div class="nav-center">
-    <img src="logo.png" alt="The Nautisk Logo" class="logo-img" />
-    <span class="logo-text">THE <span>NAUTISK</span></span>
-  </div>
-  <div class="nav-right">
-    <button class="mode-toggle" onclick="toggleMode()" id="modeToggleBtn">
-      <span class="toggle-icon">🌊</span>
-      <span id="modeLabel">Aquatic</span>
-    </button>
     <a href="depth.html" class="nav-btn-depth">Depth</a>
     <a href="about.html" class="nav-btn">Our Story</a>
     <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer" class="nav-btn">Newsletter</a>
+    <a href="tips.html" class="nav-btn-tips">Tips</a>
   </div>
   <button class="hamburger" id="hamburger" aria-label="Open menu">
     <span></span><span></span><span></span>
