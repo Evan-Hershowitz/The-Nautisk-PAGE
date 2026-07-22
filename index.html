@@ -186,39 +186,79 @@ body.professional .mode-toggle {
 .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
 .hamburger.open span:nth-child(2) { opacity: 0; }
 .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-/* Mobile menu */
-.mobile-menu {
+/* Menu overlay */
+.menu-overlay {
   display: none;
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: #03213a;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 240;
+}
+.menu-overlay.open { display: block; }
+/* Slide-in menu */
+.mobile-menu {
+  position: fixed;
+  top: 0; right: 0; bottom: 0;
+  width: 300px;
+  max-width: 85vw;
+  background: #011220;
   z-index: 250;
+  display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1.4rem;
+  align-items: flex-start;
+  gap: 0;
   overflow-y: auto;
-  padding: 2rem 1rem;
+  padding: 0;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  box-shadow: -6px 0 32px rgba(0,0,0,0.5);
 }
-.mobile-menu.open { display: flex; }
-.mobile-menu a, .mobile-menu button {
-  font-size: 18px; color: #8ab4d4; text-decoration: none;
-  letter-spacing: 0.1em; text-transform: uppercase;
+.mobile-menu.open { transform: translateX(0); }
+.mobile-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #0d2d45;
+}
+.mobile-menu-header .logo-text { font-size: 14px; }
+.mobile-menu-close {
+  background: none; border: none; cursor: pointer;
+  color: #8ab4d4; font-size: 22px; line-height: 1; padding: 4px;
+}
+.mobile-menu-close:hover { color: #fff; }
+.mobile-menu nav-links-list {
+  display: flex; flex-direction: column; width: 100%;
+}
+.mobile-menu a, .mobile-menu button.mobile-nav-btn {
+  font-size: 14px; color: #d6e8f5; text-decoration: none;
+  letter-spacing: 0.08em; text-transform: uppercase;
   font-family: Arial, sans-serif; background: none; border: none; cursor: pointer;
+  padding: 1rem 1.5rem; width: 100%; text-align: left;
+  border-bottom: 1px solid #0d2d45;
+  display: block;
 }
-.mobile-menu a:hover { color: #d6e8f5; }
-.mobile-menu .mobile-tidepool { background: #7dd4c0; color: #03213a; padding: 0.5rem 1.5rem; border-radius: 20px; font-weight: bold; }
-.mobile-menu .mobile-depth { border: 1px solid #4a7fa8; color: #c0cfe0; padding: 0.5rem 1.5rem; border-radius: 20px; font-weight: bold; }
-.mobile-menu .mobile-tips { border: 1px solid #a08040; color: #e8d5a3; padding: 0.5rem 1.5rem; border-radius: 20px; font-weight: bold; }
-.mobile-menu .mobile-toggle {
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.2) !important;
-  color: #8ab4d4 !important;
-  padding: 0.5rem 1.5rem;
-  border-radius: 20px;
-  font-size: 14px !important;
+.mobile-menu a:hover, .mobile-menu button.mobile-nav-btn:hover { color: #fff; background: #0a2035; }
+.mobile-menu .mobile-news-sub {
+  display: none; flex-direction: column; background: #021829;
 }
-.mobile-divider { width: 40px; height: 1px; background: #1a4a6e; }
+.mobile-menu .mobile-news-sub a {
+  padding-left: 2.5rem; font-size: 13px; color: #8ab4d4;
+  border-bottom: 1px solid #081a28;
+}
+.mobile-menu .mobile-news-sub.open { display: flex; }
+.mobile-menu-toggle-row {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #0d2d45;
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.mobile-menu-toggle-row .mode-toggle { margin-right: 0; }
+.mobile-menu-toggle-label {
+  font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+  font-family: Arial, sans-serif; color: #8ab4d4;
+}
+.mobile-divider { width: calc(100% - 3rem); height: 1px; background: #0d2d45; margin: 0.25rem 1.5rem; }
 /* ===================== HERO SLIDESHOW ===================== */
 .hero {
   position: relative;
@@ -1058,24 +1098,34 @@ footer {
 </style>
 </head>
 <body>
+<!-- ===================== MENU OVERLAY ===================== -->
+<div class="menu-overlay" id="menuOverlay"></div>
 <!-- ===================== MOBILE MENU ===================== -->
 <div class="mobile-menu" id="mobileMenu">
-  <button class="mobile-toggle" onclick="toggleMode()">🌊 Switch Mode</button>
-  <div class="mobile-divider"></div>
-  <button class="nav-btn" onclick="toggleDropdownMobile()">News ▾</button>
-  <div id="mobileNewsLinks" style="display:none; flex-direction:column; align-items:center; gap:0.75rem;">
+  <div class="mobile-menu-header">
+    <span class="logo-text" style="color:#c0cfe0;font-size:14px;letter-spacing:0.14em;">THE <span style="color:#8ab4d4;">NAUTISK</span></span>
+    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">&#10005;</button>
+  </div>
+  <div class="mobile-menu-toggle-row">
+    <button class="mode-toggle" onclick="toggleMode()" aria-label="Toggle display mode"></button>
+    <span class="mobile-menu-toggle-label">Switch Mode</span>
+  </div>
+  <button class="mobile-nav-btn" onclick="toggleDropdownMobile()">News &#9662;</button>
+  <div class="mobile-news-sub" id="mobileNewsLinks">
     <a href="finance.html">Finance</a>
     <a href="law.html">Law</a>
     <a href="healthcare.html">Healthcare</a>
     <a href="politics.html">Politics</a>
   </div>
-  <a href="opinion.html">Opinion</a>
-  <a href="tidepool.html" class="mobile-tidepool">Tidepool</a>
-  <a href="tips.html" class="mobile-tips">Tips</a>
-  <div class="mobile-divider"></div>
-  <a href="depth.html" class="mobile-depth">Depth</a>
-  <a href="about.html">Our Story</a>
+  <a href="tidepool.html">Tidepool</a>
+  <a href="depth.html">Depth</a>
   <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Newsletter</a>
+  <div class="mobile-divider"></div>
+  <a href="opinion.html">Opinion</a>
+  <a href="about.html">Our Story</a>
+  <a href="tips.html">Tips</a>
+  <a href="privacy.html">Privacy Policy</a>
+  <a href="terms.html">Terms of Use</a>
 </div>
 <!-- ===================== NAV ===================== -->
 <nav>
@@ -1096,12 +1146,9 @@ footer {
         <a href="politics.html">Politics</a>
       </div>
     </div>
-    <a href="opinion.html" class="nav-btn">Opinion</a>
+    <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer" class="nav-btn">Newsletter</a>
     <a href="tidepool.html" class="nav-btn-tidepool">Tidepool</a>
     <a href="depth.html" class="nav-btn-depth">Depth</a>
-    <a href="about.html" class="nav-btn">Our Story</a>
-    <a href="https://thenautisk.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer" class="nav-btn">Newsletter</a>
-    <a href="tips.html" class="nav-btn-tips">Tips</a>
     <button class="hamburger" id="hamburger" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
@@ -1237,6 +1284,11 @@ footer {
       <div class="icon">🏛</div>
       <h3>Politics</h3>
       <p>Government, policy, and power — cutting through the noise to what actually matters.</p>
+    </a>
+    <a href="tech.html" class="coverage-card">
+      <div class="icon">💻</div>
+      <h3>Tech</h3>
+      <p>AI, cybersecurity, and the technology decisions reshaping government, business, and daily life.</p>
     </a>
   </div>
 </section>
@@ -1522,22 +1574,34 @@ function toggleMode() {
 }
 // Restore saved mode
 if (localStorage.getItem('nautisk-mode') === 'professional') toggleMode();
-// ===================== HAMBURGER =====================
+// ===================== HAMBURGER / SLIDE MENU =====================
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
+const menuOverlay = document.getElementById('menuOverlay');
+const mobileMenuClose = document.getElementById('mobileMenuClose');
+function openMenu() {
+  hamburger.classList.add('open');
+  mobileMenu.classList.add('open');
+  menuOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeMenu() {
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+  menuOverlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
 hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('open');
-  mobileMenu.classList.toggle('open');
+  mobileMenu.classList.contains('open') ? closeMenu() : openMenu();
 });
+mobileMenuClose.addEventListener('click', closeMenu);
+menuOverlay.addEventListener('click', closeMenu);
 mobileMenu.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    hamburger.classList.remove('open');
-    mobileMenu.classList.remove('open');
-  });
+  link.addEventListener('click', closeMenu);
 });
 function toggleDropdownMobile() {
   const links = document.getElementById('mobileNewsLinks');
-  links.style.display = links.style.display === 'none' ? 'flex' : 'none';
+  links.classList.toggle('open');
 }
 // ===================== DROPDOWN (click to stay open) =====================
 const newsDropBtn = document.getElementById('newsDropBtn');
